@@ -10,4 +10,7 @@
 ;; line numbers
 (add-hook 'prog-mode-hook 'linum-mode)
 
+;; enable y/n answers
+(fset 'yes-or-no-p 'y-or-n-p)
+
 (provide 'init-ui)
