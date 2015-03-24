@@ -1,6 +1,7 @@
-;; custom configuration to use SML
-(setenv "PATH" (concat "/usr/local/smlnj/bin:" (getenv "PATH")))
-(setq exec-path (cons "/usr/local/smlnj/bin"  exec-path))
+(add-to-list 'load-path (expand-file-name "conf" user-emacs-directory))
+
+(require 'init-sml)
+(require 'init-ui)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -15,8 +16,3 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
-
-;; my custom configurations added hard-coded
-(tool-bar-mode 0)
-(set-face-attribute 'default nil :height 140)
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
