@@ -2,6 +2,10 @@
 
 (require 'init-sml)
 (require 'init-ui)
+(require 'init-packages)
+
+;; init my packages configurations
+(require 'init-helm)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
