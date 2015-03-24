@@ -7,6 +7,8 @@
 (defvar my-packages
   '(
     helm
+    projectile
+    helm-projectile
     magit
     )
   "A list of packages to be installed at application lauch.")

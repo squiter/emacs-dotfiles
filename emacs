@@ -7,6 +7,7 @@
 ;; init my packages configurations
 (require 'init-helm)
 (require 'init-magit)
+(require 'init-projectile)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
