@@ -7,6 +7,7 @@
 (defvar my-packages
   '(
     helm
+    magit
     )
   "A list of packages to be installed at application lauch.")
 
