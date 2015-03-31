@@ -7,9 +7,11 @@
 (defvar my-packages
   '(
     helm
-    projectile
     helm-projectile
     magit
+    projectile
+    yaml-mode
+    web-mode
     )
   "A list of packages to be installed at application lauch.")
 

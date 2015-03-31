@@ -9,6 +9,7 @@
 (require 'init-helm)
 (require 'init-magit)
 (require 'init-projectile)
+(require 'init-web-mode)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
