@@ -1,6 +1,6 @@
 ;; theme options
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
-(load-theme 'base16-eighties t)
+(load-theme 'darktooth t)
 
 (setq
  ;; better startup

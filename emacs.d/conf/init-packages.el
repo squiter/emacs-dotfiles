@@ -12,6 +12,7 @@
     projectile
     yaml-mode
     web-mode
+    rspec-mode
     )
   "A list of packages to be installed at application lauch.")
 
@@ -21,7 +22,7 @@
   (when (not (package-installed-p p))
     (condition-case ex
   (package-install p)
-      ('error (if packaged-contents-refreshed-p
+  ('error (if packaged-contents-refreshed-p
       (error ex)
     (package-refresh-contents)
     (setq packaged-contents-refreshed-p t)
