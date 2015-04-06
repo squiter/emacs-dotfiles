@@ -3,7 +3,9 @@
 (require 'init-general)
 (require 'init-sml)
 (require 'init-ui)
+(require 'init-custom-functions)
 (require 'init-packages)
+(require 'init-keybindings)
 
 ;; init my packages configurations
 (require 'init-helm)
