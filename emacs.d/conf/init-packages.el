@@ -6,6 +6,7 @@
 
 (defvar my-packages
   '(
+    bundler
     helm
     helm-projectile
     magit
@@ -13,6 +14,7 @@
     yaml-mode
     web-mode
     rspec-mode
+    rvm
     )
   "A list of packages to be installed at application lauch.")
 
