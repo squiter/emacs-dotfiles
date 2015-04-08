@@ -25,4 +25,7 @@
 ;; enable y/n answers
 (fset 'yes-or-no-p 'y-or-n-p)
 
+;; Open in fullscreen
+(switch-fullscreen)
+
 (provide 'init-ui)
