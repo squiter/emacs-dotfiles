@@ -11,6 +11,7 @@
     helm
     helm-projectile
     magit
+    neotree
     projectile
     yaml-mode
     web-mode

@@ -15,3 +15,4 @@
 (require 'init-web-mode)
 (require 'init-company)
 (require 'init-gitgutter)
+(require 'init-neotree)
