@@ -14,3 +14,4 @@
 (require 'init-ruby)
 (require 'init-web-mode)
 (require 'init-company)
+(require 'init-gitgutter)
