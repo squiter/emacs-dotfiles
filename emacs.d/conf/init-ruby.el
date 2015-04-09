@@ -26,6 +26,7 @@
 
 (setq rspec-use-rake-when-possible nil)
 (setq rspec-use-spring-when-possible nil)
+(setq compilation-scroll-output t)
 
 (ad-activate 'rspec-compile)
 
