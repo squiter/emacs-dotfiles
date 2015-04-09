@@ -34,6 +34,11 @@
     (concat "\ue0a0 " (substring vc-mode 5))
     ))
 
+(defun current-ruby ()
+  (when vc-mode
+    (replace-regexp-in-string "\n$" "" (shell-command-to-string "~/.rvm/bin/rvm-prompt"))
+))
+
 (setq-default mode-line-format
       (list
        "[" mode-line-modified "]"
@@ -45,6 +50,8 @@
        '(:eval (projectile-project-name))
        " "
        '(:eval (branch-name))
+       "  |  "
+       '(:eval (current-ruby))
        "  |  "
        "%p (%l,%c)"
        ))
