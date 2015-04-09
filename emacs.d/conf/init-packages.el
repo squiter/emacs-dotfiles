@@ -7,6 +7,7 @@
 (defvar my-packages
   '(
     bundler
+    company
     helm
     helm-projectile
     magit

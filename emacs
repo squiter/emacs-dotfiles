@@ -13,3 +13,4 @@
 (require 'init-projectile)
 (require 'init-ruby)
 (require 'init-web-mode)
+(require 'init-company)
