@@ -18,6 +18,8 @@
     ad-do-it))
 
 (setq-default rspec-use-rvm t)
+
+;; this hook enable debug in rspec-mode
 (add-hook 'after-init-hook 'inf-ruby-switch-setup)
 
 ;; rspec-mode configuration
