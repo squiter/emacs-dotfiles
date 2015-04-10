@@ -17,6 +17,7 @@
     web-mode
     rspec-mode
     rvm
+    multi-term
     )
   "A list of packages to be installed at application lauch.")
 

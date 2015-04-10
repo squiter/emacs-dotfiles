@@ -16,3 +16,4 @@
 (require 'init-company)
 (require 'init-gitgutter)
 (require 'init-neotree)
+(require 'init-multi-term)
