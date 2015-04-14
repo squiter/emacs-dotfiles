@@ -9,6 +9,7 @@
     bundler
     company
     helm
+    helm-ag
     helm-projectile
     magit
     multi-term
