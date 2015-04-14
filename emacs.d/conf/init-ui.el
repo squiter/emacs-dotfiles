@@ -22,6 +22,12 @@
 ;; line numbers
 (add-hook 'prog-mode-hook 'linum-mode)
 
+;; Highlight current line
+(global-hl-line-mode 1)
+
+;; Undo and Redo windows
+(winner-mode 1)
+
 ;; enable y/n answers
 (fset 'yes-or-no-p 'y-or-n-p)
 
