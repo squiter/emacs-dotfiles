@@ -48,4 +48,6 @@
 	      "\\.god$"))
   (add-to-list 'auto-mode-alist `(,fp . ruby-mode)))
 
+(require 'rubocop)
+
 (provide 'init-ruby)

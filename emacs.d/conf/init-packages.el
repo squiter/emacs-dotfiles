@@ -11,13 +11,14 @@
     helm
     helm-projectile
     magit
+    multi-term
     neotree
     projectile
-    yaml-mode
-    web-mode
     rspec-mode
+    rubocop
     rvm
-    multi-term
+    web-mode
+    yaml-mode
     )
   "A list of packages to be installed at application lauch.")
 
