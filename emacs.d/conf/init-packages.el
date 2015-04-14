@@ -17,6 +17,7 @@
     rspec-mode
     rubocop
     rvm
+    smartparens
     web-mode
     yaml-mode
     )
