@@ -21,6 +21,7 @@
 
 ;; line numbers
 (add-hook 'prog-mode-hook 'linum-mode)
+(setq linum-format "%4d ")
 
 ;; Highlight current line
 (global-hl-line-mode 1)
