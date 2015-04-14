@@ -50,6 +50,9 @@
 
 (require 'rubocop)
 
+;; Rubocop
+(add-hook 'ruby-mode-hook 'rubocop-mode)
+
 ;;open the spec of a class
 (defun senny-ruby-open-spec-other-buffer ()
   (interactive)
