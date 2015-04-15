@@ -23,8 +23,8 @@
 (add-hook 'prog-mode-hook 'linum-mode)
 (setq linum-format "%4d ")
 
-;; Highlight current line
-(global-hl-line-mode 1)
+;; Highlight current line - Disable because of my theme :(
+;; (global-hl-line-mode 1)
 
 ;; Undo and Redo windows
 (winner-mode 1)

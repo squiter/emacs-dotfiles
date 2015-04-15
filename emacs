@@ -20,3 +20,4 @@
 (require 'init-shell)
 (require 'init-bindings)
 (require 'init-smartparens)
+(require 'init-expand-region)

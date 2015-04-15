@@ -8,6 +8,7 @@
   '(
     bundler
     company
+    expand-region
     helm
     helm-ag
     helm-projectile
