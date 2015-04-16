@@ -1,3 +1,5 @@
+;; -*- mode: lisp -*-
+
 (add-to-list 'load-path (expand-file-name "conf" user-emacs-directory))
 
 (require 'init-general)
@@ -21,3 +23,4 @@
 (require 'init-bindings)
 (require 'init-smartparens)
 (require 'init-expand-region)
+(require 'init-org)
