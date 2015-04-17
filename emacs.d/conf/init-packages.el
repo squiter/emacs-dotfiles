@@ -9,6 +9,7 @@
     bundler
     company
     expand-region
+    git-gutter
     helm
     helm-ag
     helm-projectile
