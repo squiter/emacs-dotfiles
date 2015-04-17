@@ -6,6 +6,7 @@
 
 (defvar my-packages
   '(
+    ace-jump-mode
     bundler
     company
     expand-region

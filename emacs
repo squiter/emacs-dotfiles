@@ -24,3 +24,4 @@
 (require 'init-smartparens)
 (require 'init-expand-region)
 (require 'init-org)
+(require 'init-ace-jump)
