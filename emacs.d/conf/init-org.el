@@ -34,5 +34,7 @@
 (require 'init-org-agenda)
 (require 'init-org-captures)
 (require 'init-org-speed-commands)
+(require 'init-org-refile)
+(require 'init-org-agenda-view)
 
 (provide 'init-org)
