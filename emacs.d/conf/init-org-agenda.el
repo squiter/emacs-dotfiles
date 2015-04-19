@@ -34,4 +34,6 @@
 ;; To change TODO status with shift whithout trigger actions
 (setq org-treat-S-cursor-todo-selection-as-state-change nil)
 
+(setq org-agenda-span 'day)
+
 (provide 'init-org-agenda)

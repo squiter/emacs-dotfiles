@@ -36,6 +36,7 @@
 (require 'init-org-speed-commands)
 (require 'init-org-refile)
 (require 'init-org-agenda-view)
+(require 'init-org-clock)
 (require 'init-org-mobile)
 
 (provide 'init-org)
