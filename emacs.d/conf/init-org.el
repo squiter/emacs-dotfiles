@@ -38,5 +38,6 @@
 (require 'init-org-agenda-view)
 (require 'init-org-clock)
 (require 'init-org-mobile)
+(require 'init-org-projects)
 
 (provide 'init-org)
