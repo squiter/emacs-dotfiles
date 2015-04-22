@@ -25,3 +25,4 @@
 (require 'init-expand-region)
 (require 'init-org)
 (require 'init-ace-jump)
+(require 'init-dash)

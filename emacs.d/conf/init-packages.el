@@ -9,6 +9,7 @@
     ace-jump-mode
     bundler
     company
+    dash-at-point
     expand-region
     git-gutter
     helm
