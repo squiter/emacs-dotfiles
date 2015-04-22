@@ -40,5 +40,6 @@
 (require 'init-org-clock)
 (require 'init-org-mobile)
 (require 'init-org-projects)
+(require 'init-org-habit)
 
 (provide 'init-org)
