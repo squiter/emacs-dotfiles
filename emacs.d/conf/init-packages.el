@@ -7,6 +7,7 @@
 (defvar my-packages
   '(
     ace-jump-mode
+    auto-package-update
     bundler
     company
     dash-at-point
