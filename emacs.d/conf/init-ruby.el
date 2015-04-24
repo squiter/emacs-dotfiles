@@ -9,7 +9,12 @@
 ;; do not add encoding comment automatically
 (setq ruby-insert-encoding-magic-comment nil)
 
-(defadvice switch-to-buffer (after fix-current-rvm activate)
+;; Using corresponding ruby for Rinari
+(defadvice rinari-console (before fix-current-rvm activate)
+  (rvm-activate-corresponding-ruby))
+(defadvice rinari-web-server (before fix-current-rvm activate)
+  (rvm-activate-corresponding-ruby))
+(defadvice rinari-web-server-restart (before fix-current-rvm activate)
   (rvm-activate-corresponding-ruby))
 
 ;; RVM + Rspec
