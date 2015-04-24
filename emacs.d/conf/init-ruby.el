@@ -9,6 +9,9 @@
 ;; do not add encoding comment automatically
 (setq ruby-insert-encoding-magic-comment nil)
 
+(defadvice switch-to-buffer (after fix-current-rvm activate)
+  (rvm-activate-corresponding-ruby))
+
 ;; RVM + Rspec
 
 ;; To run rspec-mode with bash (fix rvm problems)
