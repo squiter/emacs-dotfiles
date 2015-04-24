@@ -3,7 +3,7 @@
 ;; use rvm’s default ruby for the current Emacs session
 (rvm-use-default)
 
-;; Ruby
+(require 'rinari)
 (require 'rspec-mode)
 
 ;; do not add encoding comment automatically

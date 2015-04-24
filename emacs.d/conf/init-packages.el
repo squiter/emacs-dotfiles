@@ -20,6 +20,7 @@
     multi-term
     neotree
     projectile
+    rinari
     rspec-mode
     rubocop
     rvm
