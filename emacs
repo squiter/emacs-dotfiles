@@ -2,6 +2,10 @@
 
 (add-to-list 'load-path (expand-file-name "conf" user-emacs-directory))
 
+;; My Libs
+(require 'lib/path)
+
+;; My customs
 (require 'init-general)
 (require 'init-custom-functions)
 (require 'init-sml)
