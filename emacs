@@ -4,6 +4,7 @@
 
 ;; My Libs
 (require 'lib/path)
+(require 'lib/env)
 
 ;; My customs
 (require 'init-general)
