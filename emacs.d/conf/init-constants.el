@@ -11,5 +11,9 @@
   (getenv-or "HOME" (concat (expand-file-name "~") "/"))
   "Path to user home directory.")
 
+(defconst *user-dropbox-directory*
+  (path-join *user-home-directory* "dropbox")
+  "Path to Dropbox on user's machine.")
+
 (provide 'init-constants)
 ;;; init-constants.el ends here

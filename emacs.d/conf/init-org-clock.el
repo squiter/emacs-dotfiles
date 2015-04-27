@@ -173,4 +173,8 @@ A prefix arg forces clock in of the default task."
 ;; Agenda log mode items to display (closed and state changes by default)
 (setq org-agenda-log-mode-items (quote (closed state)))
 
+;; Clock data store.
+(setq org-clock-persist-file (path-join *user-org-cache-directory*
+				  "org-clock-save.el"))
+
 (provide 'init-org-clock)

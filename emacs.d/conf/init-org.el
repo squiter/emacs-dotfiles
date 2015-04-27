@@ -1,5 +1,9 @@
 (require 'org)
 
+(defconst *user-org-cache-directory*
+  (path-join *user-dropbox-directory* "org")
+  "Path to user's org cache store.")
+
 ;; Tags with fast selection keys
 (setq org-tag-alist (quote ((:startgroup) ;; location group
                             ("@office" . ?O)
