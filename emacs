@@ -29,3 +29,4 @@
 (require 'init-dash)
 (require 'init-auto-package-update)
 (require 'init-wakatime)
+(require 'init-yaml)
