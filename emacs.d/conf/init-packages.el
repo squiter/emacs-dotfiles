@@ -25,6 +25,7 @@
     rubocop
     rvm
     smartparens
+    wakatime-mode
     web-mode
     yaml-mode
     )

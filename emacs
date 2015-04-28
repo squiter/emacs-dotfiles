@@ -28,3 +28,4 @@
 (require 'init-ace-jump)
 (require 'init-dash)
 (require 'init-auto-package-update)
+(require 'init-wakatime)
