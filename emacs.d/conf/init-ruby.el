@@ -17,6 +17,20 @@
 (defadvice rinari-web-server-restart (before fix-current-rvm activate)
   (rvm-activate-corresponding-ruby))
 
+;; Using corresponding ruby for bundle
+(defadvice bundle-exec (before fix-current-rvm activate)
+  (rvm-activate-corresponding-ruby))
+(defadvice bundle-check (before fix-current-rvm activate)
+  (rvm-activate-corresponding-ruby))
+(defadvice bundle-console (before fix-current-rvm activate)
+  (rvm-activate-corresponding-ruby))
+(defadvice bundle-install (before fix-current-rvm activate)
+  (rvm-activate-corresponding-ruby))
+(defadvice bundle-open (before fix-current-rvm activate)
+  (rvm-activate-corresponding-ruby))
+(defadvice bundle-update (before fix-current-rvm activate)
+  (rvm-activate-corresponding-ruby))
+
 ;; RVM + Rspec
 
 ;; To run rspec-mode with bash (fix rvm problems)
