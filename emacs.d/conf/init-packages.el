@@ -13,6 +13,7 @@
     dash-at-point
     expand-region
     git-gutter
+    git-timemachine
     helm
     helm-ag
     helm-projectile
