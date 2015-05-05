@@ -4,6 +4,19 @@
   (path-join *user-dropbox-directory* "org")
   "Path to user's org cache store.")
 
+(require 'init-org-keybinds)
+(require 'init-org-agenda)
+(require 'init-org-captures)
+(require 'init-org-speed-commands)
+(require 'init-org-refile)
+(require 'init-org-agenda-view)
+(require 'init-org-agenda-tunned)
+(require 'init-org-clock)
+(require 'init-org-mobile)
+(require 'init-org-projects)
+(require 'init-org-habit)
+(require 'init-org-crypt)
+
 ;; Tags with fast selection keys
 (setq org-tag-alist (quote ((:startgroup) ;; location group
                             ("@office" . ?O)
@@ -20,6 +33,7 @@
                             ("WAITING" . ?w)
                             ("HOLD" . ?h)
                             ("NOTE" . ?n)
+			    ("crypt" . ?k)
                             ("CANCELLED" . ?c)
                             ("FLAGGED" . ??))))
 
@@ -50,17 +64,22 @@
   (interactive)
   (switch-to-buffer "*scratch*"))
 
+;; Org Crypt configuration
+(org-crypt-use-before-save-magic)
+(setq org-tags-exclude-from-inheritance (quote ("crypt")))
 
-(require 'init-org-keybinds)
-(require 'init-org-agenda)
-(require 'init-org-captures)
-(require 'init-org-speed-commands)
-(require 'init-org-refile)
-(require 'init-org-agenda-view)
-(require 'init-org-agenda-tunned)
-(require 'init-org-clock)
-(require 'init-org-mobile)
-(require 'init-org-projects)
-(require 'init-org-habit)
+(setq org-crypt-key nil)
+;; GPG key to use for encryption
+;; Either the Key ID or set to nil to use symmetric encryption.
+
+(setq auto-save-default nil)
+;; Auto-saving does not cooperate with org-crypt.el: so you need
+;; to turn it off if you plan to use org-crypt.el quite often.
+;; Otherwise, you'll get an (annoying) message each time you
+;; start Org.
+
+;; To turn it off only locally, you can insert this:
+;;
+;; # -*- buffer-auto-save-file-name: nil; -*-
 
 (provide 'init-org)
