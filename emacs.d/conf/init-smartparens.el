@@ -13,6 +13,9 @@
 (define-key sp-keymap (kbd "C-M-f") 'sp-forward-sexp)
 (define-key sp-keymap (kbd "C-M-b") 'sp-backward-sexp)
 
+;; change surround
+(define-key sp-keymap (kbd "C-(") 'sp-rewrap-sexp)
+
 ;; Pipes are parens too :)
 (sp-with-modes '(ruby-mode)
   (sp-local-pair "|" "|"))
