@@ -86,10 +86,6 @@
       (switch-to-buffer source-buffer)
       (pop-to-buffer other-buffer))))
 
-(eval-after-load 'ruby-mode
-  '(progn
-     (define-key ruby-mode-map (kbd "C-c , ,") 'senny-ruby-open-spec-other-buffer)))
-
 ;; String interpolation
 (defun senny-ruby-interpolate ()
   "In a double quoted string, interpolate."
@@ -103,6 +99,11 @@
 
 (eval-after-load 'ruby-mode
   '(progn
-     (define-key ruby-mode-map (kbd "#") 'senny-ruby-interpolate)))
+     (define-key ruby-mode-map (kbd "C-c , ,") 'senny-ruby-open-spec-other-buffer)
+     (define-key ruby-mode-map (kbd "#") 'senny-ruby-interpolate)
+     (define-key ruby-mode-map (kbd "C-, b e") 'bundle-exec)
+     (define-key ruby-mode-map (kbd "C-, b i") 'bundle-install)
+     (define-key ruby-mode-map (kbd "C-, b o") 'bundle-open)
+     (define-key ruby-mode-map (kbd "C-, b c") 'bundle-console)))
 
 (provide 'init-ruby)
