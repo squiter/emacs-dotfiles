@@ -18,20 +18,50 @@
   (let (beg end exit-point)
     (if (and mark-active (> (point) (mark)))
         (exchange-point-and-mark)))
-    (setq beg (line-beginning-position))
-    (if mark-active
-        (exchange-point-and-mark))
-    (setq end (line-end-position))
-    (setq exit-point end)
-    (let ((region (buffer-substring-no-properties beg end)))
-      (dotimes (_ arg)
-        (goto-char end)
-        (newline)
-        (insert region)
-        (setq end (point)))
-      (goto-char exit-point)
-      (next-line)
-      (back-to-indentation)))
+  (setq beg (line-beginning-position))
+  (if mark-active
+      (exchange-point-and-mark))
+  (setq end (line-end-position))
+  (setq exit-point end)
+  (let ((region (buffer-substring-no-properties beg end)))
+    (dotimes (_ arg)
+      (goto-char end)
+      (newline)
+      (insert region)
+      (setq end (point)))
+    (goto-char exit-point)
+    (next-line)
+    (back-to-indentation)))
+
+;; Indent all buffer
+(defun indent-buffer ()
+  "Indent the currently visited buffer."
+  (interactive)
+  (indent-region (point-min) (point-max)))
+
+(defun hsplit-last-buffer ()
+  "Ex: | Vertically split window showing last buffer."
+  (interactive)
+  (split-window-vertically)
+  (other-window 1 nil)
+  (switch-to-next-buffer))
+
+(defun vsplit-last-buffer ()
+  "Ex: - Horizontally split window showing last buffer."
+  (interactive)
+  (split-window-horizontally)
+  (other-window 1 nil)
+  (switch-to-next-buffer))
+
+(defun swap-buffers-in-windows ()
+  "Put the buffer from the selected window in next window, and vice versa."
+  (interactive)
+  (let* ((this (selected-window))
+	 (other (next-window))
+	 (this-buffer (window-buffer this))
+	 (other-buffer (window-buffer other)))
+    (set-window-buffer other this-buffer)
+    (set-window-buffer this other-buffer)))
 
 "Stackoverflow functions :)"
 (defun switch-fullscreen nil
