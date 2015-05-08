@@ -37,6 +37,10 @@
 (setq org-agenda-span 'day)
 
 ;; Archiving
+
+(setq org-archive-mark-done nil)
+(setq org-archive-location "%s_archive::* Archived Tasks")
+
 (defun bh/skip-non-archivable-tasks ()
   "Skip trees that are not available for archiving"
   (save-restriction
