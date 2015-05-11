@@ -16,6 +16,7 @@
 (require 'init-org-projects)
 (require 'init-org-habit)
 (require 'init-org-crypt)
+(require 'init-org-id)
 
 ;; Tags with fast selection keys
 (setq org-tag-alist (quote ((:startgroup) ;; location group
