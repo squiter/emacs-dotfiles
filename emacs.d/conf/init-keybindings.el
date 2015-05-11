@@ -6,5 +6,6 @@
 (global-set-key (kbd "C-x |") 'vsplit-last-buffer)
 (global-set-key (kbd "C-x =") 'swap-buffers-in-windows)
 (global-set-key (kbd "C-x C-k") 'delete-current-buffer-file)
+(global-set-key (kbd "C-x C-r") 'rename-current-buffer-file)
 
 (provide 'init-keybindings)
