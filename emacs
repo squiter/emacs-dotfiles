@@ -31,3 +31,4 @@
 (require 'init-wakatime)
 (require 'init-yaml)
 (require 'init-rinari)
+(require 'init-guide-key)

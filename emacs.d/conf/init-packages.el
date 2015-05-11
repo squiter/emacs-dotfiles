@@ -14,6 +14,7 @@
     expand-region
     git-gutter
     git-timemachine
+    guide-key
     helm
     helm-ag
     helm-projectile
