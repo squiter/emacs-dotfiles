@@ -12,6 +12,7 @@
     company
     dash-at-point
     expand-region
+    evil
     git-gutter
     git-timemachine
     guide-key
