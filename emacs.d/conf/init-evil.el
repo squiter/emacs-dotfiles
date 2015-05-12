@@ -15,4 +15,18 @@
 		(set-face-background 'mode-line (car color))
 		(set-face-foreground 'mode-line (cdr color))))))
 
+;; change between normal / insert / emacs modes
+(loop for (mode . state) in '((inferior-emacs-lisp-mode . emacs)
+                              (shell-mode . insert)
+                              (git-commit-mode . insert)
+                              (git-rebase-mode . emacs)
+                              (term-mode . emacs)
+                              (help-mode . emacs)
+                              (helm-grep-mode . emacs)
+                              (grep-mode . emacs)
+                              (magit-branch-manager-mode . emacs)
+                              (magit-mode . emacs)
+                              (dired-mode . emacs)
+                              (neotree-mode . emacs))
+      do (evil-set-initial-state mode state))
 (provide 'init-evil)
