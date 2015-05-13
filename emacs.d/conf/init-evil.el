@@ -27,6 +27,7 @@
                               (magit-branch-manager-mode . emacs)
                               (magit-mode . emacs)
                               (dired-mode . emacs)
+                              (org-mode . emacs)
                               (neotree-mode . emacs))
       do (evil-set-initial-state mode state))
 (provide 'init-evil)
