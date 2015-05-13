@@ -13,6 +13,11 @@
                ((org-agenda-overriding-header "Habits")
                 (org-agenda-sorting-strategy
                  '(todo-state-down effort-up category-keep))))
+	      ("W" "Completed and/or deferred tasks from previous week"
+	       ((agenda "" ((org-agenda-span 7)
+			    (org-agenda-start-day "-7d")
+			    (org-agenda-entry-types '(:timestamp))
+			    (org-agenda-show-log t)))))
               (" " "Agenda"
                ((agenda "" nil)
                 (tags "REFILE"
