@@ -33,7 +33,7 @@
 
 ;; http://doc.norang.ca/org-mode.html#sec-18-3-3
 (setq org-agenda-include-diary nil)
-(setq org-agenda-diary-file "~/Dropbox/org/diary.org")
+(setq org-agenda-diary-file (path-join *user-org-cache-directory* "diary.org"))
 
 (setq org-agenda-insert-diary-extract-time t)
 

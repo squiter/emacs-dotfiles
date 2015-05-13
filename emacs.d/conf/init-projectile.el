@@ -18,13 +18,12 @@
 ;;
 
 ;; variables
-(defvar default-project-source
-  "~/projetos/")
+(defvar default-project-source (path-join *user-home-directory* "projetos/"))
 
 (defvar project-sources
   (list
    default-project-source
-   "~/projetos/locaweb/"))
+   (path-join *user-home-directory* "projetos/locaweb/")))
 
 ;; helm integration for opening projects
 
