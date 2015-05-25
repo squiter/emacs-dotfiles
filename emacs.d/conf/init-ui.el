@@ -43,7 +43,7 @@
 
 (defun current-ruby ()
   (when vc-mode
-    (replace-regexp-in-string "\n$" "" (shell-command-to-string "~/.rvm/bin/rvm-prompt"))
+    (rbenv--active-ruby-version)
 ))
 
 (setq-default mode-line-format
