@@ -26,7 +26,7 @@
     rinari
     rspec-mode
     rubocop
-    rvm
+    rbenv
     smartparens
     wakatime-mode
     web-mode
