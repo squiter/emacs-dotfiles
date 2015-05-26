@@ -5,6 +5,27 @@
   (move-end-of-line 1)
   (newline-and-indent))
 
+(defun custom/toggle-line-comment ()
+  "Comment or uncomment current line or the ones covered by a marked region."
+  (interactive)
+  (let
+   ((beg (car (custom/get-region-positions)))
+    (end (cdr (custom/get-region-positions))))
+   (comment-or-uncomment-region beg end)))
+
+(defun custom/get-region-positions ()
+  "Returns a dotted-pair (BEG . END) with regions's beginning and ending positions."
+  (interactive)
+  (save-excursion
+    (let (beg end)
+      (if (and mark-active (> (point) (mark)))
+          (exchange-point-and-mark))
+      (setq beg (line-beginning-position))
+      (if mark-active
+          (exchange-point-and-mark))
+      (setq end (line-end-position))
+      (cons beg end))))
+
 (defun custom/smart-move-beginning-of-line ()
   "Move to beginning of line or to beginning of indentation depending on POINT."
   (interactive)
