@@ -12,6 +12,7 @@
 (setq rspec-use-rake-when-possible nil)
 (setq rspec-use-spring-when-possible nil)
 (setq compilation-scroll-output t)
+(add-hook 'dired-mode-hook 'rspec-dired-mode)
 
 ;; auto modes
 (dolist (fp '("\\.rb$"
