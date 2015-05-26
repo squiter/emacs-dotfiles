@@ -30,4 +30,7 @@
                               (org-mode . emacs)
                               (neotree-mode . emacs))
       do (evil-set-initial-state mode state))
+
+(require 'init-evil-surround)
+
 (provide 'init-evil)

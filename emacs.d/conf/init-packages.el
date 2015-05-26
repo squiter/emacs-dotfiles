@@ -13,6 +13,7 @@
     dash-at-point
     expand-region
     evil
+    evil-surround
     git-gutter
     git-timemachine
     guide-key
