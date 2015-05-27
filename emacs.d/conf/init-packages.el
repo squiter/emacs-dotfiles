@@ -11,9 +11,9 @@
     bundler
     company
     dash-at-point
-    expand-region
     evil
     evil-surround
+    expand-region
     git-gutter
     git-timemachine
     guide-key
@@ -24,10 +24,11 @@
     multi-term
     neotree
     projectile
+    rbenv
+    restclient
     rinari
     rspec-mode
     rubocop
-    rbenv
     smartparens
     wakatime-mode
     web-mode
