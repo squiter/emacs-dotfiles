@@ -7,6 +7,8 @@
  backup-inhibited t
  ;; make indentation commands use space only
  indent-tabs-mode nil
+ ;; If a frame alredy opened, use it!
+ display-buffer-reuse-frames t
 )
 
 ;; whitespace display
