@@ -5,11 +5,12 @@
  make-backup-files nil
  auto-save-default nil
  backup-inhibited t
- ;; make indentation commands use space only
- indent-tabs-mode nil
  ;; If a frame alredy opened, use it!
  display-buffer-reuse-frames t
 )
+
+;; make indentation commands use space only
+(setq-default indent-tabs-mode nil)
 
 ;; whitespace display
 (global-whitespace-mode)
