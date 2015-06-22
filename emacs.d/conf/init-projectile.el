@@ -26,39 +26,43 @@
    (path-join *user-home-directory* "projetos/locaweb/")))
 
 ;; helm integration for opening projects
+;; Jumping between projects
+;;
+(defvar rr/project-sources
+  '("~/projetos/"
+    "~/projetos/locaweb/"))
 
-(defun helm-rr/open-project ()
+(defvar rr/default-file-regexps
+  '("Gemfile$"
+    "mix.exs$"
+    "Readme"
+    "README"))
+
+(defun rr/helm-open-project ()
   "Bring up a Project search interface in helm."
   (interactive)
-  (helm :sources '(helm-source-list-projects)
+  (helm :sources '(rr/helm-open-project--source)
 	:buffer "*helm-list-projects*"))
 
-(defvar helm-source-list-projects
+(defvar rr/helm-open-project--source
   '((name . "Open Project")
-    (volatile)
     (delayed)
     (candidates . rr/list-projects)
-    (action-transformer . rr/open-project)))
+    (action . rr/open-project)))
 
 (defun rr/list-projects ()
   "Lists all projects given project sources."
-  (cl-labels ((dir-to-files (dir)
-			    (if (file-exists-p dir)
-				(directory-files dir t directory-files-no-dot-files-regexp)))
-	      (flatten (x)
-		       (cond ((null x) nil)
-			     ((listp x) (append (car x) (flatten (cdr x)))))))
-    (progn (flatten (mapcar #'dir-to-files  project-sources)))))
+  (->> rr/project-sources
+       (-filter 'file-exists-p)
+       (-mapcat (lambda (dir) (directory-files dir t directory-files-no-dot-files-regexp)))))
 
-(defun rr/open-project (actions path)
-  "Do nothing with ACTIONS. Open project given PATH."
+(defun rr/open-project (path)
+  "Open project available at PATH."
   ;; TODO: Add default file get.
-  (cl-flet ((find-default-file () (if (file-exists-p (expand-file-name "Gemfile" path))
-				      (expand-file-name "Gemfile" path)
-				    path)))
-    (find-file (find-default-file))))
+  (let* ((candidates (-mapcat (lambda (d) (directory-files path t d)) rr/default-file-regexps))
+         (elected (car candidates)))
+    (find-file (or elected path))))
 
-(global-set-key (kbd "C-c o") 'helm-rr/open-project)
-
+(global-set-key (kbd "C-c o") 'rr/helm-open-project)
 
 (provide 'init-projectile)
