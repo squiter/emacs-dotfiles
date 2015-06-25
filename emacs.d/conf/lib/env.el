@@ -8,6 +8,8 @@
       (getenv env)
     value))
 
+(setenv "LC_ALL" "en_US.utf-8")
+(setenv "LANG" "en_US.utf-8")
 
 (provide 'lib/env)
 ;;; env.el ends here
