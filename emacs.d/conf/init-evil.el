@@ -1,6 +1,6 @@
 (require 'evil)
 
-(evil-mode 1)
+(add-hook 'prog-mode-hook 'evil-local-mode)
 
 ;; change mode-line color by evil state
 (lexical-let ((default-color (cons (face-background 'mode-line)
@@ -14,23 +14,6 @@
 				 (t default-color))))
 		(set-face-background 'mode-line (car color))
 		(set-face-foreground 'mode-line (cdr color))))))
-
-;; change between normal / insert / emacs modes
-(loop for (mode . state) in '((inferior-emacs-lisp-mode . emacs)
-                              (shell-mode . insert)
-                              (term-mode . emacs)
-                              (help-mode . emacs)
-                              (helm-grep-mode . emacs)
-                              (grep-mode . emacs)
-                              (magit-branch-manager-mode . emacs)
-                              (magit-mode . emacs)
-                              (magit-refs-mode . emacs)
-                              (magit-popup-mode . emacs)
-                              (text-mode . emacs)
-                              (dired-mode . emacs)
-                              (org-mode . emacs)
-                              (neotree-mode . emacs))
-      do (evil-set-initial-state mode state))
 
 (require 'init-evil-surround)
 
