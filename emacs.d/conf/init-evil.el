@@ -24,6 +24,7 @@
                               (grep-mode . emacs)
                               (magit-branch-manager-mode . emacs)
                               (magit-mode . emacs)
+                              (magit-refs-mode . emacs)
                               (magit-popup-mode . emacs)
                               (text-mode . emacs)
                               (dired-mode . emacs)
