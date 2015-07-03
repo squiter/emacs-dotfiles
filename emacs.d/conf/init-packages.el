@@ -21,7 +21,6 @@
     helm-ag
     helm-projectile
     magit
-    multi-term
     neotree
     projectile
     rbenv
