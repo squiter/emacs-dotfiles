@@ -34,3 +34,4 @@
 (require 'init-rinari)
 (require 'init-guide-key)
 (require 'init-evil)
+(require 'init-flycheck)

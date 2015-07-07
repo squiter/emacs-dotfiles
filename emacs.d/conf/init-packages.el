@@ -15,6 +15,7 @@
     evil
     evil-surround
     expand-region
+    flycheck
     git-gutter
     git-timemachine
     guide-key
