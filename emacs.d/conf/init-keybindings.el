@@ -10,4 +10,8 @@
 (global-set-key (kbd "C-c /") 'custom/toggle-line-comment)
 (global-set-key (kbd "C-h C-m") 'discover-my-major)
 
+;; Custom Keybindings
+(eval-after-load 'orgmode
+  '(define-key (kbd "C-c C-o") 'org-agenda-open-link))
+
 (provide 'init-keybindings)
