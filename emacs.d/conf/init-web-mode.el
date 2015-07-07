@@ -8,4 +8,6 @@
 (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 
+(add-hook 'web-mode-hook #'(lambda () (smartparens-mode -1)))
+
 (provide 'init-web-mode)
