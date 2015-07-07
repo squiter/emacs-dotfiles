@@ -11,6 +11,7 @@
     bundler
     company
     dash-at-point
+    discover-my-major
     evil
     evil-surround
     expand-region
