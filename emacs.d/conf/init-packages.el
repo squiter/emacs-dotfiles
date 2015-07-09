@@ -22,6 +22,7 @@
     helm
     helm-ag
     helm-projectile
+    ido-vertical-mode
     magit
     neotree
     projectile

@@ -22,6 +22,7 @@
 (require 'init-gitgutter)
 (require 'init-neotree)
 (require 'init-shell)
+(require 'init-ido)
 (require 'init-bindings)
 (require 'init-smartparens)
 (require 'init-expand-region)
