@@ -61,6 +61,11 @@
        '(:eval (current-ruby))
        "  |  "
        "%p (%l,%c)"
+       "  |  "
+       '(:eval (propertize (format-time-string "%H:%M")
+              'help-echo
+              (concat (format-time-string "%c; ")
+                      (emacs-uptime "Uptime:%hh"))))
        ))
 
 (provide 'init-ui)
