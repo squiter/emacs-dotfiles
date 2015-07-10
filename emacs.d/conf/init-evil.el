@@ -1,6 +1,7 @@
 (require 'evil)
 
 (add-hook 'prog-mode-hook 'evil-local-mode)
+(add-hook 'yaml-mode-hook 'evil-local-mode)
 
 ;; change mode-line color by evil state
 (lexical-let ((default-color (cons (face-background 'mode-line)
