@@ -6,8 +6,9 @@
 
 (defvar my-packages
   '(
-    ace-jump-mode
+    ace-window
     auto-package-update
+    avy
     bundler
     company
     dash-at-point

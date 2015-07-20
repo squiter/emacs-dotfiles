@@ -27,7 +27,6 @@
 (require 'init-smartparens)
 (require 'init-expand-region)
 (require 'init-org)
-(require 'init-ace-jump)
 (require 'init-dash)
 (require 'init-auto-package-update)
 (require 'init-wakatime)
@@ -36,3 +35,4 @@
 (require 'init-guide-key)
 (require 'init-evil)
 (require 'init-flycheck)
+(require 'init-avy)
