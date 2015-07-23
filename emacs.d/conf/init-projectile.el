@@ -1,5 +1,8 @@
 (require 'projectile)
 
+;; projectile-rails
+(add-hook 'projectile-mode-hook 'projectile-rails-on)
+
 (global-set-key (kbd "C-x f") 'helm-projectile)
 (global-set-key (kbd "C-c p s a") 'helm-projectile-ack)
 

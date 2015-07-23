@@ -27,6 +27,7 @@
     magit
     neotree
     projectile
+    projectile-rails
     rbenv
     restclient
     rspec-mode
