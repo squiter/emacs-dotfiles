@@ -29,7 +29,6 @@
     projectile
     rbenv
     restclient
-    rinari
     rspec-mode
     rubocop
     smartparens
