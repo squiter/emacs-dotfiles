@@ -1,3 +1,10 @@
+;;; init=packages.el --- List and management of my packages
+
+;;; commentary:
+;; That file contains my-packages list and a dolist function that install each package
+;; This idea of managing packages was stolen from: https://github.com/rranelli/emacs-dotfiles
+
+;;; code:
 (require 'package)
 (package-initialize)
 
@@ -52,3 +59,4 @@
     (package-install p))))))
 
 (provide 'init-packages)
+;;; init-packages ends here
