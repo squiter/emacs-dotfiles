@@ -4,6 +4,9 @@
 (global-set-key (kbd "C-c g") 'magit-status)
 (global-set-key (kbd "M-g c") 'magit-checkout)
 
+;; Magit, dont fuck with me!
+(setq magit-push-always-verify nil)
+
 ;; full screen magit-status
 (defadvice magit-status (around magit-fullscreen activate)
   (window-configuration-to-register :magit-fullscreen)
