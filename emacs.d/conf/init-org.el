@@ -37,6 +37,7 @@
                             ("NOTE" . ?n)
 			    ("crypt" . ?k)
 			    ("BORROWED" . ?b)
+			    ("BILLS" . ?B)
                             ("CANCELLED" . ?c)
                             ("FLAGGED" . ??))))
 
