@@ -124,4 +124,18 @@
           (message "File '%s' successfully renamed to '%s'"
                    name (file-name-nondirectory new-name)))))))
 
+(defun camelcase-to-snakecase ()
+  "un-camelcase the word at point, replacing uppercase chars with
+the lowercase version preceded by an underscore.
+
+The first char, if capitalized (eg, PascalCase) is just
+downcased, no preceding underscore.
+"
+  (interactive)
+  (save-excursion
+    (let ((bounds (bounds-of-thing-at-point 'word)))
+      (replace-regexp "\\([A-Z]\\)" "_\\1" nil
+                      (1+ (car bounds)) (cdr bounds))
+      (downcase-region (car bounds) (cdr bounds)))))
+
 (provide 'init-custom-functions)
