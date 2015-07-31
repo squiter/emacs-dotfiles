@@ -20,6 +20,7 @@
     company
     dash-at-point
     discover-my-major
+    easy-kill
     evil
     evil-surround
     expand-region

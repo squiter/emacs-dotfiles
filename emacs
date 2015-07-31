@@ -18,6 +18,7 @@
 (require 'init-rbenv)
 (require 'init-ruby)
 (require 'init-web-mode)
+(require 'init-easy-kill)
 (require 'init-company)
 (require 'init-gitgutter)
 (require 'init-neotree)
