@@ -14,4 +14,7 @@
 (eval-after-load 'orgmode
   '(define-key (kbd "C-c C-o") 'org-agenda-open-link))
 
+;; Browser ring
+(global-set-key (kbd "s-V") 'helm-show-kill-ring)
+
 (provide 'init-keybindings)
