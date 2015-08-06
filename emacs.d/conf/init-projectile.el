@@ -13,9 +13,6 @@
 (setq helm-projectile-sources-list '(helm-source-projectile-buffers-list
 				     helm-source-projectile-files-list))
 
-;; Projectile enable caching
-(setq projectile-enable-caching t)
-
 ;;
 ;;; Jumping between projects (stolen from milhouse)
 ;;
