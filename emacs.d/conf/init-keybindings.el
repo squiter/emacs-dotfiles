@@ -9,6 +9,7 @@
 (global-set-key (kbd "C-x C-r") 'rename-current-buffer-file)
 (global-set-key (kbd "C-c /") 'custom/toggle-line-comment)
 (global-set-key (kbd "C-h C-m") 'discover-my-major)
+(global-set-key (kbd "C-c j") 'join-line)
 
 ;; Custom Keybindings
 (eval-after-load 'orgmode
