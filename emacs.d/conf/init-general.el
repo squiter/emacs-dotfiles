@@ -12,6 +12,9 @@
 ;; make indentation commands use space only
 (setq-default indent-tabs-mode nil)
 
+;; dired configurations
+(put 'dired-find-file-other-buffer 'disabled t)
+
 ;; whitespace display
 (global-whitespace-mode)
 (setq whitespace-global-modes
