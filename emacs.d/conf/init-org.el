@@ -18,6 +18,7 @@
 (require 'init-org-crypt)
 (require 'init-org-id)
 (require 'init-org-notifications)
+(require 'init-org-babel)
 
 ;; Tags with fast selection keys
 (setq org-tag-alist (quote ((:startgroup) ;; location group
