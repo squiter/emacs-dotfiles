@@ -55,6 +55,16 @@
     (insert "{}")
     (backward-char 1)))
 
+;; vcr toggle
+(defun custom/vcr-toggle ()
+  (interactive)
+  (if (getenv "VCR_OFF")
+      (progn
+        (setenv "VCR_OFF" nil)
+        (message "VCR is ON"))
+    (setenv "VCR_OFF" "true")
+    (message "VCR is OFF")))
+
 (eval-after-load 'ruby-mode
   '(progn
      (define-key ruby-mode-map (kbd "C-c , ,") 'senny-ruby-open-spec-other-buffer)
@@ -62,6 +72,7 @@
      (define-key ruby-mode-map (kbd "C-, b e") 'bundle-exec)
      (define-key ruby-mode-map (kbd "C-, b i") 'bundle-install)
      (define-key ruby-mode-map (kbd "C-, b o") 'bundle-open)
-     (define-key ruby-mode-map (kbd "C-, b c") 'bundle-console)))
+     (define-key ruby-mode-map (kbd "C-, b c") 'bundle-console)
+     (define-key ruby-mode-map (kbd "C-c v") 'custom/vcr-toggle)))
 
 (provide 'init-ruby)
