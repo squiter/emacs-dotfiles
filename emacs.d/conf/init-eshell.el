@@ -1,3 +1,6 @@
+;;; init-eshell.el --- My configuration for Emacs Shell
+;;; Commentary:
+;;; Code:
 (require 'eshell)
 
 (defun custom/bash-command (&rest cmd)
@@ -23,4 +26,10 @@
 
 (global-set-key (kbd "C-c C-t") 'custom/projectile-eshell)
 
+;;; Emacs Shell Alias
+(require 'em-alias)
+(add-to-list 'eshell-command-aliases-list (list "ls" "ls -l"))
+(add-to-list 'eshell-command-aliases-list (list "be" "bundle exec $*"))
+
 (provide 'init-eshell)
+;;; init-eshell.el ends here
