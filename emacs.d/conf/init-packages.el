@@ -18,6 +18,7 @@
     avy
     bundler
     company
+    company-emoji
     dash-at-point
     discover-my-major
     easy-kill
