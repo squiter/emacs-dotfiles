@@ -18,7 +18,6 @@
 (require 'init-path)
 (require 'init-rbenv)
 (require 'init-ruby)
-(require 'init-restclient)
 (require 'init-web-mode)
 (require 'init-easy-kill)
 (require 'init-company)
@@ -37,4 +36,5 @@
 (require 'init-yaml)
 (require 'init-guide-key)
 (require 'init-flycheck)
+(require 'init-restclient)
 (require 'init-avy)
