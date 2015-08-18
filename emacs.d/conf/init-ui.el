@@ -17,14 +17,14 @@
 ;; other options
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
-(set-face-attribute 'default nil :height 140)
+(set-face-attribute 'default nil :height 130)
 
 ;; line numbers
 (add-hook 'prog-mode-hook 'linum-mode)
 (setq linum-format "%4d ")
 
-;; Highlight current line - Disable because of my theme :(
-;; (global-hl-line-mode 1)
+;; Highlight current line
+(global-hl-line-mode 1)
 
 ;; Undo and Redo windows
 (winner-mode 1)

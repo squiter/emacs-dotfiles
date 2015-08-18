@@ -11,6 +11,7 @@
 (require 'init-keybindings)
 
 ;; init my packages configurations
+(require 'init-mac-switch-meta)
 (require 'init-helm)
 (require 'init-magit)
 (require 'init-projectile)
