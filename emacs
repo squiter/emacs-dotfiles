@@ -18,6 +18,7 @@
 (require 'init-path)
 (require 'init-rbenv)
 (require 'init-ruby)
+(require 'init-restclient)
 (require 'init-web-mode)
 (require 'init-easy-kill)
 (require 'init-company)
