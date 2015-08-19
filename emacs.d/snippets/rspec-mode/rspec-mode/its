@@ -1,0 +1,4 @@
+# -*- mode: snippet -*-
+# name: its(:attr) { ... }
+# --
+its(:${1:attr}) { is_expected.to $0 }
