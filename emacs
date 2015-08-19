@@ -38,3 +38,4 @@
 (require 'init-flycheck)
 (require 'init-restclient)
 (require 'init-avy)
+(require 'init-yasnippet)

@@ -44,6 +44,7 @@
     wakatime-mode
     web-mode
     yaml-mode
+    yasnippet
     )
   "A list of packages to be installed at application lauch.")
 
