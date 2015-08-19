@@ -1,4 +1,6 @@
-(require 'rinari)
+;;; init-ruby.el --- My Ruby configurations
+;;; Commentary:
+;;; Code:
 (require 'rspec-mode)
 
 ;; do not add encoding comment automatically
@@ -76,3 +78,4 @@
      (define-key ruby-mode-map (kbd "C-c v") 'custom/vcr-toggle)))
 
 (provide 'init-ruby)
+;;; init-ruby.el ends here
