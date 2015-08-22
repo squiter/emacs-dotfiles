@@ -1,3 +1,7 @@
+;;; init-projectile.el --- My Projectile configrations
+;;; Commentary:
+;;; Code:
+
 (require 'projectile)
 
 ;; projectile-rails
@@ -8,6 +12,7 @@
 
 (projectile-global-mode)
 
+;;; proojectile-helm
 (setq projectile-completion-system 'helm)
 (setq projectile-switch-project-action 'helm-projectile)
 (setq helm-projectile-sources-list '(helm-source-projectile-buffers-list
@@ -66,3 +71,4 @@
 (global-set-key (kbd "C-c o") 'rr/helm-open-project)
 
 (provide 'init-projectile)
+;;; init-projectile.el ends here

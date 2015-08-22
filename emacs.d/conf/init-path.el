@@ -1,7 +1,14 @@
+;;; init-path.el --- My configurations to $PATH
+;;; Commentary:
+;;  The $PATH env var is a problem in OSX Emacs's version
+;;  This code solve that kind of problems
+;;; Code:
+
 (setenv "SHELL" "/bin/zsh")
 (setenv "ESHELL" "/bin/zsh")
 
 (defun set-exec-path-from-shell-PATH ()
+  "Function that set $PATH env var."
   (interactive)
   (let ((path-from-shell (replace-regexp-in-string "[ \t\n]*$" "" (shell-command-to-string "$SHELL --login -i -c 'echo $PATH'"))))
     (setenv "PATH" path-from-shell)
@@ -11,3 +18,4 @@
   (set-exec-path-from-shell-PATH))
 
 (provide 'init-path)
+;;; init-path.el ends here

@@ -1,3 +1,6 @@
+;;; init-general.el --- My general configurations
+;;; Commentary:
+;;; Code:
 (setq
  ;; default directory
  default-directory (concat (getenv "HOME") "/projetos/")
@@ -22,3 +25,4 @@
 (setq whitespace-style '(face trailing tabs))
 
 (provide 'init-general)
+;;; init-general.el ends here

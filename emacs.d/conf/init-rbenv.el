@@ -1,8 +1,12 @@
-(if (file-exists-p "/usr/local/rbenv")
-  (require 'rbenv)
+;;; init-rbenv.el --- My configration for Rbenv
+;;; Commentary:
+;;; Code:
 
-  (setq rbenv-installation-dir "/usr/local")
+(require 'rbenv)
 
-  (global-rbenv-mode))
+(setq rbenv-installation-dir "/usr/local")
+
+(global-rbenv-mode)
 
 (provide 'init-rbenv)
+;;; init-rbenv.el ends here

@@ -1,3 +1,7 @@
+;;; init-ui.el --- Configurations for Emacs UI
+;;; Commentary:
+;;; Code:
+
 ;; theme options
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (load-theme 'material t)
@@ -35,6 +39,7 @@
 ;; Open in fullscreen
 (switch-fullscreen)
 
+;;; TODO: Move that configurations to init-mode-line.el
 ;; modeline
 (defun branch-name ()
   (when vc-mode
@@ -69,3 +74,4 @@
        ))
 
 (provide 'init-ui)
+;;; init-ui.el ends here

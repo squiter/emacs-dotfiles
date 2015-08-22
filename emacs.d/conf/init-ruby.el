@@ -1,6 +1,7 @@
 ;;; init-ruby.el --- My Ruby configurations
 ;;; Commentary:
 ;;; Code:
+
 (require 'rspec-mode)
 
 ;; do not add encoding comment automatically

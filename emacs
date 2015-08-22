@@ -5,12 +5,12 @@
 (require 'init-constants)
 (require 'init-general)
 (require 'init-custom-functions)
-(require 'init-sml)
 (require 'init-ui)
 (require 'init-packages)
 (require 'init-keybindings)
 
 ;; init my packages configurations
+(require 'init-sml)
 (require 'init-mac-switch-meta)
 (require 'init-helm)
 (require 'init-magit)

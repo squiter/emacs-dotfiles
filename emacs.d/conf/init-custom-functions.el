@@ -1,3 +1,7 @@
+;;; init-custom-functions.el --- My functions to edit files
+;;; Commentary:
+;;; Code:
+
 "Stolen from plambert"
 (defun custom/insert-new-line ()
   "Insert new line without breaking the current one"
@@ -139,3 +143,4 @@ downcased, no preceding underscore.
       (downcase-region (car bounds) (cdr bounds)))))
 
 (provide 'init-custom-functions)
+;;; init-custom-functions.el ends here
