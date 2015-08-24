@@ -12,6 +12,9 @@
  display-buffer-reuse-frames t
 )
 
+;; move cursor by camelCase
+(subword-mode 1)
+
 ;; make indentation commands use space only
 (setq-default indent-tabs-mode nil)
 
