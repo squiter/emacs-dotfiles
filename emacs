@@ -9,11 +9,11 @@
 
 (add-to-list 'load-path (expand-file-name "conf" user-emacs-directory))
 
+(require 'init-packages)
 (require 'init-constants)
 (require 'init-general)
 (require 'init-custom-functions)
 (require 'init-ui)
-(require 'init-packages)
 (require 'init-keybindings)
 
 ;; init my packages configurations

@@ -39,39 +39,7 @@
 ;; Open in fullscreen
 (switch-fullscreen)
 
-;;; TODO: Move that configurations to init-mode-line.el
-;; modeline
-(defun branch-name ()
-  (when vc-mode
-    (concat "\ue0a0 " (substring vc-mode 5))
-    ))
-
-(defun current-ruby ()
-  (when vc-mode
-    (rbenv--active-ruby-version)
-))
-
-(setq-default mode-line-format
-      (list
-       "[" mode-line-modified "]"
-       "  "
-       "%b"
-       "  |  "
-       'mode-name
-       "  |  "
-       '(:eval (projectile-project-name))
-       " "
-       '(:eval (branch-name))
-       "  |  "
-       '(:eval (current-ruby))
-       "  |  "
-       "%p (%l,%c)"
-       "  |  "
-       '(:eval (propertize (format-time-string "%H:%M")
-              'help-echo
-              (concat (format-time-string "%c; ")
-                      (emacs-uptime "Uptime:%hh"))))
-       ))
+(require 'init-telephone)
 
 (provide 'init-ui)
 ;;; init-ui.el ends here

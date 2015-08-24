@@ -41,6 +41,7 @@
     rspec-mode
     rubocop
     smartparens
+    telephone-line
     wakatime-mode
     web-mode
     yaml-mode
