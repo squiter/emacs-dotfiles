@@ -20,6 +20,7 @@
 
 ;; dired configurations
 (put 'dired-find-file-other-buffer 'disabled t)
+(setq dired-listing-switches "-alh")
 
 ;; whitespace display
 (global-whitespace-mode)
