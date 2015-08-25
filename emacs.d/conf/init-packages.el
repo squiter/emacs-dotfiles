@@ -34,6 +34,7 @@
     helm-ag
     helm-projectile
     ido-vertical-mode
+    indent-guide
     magit
     neotree
     projectile
@@ -62,6 +63,8 @@
     (package-refresh-contents)
     (setq packaged-contents-refreshed-p t)
     (package-install p))))))
+
+(require 'init-simple-packages)
 
 (provide 'init-packages)
 ;;; init-packages ends here
