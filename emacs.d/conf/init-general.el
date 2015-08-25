@@ -4,6 +4,7 @@
 (setq
  ;; default directory
  default-directory (concat (getenv "HOME") "/projetos/")
+ default-directory (concat *user-home-directory* "/projetos/")
  ;; disable backup files
  make-backup-files nil
  auto-save-default nil

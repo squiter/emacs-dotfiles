@@ -15,5 +15,13 @@
   (path-join *user-home-directory* "dropbox")
   "Path to Dropbox on user's machine.")
 
+(defconst *dotfiles-directory*
+  (path-join *user-home-directory* "dotfiles")
+  "Path to ~/dotfiles directory.")
+
+(defconst *emacsd-directory*
+  (path-join *dotfiles-directory* "emacs.d")
+  "Path to emacs.d directory.")
+
 (provide 'init-constants)
 ;;; init-constants.el ends here
