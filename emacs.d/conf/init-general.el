@@ -3,7 +3,6 @@
 ;;; Code:
 (setq
  ;; default directory
- default-directory (concat (getenv "HOME") "/projetos/")
  default-directory (concat *user-home-directory* "/projetos/")
  ;; disable backup files
  make-backup-files nil
@@ -12,6 +11,10 @@
  ;; If a frame alredy opened, use it!
  display-buffer-reuse-frames t
 )
+
+;; Customize BS
+(setq custom-file (concat *emacsd-directory* "/custom.el"))
+(load custom-file)
 
 ;; move cursor by camelCase
 (subword-mode 1)
