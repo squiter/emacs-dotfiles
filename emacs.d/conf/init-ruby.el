@@ -11,10 +11,10 @@
 (add-hook 'after-init-hook 'inf-ruby-switch-setup)
 
 ;; rspec-mode configuration
-
 (setq rspec-use-rake-when-possible nil)
 (setq rspec-use-spring-when-possible nil)
 (setq compilation-scroll-output t)
+
 (add-hook 'dired-mode-hook 'rspec-dired-mode)
 
 ;; auto modes
@@ -67,6 +67,17 @@
         (message "VCR is ON"))
     (setenv "VCR_OFF" "true")
     (message "VCR is OFF")))
+
+;; debbuger utilities
+(defun rr/pry-byebug-jump-to-source ()
+  "Jumps to source location given debugger output"
+  (interactive)
+  (delete-other-windows)
+  (when (save-excursion (search-backward-regexp "From: \\(.*\.rb\\) @ line \\([0-9]+\\)")))
+  (let ((file (match-string 1))
+        (line (string-to-int (match-string 2))))
+    (find-file-other-window file)
+    (goto-line line)))
 
 (eval-after-load 'ruby-mode
   '(progn
