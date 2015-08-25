@@ -16,6 +16,7 @@
     ace-window
     auto-package-update
     avy
+    back-button
     bundler
     company
     company-emoji
