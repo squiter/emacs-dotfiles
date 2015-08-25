@@ -17,6 +17,7 @@
 (require 'init-keybindings)
 
 ;; init my packages configurations
+(require 'init-anzu)
 (require 'init-sml)
 (require 'init-mac-switch-meta)
 (require 'init-helm)

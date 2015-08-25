@@ -14,6 +14,7 @@
 (defvar my-packages
   '(
     ace-window
+    anzu
     auto-package-update
     avy
     back-button
