@@ -33,6 +33,7 @@
     helm
     helm-ag
     helm-projectile
+    highlight-symbol
     ido-vertical-mode
     indent-guide
     magit
