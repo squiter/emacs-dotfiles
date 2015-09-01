@@ -30,6 +30,7 @@
 (require 'em-alias)
 (add-to-list 'eshell-command-aliases-list (list "ls" "ls -l"))
 (add-to-list 'eshell-command-aliases-list (list "be" "bundle exec $*"))
+(add-to-list 'eshell-command-aliases-list (list "fuck_product" "RAILS_ENV=test rake db:drop db:create db:migrate db:seed"))
 
 (provide 'init-eshell)
 ;;; init-eshell.el ends here
