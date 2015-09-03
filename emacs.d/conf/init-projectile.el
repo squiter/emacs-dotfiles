@@ -23,19 +23,14 @@
 ;;
 
 ;; variables
-(defvar default-project-source (path-join *user-home-directory* "projetos/"))
+(defvar default-project-source *projects-directory*)
 
-(defvar project-sources
-  (list
-   default-project-source
-   (path-join *user-home-directory* "projetos/locaweb/")))
+(defvar project-sources *all-project-directories*)
 
 ;; helm integration for opening projects
 ;; Jumping between projects
 ;;
-(defvar rr/project-sources
-  '("~/projetos/"
-    "~/projetos/locaweb/"))
+(defvar rr/project-sources *all-project-directories*)
 
 (defvar rr/default-file-regexps
   '("Gemfile$"

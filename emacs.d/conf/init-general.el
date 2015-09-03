@@ -3,7 +3,7 @@
 ;;; Code:
 (setq
  ;; default directory
- default-directory (concat *user-home-directory* "/projetos/")
+ default-directory *projects-directory*
  ;; disable backup files
  make-backup-files nil
  auto-save-default nil

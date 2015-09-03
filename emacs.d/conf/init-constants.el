@@ -23,5 +23,15 @@
   (path-join *dotfiles-directory* "emacs.d")
   "Path to emacs.d directory.")
 
+(defconst *projects-directory*
+  (path-join *user-home-directory* "projetos")
+  "Path to my default project directory.")
+
+(defconst *all-project-directories*
+  (list
+   *projects-directory*
+   (path-join *projects-directory* "locaweb"))
+  "List of all my project directories.")
+
 (provide 'init-constants)
 ;;; init-constants.el ends here
