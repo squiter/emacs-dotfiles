@@ -7,5 +7,17 @@
 ;; Indent-guide
 (indent-guide-global-mode)
 
+;; back-button
+(back-button-mode 1)
+
+;; neotree
+(global-set-key (kbd "C-c n") 'neotree-toggle)
+
+;; expand-region
+(global-set-key (kbd "C-=") 'er/expand-region)
+
+;; auto-package-update
+(auto-package-update-maybe)
+
 (provide 'init-simple-packages)
 ;;; init-simple-packages.el ends here
