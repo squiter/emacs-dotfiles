@@ -4,9 +4,6 @@
 ;;  This code solve that kind of problems
 ;;; Code:
 
-(setenv "SHELL" "/bin/zsh")
-(setenv "ESHELL" "/bin/zsh")
-
 (defun set-exec-path-from-shell-PATH ()
   "Function that set $PATH env var."
   (interactive)
