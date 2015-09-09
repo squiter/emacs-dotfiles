@@ -30,6 +30,7 @@
     git-gutter
     git-timemachine
     guide-key
+    haskell-mode
     helm
     helm-ag
     helm-projectile
