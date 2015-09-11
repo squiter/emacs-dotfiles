@@ -12,6 +12,9 @@
  display-buffer-reuse-frames t
 )
 
+;; replace marked text when type
+(delete-selection-mode 1)
+
 ;; Customize BS
 (setq custom-file (concat *emacsd-directory* "/custom.el"))
 (load custom-file)
