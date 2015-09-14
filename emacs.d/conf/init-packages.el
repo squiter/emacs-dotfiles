@@ -25,7 +25,6 @@
     discover-my-major
     easy-kill
     expand-region
-    floobits
     flycheck
     git-gutter
     git-timemachine
