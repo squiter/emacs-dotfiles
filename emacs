@@ -16,6 +16,7 @@
 (require 'init-ui)
 (require 'init-keybindings)
 (require 'init-mac-switch-meta)
+(require 'init-smerge)
 
 ;; init my packages configurations
 (require 'init-highlight-symbol)
