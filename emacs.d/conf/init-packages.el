@@ -46,6 +46,7 @@
     rubocop
     smartparens
     telephone-line
+    twittering-mode
     wakatime-mode
     web-mode
     yaml-mode
