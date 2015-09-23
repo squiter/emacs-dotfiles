@@ -6,10 +6,9 @@
 
 (setq rbenv-installation-dir "/usr/local")
 
-(global-rbenv-mode)
-
-(setq rbenv-modeline-function 'rbenv--modeline-plain)
 (setq rbenv-show-active-ruby-in-modeline nil)
+
+(global-rbenv-mode)
 
 (provide 'init-rbenv)
 ;;; init-rbenv.el ends here
