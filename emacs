@@ -46,3 +46,4 @@
 (require 'init-restclient)
 (require 'init-avy)
 (require 'init-yasnippet)
+(require 'init-twittering-mode)

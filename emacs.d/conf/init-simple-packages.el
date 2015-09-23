@@ -19,8 +19,5 @@
 ;; auto-package-update
 (auto-package-update-maybe)
 
-;; twittering-mode
-(global-set-key (kbd "C-, t") 'twittering-update-status-from-pop-up-buffer)
-
 (provide 'init-simple-packages)
 ;;; init-simple-packages.el ends here
