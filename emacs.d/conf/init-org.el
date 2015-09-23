@@ -19,6 +19,7 @@
 (require 'init-org-id)
 (require 'init-org-notifications)
 (require 'init-org-babel)
+(require 'init-org-alfred)
 
 ;; Tags with fast selection keys
 (setq org-tag-alist (quote ((:startgroup) ;; location group
