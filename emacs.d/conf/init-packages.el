@@ -25,6 +25,7 @@
     discover-my-major
     easy-kill
     expand-region
+    frame-cmds
     flycheck
     git-gutter
     git-timemachine
