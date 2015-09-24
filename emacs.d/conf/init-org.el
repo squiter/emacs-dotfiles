@@ -1,5 +1,7 @@
 (require 'org)
 
+(add-to-list 'load-path (expand-file-name "conf/orgmode" user-emacs-directory))
+
 (defconst *user-org-cache-directory*
   (path-join *user-dropbox-directory* "org")
   "Path to user's org cache store.")
