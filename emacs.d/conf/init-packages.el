@@ -34,6 +34,7 @@
     helm
     helm-ag
     helm-projectile
+    highlight
     highlight-symbol
     ido-vertical-mode
     indent-guide
