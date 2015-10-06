@@ -2,6 +2,10 @@
 
 (ido-mode 1)
 (ido-vertical-mode 1)
-(setq ido-vertical-define-keys 'C-n-and-C-p-only)
+(setq
+ ;; Set C-n and C-p to work
+ ido-vertical-define-keys 'C-n-and-C-p-only
+ ;; Don’t be case sensitive
+ ido-case-fold t)
 
 (provide 'init-ido)
