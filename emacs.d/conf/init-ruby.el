@@ -89,5 +89,30 @@
      (define-key ruby-mode-map (kbd "C-, b c") 'bundle-console)
      (define-key ruby-mode-map (kbd "C-c v") 'custom/vcr-toggle)))
 
+;; -- GODAMMIT RUBY INDENTATION!!! --
+;; don't indent parenthesis in a weird way
+(setq ruby-align-chained-calls nil
+      ruby-align-to-stmt-keywords nil
+      ruby-deep-indent-paren nil
+      ruby-deep-indent-paren-style nil
+      ruby-use-smie nil)
+
+(defadvice ruby-indent-line (after unindent-closing-paren activate)
+  "Indent sole parenthesis in loca's way."
+  (let ((column (current-column))
+        indent offset)
+    (save-excursion
+      (back-to-indentation)
+      (let ((state (syntax-ppss)))
+        (setq offset (- column (current-column)))
+        (when (and (eq (char-after) ?\))
+                   (not (zerop (car state))))
+          (goto-char (cadr state))
+          (setq indent (current-indentation)))))
+    (when indent
+      (indent-line-to indent)
+      (when (> offset 0) (forward-char offset)))))
+;; ------------------------------------
+
 (provide 'init-ruby)
 ;;; init-ruby.el ends here
