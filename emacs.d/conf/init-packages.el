@@ -24,6 +24,8 @@
     dash-at-point
     discover-my-major
     easy-kill
+    erc-hl-nicks
+    erc-image
     expand-region
     frame-cmds
     flycheck

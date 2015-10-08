@@ -51,3 +51,4 @@
 
 ;; init vendor files
 (require 'vkill)
+(require 'init-erc)
