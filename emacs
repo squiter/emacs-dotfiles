@@ -8,6 +8,7 @@
 (package-initialize)
 
 (add-to-list 'load-path (expand-file-name "conf" user-emacs-directory))
+(add-to-list 'load-path (expand-file-name "vendor" user-emacs-directory))
 
 (require 'init-packages)
 (require 'init-constants)
@@ -47,3 +48,6 @@
 (require 'init-avy)
 (require 'init-yasnippet)
 (require 'init-twittering-mode)
+
+;; init vendor files
+(require 'vkill)
