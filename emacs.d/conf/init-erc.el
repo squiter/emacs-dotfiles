@@ -34,6 +34,8 @@
 (require 'erc-ring)
 (require 'erc-netsplit)
 
+(require 'erc-nick-notify)
+
 (require 'erc-hl-nicks)
 (add-to-list 'erc-modules 'hl-nicks)
 (erc-update-modules)
