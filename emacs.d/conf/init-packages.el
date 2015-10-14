@@ -53,6 +53,7 @@
     twittering-mode
     wakatime-mode
     web-mode
+    yagist
     yaml-mode
     yasnippet
     )

@@ -19,5 +19,8 @@
 ;; auto-package-update
 (auto-package-update-maybe)
 
+;; yagist
+(setq yagist-github-token *user-github-token*)
+
 (provide 'init-simple-packages)
 ;;; init-simple-packages.el ends here
