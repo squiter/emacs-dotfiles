@@ -15,6 +15,7 @@
   '(
     ace-window
     anzu
+    apel
     auto-package-update
     avy
     back-button

@@ -4,6 +4,9 @@
 ;;  init-file I use this file
 ;;; Code:
 
+;; Requiring Apel alist
+(require 'alist)
+
 ;; Indent-guide
 (indent-guide-global-mode)
 
