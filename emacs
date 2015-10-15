@@ -49,6 +49,7 @@
 (require 'init-avy)
 (require 'init-yasnippet)
 (require 'init-twittering-mode)
+(require 'init-haskell)
 
 ;; init vendor files
 (require 'vkill)
