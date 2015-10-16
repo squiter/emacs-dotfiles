@@ -23,6 +23,7 @@
     company
     company-emoji
     dash-at-point
+    dired+
     discover-my-major
     easy-kill
     erc-hl-nicks

@@ -21,6 +21,7 @@
 (require 'init-smerge)
 
 ;; init my packages configurations
+(require 'init-dired) ;; depends on dired+
 (require 'init-highlight-symbol)
 (require 'init-anzu)
 (require 'init-sml)
