@@ -25,6 +25,7 @@
 (require 'init-anzu)
 (require 'init-sml)
 (require 'init-helm)
+(require 'init-swipe-helm)
 (require 'init-magit)
 (require 'init-projectile)
 (require 'init-path)

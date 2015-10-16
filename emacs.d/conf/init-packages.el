@@ -28,8 +28,8 @@
     erc-hl-nicks
     erc-image
     expand-region
-    frame-cmds
     flycheck
+    frame-cmds
     git-gutter
     git-timemachine
     guide-key
@@ -50,6 +50,7 @@
     rspec-mode
     rubocop
     smartparens
+    swiper-helm
     telephone-line
     twittering-mode
     wakatime-mode
@@ -57,7 +58,7 @@
     yagist
     yaml-mode
     yasnippet
-    )
+  )
   "A list of packages to be installed at application lauch.")
 
 ;; package loading (stolen from chuck that stoled from milhouse)
