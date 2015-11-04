@@ -1,5 +1,8 @@
 language: emacs-lisp
 
+git:
+  submodules: false
+
 env:
   matrix:
     - EMACS=emacs-snapshot
