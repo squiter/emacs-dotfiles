@@ -23,6 +23,8 @@
 (require 'init-org-babel)
 (require 'init-org-alfred)
 
+(setq org-ellipsis "⤵")
+
 ;; Tags with fast selection keys
 (setq org-tag-alist (quote ((:startgroup) ;; location group
                             ("@office" . ?O)
