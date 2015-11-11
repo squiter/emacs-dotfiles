@@ -32,11 +32,11 @@ If ARG is present, open a new term regardless."
   (let* ((custom-name (if arg
 			  (format "[%s]" (read-string "Terminal name: "))
 			""))
-	 (term-name (format "term: %s %s" (rr/shell-project-name) custom-name))
+	 (term-name (format "ansi-term: %s %s" (rr/shell-project-name) custom-name))
 	 (shell-exists-p (bufferp (get-buffer term-name))))
 
     (if (not shell-exists-p)
-	(progn (term "/bin/bash")
+	(progn (ansi-term "/bin/bash")
 	       (rename-buffer term-name)
 	       (term-line-mode)
 	       (goto-char (point-max))
