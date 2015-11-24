@@ -25,5 +25,8 @@
 ;; yagist
 (setq yagist-github-token *user-github-token*)
 
+;; typing of emacs
+(autoload 'typing-of-emacs "typing" "The Typing Of Emacs, a game." t)
+
 (provide 'init-simple-packages)
 ;;; init-simple-packages.el ends here
