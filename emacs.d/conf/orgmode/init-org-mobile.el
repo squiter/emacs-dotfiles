@@ -35,12 +35,15 @@
 (defun org-mobile-sync-enable ()
   "Enable mobile org idle sync."
   (interactive)
+  (message "org-mobile-sync enabled!")
   (setq org-mobile-sync-timer
         (run-with-idle-timer org-mobile-sync-idle-secs t
                              'org-mobile-sync)));
 (defun org-mobile-sync-disable ()
   "Disable mobile org idle sync."
   (interactive)
+  (message "org-mobile-sync disabled!")
+
   (cancel-timer org-mobile-sync-timer))
 (org-mobile-sync-enable)
 
