@@ -15,6 +15,10 @@
   (path-join *user-home-directory* "dropbox")
   "Path to Dropbox on user's machine.")
 
+(defconst *projects-directory*
+  (path-join *user-home-directory* "projetos")
+  "Path to my default project directory.")
+
 (defconst *dotfiles-directory*
   (path-join *user-home-directory* "dotfiles")
   "Path to ~/dotfiles directory.")
@@ -26,10 +30,6 @@
 (defconst *emacsd-directory*
   (path-join *emacs-dotfiles-dir* "emacs.d")
   "Path to emacs.d directory.")
-
-(defconst *projects-directory*
-  (path-join *user-home-directory* "projetos")
-  "Path to my default project directory.")
 
 (defconst *all-project-directories*
   (list
