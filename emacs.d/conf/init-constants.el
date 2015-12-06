@@ -19,8 +19,12 @@
   (path-join *user-home-directory* "dotfiles")
   "Path to ~/dotfiles directory.")
 
+(defconst *emacs-dotfiles-dir*
+  (path-join *projects-directory* "emacs-dotfiles")
+  "Path to ~/projetos/emacs-dotfiles.")
+
 (defconst *emacsd-directory*
-  (path-join *dotfiles-directory* "emacs.d")
+  (path-join *emacs-dotfiles-dir* "emacs.d")
   "Path to emacs.d directory.")
 
 (defconst *projects-directory*
