@@ -21,6 +21,7 @@
 
 ;; other options
 (tool-bar-mode -1)
+(menu-bar-mode -1)
 (scroll-bar-mode -1)
 (set-face-attribute 'default nil :height 130)
 
@@ -41,8 +42,8 @@
 (switch-fullscreen)
 
 ;; Transparency
-(set-frame-parameter (selected-frame) 'alpha '(85 85))
-(add-to-list 'default-frame-alist '(alpha 85 85))
+(set-frame-parameter (selected-frame) 'alpha '(94 94))
+(add-to-list 'default-frame-alist '(alpha 94 94))
 
 (require 'init-telephone)
 
