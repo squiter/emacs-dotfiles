@@ -36,5 +36,7 @@
 (global-set-key (kbd "M-4") 'delete-other-windows)
 (global-set-key (kbd "M-5") 'delete-window)
 
+(global-unset-key (kbd "C-z"))
+
 (provide 'init-keybindings)
 ;;; init-keybindings.el ends here
