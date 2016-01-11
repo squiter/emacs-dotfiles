@@ -44,6 +44,7 @@
     indent-guide
     magit
     neotree
+    pass
     projectile
     projectile-rails
     rbenv
