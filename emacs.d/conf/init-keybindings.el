@@ -36,6 +36,12 @@
 (global-set-key (kbd "M-4") 'delete-other-windows)
 (global-set-key (kbd "M-5") 'delete-window)
 
+;; bookmark-bidings
+(global-set-key (kbd "C-, b s") 'bookmark-set)
+(global-set-key (kbd "C-, b l") 'bookmark-bmenu-list)
+(global-set-key (kbd "C-, b j") 'bookmark-jump)
+(global-set-key (kbd "C-, b o j") 'bookmark-jump-other-window)
+
 (global-unset-key (kbd "C-z"))
 
 (provide 'init-keybindings)
