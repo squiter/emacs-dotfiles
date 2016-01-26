@@ -26,7 +26,7 @@
 (require 'org-bullets)
 
 (setq org-bullets-bullet-list
-      '("◉" "◎" "○" "►" "◇"))
+      '("▸" "▹" "◔" "◕" "◰" "◱" "◲"))
 
 (add-hook 'org-mode-hook 'org-bullets-mode 1)
 
