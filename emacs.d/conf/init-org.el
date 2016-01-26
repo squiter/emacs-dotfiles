@@ -22,6 +22,7 @@
 (require 'init-org-notifications)
 (require 'init-org-babel)
 (require 'init-org-alfred)
+(require 'init-org-bullets)
 
 (setq org-ellipsis "⤵")
 

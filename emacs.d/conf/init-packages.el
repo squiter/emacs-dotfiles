@@ -44,6 +44,7 @@
     indent-guide
     magit
     neotree
+    org-bullets
     pass
     projectile
     projectile-rails
