@@ -114,15 +114,15 @@
       (when (> offset 0) (forward-char offset)))))
 ;; ------------------------------------
 
-;; This functions requires projectile-rails package
+;; This functions requires projectile package
 (defun squiter/rails-go-to-last-migration ()
   (interactive)
   (find-file
-   (concat (projectile-rails-expand-root "db/migrate/")
+   (concat (projectile-expand-root "db/migrate/")
            (car (reverse
                  (directory-files
                   (expand-file-name
-                   (projectile-rails-expand-root "db/migrate/"))
+                   (projectile-expand-root "db/migrate/"))
                   nil
                   "^\\([^.]\\|\\.[^.]\\|\\.\\..\\)"))))))
 
