@@ -114,5 +114,19 @@
       (when (> offset 0) (forward-char offset)))))
 ;; ------------------------------------
 
+;; This functions requires projectile-rails package
+(defun squiter/rails-go-to-last-migration ()
+  (interactive)
+  (find-file
+   (concat (projectile-rails-expand-root "db/migrate/")
+           (car (reverse
+                 (directory-files
+                  (expand-file-name
+                   (projectile-rails-expand-root "db/migrate/"))
+                  nil
+                  "^\\([^.]\\|\\.[^.]\\|\\.\\..\\)"))))))
+
+(global-set-key (kbd "C-, l m") 'squiter/rails-go-to-last-migration)
+
 (provide 'init-ruby)
 ;;; init-ruby.el ends here
