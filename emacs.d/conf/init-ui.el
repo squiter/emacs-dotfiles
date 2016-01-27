@@ -42,8 +42,8 @@
 (switch-fullscreen)
 
 ;; Transparency
-(set-frame-parameter (selected-frame) 'alpha '(94 94))
-(add-to-list 'default-frame-alist '(alpha 94 94))
+(set-frame-parameter (selected-frame) 'alpha '(99 99))
+(add-to-list 'default-frame-alist '(alpha 98 98))
 
 (require 'init-telephone)
 
