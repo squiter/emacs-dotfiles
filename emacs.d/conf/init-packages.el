@@ -43,6 +43,7 @@
     ido-vertical-mode
     indent-guide
     magit
+    mutant
     neotree
     org-bullets
     pass

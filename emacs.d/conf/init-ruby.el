@@ -31,6 +31,9 @@
 	      "\\.god$"))
   (add-to-list 'auto-mode-alist `(,fp . ruby-mode)))
 
+;; mutant
+(add-hook 'ruby-mode-hook 'mutant-mode)
+
 (require 'rubocop)
 
 ;; Rubocop
@@ -87,7 +90,8 @@
      (define-key ruby-mode-map (kbd "C-, b i") 'bundle-install)
      (define-key ruby-mode-map (kbd "C-, b o") 'bundle-open)
      (define-key ruby-mode-map (kbd "C-, b c") 'bundle-console)
-     (define-key ruby-mode-map (kbd "C-c v") 'custom/vcr-toggle)))
+     (define-key ruby-mode-map (kbd "C-c v") 'custom/vcr-toggle)
+     (define-key ruby-mode-map (kbd "C-c m") 'mutant-check-file)))
 
 ;; -- GODAMMIT RUBY INDENTATION!!! --
 ;; don't indent parenthesis in a weird way
