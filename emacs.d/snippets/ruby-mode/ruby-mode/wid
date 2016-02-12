@@ -1,0 +1,4 @@
+#name : wid - Where is defined?
+#group : debugging
+# --
+method(:${method_name}).${super_method.}source_locattion
