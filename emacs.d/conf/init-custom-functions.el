@@ -107,9 +107,9 @@
     (if (not (and filename (file-exists-p filename)))
         (ido-kill-buffer)
       (when (yes-or-no-p "Are you sure you want to remove this file? ")
-        (delete-file filename)
+        (move-file-to-trash filename)
         (kill-buffer buffer)
-        (message "File '%s' successfully removed" filename)))))
+        (message "File '%s' successfully trashed" filename)))))
 
 (defun rename-current-buffer-file ()
   "Renames current buffer and file it is visiting."
