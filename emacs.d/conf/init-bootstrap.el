@@ -76,6 +76,7 @@
     init-twittering-mode
     init-haskell
     vkill
+    init-artist-mode
     init-erc))
 
 (defun safe-require (feature)
