@@ -12,6 +12,9 @@
  display-buffer-reuse-frames t
 )
 
+;; this require add support to dead-keys
+(require 'iso-transl)
+
 ;; replace marked text when type
 (delete-selection-mode 1)
 
