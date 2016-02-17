@@ -23,7 +23,7 @@
 
 (telephone-line-defsegment* rr/telephone-line-projectile-project-name
   `(""
-    ,(telephone-line-raw (ignore-errors (format "prj:%s" (projectile-project-name))))))
+    ,(telephone-line-raw (ignore-errors (format "📁 %s" (projectile-project-name))))))
 
 (setq telephone-line-lhs
       '((accent . (rr/telephone-line-buffer-segment
