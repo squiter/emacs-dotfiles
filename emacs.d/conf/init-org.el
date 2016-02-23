@@ -23,6 +23,7 @@
 (require 'init-org-babel)
 (require 'init-org-alfred)
 (require 'init-org-bullets)
+(require 'org-drill)
 
 (setq org-ellipsis "⤵")
 
