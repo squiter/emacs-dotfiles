@@ -18,7 +18,8 @@
    (sh . t)
    (org . t)
    (latex . t)
-   (sql . t)))
+   (sql . t)
+   (restclient . t)))
 
 (provide 'init-org-babel)
 ;;; init-org-babel.el ends here

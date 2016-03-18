@@ -45,6 +45,7 @@
     magit
     mutant
     neotree
+    ob-restclient
     org-bullets
     pass
     projectile
