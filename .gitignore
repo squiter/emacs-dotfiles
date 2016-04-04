@@ -10,3 +10,4 @@ emacs.d/eshell
 emacs.d/var
 emacs.d/tramp
 init-secrets.el
+cider-history

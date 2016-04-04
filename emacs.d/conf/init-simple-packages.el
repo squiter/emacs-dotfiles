@@ -31,5 +31,8 @@
 ;; typing of emacs
 (autoload 'typing-of-emacs "typing" "The Typing Of Emacs, a game." t)
 
+;; rainbow-delimiters
+(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+
 (provide 'init-simple-packages)
 ;;; init-simple-packages.el ends here

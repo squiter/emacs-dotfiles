@@ -20,6 +20,9 @@
     avy
     back-button
     bundler
+    cider
+    clojure-mode
+    clojure-mode-extra-font-locking
     company
     company-emoji
     dash-at-point
@@ -50,12 +53,14 @@
     pass
     projectile
     projectile-rails
+    rainbow-delimiters
     rbenv
     restclient
     rspec-mode
     rubocop
     smartparens
     swiper-helm
+    tagedit
     telephone-line
     twittering-mode
     wakatime-mode

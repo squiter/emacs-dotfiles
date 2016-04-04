@@ -70,6 +70,7 @@
     init-yaml
     init-guide-key
     init-flycheck
+    init-clojure
     init-restclient
     init-avy
     init-yasnippet
