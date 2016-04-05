@@ -55,6 +55,7 @@
     projectile-rails
     rainbow-delimiters
     rbenv
+    request
     restclient
     rspec-mode
     rubocop

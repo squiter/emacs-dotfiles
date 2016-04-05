@@ -77,6 +77,7 @@
     init-twittering-mode
     init-haskell
     vkill
+    init-cas
     init-artist-mode
     init-erc))
 
