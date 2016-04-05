@@ -180,5 +180,8 @@ buffer is not visiting a file."
                          (ido-read-file-name "Find file(as root): ")))
     (find-alternate-file (concat "/sudo:root@localhost:" buffer-file-name))))
 
+(defun remove-duplicate-lines
+    (replace-regexp "\\([^\n]+\n\\)\\1+" "\\1"))
+
 (provide 'init-custom-functions)
 ;;; init-custom-functions.el ends here
