@@ -9,5 +9,6 @@ emacs.d/ido.last
 emacs.d/eshell
 emacs.d/var
 emacs.d/tramp
+emacs.d/history
 init-secrets.el
 cider-history
