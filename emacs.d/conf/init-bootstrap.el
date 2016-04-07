@@ -33,6 +33,8 @@
 (package-initialize)
 
 (add-to-list 'load-path (expand-file-name "vendor" user-emacs-directory))
+(add-to-list 'load-path (expand-file-name "vendor/org/lisp" user-emacs-directory))
+(add-to-list 'load-path (expand-file-name "vendor/org/contrib/lisp" user-emacs-directory) t)
 
 (defvar init-files
   '(init-secrets
