@@ -1,0 +1,7 @@
+#name : Block source
+#group : Blocks
+# key: src
+# --
+#+begin_src $1
+$2
+#+end_src
