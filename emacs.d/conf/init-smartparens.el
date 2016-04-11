@@ -20,6 +20,9 @@
 (sp-with-modes '(ruby-mode)
   (sp-local-pair "|" "|"))
 
+(sp-with-modes '(org-mode)
+  (sp-local-pair "=" "="))
+
 (sp-with-modes '(rhtml-mode)
   (sp-local-pair "<" ">")
   (sp-local-pair "<%" "%>"))
