@@ -13,7 +13,6 @@
 (global-set-key (kbd "<f9> b") 'bbdb)
 (global-set-key (kbd "<f9> c") 'calendar)
 (global-set-key (kbd "<f9> f") 'boxquote-insert-file)
-(global-set-key (kbd "<f9> g") 'gnus)
 (global-set-key (kbd "<f9> h") 'bh/hide-other)
 (global-set-key (kbd "<f9> n") 'bh/toggle-next-task-display)
 
@@ -40,5 +39,6 @@
 (global-set-key (kbd "C-s-<f12>") 'bh/save-then-publish)
 (global-set-key (kbd "C-c c") 'org-capture)
 (global-set-key (kbd "<s-return>") 'org-agenda-open-link)
+(global-set-key (kbd "C-x <f9>") 'helm-org-rifle)
 
 (provide 'init-org-keybinds)

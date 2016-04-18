@@ -40,6 +40,7 @@
     haskell-mode
     helm
     helm-ag
+    helm-org-rifle
     helm-projectile
     highlight
     highlight-symbol
