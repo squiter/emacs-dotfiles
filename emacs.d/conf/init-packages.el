@@ -36,7 +36,6 @@
     frame-cmds
     git-gutter
     git-timemachine
-    guide-key
     haskell-mode
     helm
     helm-ag
@@ -67,6 +66,7 @@
     twittering-mode
     wakatime-mode
     web-mode
+    which-key
     yagist
     yaml-mode
     yasnippet

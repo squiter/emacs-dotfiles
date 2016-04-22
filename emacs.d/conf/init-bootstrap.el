@@ -70,7 +70,6 @@
     init-dash
     init-wakatime
     init-yaml
-    init-guide-key
     init-flycheck
     init-clojure
     init-restclient
@@ -78,6 +77,7 @@
     init-yasnippet
     init-twittering-mode
     init-haskell
+    init-which-key
     vkill
     init-cas
     init-artist-mode
