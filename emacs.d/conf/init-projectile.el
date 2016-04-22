@@ -9,6 +9,7 @@
 
 (global-set-key (kbd "C-x f") 'helm-projectile)
 (global-set-key (kbd "C-c p s a") 'helm-projectile-ack)
+(global-set-key (kbd "C-x B") 'helm-projectile-switch-to-buffer)
 
 (projectile-global-mode)
 
