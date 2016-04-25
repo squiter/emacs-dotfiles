@@ -15,7 +15,7 @@
 (global-set-key (kbd "C-x -") 'hsplit-last-buffer)
 (global-set-key (kbd "C-x |") 'vsplit-last-buffer)
 (global-set-key (kbd "C-x =") 'swap-buffers-in-windows)
-(global-set-key (kbd "C-x C-K") 'delete-current-buffer-file)
+(global-set-key (kbd "C-x C-S-k") 'delete-current-buffer-file)
 (global-set-key (kbd "C-x C-r") 'rename-current-buffer-file)
 (global-set-key (kbd "C-x !") 'sudo-edit)
 
