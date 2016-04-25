@@ -41,10 +41,10 @@
 (global-set-key (kbd "M-5") 'delete-window)
 
 ;; bookmark-bidings
-(global-set-key (kbd "C-, b s") 'bookmark-set)
-(global-set-key (kbd "C-, b l") 'bookmark-bmenu-list)
-(global-set-key (kbd "C-, b j") 'bookmark-jump)
-(global-set-key (kbd "C-, b o j") 'bookmark-jump-other-window)
+(global-set-key (kbd "s-b s") 'bookmark-set)
+(global-set-key (kbd "s-b l") 'bookmark-bmenu-list)
+(global-set-key (kbd "s-b j") 'bookmark-jump)
+(global-set-key (kbd "s-b o j") 'bookmark-jump-other-window)
 
 (global-unset-key (kbd "C-z"))
 
