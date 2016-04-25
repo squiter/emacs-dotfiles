@@ -21,9 +21,13 @@
 
 ;; Other prefix
 (global-set-key (kbd "C-h C-m") 'discover-my-major)
-(global-set-key (kbd "s-V") 'helm-show-kill-ring)
 (global-set-key (kbd "C-<return>") 'custom/insert-new-line)
 (global-set-key (kbd "C-a") 'custom/smart-move-beginning-of-line)
+
+;; Kill Ring
+;; TODO: Chose one of those keybinds
+(global-set-key (kbd "C-S-y") 'helm-show-kill-ring)
+(global-set-key (kbd "C-M-y") 'helm-show-kill-ring)
 
 ;; window and buffer manipulation
 (global-set-key (kbd "M-o") 'other-window)
