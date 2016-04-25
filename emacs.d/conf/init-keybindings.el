@@ -46,5 +46,27 @@
 
 (global-unset-key (kbd "C-z"))
 
+;;======================================================================;;
+;;======================  Package's Keybinds ===========================;;
+;;======================================================================;;
+
+;; avy
+(global-set-key (kbd "C-x a f") 'avy-goto-line)
+(global-set-key (kbd "C-x a w") 'avy-goto-word-1)
+(global-set-key (kbd "C-x a e") 'avy-goto-word-0)
+
+;; ace-window
+(global-set-key (kbd "C-x a W") 'ace-window)
+
+;; highlight-symbol
+(global-set-key [(super f3)] 'highlight-symbol)
+(global-set-key [f3] 'highlight-symbol-next)
+(global-set-key [(shift f3)] 'highlight-symbol-prev)
+(global-set-key [(meta f3)] 'highlight-symbol-query-replace)
+
+;; easy-kill
+(global-set-key [remap kill-ring-save] 'easy-kill)
+(global-set-key [remap mark-sexp] 'easy-mark)
+
 (provide 'init-keybindings)
 ;;; init-keybindings.el ends here

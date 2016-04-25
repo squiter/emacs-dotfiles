@@ -47,7 +47,6 @@
     init-mac-switch-meta
     init-smerge
     init-dired
-    init-highlight-symbol
     init-anzu
     init-sml
     init-helm
@@ -58,7 +57,6 @@
     init-rbenv
     init-ruby
     init-web-mode
-    init-easy-kill
     init-company
     init-gitgutter
     init-shell
@@ -73,7 +71,6 @@
     init-flycheck
     init-clojure
     init-restclient
-    init-avy
     init-yasnippet
     init-twittering-mode
     init-haskell
