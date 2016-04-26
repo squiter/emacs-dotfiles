@@ -54,6 +54,7 @@
     projectile
     projectile-rails
     rainbow-delimiters
+    rainbow-mode
     rbenv
     request
     restclient
