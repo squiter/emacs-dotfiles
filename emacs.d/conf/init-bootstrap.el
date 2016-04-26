@@ -75,6 +75,7 @@
     init-twittering-mode
     init-haskell
     init-which-key
+    init-markdown
     vkill
     init-cas
     init-artist-mode

@@ -46,6 +46,7 @@
     ido-vertical-mode
     indent-guide
     magit
+    markdown-mode+
     mutant
     neotree
     ob-restclient
