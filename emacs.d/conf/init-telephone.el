@@ -5,17 +5,19 @@
 (require 'telephone-line)
 
 (set-face-attribute 'telephone-line-accent-active nil
-                    :background "#8bc34a"
+                    :background "#076678"
                     :foreground "black"
                     :box nil)
 
 (set-face-attribute 'mode-line-inactive nil
                     :box nil
-                    :foreground "#8bc34a")
+                    :foreground "#076678"
+                    :background "#32302f")
 
 (set-face-attribute 'mode-line nil
                     :box '(:line-width -1 :style raised)
-                    :foreground "#8bc34a")
+                    :foreground "#076678"
+                    :background "#282828")
 
 (telephone-line-defsegment* rr/telephone-line-buffer-segment
   `("" mode-line-remote " "
