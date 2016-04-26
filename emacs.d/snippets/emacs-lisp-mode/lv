@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: Emacs Lisp Local Variables
+# keys: lv
+# --
+;; Local Variables:
+;; mode: ${1:emacs-lisp}
+;; End:
+$2
