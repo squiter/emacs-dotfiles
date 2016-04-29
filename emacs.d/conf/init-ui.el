@@ -5,7 +5,7 @@
 ;; theme options
 (add-to-list 'custom-theme-load-path (concat *emacsd-directory* "/themes"))
 (add-to-list 'load-path (concat *emacsd-directory* "/themes"))
-(load-theme 'gruvbox-dark t)
+(load-theme 'dracula t)
 
 (setq
  ;; better startup
