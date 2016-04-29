@@ -12,7 +12,7 @@
 (set-face-attribute 'mode-line-inactive nil
                     :box nil
                     :foreground "#6272a4"
-                    :background "#282a36")
+                    :background "#2b2f3a")
 
 (set-face-attribute 'mode-line nil
                     :box '(:line-width -1 :style raised)
