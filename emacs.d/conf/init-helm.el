@@ -11,7 +11,10 @@
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 
 (setq helm-quick-update t
-     helm-buffers-fuzzy-matching t)
+      helm-buffers-fuzzy-matching t
+      helm-buffer-max-length 25
+      helm-buffer-details-flag nil
+      helm-display-header-line nil)
 
 (defun bsl/filter-buffers (buffer-list)
   (delq nil (mapcar
