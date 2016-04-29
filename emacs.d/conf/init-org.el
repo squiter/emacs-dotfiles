@@ -14,7 +14,6 @@
 (require 'init-org-agenda-view)
 (require 'init-org-agenda-tunned)
 (require 'init-org-clock)
-(require 'init-org-mobile)
 (require 'init-org-projects)
 (require 'init-org-habit)
 (require 'init-org-crypt)
