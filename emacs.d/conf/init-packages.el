@@ -9,7 +9,7 @@
 (package-initialize)
 
 (add-to-list 'package-archives
-	     '("melpa" . "http://melpa.milkbox.net/packages/") t)
+             '("melpa" . "http://melpa.milkbox.net/packages/") t)
 
 (defvar my-packages
   '(
@@ -28,7 +28,6 @@
     dash-at-point
     dired+
     discover-my-major
-    dracula-theme
     easy-kill
     erc-hl-nicks
     erc-image

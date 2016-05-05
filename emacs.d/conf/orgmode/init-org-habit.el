@@ -39,13 +39,13 @@
   :tag "Org Habit"
   :group 'org-progress)
 
-(defcustom org-habit-graph-column 50
+(defcustom org-habit-graph-column 55
   "The absolute column at which to insert habit consistency graphs.
 Note that consistency graphs will overwrite anything else in the buffer."
   :group 'org-habit
   :type 'integer)
 
-(defcustom org-habit-preceding-days 21
+(defcustom org-habit-preceding-days 15
   "Number of days before today to appear in consistency graphs."
   :group 'org-habit
   :type 'integer)
