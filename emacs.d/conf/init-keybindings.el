@@ -68,5 +68,9 @@
 (global-set-key [remap kill-ring-save] 'easy-kill)
 (global-set-key [remap mark-sexp] 'easy-mark)
 
+;; sexp navigation
+(global-set-key [(super f)] 'sp-next-sexp)
+(global-set-key [(super b)] 'sp-previous-sexp)
+
 (provide 'init-keybindings)
 ;;; init-keybindings.el ends here
