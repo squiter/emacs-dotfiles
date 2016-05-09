@@ -50,7 +50,7 @@
     init-anzu
     init-sml
     init-helm
-    init-swipe-helm
+    init-swiper-helm
     init-magit
     init-projectile
     init-path

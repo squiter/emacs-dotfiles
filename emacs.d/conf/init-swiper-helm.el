@@ -1,4 +1,4 @@
-;;; init-swipe-helm.el --- My swipe-helm configurations
+;;; init-swipe-helm.el --- My swiper-helm configurations
 ;;
 ;; Copyright (C) 2015 Brunno dos Santos <emacs at brunno dot me>
 ;;
@@ -30,5 +30,5 @@
 (global-set-key (kbd "C-r") 'swiper)
 (global-set-key (kbd "C-c C-r") 'helm-resume)
 
-(provide 'init-swipe-helm)
-;;; init-swipe-helm.el ends here
+(provide 'init-swiper-helm)
+;;; init-swiper-helm.el ends here
