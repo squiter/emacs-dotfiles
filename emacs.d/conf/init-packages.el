@@ -61,6 +61,7 @@
     restclient
     rspec-mode
     rubocop
+    ruby-tools
     smartparens
     swiper-helm
     tagedit

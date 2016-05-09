@@ -3,6 +3,7 @@
 ;;; Code:
 
 (require 'rspec-mode)
+(require 'ruby-tools)
 
 ;; do not add encoding comment automatically
 (setq ruby-insert-encoding-magic-comment nil)

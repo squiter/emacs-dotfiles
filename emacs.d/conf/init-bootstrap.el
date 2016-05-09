@@ -79,7 +79,8 @@
     vkill
     init-cas
     init-artist-mode
-    init-erc))
+    init-erc
+    rcodetools))
 
 (defun safe-require (feature)
   "Safely requires FEATURE."
