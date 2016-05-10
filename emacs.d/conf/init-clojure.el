@@ -48,6 +48,9 @@
             (define-clojure-indent (fact 1))
             (define-clojure-indent (facts 1))))
 
+(eval-after-load 'clojure
+  (define-key clojure-mode-map (kbd "M-n n") 'clojure-insert-ns-form))
+
 ;;;;
 ;; Cider
 ;;;;
