@@ -98,7 +98,7 @@
    `(org-todo ((,class (:box (:line-width 1 :color ,fg3) :foreground ,keyword :bold t))))
    `(org-done ((,class (:box (:line-width 1 :color ,bg3) :bold t :foreground ,bg4))))
    `(org-warning ((,class (:underline t :foreground ,warning))))
-   `(org-agenda-structure ((,class (:weight bold :foreground ,fg3 :box (:color ,fg4) :background ,bg3))))
+   `(org-agenda-structure ((,class (:weight bold :foreground ,key3 :underline t))))
    `(org-agenda-date ((,class (:foreground ,var))))
    `(org-agenda-date-weekend ((,class (:weight normal :foreground ,fg4))))
    `(org-agenda-date-today ((,class (:weight bold :foreground ,keyword))))
