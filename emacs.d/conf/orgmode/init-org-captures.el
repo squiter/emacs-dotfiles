@@ -9,18 +9,16 @@
 (setq org-capture-templates
       (quote (("t" "todo" entry (file (path-join *user-org-cache-directory* "refile.org"))
                "* TODO %?\n%a\n%U" :clock-in t :clock-resume t)
-              ("r" "respond" entry (file (path-join *user-org-cache-directory* "refile.org"))
-               "* NEXT Respond to %:from on %:subject\nSCHEDULED: %t\n%U\n%a\n" :clock-in t :clock-resume t :immediate-finish t)
               ("n" "note" entry (file (path-join *user-org-cache-directory* "refile.org"))
                "* %? :NOTE:\n%U\n%a\n" :clock-in t :clock-resume t)
               ("j" "Journal" entry (file+datetree (path-join *user-org-cache-directory* "diary.org"))
                "* %?\n%U\n" :clock-in t :clock-resume t)
+              ("s" "Code Snippet" entry
+               (file (path-join *user-org-cache-directory* "snippets.org"))
+               ;; Prompt for tag and language
+               "* %? :NOTE:\t\n%U\n#+BEGIN_SRC %^{language}\n%c\n#+END_SRC")
               ("w" "org-protocol" entry (file (path-join *user-org-cache-directory* "refile.org"))
                "* TODO Review %c\n%U\n" :immediate-finish t)
-              ("m" "Meeting" entry (file (path-join *user-org-cache-directory* "refile.org"))
-               "* MEETING with %? :MEETING:\n%U" :clock-in t :clock-resume t)
-              ("p" "Phone call" entry (file (path-join "refile.org"))
-               "* PHONE %? :PHONE:\n%U" :clock-in t :clock-resume t)
               ("h" "Habit" entry (file (path-join *user-org-cache-directory* "refile.org"))
                "* NEXT %?\nSCHEDULED: %<<%Y-%m-%d %a .+1d/3d>>\n:PROPERTIES:\n:STYLE: habit\n:REPEAT_TO_STATE: NEXT\n:END:\n%U\n%a\n"))))
 
@@ -44,13 +42,13 @@
 ;;---------------------
 ;; http://www.windley.com/archives/2010/12/capture_mode_and_emacs.shtml
 (defadvice org-capture-finalize
-  (after delete-capture-frame activate)
+    (after delete-capture-frame activate)
   "Advise capture-finalize to close the frame"
   (if (equal "capture" (frame-parameter nil 'name))
       (delete-frame)))
 
 (defadvice org-capture-destroy
-  (after delete-capture-frame activate)
+    (after delete-capture-frame activate)
   "Advise capture-destroy to close the frame"
   (if (equal "capture" (frame-parameter nil 'name))
       (delete-frame)))
@@ -60,7 +58,7 @@
 (add-hook 'org-capture-mode-hook 'delete-other-windows)
 
 (defadvice org-switch-to-buffer-other-window
-  (after supress-window-splitting activate)
+    (after supress-window-splitting activate)
   "Delete the extra window if we're in a capture frame"
   (if (equal "capture" (frame-parameter nil 'name))
       (delete-other-windows)
