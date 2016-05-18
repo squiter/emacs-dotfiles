@@ -20,16 +20,16 @@
 
 ;; auto modes
 (dolist (fp '("\\.rb$"
-	      "\\.ru$"
+              "\\.ru$"
               "\\.rake"
-	      "\\.jbuilder$"
-	      "\\.gemspec$"
-	      "\\GuardFile$"
-	      "\\Rakefile$"
-	      "\\Vagrantfile$"
-	      "\\Gemfile$"
-	      "\\Godfile$"
-	      "\\.god$"))
+              "\\.jbuilder$"
+              "\\.gemspec$"
+              "\\GuardFile$"
+              "\\Rakefile$"
+              "\\Vagrantfile$"
+              "\\Gemfile$"
+              "\\Godfile$"
+              "\\.god$"))
   (add-to-list 'auto-mode-alist `(,fp . ruby-mode)))
 
 ;; mutant
@@ -92,7 +92,9 @@
      (define-key ruby-mode-map (kbd "C-, b o") 'bundle-open)
      (define-key ruby-mode-map (kbd "C-, b c") 'bundle-console)
      (define-key ruby-mode-map (kbd "C-c v") 'custom/vcr-toggle)
-     (define-key ruby-mode-map (kbd "C-c m") 'mutant-check-file)))
+     (define-key ruby-mode-map (kbd "C-c m") 'mutant-check-file)
+     (define-key ruby-mode-map (kbd "M-n s") 'projectile-rails-server)
+     (define-key ruby-mode-map (kbd "M-n c") 'projectile-rails-console)))
 
 ;; -- GODAMMIT RUBY INDENTATION!!! --
 ;; don't indent parenthesis in a weird way
