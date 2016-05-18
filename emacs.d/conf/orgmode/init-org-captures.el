@@ -12,7 +12,7 @@
               ("n" "note" entry (file (path-join *user-org-cache-directory* "refile.org"))
                "* %? :NOTE:\n%U\n%a\n" :clock-in t :clock-resume t)
               ("j" "Journal" entry (file+datetree (path-join *user-org-cache-directory* "diary.org"))
-               "* %?\n%U\n" :clock-in t :clock-resume t)
+               "* %?\n%(oc/inc \"Things that I learned\" \"** Three things that I learn today\n\")" :clock-in t :clock-resume t)
               ("s" "Code Snippet" entry
                (file (path-join *user-org-cache-directory* "snippets.org"))
                ;; Prompt for tag and language
@@ -31,6 +31,20 @@
 
 (add-hook 'org-clock-out-hook 'bh/remove-empty-drawer-on-clock-out 'append)
 
+;; http://storax.github.io/blog/2016/05/02/org-capture-tricks/
+;; Use user input in severall locations
+(defvar oc-capture-prmt-history nil
+  "History of prompt answers for org capture.")
+(defun oc/prmt (prompt variable)
+  "PROMPT for string, save it to VARIABLE and insert it."
+  (make-local-variable variable)
+  (set variable (read-string (concat prompt ": ") nil oc-capture-prmt-history)))
+
+;; Conditionally insert text
+(defun oc/inc (what text &rest fmtvars)
+  "Ask user to include WHAT.  If user agrees return TEXT."
+  (when (y-or-n-p (concat "Include " what "?"))
+    (apply 'format text fmtvars)))
 
 ;; Thanks for @pashini : https://github.com/pashinin/emacsd/blob/master/elisp/init-org-capture.el
 ;; Org - Capture
