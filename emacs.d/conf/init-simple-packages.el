@@ -34,5 +34,8 @@
 ;; rainbow-delimiters
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 
+;; require vmd-mode
+(require 'vmd-mode)
+
 (provide 'init-simple-packages)
 ;;; init-simple-packages.el ends here

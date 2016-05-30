@@ -80,6 +80,7 @@
     init-cas
     init-artist-mode
     init-erc
+    vmd-mode
     rcodetools))
 
 (defun safe-require (feature)
@@ -87,7 +88,7 @@
   (condition-case ex
       (require feature)
     ('error (add-to-list 'rr/initialization-errors
-			 (format "[ERROR LOADING \"%s\"]: %s" (symbol-name feature) ex)))))
+                         (format "[ERROR LOADING \"%s\"]: %s" (symbol-name feature) ex)))))
 
 (defun rr/safe-load-init-files ()
   "This function wrap the require method to capture error messages."
