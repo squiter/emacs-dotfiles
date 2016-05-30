@@ -51,6 +51,7 @@
     neotree
     ob-restclient
     org-bullets
+    ox-twbs
     pass
     projectile
     projectile-rails
