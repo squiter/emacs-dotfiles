@@ -45,7 +45,7 @@
 (global-set-key (kbd "s-b o j") 'bookmark-jump-other-window)
 
 (global-unset-key (kbd "C-z"))
-(global-unset-key (kbd "C-d"))
+(global-unset-key (kbd "C-x C-z"))
 
 ;;======================================================================;;
 ;;======================  Package's Keybinds ===========================;;
