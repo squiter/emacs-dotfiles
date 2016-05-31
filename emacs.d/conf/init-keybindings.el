@@ -3,26 +3,28 @@
 ;;  This file doesn't contain specific mode keybindings
 ;;; Code:
 
-;; C-c prefix
+;; init-edit-custom-functions.el keybinds:
+(global-set-key (kbd "C-<return>") 'custom/insert-new-line)
+(global-set-key (kbd "C-a") 'custom/smart-move-beginning-of-line)
 (global-set-key (kbd "C-c d") 'custom/duplicate-current-line-or-region)
+(global-set-key (kbd "C-c M-w") 'custom/copy-line)
+(global-set-key (kbd "C-S-<backspace>") 'custom/kill-line)
+(global-set-key (kbd "C-c j") 'custom/join-line)
 (global-set-key (kbd "C-c /") 'custom/toggle-line-comment)
-(global-set-key (kbd "C-c j") 'join-line)
+(global-set-key (kbd "C-c C-y") 'custom/yank-and-indent)
+(global-set-key (kbd "C-c M-c") 'custom/chomp)
+(global-set-key (kbd "M-<up>") 'move-line-up)
+(global-set-key (kbd "M-<down>") 'move-line-down)
+
+;; miscellaneous
 (global-set-key (kbd "C-c w") 'whitespace-cleanup)
 (global-set-key (kbd "C-c i") 'indent-buffer)
 (global-set-key (kbd "C-c e") 'eval-buffer)
 
-;; C-x prefix
-(global-set-key (kbd "C-x -") 'hsplit-last-buffer)
-(global-set-key (kbd "C-x |") 'vsplit-last-buffer)
-(global-set-key (kbd "C-x =") 'swap-buffers-in-windows)
+;; buffer/file edits
 (global-set-key (kbd "C-x C-S-k") 'delete-current-buffer-file)
 (global-set-key (kbd "C-x C-r") 'rename-current-buffer-file)
 (global-set-key (kbd "C-x !") 'sudo-edit)
-
-;; Other prefix
-(global-set-key (kbd "C-h C-m") 'discover-my-major)
-(global-set-key (kbd "C-<return>") 'custom/insert-new-line)
-(global-set-key (kbd "C-a") 'custom/smart-move-beginning-of-line)
 
 ;; Kill Ring
 ;; TODO: Chose one of those keybinds
@@ -30,6 +32,9 @@
 (global-set-key (kbd "C-M-y") 'helm-show-kill-ring)
 
 ;; window and buffer manipulation
+(global-set-key (kbd "C-x |") 'vsplit-last-buffer)
+(global-set-key (kbd "C-x -") 'hsplit-last-buffer)
+(global-set-key (kbd "C-x =") 'swap-buffers-in-windows)
 (global-set-key (kbd "M-o") 'other-window)
 (global-set-key (kbd "M-i") 'other-frame)
 (global-set-key (kbd "M-0") 'delete-window)
@@ -44,6 +49,7 @@
 (global-set-key (kbd "s-b j") 'bookmark-jump)
 (global-set-key (kbd "s-b o j") 'bookmark-jump-other-window)
 
+;; unseted keybinds
 (global-unset-key (kbd "C-z"))
 (global-unset-key (kbd "C-x C-z"))
 
@@ -72,6 +78,9 @@
 ;; sexp navigation
 (global-set-key [(super f)] 'sp-next-sexp)
 (global-set-key [(super b)] 'sp-previous-sexp)
+
+;; discover my major
+(global-set-key (kbd "C-h C-m") 'discover-my-major)
 
 (provide 'init-keybindings)
 ;;; init-keybindings.el ends here

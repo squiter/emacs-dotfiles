@@ -42,6 +42,7 @@
     init-packages
     init-general
     init-custom-functions
+    init-edit-custom-functions
     init-ui
     init-keybindings
     init-mac-switch-meta
