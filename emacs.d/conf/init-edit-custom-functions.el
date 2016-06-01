@@ -22,8 +22,8 @@
 ;;
 ;;; Commentary:
 ;;
-;; This code was copied from Pedro Lambert's Emacs dotfiles.  You can
-;; found original source code at:
+;; Most of this code was copied from Pedro Lambert's Emacs dotfiles.
+;; You can found original source code at:
 ;; https://github.com/p-lambert/emacs-dotfiles/blob/master/lisp/init-edit-defuns.el
 
 ;;; Code:
@@ -86,15 +86,15 @@
   "Evaluate BODY provinding BEG, END and NUM-LINES bindings, which represents
 regions's beginning, ending and extension in lines."
   `(save-excursion
-    (let (beg end num-lines)
-      (if (and mark-active (> (point) (mark)))
-          (exchange-point-and-mark))
-      (setq beg (line-beginning-position))
-      (if mark-active
-          (exchange-point-and-mark))
-      (setq end (line-end-position))
-      (setq num-lines (max 1 (count-lines beg end)))
-      ,@body)))
+     (let (beg end num-lines)
+       (if (and mark-active (> (point) (mark)))
+           (exchange-point-and-mark))
+       (setq beg (line-beginning-position))
+       (if mark-active
+           (exchange-point-and-mark))
+       (setq end (line-end-position))
+       (setq num-lines (max 1 (count-lines beg end)))
+       ,@body)))
 
 (defun custom/yank-and-indent ()
   "Indent and then indent newly formed region."
@@ -115,6 +115,16 @@ regions's beginning, ending and extension in lines."
   "Move the current line down by N lines."
   (interactive "p")
   (move-line (if (null n) 1 n)))
+
+(defun endless/fill-or-unfill ()
+  "Like `fill-paragraph', but unfill if used twice."
+  (interactive)
+  (let ((fill-column
+         (if (eq last-command 'endless/fill-or-unfill)
+             (progn (setq this-command nil)
+                    (point-max))
+           fill-column)))
+    (call-interactively #'fill-paragraph)))
 
 (provide 'init-edit-custom-functions)
 ;;; init-edit-custom-functions.el ends here

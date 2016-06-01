@@ -5,16 +5,18 @@
 
 ;; init-edit-custom-functions.el keybinds:
 (global-set-key (kbd "C-<return>") 'custom/insert-new-line)
-(global-set-key (kbd "C-a") 'custom/smart-move-beginning-of-line)
+(global-set-key [remap move-beginning-of-line]
+                #'custom/smart-move-beginning-of-line)
 (global-set-key (kbd "C-c d") 'custom/duplicate-current-line-or-region)
 (global-set-key (kbd "C-c M-w") 'custom/copy-line)
-(global-set-key (kbd "C-S-<backspace>") 'custom/kill-line)
+(global-set-key [remap kill-whole-line] #'custom/kill-line)
 (global-set-key (kbd "C-c j") 'custom/join-line)
 (global-set-key (kbd "C-c /") 'custom/toggle-line-comment)
 (global-set-key (kbd "C-c C-y") 'custom/yank-and-indent)
 (global-set-key (kbd "C-c M-c") 'custom/chomp)
 (global-set-key (kbd "M-<up>") 'move-line-up)
 (global-set-key (kbd "M-<down>") 'move-line-down)
+(global-set-key [remap fill-paragraph] #'endless/fill-or-unfill)
 
 ;; miscellaneous
 (global-set-key (kbd "C-c w") 'whitespace-cleanup)
