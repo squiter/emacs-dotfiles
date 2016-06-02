@@ -1,7 +1,34 @@
+;;; init-org-keybinds.el --- Keybinds definition for orgmode
+;;
+;; Copyright (C) 2015 Brunno dos Santos <emacs at brunno dot me>
+;;
+;; Author: Brunno dos Santos @squiter
+;; URL: http://github.com/squiter/emacs-dotfiles
+;;
+;; This file is NOT part of GNU Emacs.
+;;
+;; This program is free software: you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation, either version 3 of the License, or
+;; (at your option) any later version.
+;;
+;; This program is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+;;
+;; See <http://www.gnu.org/licenses/> for a copy of the GNU General
+;; Public License.
+;;
+;;; Commentary:
+;;
+
+;;; Code:
+
 ;; Standard key bindings
-(global-set-key "\C-cl" 'org-store-link)
-(global-set-key "\C-ca" 'org-agenda)
-(global-set-key "\C-cb" 'org-iswitchb)
+(global-set-key (kbd "C-c l") 'org-store-link)
+(global-set-key (kbd "C-c a") 'org-agenda)
+(global-set-key (kbd "C-c b") 'org-iswitchb)
 
 ;; Custom Key Bindings
 (global-set-key (kbd "<f12>") 'org-agenda)
@@ -11,7 +38,6 @@
 (global-set-key (kbd "<f8>") 'org-cycle-agenda-files)
 
 (global-set-key (kbd "<f9> <f9>") 'bh/show-org-agenda)
-(global-set-key (kbd "<f9> b") 'bbdb)
 (global-set-key (kbd "<f9> c") 'calendar)
 (global-set-key (kbd "<f9> h") 'bh/hide-other)
 (global-set-key (kbd "<f9> n") 'bh/toggle-next-task-display)
@@ -35,3 +61,4 @@
 (global-set-key (kbd "<s-return>") 'org-agenda-open-link)
 
 (provide 'init-org-keybinds)
+;;; init-org-keybinds.el ends here
