@@ -64,15 +64,15 @@
             "\\`.+bitbucket\\.org:\\(.+\\)\\.git\\'" "\\1"
             repo))))
 
-;; TODO: make the target_branch be interactive
 (defun visit-lw-pull-request (repo)
   (browse-url
    (format "https://code.locaweb.com.br/%s/merge_requests/new%s"
            (replace-regexp-in-string
             "\\`.+code\\.locaweb\\.com\\.br:\\(.+\\)\\.git\\'" "\\1"
             repo)
-           (format "?merge_request[source_branch]=%s&merge_request[target_branch]=master"
-                   (magit-get-current-branch)))))
+           (format "?merge_request[source_branch]=%s&merge_request[target_branch]=%s"
+                   (magit-get-current-branch)
+                   (magit-read-branch "Choose your destiny branch: ")))))
 
 ;; visit PR for github or bitbucket repositories with "v"
 (eval-after-load 'magit
