@@ -4,7 +4,7 @@
 # --
 ;;; ${1:file-name}.el --- ${2:Description}
 ;;
-;; Copyright (C) 2015 Brunno dos Santos <emacs at brunno dot me>
+;; Copyright (C) 2016 Brunno dos Santos <emacs at brunno dot me>
 ;;
 ;; Author: Brunno dos Santos @squiter
 ${3:;; URL: ${4:http://github.com/squiter/${5:repository}}}
