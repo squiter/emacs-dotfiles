@@ -60,10 +60,7 @@
                             ("WORK" . ?W)
                             (:endgroup)
                             (:startgroup) ;; note type
-                            ("ERROR" . ?e)
-                            ("FACT" . ?f)
                             ("IDEA" . ?i)
-                            ("QUESTION" . ?q)
                             (:endgroup)
                             ("WAITING" . ?w)
                             ("HOLD" . ?h)
