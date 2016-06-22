@@ -48,7 +48,6 @@
 (require 'init-org-babel)
 (require 'init-org-alfred)
 (require 'init-org-bullets)
-(require 'org-drill)
 (require 'helm-org-rifle)
 
 (setq org-ellipsis "⤵")
