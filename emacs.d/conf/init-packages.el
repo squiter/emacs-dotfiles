@@ -28,6 +28,7 @@
     dash-at-point
     dired+
     discover-my-major
+    docker
     easy-kill
     erc-hl-nicks
     erc-image
