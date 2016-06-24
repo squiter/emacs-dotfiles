@@ -61,6 +61,7 @@
     rbenv
     request
     restclient
+    rhtml-mode
     rspec-mode
     rubocop
     ruby-tools
