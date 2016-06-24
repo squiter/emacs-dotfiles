@@ -235,6 +235,17 @@ Skip project and sub-project tasks, habits, and loose non-project tasks."
        (t
         nil)))))
 
+(defun squiter/skip-habits ()
+  "Skip tasks that are habits"
+  (save-restriction
+    (widen)
+    (let ((subtree-end (save-excursion (org-end-of-subtree t))))
+      (cond
+       ((org-is-habit-p)
+        subtree-end)
+       (t
+        nil)))))
+
 (defun bh/skip-non-subprojects ()
   "Skip trees that are not projects"
   (let ((next-headline (save-excursion (outline-next-heading))))
