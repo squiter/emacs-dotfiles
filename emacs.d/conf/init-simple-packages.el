@@ -7,6 +7,9 @@
 ;; Requiring Apel alist
 (require 'alist)
 
+;; anzu
+(global-anzu-mode +1)
+
 ;; Indent-guide
 (indent-guide-global-mode)
 

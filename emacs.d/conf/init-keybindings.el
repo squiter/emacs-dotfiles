@@ -59,6 +59,12 @@
 ;;======================  Package's Keybinds ===========================;;
 ;;======================================================================;;
 
+;; anzu
+(global-set-key (kbd "M-%") 'anzu-query-replace)
+(global-set-key (kbd "C-M-%") 'anzu-query-replace-regexp)
+(global-set-key (kbd "s-%") 'anzu-query-replace-at-cursor)
+(global-set-key (kbd "C-%") 'anzu-replace-at-cursor-thing)
+
 ;; avy
 (global-set-key (kbd "C-x a f") 'avy-goto-line)
 (global-set-key (kbd "C-x a w") 'avy-goto-word-1)
