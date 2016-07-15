@@ -90,5 +90,10 @@
 ;; discover my major
 (global-set-key (kbd "C-h C-m") 'discover-my-major)
 
+;; swiper
+(global-set-key (kbd "C-s") 'swiper)
+(global-set-key (kbd "C-r") 'swiper)
+(global-set-key (kbd "C-c C-r") 'helm-resume)
+
 (provide 'init-keybindings)
 ;;; init-keybindings.el ends here
