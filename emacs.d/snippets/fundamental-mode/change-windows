@@ -1,0 +1,99 @@
+# -*- mode: snippet -*-
+# name: Locaweb Changes for Windows Template
+# keys: chg-windows
+# --
+1. Quando será o deploy? Qual é o tempo estimado de execução da CHG?
+
+${1:para programar a data da CHG. Combinar uma reunião entre o time de PaaS e CT-Windows para acertar ordem e paralelismo
+lembrar que há o tempo de deploy, como testes da CHG. Considerar todos estes aspectos
+
+    08/07/2013 a combinar o horário.
+    Tempo estimado (deploy do pacote, global.asa, LVS, testes e aceite) de 40 minutos.
+}
+
+2. Qual é o motivo da CHG? Qual é o release notes?
+
+${2:para documentarmos e sabermos por que é necessário uma atualização em produção. Afinal, o que será atualizado?
+
+    Detalhar as funcionalidades que serão liberadas:
+        Feature para controle de blabla.
+        Correção do PRBXXXXX.
+    Explicar qual é o impacto sobre o negócio.
+        Principalmente para a gestão levar na reunião do CAB nas sextas-feiras.
+}
+
+3. Qual é a URL da app em produção?
+
+para o sysadmin achar o LVS e as máquinas / ICI's afetados, bem como as versões atuais da app em produção
+
+${3:scriptsinternos: http://scriptsinternos.locaweb.com.br}
+
+4. Há mudanças em configs (atualização ou novos)? É necessário alterar o global.asa?
+
+para refletir mudanças de configs em prod no global.asa
+
+${4:    Revisar o arquivo global.asa (ex.: scriptsinternos) para não sobrescrever as configurações de produção na pasta da aplicação (ex.: e:\home\scriptsinternos\web\global.asa);
+    Descrever cada alteração desse arquivo no corpo da CHG manualmente:
+
+    Application("sUrlMailController") = "http://mail.api.systemintegration.locaweb.com.br"
+      Application("ServidorSMTPLocaWeb") = "herman0001.email.locaweb.com.br"
+      Application("ssl") = "https:\\siteseguro.systemintegration.locaweb.com.br"
+      Application("ConsultaDns") = "http://200.234.203.5"
+      Application("PaginaInicial") = "/"
+
+    IMPORTANTE:
+        para não indisponibilizar o ambiente, prestar atenção na sintaxe desse arquivo
+}
+
+5. Há novas integrações com outras apps (ou serviços)? Se sim, quais os endereços destas novas apps?
+
+${5:    solicitar as devidas liberações de rede, se necessário. CUIDADO COM PRAZOS! ANTECIPE ESSAS VALIDAÇÕES PARA NÃO GERAR ROLLBACK OU INVIABILIZAR A EXECUÇÃO DA CHG
+    efetuar a liberação de IP no IIS
+
+Sim:
+
+    hosting-services.hospedagem.locaweb.com.br consumindo scriptsinternos.locaweb.com.br portas 80 e 443
+    scriptsinternos.locaweb.com.br consumindo hosting-services.hospedagem.locaweb.com.br portas 80 e 443
+}
+
+6. Instalação do pacote
+
+${6:A instalação é executada manualmente pelo sysadmin de ct-windows
+
+C:> faz um backup dos arquivos de produção
+C:> faz um backup do global.asa
+C:> efetua as alterações necessárias no global.asa
+C:> descompacta o pacote
+C:> atualiza os arquivos conforme a estrutura de pastas
+C:> reinicia se necessário
+}
+
+7. Qual é o procedimento de rollback?
+
+${7:Utiliza o backup do pacote conforme passo anterior
+Utiliza o backup do global.asa}
+
+8. Qual é o test plan e quem irá executá-lo? Se for o sysadmin, detalhar.
+
+${8:Teste Isolado
+
+    executar os scripts de monitoramento de CT-Windows (Ex.: msxml.asp)
+    executar um script de teste que valide as novas funcionalidades, integrações e dependências para garantir condições mínimas para o teste de aceitação
+
+Teste de Aceitação
+
+explicar com mais detalhes quando outros forem testar, com menos detalhes quando a própria pessoa for validar
+
+    O João da Silva irá acompanhar o deploy e executar os testes das apps.
+        Descrever os passos dos testes
+        propostos. Sempre tentar
+        testar sobre uma máquina
+        fora do LVS para validar
+        separadamente do ambiente
+        de produção. Após validação,
+        Colocar a máquina em rota,
+        e validar a segunda máquina
+        separadamente. No final,
+        colocar todas em rota.
+
+    Se o sysadmin for executar os testes, alinhar com ele e listar com muitos detalhes os passos desejados.}
