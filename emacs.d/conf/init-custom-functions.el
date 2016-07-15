@@ -15,12 +15,6 @@
       (setq end (line-end-position))
       (cons beg end))))
 
-;; Indent all buffer
-(defun indent-buffer ()
-  "Indent the currently visited buffer."
-  (interactive)
-  (indent-region (point-min) (point-max)))
-
 (defun hsplit-last-buffer ()
   "Ex: | Vertically split window showing last buffer."
   (interactive)
@@ -45,7 +39,6 @@
     (set-window-buffer other this-buffer)
     (set-window-buffer this other-buffer)))
 
-"Stackoverflow functions :)"
 (defun switch-fullscreen nil
   (interactive)
   (let* ((modes '(nil fullboth fullwidth fullheight))
@@ -85,20 +78,6 @@
           (message "File '%s' successfully renamed to '%s'"
                    name (file-name-nondirectory new-name)))))))
 
-(defun camelcase-to-snakecase ()
-  "un-camelcase the word at point, replacing uppercase chars with
-the lowercase version preceded by an underscore.
-
-The first char, if capitalized (eg, PascalCase) is just
-downcased, no preceding underscore.
-"
-  (interactive)
-  (save-excursion
-    (let ((bounds (bounds-of-thing-at-point 'word)))
-      (replace-regexp "\\([A-Z]\\)" "_\\1" nil
-                      (1+ (car bounds)) (cdr bounds))
-      (downcase-region (car bounds) (cdr bounds)))))
-
 (defun toggle-window-split ()
   "Toggle h to v or v to h splits."
   (interactive)
@@ -136,22 +115,6 @@ buffer is not visiting a file."
       (find-file (concat "/sudo:root@localhost:"
                          (ido-read-file-name "Find file(as root): ")))
     (find-alternate-file (concat "/sudo:root@localhost:" buffer-file-name))))
-
-(defun remove-duplicate-lines
-    (replace-regexp "\\([^\n]+\n\\)\\1+" "\\1"))
-
-(defun move-line (n)
-  "Move the current line up or down by N lines."
-  (interactive "p")
-  (setq col (current-column))
-  (beginning-of-line) (setq start (point))
-  (end-of-line) (forward-char) (setq end (point))
-  (let ((line-text (delete-and-extract-region start end)))
-    (forward-line n)
-    (insert line-text)
-    ;; restore point to original column in moved line
-    (forward-line -1)
-    (forward-char col)))
 
 (provide 'init-custom-functions)
 ;;; init-custom-functions.el ends here
