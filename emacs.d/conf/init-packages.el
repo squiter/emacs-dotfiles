@@ -30,8 +30,6 @@
     discover-my-major
     docker
     easy-kill
-    erc-hl-nicks
-    erc-image
     expand-region
     flycheck
     frame-cmds

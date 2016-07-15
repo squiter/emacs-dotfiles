@@ -80,7 +80,6 @@
     vkill
     init-cas
     init-artist-mode
-    init-erc
     init-git-pr
     vmd-mode
     rcodetools))
