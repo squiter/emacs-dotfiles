@@ -48,7 +48,6 @@
     init-mac-switch-meta
     init-smerge
     init-dired
-    init-anzu
     init-sml
     init-helm
     init-magit
