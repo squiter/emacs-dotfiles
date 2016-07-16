@@ -45,12 +45,14 @@
   "Visit the current branch's PR on Github/Bitbucker/Gitlab."
   (interactive)
   (let ((repo (magit-get "remote" (magit-get-remote) "url")))
-    (cond ((string-match "github\\.com" repo)
-           (squiter/visit-gh-pull-request repo))
-          ((string-match "bitbucket\\.org" repo)
-           (squiter/visit-bb-pull-request repo))
-          (t
-           (squiter/visit-gl-pull-request repo)))))
+    (if (eq repo nil)
+        (message "You need to set an upstream to your branch.")
+      (cond ((string-match "github\\.com" repo)
+             (squiter/visit-gh-pull-request repo))
+            ((string-match "bitbucket\\.org" repo)
+             (squiter/visit-bb-pull-request repo))
+            (t
+             (squiter/visit-gl-pull-request repo))))))
 
 ;; TODO: check why this functions is not working
 (defun squiter/visit-gh-pull-request (repo)
