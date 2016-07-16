@@ -41,7 +41,7 @@
     helm-org-rifle
     helm-projectile
     highlight
-    highlight-symbol
+    hl-anything
     ido-vertical-mode
     indent-guide
     magit
