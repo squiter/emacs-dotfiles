@@ -11,5 +11,10 @@
 (add-hook 'term-mode-hook (lambda()
                             (yas-minor-mode -1)))
 
+;; always load fundamental-mode as a global snippet mode
+(add-hook 'yas-minor-mode-hook
+          (lambda ()
+            (yas-activate-extra-mode 'fundamental-mode)))
+
 (provide 'init-yasnippet)
 ;;; init-yasnippet.el ends here
