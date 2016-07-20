@@ -1,0 +1,45 @@
+# -*- mode: snippet -*-
+# name: Locaweb Changes for Windows Template
+# keys: chg-linux
+# --
+Qual o nome do produto?
+${1:Hosting Services}
+
+0. É uma nova aplicação ou nova feature?
+${2:Correção de bug.}
+
+1. Quando será o deploy? Qual é o tempo estimado de execução da CHG?
+${3:14/07/2016, 19:00h}
+Essa change tem uma duração de ${4:30 minutos}.
+
+2. Qual é o motivo da Change? Qual é o release notes?
+${5:- Bloquear a instalação de bancos em sites que não estão ativos no SAP.}
+
+3. Qual é o nome do pacote? Qual a versão stable?
+${6:hosting-services 2.7.0}
+
+4. Qual é a URL da aplicação em produção?
+${7:https://hosting-services.hospedagem.locaweb.com.br}
+
+5. Há mudanças em configs (atualização ou novos)? É necessário alterar o CF?
+${8:Não.}
+
+6. Há novas integrações com outras apps (ou serviços)? Se sim, quais os endereços destas novas apps?
+${9:Não.}
+
+7. Deploy
+${10:- Atualizar o pacote da app.}
+
+8. Qual é o procedimento de rollback?
+${11:- Reinstalar a versão anterior do pacote.}
+
+9. Qual é o test plan e quem irá executá-lo?
+${12:Fernando Santos} vai acompanhar.
+​
+${13:- Tentar instalar um banco (pela aba de bancos direto e pelo site) em um site que não está ativo no SAP e confirmar que não é permitido.}
+
+10. A monitoração através da URL https://APLICACAO/monitoring está implementada? Ela será alterada?
+${14:Sim, não.}
+
+11. A monitoração funcional está implantada? Ela será alterada? Algum novo item na monitoração?
+${15:Sim, não, não.}
