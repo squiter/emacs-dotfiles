@@ -38,9 +38,6 @@
 ;; enable y/n answers
 (fset 'yes-or-no-p 'y-or-n-p)
 
-;; open emacs maximized
-(add-to-list 'default-frame-alist '(fullscreen . maximized))
-
 ;; Transparency
 (set-frame-parameter (selected-frame) 'alpha '(99 99))
 (add-to-list 'default-frame-alist '(alpha 98 98))
