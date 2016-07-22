@@ -29,6 +29,9 @@
               ("MEETING" :foreground "forest green" :weight bold)
               ("PHONE" :foreground "forest green" :weight bold))))
 
+;; tracking when a task was marked as DONE
+(setq org-log-done 'time)
+
 ;; To set a TODO status faster
 (setq org-use-fast-todo-selection t)
 
