@@ -64,6 +64,7 @@
     rubocop
     ruby-tools
     smartparens
+    sml-mode
     swiper-helm
     tagedit
     telephone-line
