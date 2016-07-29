@@ -44,6 +44,7 @@
     hl-anything
     ido-vertical-mode
     indent-guide
+    langtool
     magit
     markdown-mode+
     mutant

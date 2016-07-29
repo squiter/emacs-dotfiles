@@ -94,5 +94,14 @@
 (global-set-key (kbd "C-r") 'swiper)
 (global-set-key (kbd "C-c C-r") 'helm-resume)
 
+;; language tools
+;; I'm overwriting (count-lines-page) keybind!
+(global-unset-key (kbd "C-x l"))
+(global-set-key (kbd "C-x l c") 'langtool-check)
+(global-set-key (kbd "C-x l d") 'langtool-check-done)
+(global-set-key (kbd "C-x l s") 'langtool-switch-default-language)
+(global-set-key (kbd "C-x l m") 'langtool-show-message-at-point)
+(global-set-key (kbd "C-x l b") 'langtool-correct-buffer)
+
 (provide 'init-keybindings)
 ;;; init-keybindings.el ends here

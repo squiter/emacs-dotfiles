@@ -79,6 +79,7 @@
     init-cas
     init-artist-mode
     init-git-pr
+    init-langtool
     vmd-mode
     rcodetools))
 
