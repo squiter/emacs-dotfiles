@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: Header for org files
+# keys: header
+# --
+#+TITLE: $1
+#+AUTHOR: ${2:Brunno dos Santos}
+#+CREATED: `(let ((x (org-insert-time-stamp nil t t ))))`
+
+* $1$3
