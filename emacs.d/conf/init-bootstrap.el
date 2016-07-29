@@ -80,6 +80,7 @@
     init-artist-mode
     init-git-pr
     init-langtool
+    init-google
     vmd-mode
     rcodetools))
 

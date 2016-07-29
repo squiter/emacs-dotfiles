@@ -35,6 +35,8 @@
     frame-cmds
     git-gutter
     git-timemachine
+    google-this
+    google-translate
     haskell-mode
     helm
     helm-ag

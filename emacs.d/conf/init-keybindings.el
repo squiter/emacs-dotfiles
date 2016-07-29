@@ -103,5 +103,9 @@
 (global-set-key (kbd "C-x l m") 'langtool-show-message-at-point)
 (global-set-key (kbd "C-x l b") 'langtool-correct-buffer)
 
+;; google-this and google-translate
+(global-set-key (kbd "C-x g") 'google-this-mode-submap)
+(global-set-key [remap google-this] 'google-translate-smooth-translate)
+
 (provide 'init-keybindings)
 ;;; init-keybindings.el ends here
