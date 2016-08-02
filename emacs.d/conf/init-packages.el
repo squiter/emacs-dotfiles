@@ -52,6 +52,7 @@
     mutant
     neotree
     ob-restclient
+    ob-sml
     org-bullets
     ox-twbs
     pass

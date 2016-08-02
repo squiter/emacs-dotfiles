@@ -22,6 +22,7 @@
    (org . t)
    (latex . t)
    (sql . t)
+   (sml . t)
    (restclient . t)))
 
 (provide 'init-org-babel)
