@@ -92,6 +92,7 @@
 ;; swiper
 (global-set-key (kbd "C-s") 'swiper)
 (global-set-key (kbd "C-r") 'swiper)
+(global-set-key (kbd "C-c u") 'swiper-all)
 (global-set-key (kbd "C-c C-r") 'helm-resume)
 
 ;; language tools
