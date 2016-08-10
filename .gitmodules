@@ -1,0 +1,3 @@
+[submodule "emacs-livedown"]
+	path = emacs.d/vendor/emacs-livedown
+	url = https://github.com/shime/emacs-livedown.git

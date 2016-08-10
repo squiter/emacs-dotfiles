@@ -82,6 +82,7 @@
     init-langtool
     init-google
     vmd-mode
+    init-emacs-livedown
     rcodetools))
 
 (defun safe-require (feature)

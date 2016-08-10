@@ -108,5 +108,8 @@
 (global-set-key (kbd "C-x g") 'google-this-mode-submap)
 (global-set-key [remap google-this] 'google-translate-smooth-translate)
 
+;; emacs-livedown
+(global-set-key (kbd "C-M m") 'livedown:preview)
+
 (provide 'init-keybindings)
 ;;; init-keybindings.el ends here
