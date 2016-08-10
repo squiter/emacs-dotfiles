@@ -73,6 +73,7 @@
     tagedit
     telephone-line
     twittering-mode
+    undo-tree
     wakatime-mode
     web-mode
     which-key

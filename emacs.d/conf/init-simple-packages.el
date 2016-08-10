@@ -40,5 +40,8 @@
 ;; require vmd-mode
 (require 'vmd-mode)
 
+;; turn on undo-tree everywhere
+(global-undo-tree-mode 1)
+
 (provide 'init-simple-packages)
 ;;; init-simple-packages.el ends here

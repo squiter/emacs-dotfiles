@@ -52,7 +52,6 @@
 (global-set-key (kbd "M-n b o") 'bookmark-jump-other-window)
 
 ;; unseted keybinds
-(global-unset-key (kbd "C-z"))
 (global-unset-key (kbd "C-x C-z"))
 
 ;;======================================================================;;
@@ -110,6 +109,10 @@
 
 ;; emacs-livedown
 (global-set-key (kbd "C-M m") 'livedown:preview)
+
+;; undo-tree
+(global-set-key (kbd "C-z") 'undo-tree-undo)
+(global-set-key (kbd "C-S-z") 'undo-tree-redo)
 
 (provide 'init-keybindings)
 ;;; init-keybindings.el ends here
