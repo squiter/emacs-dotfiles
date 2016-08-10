@@ -11,7 +11,7 @@
 (global-set-key (kbd "C-c M-w") 'custom/copy-line)
 (global-set-key [remap kill-whole-line] #'custom/kill-line)
 (global-set-key (kbd "C-c j") 'custom/join-line)
-(global-set-key (kbd "C-c /") 'custom/toggle-line-comment)
+(global-set-key (kbd "C-c C-/") 'custom/toggle-line-comment)
 (global-set-key (kbd "C-c C-y") 'custom/yank-and-indent)
 (global-set-key (kbd "C-c M-c") 'custom/chomp)
 (global-set-key (kbd "M-<up>") 'move-line-up)
