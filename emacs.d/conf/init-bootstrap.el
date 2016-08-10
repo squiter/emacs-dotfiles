@@ -83,6 +83,7 @@
     init-google
     vmd-mode
     init-emacs-livedown
+    init-scratch
     rcodetools))
 
 (defun safe-require (feature)
