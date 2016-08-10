@@ -28,6 +28,7 @@
 (defvar welcome-message '(";;; Bem vindo Squiter 🐱"))
 
 (defvar keybindings-file (concat *emacsd-directory* "/conf" "/init-keybindings.el"))
+(defvar tips-file (concat *emacsd-directory* "/pragmatic-tips.txt"))
 
 (defun read-lines (filePath)
   "Return a list of lines of a file at FILEPATH."
@@ -39,17 +40,19 @@
   "Check if ST start with ;."
   (equal (substring st 0 1) ";"))
 
-(defun get-random-binding (filename)
+(defun get-random-line (filename)
   "Get a random non commented line of FILENAME."
   (let ((valid-lines (cl-remove-if 'is-comment (read-lines filename))))
     (nth (random (- (length valid-lines) 2)) valid-lines)))
 
-(defun get-binding-message ()
-  "This function format the message to append in scratch."
-  (let ((random-binding (get-random-binding keybindings-file)))
-    (concat ";;; Binding do dia: " random-binding)))
+(defun build-message (prefix filename)
+  "This function format the message to append in scratch.
+It use PREFIX message and a random line of FILENAME."
+  (let ((random-binding (get-random-line filename)))
+    (concat prefix random-binding)))
 
-(add-to-list 'welcome-message (get-binding-message))
+(add-to-list 'welcome-message (build-message ";;; Binding do dia: " keybindings-file))
+(add-to-list 'welcome-message (build-message ";;; Dica do dia: " tips-file))
 (add-to-list 'welcome-message "\n")
 
 (setq initial-scratch-message (mapconcat 'identity (reverse welcome-message) "\n"))
