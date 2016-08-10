@@ -108,7 +108,7 @@
 (global-set-key [remap google-this] 'google-translate-smooth-translate)
 
 ;; emacs-livedown
-(global-set-key (kbd "C-M m") 'livedown:preview)
+(global-set-key (kbd "C-S-m m") 'livedown:preview)
 
 ;; undo-tree
 (global-set-key (kbd "C-z") 'undo-tree-undo)
