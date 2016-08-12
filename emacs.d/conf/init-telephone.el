@@ -19,20 +19,22 @@
                     :foreground "#6272a4"
                     :background "#282a36")
 
-(telephone-line-defsegment* rr/telephone-line-buffer-segment
-  `("" mode-line-remote " "
+(telephone-line-defsegment* squiter/telephone-line-buffer-segment
+  `("["
+    ,(telephone-line-raw mode-line-modified t)
+    ,"] "
     ,(telephone-line-raw mode-line-buffer-identification t)))
 
-(telephone-line-defsegment* rr/telephone-line-projectile-project-name
+(telephone-line-defsegment* squiter/telephone-line-projectile-project-name
   `(""
     ,(telephone-line-raw (ignore-errors (format "📁 %s" (projectile-project-name))))))
 
 (setq telephone-line-lhs
-      '((accent . (rr/telephone-line-buffer-segment
+      '((accent . (squiter/telephone-line-buffer-segment
                    telephone-line-process-segment
                    telephone-line-erc-modified-channels-segment))
         (nil . (telephone-line-vc-segment
-                rr/telephone-line-projectile-project-name))))
+                squiter/telephone-line-projectile-project-name))))
 
 (setq telephone-line-rhs
       '((nil    . (telephone-line-misc-info-segment))
