@@ -2,6 +2,15 @@
 ;;; Commentary:
 ;;; Code:
 
+(add-to-list 'load-path (expand-file-name "vendor/git-emacs" user-emacs-directory))
+(autoload 'git--update-all-state-marks "git-modeline" nil t)
+(add-hook 'find-file-hook 'git-status-in-modeline t)
+(add-hook 'magit-revert-buffer-hook 'git-status-in-modeline t)
+
+(defun git-status-in-modeline ()
+  (if (and vc-mode (string-match "^ Git" (substring-no-properties vc-mode)))
+      (git--update-all-state-marks)))
+
 (require 'telephone-line)
 
 (set-face-attribute 'telephone-line-accent-active nil

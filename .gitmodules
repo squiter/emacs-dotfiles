@@ -1,3 +1,6 @@
 [submodule "emacs-livedown"]
 	path = emacs.d/vendor/emacs-livedown
 	url = https://github.com/shime/emacs-livedown.git
+[submodule "emacs.d/vendor/git-emacs"]
+	path = emacs.d/vendor/git-emacs
+	url = git@github.com:tsgates/git-emacs.git
