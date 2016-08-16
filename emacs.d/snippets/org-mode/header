@@ -5,5 +5,7 @@
 #+TITLE: $1
 #+AUTHOR: ${2:Brunno dos Santos}
 #+CREATED: `(let ((x (org-insert-time-stamp nil t t ))))`
+#+STARTUP: content
+#+STARTUP: indent
 
 * $1$3

@@ -98,6 +98,8 @@
   (interactive)
   (switch-to-buffer "*scratch*"))
 
+(setq org-startup-indented t)
+
 ;; Org Crypt configuration
 (org-crypt-use-before-save-magic)
 (setq org-tags-exclude-from-inheritance (quote ("crypt")))
