@@ -64,7 +64,6 @@
     init-bindings
     init-smartparens
     init-org
-    init-dash
     init-wakatime
     init-yaml
     init-flycheck

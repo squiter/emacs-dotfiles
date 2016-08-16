@@ -25,7 +25,6 @@
     clojure-mode-extra-font-locking
     company
     company-emoji
-    dash-at-point
     dired+
     discover-my-major
     docker
@@ -80,6 +79,7 @@
     yagist
     yaml-mode
     yasnippet
+    zeal-at-point
   )
   "A list of packages to be installed at application lauch.")
 
