@@ -4,13 +4,10 @@
 (setq
  ;; default directory
  default-directory *projects-directory*
- ;; disable backup files
- make-backup-files nil
- auto-save-default nil
  backup-inhibited t
  ;; If a frame alredy opened, use it!
  display-buffer-reuse-frames t
-)
+ )
 
 ;; this require add support to dead-keys
 (require 'iso-transl)
@@ -33,6 +30,13 @@
 (setq whitespace-global-modes
       '(not magit-mode git-commit-mode))
 (setq whitespace-style '(face trailing tabs))
+
+;; backups and autosaves
+(defvar backup-dir (expand-file-name "~/.emacs.d/backups/"))
+(defvar autosave-dir (expand-file-name "~/.emacs.d/autosave/"))
+(setq backup-directory-alist (list (cons ".*" backup-dir)))
+(setq auto-save-list-file-prefix autosave-dir)
+(setq auto-save-file-name-transforms `((".*" ,autosave-dir t)))
 
 (provide 'init-general)
 ;;; init-general.el ends here
