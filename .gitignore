@@ -12,5 +12,7 @@ emacs.d/tramp
 emacs.d/recentf
 emacs.d/history
 emacs.d/.hl-save
+emacs.d/backups/*
+emacs.d/autosave/*
 init-secrets.el
 cider-history
