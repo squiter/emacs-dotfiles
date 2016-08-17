@@ -100,6 +100,8 @@
 
 (setq org-startup-indented t)
 
+(setq org-log-into-drawer t)
+
 ;; Org Crypt configuration
 (org-crypt-use-before-save-magic)
 (setq org-tags-exclude-from-inheritance (quote ("crypt")))
