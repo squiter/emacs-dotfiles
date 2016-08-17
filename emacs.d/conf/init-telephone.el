@@ -11,6 +11,14 @@
   (if (and vc-mode (string-match "^ Git" (substring-no-properties vc-mode)))
       (git--update-all-state-marks)))
 
+(defun change-git-status-position (&rest _)
+  (let ((git-status (car mode-line-format)))
+    (setq mode-line-format (-insert-at 3 git-status (cdr mode-line-format)))))
+
+(advice-add 'git--install-state-mark-modeline
+            :after
+            #'change-git-status-position)
+
 (require 'telephone-line)
 
 (set-face-attribute 'telephone-line-accent-active nil
