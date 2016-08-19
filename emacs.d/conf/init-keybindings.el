@@ -117,5 +117,8 @@
 ;; zeal-at-point
 (global-set-key (kbd "C-c C-d") 'zeal-at-point)
 
+;; yasnippet
+(global-set-key (kbd "C-c y n") 'yas-new-snippet)
+
 (provide 'init-keybindings)
 ;;; init-keybindings.el ends here
