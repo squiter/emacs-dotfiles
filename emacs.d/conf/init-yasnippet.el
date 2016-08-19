@@ -35,5 +35,9 @@
       (write-file location)))
   (yas-reload-all))
 
+(defun custom/yas-dired ()
+  (interactive)
+  (dired yas-snippet-dirs))
+
 (provide 'init-yasnippet)
 ;;; init-yasnippet.el ends here

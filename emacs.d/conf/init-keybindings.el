@@ -119,6 +119,7 @@
 
 ;; yasnippet
 (global-set-key (kbd "C-c y n") 'yas-new-snippet)
+(global-set-key (kbd "C-c y d") 'custom/yas-dired)
 
 (provide 'init-keybindings)
 ;;; init-keybindings.el ends here
