@@ -16,11 +16,15 @@
               ("s" "Code Snippet" entry
                (file (path-join *user-org-cache-directory* "snippets.org"))
                ;; Prompt for tag and language
-               "* %? :NOTE:\t\n%U\n#+BEGIN_SRC %^{language}\n%c\n#+END_SRC")
+               "* %? :NOTE:\t\n%U\n#+BEGIN_SRC %(eval custom/org-mode-memory)\n%c\n#+END_SRC")
               ("w" "org-protocol" entry (file (path-join *user-org-cache-directory* "refile.org"))
                "* TODO Review %c\n%U\n" :immediate-finish t)
               ("h" "Habit" entry (file (path-join *user-org-cache-directory* "refile.org"))
                "* NEXT %?\nSCHEDULED: %<<%Y-%m-%d %a .+1d/3d>>\n:PROPERTIES:\n:STYLE: habit\n:REPEAT_TO_STATE: NEXT\n:END:\n%U\n%a\n"))))
+
+(defvar custom/org-mode-memory nil)
+(defatdvice org-capture (before custom/org-mode-memory activate)
+  (setq custom/org-mode-memory (substring (symbol-name major-mode) 0 -5)))
 
 ;; Remove empty LOGBOOK drawers on clock out
 (defun bh/remove-empty-drawer-on-clock-out ()
