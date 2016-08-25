@@ -40,5 +40,8 @@
 
 (setq confirm-kill-emacs 'y-or-n-p)
 
+;; better scrolls
+(setq scroll-conservatively 101)
+
 (provide 'init-general)
 ;;; init-general.el ends here
