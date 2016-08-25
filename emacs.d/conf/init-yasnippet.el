@@ -11,6 +11,8 @@
 (add-hook 'term-mode-hook (lambda()
                             (yas-minor-mode -1)))
 
+(add-to-list 'warning-suppress-types '(yasnippet backquote-change))
+
 (defvar custom/yas-guess-mode nil)
 (defadvice yas-new-snippet (before custom/yas-guess-mode activate)
   (setq custom/yas-guess-mode (symbol-name major-mode)))
