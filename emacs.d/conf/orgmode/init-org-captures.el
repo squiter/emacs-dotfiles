@@ -23,7 +23,7 @@
                "* NEXT %?\nSCHEDULED: %<<%Y-%m-%d %a .+1d/3d>>\n:PROPERTIES:\n:STYLE: habit\n:REPEAT_TO_STATE: NEXT\n:END:\n%U\n%a\n"))))
 
 (defvar custom/org-mode-memory nil)
-(defatdvice org-capture (before custom/org-mode-memory activate)
+(defadvice org-capture (before custom/org-mode-memory activate)
   (setq custom/org-mode-memory (substring (symbol-name major-mode) 0 -5)))
 
 ;; Remove empty LOGBOOK drawers on clock out
