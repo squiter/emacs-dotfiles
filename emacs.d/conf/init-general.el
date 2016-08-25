@@ -38,5 +38,7 @@
 (setq auto-save-list-file-prefix autosave-dir)
 (setq auto-save-file-name-transforms `((".*" ,autosave-dir t)))
 
+(setq confirm-kill-emacs 'y-or-n-p)
+
 (provide 'init-general)
 ;;; init-general.el ends here
