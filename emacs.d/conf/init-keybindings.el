@@ -50,6 +50,7 @@
 (global-set-key (kbd "M-n b l") 'bookmark-bmenu-list)
 (global-set-key (kbd "M-n b j") 'bookmark-jump)
 (global-set-key (kbd "M-n b o") 'bookmark-jump-other-window)
+(global-set-key (kbd "M-n b b") 'helm-bookmarks)
 
 ;; unseted keybinds
 (global-unset-key (kbd "C-x C-z"))
