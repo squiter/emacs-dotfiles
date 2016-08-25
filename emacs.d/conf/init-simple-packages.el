@@ -28,9 +28,6 @@
 ;; yagist
 (setq yagist-github-token *user-github-token*)
 
-;; pass
-(global-set-key (kbd "C-x p") 'password-store-copy)
-
 ;; typing of emacs
 (autoload 'typing-of-emacs "typing" "The Typing Of Emacs, a game." t)
 

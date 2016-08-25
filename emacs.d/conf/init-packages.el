@@ -54,7 +54,6 @@
     ob-sml
     org-bullets
     ox-twbs
-    pass
     projectile
     projectile-rails
     rainbow-delimiters
