@@ -60,9 +60,8 @@
 (global-set-key (kbd "C-c c") 'org-capture)
 (global-set-key (kbd "<s-return>") 'org-agenda-open-link)
 
-(eval-after-load 'org-mode
-  '(progn
-     (define-key org-mode-map (kbd "C-M-<return>") 'newline-and-indent)))
+(define-key org-mode-map (kbd "C-M-<return>") 'newline-and-indent)
+(define-key org-mode-map (kbd "C-c ]") 'previous-buffer)
 
 (provide 'init-org-keybinds)
 ;;; init-org-keybinds.el ends here

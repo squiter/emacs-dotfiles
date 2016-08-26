@@ -49,6 +49,7 @@
 (require 'init-org-alfred)
 (require 'init-org-bullets)
 (require 'helm-org-rifle)
+(require 'init-org-customs)
 
 (setq org-ellipsis "⤵")
 
