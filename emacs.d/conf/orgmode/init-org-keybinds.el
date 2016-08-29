@@ -63,5 +63,9 @@
 (define-key org-mode-map (kbd "C-M-<return>") 'newline-and-indent)
 (define-key org-mode-map (kbd "C-c ]") 'previous-buffer)
 
+(eval-after-load 'org-src
+  '(define-key org-src-mode-map
+     "\C-x\C-s" #'org-edit-src-exit))
+
 (provide 'init-org-keybinds)
 ;;; init-org-keybinds.el ends here
