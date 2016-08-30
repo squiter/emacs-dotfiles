@@ -124,5 +124,11 @@
 (global-set-key (kbd "C-c y n") 'yas-new-snippet)
 (global-set-key (kbd "C-c y d") 'custom/yas-dired)
 
+;; multiple-cursors
+(global-set-key (kbd "C-c m l") 'mc/edit-lines)
+(global-set-key (kbd "C-c m m") 'mc/mark-more-like-this-extended)
+(global-set-key (kbd "C-c m a") 'mc/mark-all-like-this)
+(global-set-key (kbd "C-c m r") 'mc/set-rectangular-region-anchor)
+
 (provide 'init-keybindings)
 ;;; init-keybindings.el ends here

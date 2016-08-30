@@ -48,6 +48,7 @@
     langtool
     magit
     markdown-mode+
+    multiple-cursors
     mutant
     neotree
     ob-restclient

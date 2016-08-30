@@ -40,5 +40,9 @@
 ;; turn on undo-tree everywhere
 (global-undo-tree-mode 1)
 
+;; multiple cursors
+(require 'multiple-cursors)
+(setq mc/always-run-for-all t)
+
 (provide 'init-simple-packages)
 ;;; init-simple-packages.el ends here
