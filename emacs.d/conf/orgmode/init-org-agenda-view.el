@@ -78,10 +78,15 @@
                             (org-tags-match-list-sublevels nil)
                             (org-agenda-todo-ignore-scheduled bh/hide-scheduled-and-waiting-next-tasks)
                             (org-agenda-todo-ignore-deadlines bh/hide-scheduled-and-waiting-next-tasks)))
-                (tags "-REFILE/"
+                ;; (tags "-REFILE/"
+                ;;       ((org-agenda-overriding-header "Tasks to Archive")
+                ;;        (org-agenda-skip-function 'bh/skip-non-archivable-tasks)
+                ;;        (org-tags-match-list-sublevels nil)))
+                (tags "-REFILE-BILLS/"
                       ((org-agenda-overriding-header "Tasks to Archive")
-                       (org-agenda-skip-function 'bh/skip-non-archivable-tasks)
-                       (org-tags-match-list-sublevels nil))))
+                       (org-agenda-skip-function '(zin/since-state 30 "\\\(DONE\\\|CANC\\\)" t))
+                       ))
+                )
                nil))))
 
 (provide 'init-org-agenda-view)
