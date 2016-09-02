@@ -44,13 +44,15 @@
 
 (defun squiter/get-window-name ()
   "Get a project name or buffer name."
-  (if (equal (projectile-project-name) "-")
-      (buffer-name)
-    (projectile-project-name)))
+  (if (projectile-project-p)
+      (projectile-project-name)
+    (buffer-name)))
 
-(defadvice switch-to-buffer (after frame-title-format activate)
-  (setq frame-title-format
-        (concat "emacs@" (squiter/get-window-name))))
+
+(setq frame-title-format
+      '("emacs@"
+        (:eval (squiter/get-window-name))))
+
 
 (require 'init-telephone)
 
