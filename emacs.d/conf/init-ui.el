@@ -42,6 +42,16 @@
 (set-frame-parameter (selected-frame) 'alpha '(99 99))
 (add-to-list 'default-frame-alist '(alpha 98 98))
 
+(defun squiter/get-window-name ()
+  "Get a project name or buffer name."
+  (if (equal (projectile-project-name) "-")
+      (buffer-name)
+    (projectile-project-name)))
+
+(defadvice switch-to-buffer (after frame-title-format activate)
+  (setq frame-title-format
+        (concat "emacs@" (squiter/get-window-name))))
+
 (require 'init-telephone)
 
 (provide 'init-ui)
