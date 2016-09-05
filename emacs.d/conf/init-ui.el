@@ -48,11 +48,9 @@
       (projectile-project-name)
     (buffer-name)))
 
-
 (setq frame-title-format
       '("emacs@"
         (:eval (squiter/get-window-name))))
-
 
 (require 'init-telephone)
 

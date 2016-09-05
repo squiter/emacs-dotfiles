@@ -9,6 +9,10 @@
 (setq org-babel-clojure-backend 'cider)
 (require 'cider)
 
+;; racket configuration
+(add-to-list 'load-path (expand-file-name "vendor/ob-racket" user-emacs-directory))
+(setq org-babel-racket-command "/usr/bin/racket")
+
 (setq org-src-fontify-natively t)
 (org-babel-do-load-languages'org-babel-load-languages
  '((emacs-lisp . t)
@@ -23,6 +27,7 @@
    (latex . t)
    (sql . t)
    (sml . t)
+   (racket . t)
    (restclient . t)))
 
 (provide 'init-org-babel)
