@@ -1,13 +1,13 @@
 # -*- mode: snippet -*-
 # name: Jira Reporst Template
-# keys: jr
+# key: jr
 # --
 #+TITLE: ${1:HP-${2:42}} - ${3:Title of Card}
 #+AUTHOR: ${4:Brunno dos Santos}
 #+JIRA: ${5:https://locaweb.atlassian.net}
-#+CREATED: `(let ((x (org-insert-time-stamp nil t t ))))`
+#+CREATED: `(format-time-string "[%Y-%m-%d %a %H:%M]" (current-time))`
 
 * $3 $6
   Acesse em: [[$5/browse/$1][$3]]
-  
+
   ${7:description}

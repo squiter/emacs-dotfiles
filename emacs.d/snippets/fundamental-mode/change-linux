@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: Locaweb Changes for Windows Template
-# keys: chg-linux
+# key: chg-linux
 # --
 Qual o nome do produto?
 ${1:Hosting Services}

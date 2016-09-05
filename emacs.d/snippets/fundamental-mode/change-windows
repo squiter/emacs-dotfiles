@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: Locaweb Changes for Windows Template
-# keys: chg-windows
+# key: chg-windows
 # --
 1. Quando será o deploy? Qual é o tempo estimado de execução da CHG?
 

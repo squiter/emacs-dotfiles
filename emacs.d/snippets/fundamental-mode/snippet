@@ -1,9 +1,9 @@
 # -*- mode: snippet -*-
 # name: Snippet template
-# keys: snippet
+# key: snippet
 # --
 # -*- mode: snippet -*-
 # name: $1
-# keys: $2
+# key: $2
 # --
 $3

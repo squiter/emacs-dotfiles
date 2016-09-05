@@ -4,7 +4,7 @@
 # --
 #+TITLE: $1
 #+AUTHOR: ${2:Brunno dos Santos}
-#+CREATED: `(let ((x (org-insert-time-stamp nil t t ))))`
+#+CREATED: `(format-time-string "[%Y-%m-%d %a %H:%M]" (current-time))`
 #+STARTUP: content
 #+STARTUP: indent
 
