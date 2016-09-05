@@ -15,5 +15,6 @@ emacs.d/.hl-save
 emacs.d/backups/*
 emacs.d/autosave/*
 emacs.d/url/
+emacs.d/request/*
 init-secrets.el
 cider-history

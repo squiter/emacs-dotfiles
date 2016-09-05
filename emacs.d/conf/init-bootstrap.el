@@ -83,6 +83,7 @@
     vmd-mode
     init-emacs-livedown
     init-scratch
+    init-exist
     rcodetools))
 
 (defun safe-require (feature)
