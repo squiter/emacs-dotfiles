@@ -55,6 +55,17 @@
                   (418 . (lambda (&rest _) (message "Error to send tasks to Exist.io. Got 418.")))
                   (200 . (lambda (&rest _) (message "Tasks sent to Exist.io succefully."))))))
 
+(defun exist/setup ()
+  "Get permission to edit tasks_completed in Exist.io."
+  (request
+   (exist/build-uri "/attributes/acquire/")
+   :type "POST"
+   :headers exist/headers
+   :data (json-encode `((("name" . "tasks_completed") ("active" . true))))
+   :status-code '((400 . (lambda (&rest _) (message "Error to send tasks to Exist.io. Got 400.")))
+                  (418 . (lambda (&rest _) (message "Error to send tasks to Exist.io. Got 418.")))
+                  (200 . (lambda (&rest _) (message "Success! You can use Exist.io integration now."))))))
+
 (defun exist/send-today-tasks ()
   "Send to total tasks done today to Exist.io."
   (exist/send-tasks
