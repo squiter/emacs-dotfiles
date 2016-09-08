@@ -51,7 +51,7 @@
 (require 'helm-org-rifle)
 (require 'init-org-customs)
 
-(setq org-ellipsis "⤵")
+(setq org-ellipsis " ➥")
 
 ;; Tags with fast selection keys
 (setq org-tag-alist (quote ((:startgroup) ;; location group
