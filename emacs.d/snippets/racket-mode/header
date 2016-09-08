@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: header
+# key: header
+# --
+#lang racket
+
+(provide (all-defined-out))
+
+$1
