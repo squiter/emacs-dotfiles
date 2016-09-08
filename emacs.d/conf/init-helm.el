@@ -9,6 +9,8 @@
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "C-x C-b") 'helm-buffers-list)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
+(define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action)
+(define-key helm-map (kbd "<backtab>") 'helm-select-action)
 
 (setq helm-quick-update t
       helm-buffers-fuzzy-matching t
