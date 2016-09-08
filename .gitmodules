@@ -7,3 +7,6 @@
 [submodule "emacs.d/vendor/ob-racket"]
 	path = emacs.d/vendor/ob-racket
 	url = git@github.com:wallyqs/ob-racket.git
+[submodule "emacs.d/themes/doom-theme"]
+	path = emacs.d/themes/doom-theme
+	url = https://github.com/hlissner/emacs-doom-theme

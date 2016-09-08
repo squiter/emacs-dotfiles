@@ -22,19 +22,19 @@
 (require 'telephone-line)
 
 (set-face-attribute 'telephone-line-accent-active nil
-                    :background "#6272a4"
+                    :background "#7C71C4"
                     :foreground "black"
                     :box nil)
 
 (set-face-attribute 'mode-line-inactive nil
                     :box nil
-                    :foreground "#6272a4"
-                    :background "#2b2f3a")
+                    :foreground "#7C71C4"
+                    :background "#20272e")
 
 (set-face-attribute 'mode-line nil
                     :box '(:line-width 1 :style raised)
-                    :foreground "#6272a4"
-                    :background "#282a36")
+                    :foreground "#7C71C4"
+                    :background "#20272e")
 
 (telephone-line-defsegment* squiter/telephone-line-buffer-segment
   `("["
