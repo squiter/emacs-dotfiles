@@ -33,6 +33,7 @@
     flycheck
     frame-cmds
     git-gutter
+    git-gutter-fringe
     git-timemachine
     google-this
     google-translate

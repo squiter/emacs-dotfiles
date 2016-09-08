@@ -1,33 +1,46 @@
-(require 'git-gutter)
+;;; init-gitgutter.el --- Configuration for Git Gutter
+;;
+;; Copyright (C) 2016 Brunno dos Santos <emacs at brunno dot me>
+;;
+;; Author: Brunno dos Santos @squiter
+;; URL: http://github.com/squiter/emacs-dotfiles
+;;
+;; This file is NOT part of GNU Emacs.
+;;
+;; This program is free software: you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation, either version 3 of the License, or
+;; (at your option) any later version.
+;;
+;; This program is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+;;
+;; See <http://www.gnu.org/licenses/> for a copy of the GNU General
+;; Public License.
+;;
+;;; Commentary:
+;;
 
-;; If you enable global minor mode
+;;; Code:
+
+(require 'git-gutter-fringe)
+
 (global-git-gutter-mode t)
 
-;; To work well with line numbers
-(git-gutter:linum-setup)
+(define-fringe-bitmap 'git-gutter-fr:added
+  [224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224]
+  nil nil 'center)
+(define-fringe-bitmap 'git-gutter-fr:modified
+  [224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224]
+  nil nil 'center)
+(define-fringe-bitmap 'git-gutter-fr:deleted
+  [0 0 0 0 0 0 0 0 0 0 0 0 0 128 192 224 240 248]
+  nil nil 'center)
 
-;; hook to update gutter when using magit
-(add-hook 'git-gutter:update-hooks 'magit-revert-buffer-hook)
-
-;; `M-x git-gutter-reset-to-default` compare you file under working directory with the latet version under VCS.
-;; `M-x git-gutter:next-hunk` and `M-x git-gutter:previous-hunk` will jump to the deleted/modified/added line.
-(defun git-gutter-reset-to-head-parent()
-  (interactive)
-  (let (parent (filename (buffer-file-name)))
-    (if (eq git-gutter:vcs-type 'svn)
-        (setq parent "PREV")
-      (setq parent (if filename (concat (shell-command-to-string (concat "git --no-pager log --oneline -n1 --pretty='format:%H' " filename)) "^") "HEAD^")))
-    (git-gutter:set-start-revision parent)
-    (message "git-gutter:set-start-revision HEAD^")))
-
-(defun git-gutter-reset-to-default ()
-  (interactive)
-  (git-gutter:set-start-revision nil)
-  (message "git-gutter reset"))
-
-(global-set-key (kbd "C-, g h p") 'git-gutter-reset-to-head-parent)
-(global-set-key (kbd "C-, g h d") 'git-gutter-reset-to-default)
-(global-set-key (kbd "C-, g n") 'git-gutter:next-hunk)
-(global-set-key (kbd "C-, g p") 'git-gutter:previous-hunk)
+;; Refreshing git-gutter
+(add-hook 'focus-in-hook 'git-gutter:update-all-windows)
 
 (provide 'init-gitgutter)
+;;; init-gitgutter.el ends here
