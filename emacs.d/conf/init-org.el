@@ -129,8 +129,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defun org-repair-property-drawers ()
-  "Fix properties drawers in current buffer.
- Ignore non Org buffers."
+  "Fix properties drawers in current buffer.  Ignore non Org buffers."
   (interactive)
   (when (eq major-mode 'org-mode)
     (org-with-wide-buffer
@@ -159,4 +158,4 @@
                   (unless (bolp) (insert "\n"))))))))))))
 
 (provide 'init-org)
-;; init-org.el ends here
+;;; init-org.el ends here
