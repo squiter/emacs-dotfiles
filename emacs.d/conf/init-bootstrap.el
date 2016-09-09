@@ -84,6 +84,7 @@
     init-emacs-livedown
     init-scratch
     init-exist
+    init-prettify-symbols
     rcodetools))
 
 (defun safe-require (feature)
