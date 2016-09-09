@@ -44,5 +44,8 @@
 (require 'multiple-cursors)
 (setq mc/always-run-for-all t)
 
+;; smart-shift
+(global-smart-shift-mode 1)
+
 (provide 'init-simple-packages)
 ;;; init-simple-packages.el ends here

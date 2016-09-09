@@ -68,6 +68,7 @@
     rubocop
     ruby-tools
     smartparens
+    smart-shift
     sml-mode
     swiper-helm
     tagedit

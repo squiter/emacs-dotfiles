@@ -130,5 +130,7 @@
 (global-set-key (kbd "C-c m a") 'mc/mark-all-like-this)
 (global-set-key (kbd "C-c m r") 'mc/set-rectangular-region-anchor)
 
+(global-set-key (kbd "C-c f") 'aj-toggle-fold)
+
 (provide 'init-keybindings)
 ;;; init-keybindings.el ends here
