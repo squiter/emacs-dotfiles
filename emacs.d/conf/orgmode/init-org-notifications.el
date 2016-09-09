@@ -1,30 +1,67 @@
+;;; init-org-notifications.el --- Setup notifications
+;;
+;; Copyright (C) 2016 Brunno dos Santos <emacs at brunno dot me>
+;;
+;; Author: Brunno dos Santos @squiter
+;; URL: http://github.com/squiter/emacs-dotfiles
+;;
+;; This file is NOT part of GNU Emacs.
+;;
+;; This program is free software: you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation, either version 3 of the License, or
+;; (at your option) any later version.
+;;
+;; This program is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+;;
+;; See <http://www.gnu.org/licenses/> for a copy of the GNU General
+;; Public License.
+;;
+;;; Commentary:
+;;
+;; This code was copied from
+;; http://emacs.stackexchange.com/questions/3844/good-methods-for-setting-up-alarms-audio-visual-triggered-by-org-mode-events
+
+;;; Code:
 (require 'appt)
-(setq appt-time-msg-list nil)    ;; clear existing appt list
-(setq appt-display-interval '10) ;; warn every 10 minutes from t - appt-message-warning-time
-(setq
-  appt-message-warning-time '10  ;; send first warning 10 minutes before appointment
-  appt-display-mode-line nil     ;; don't show in the modeline
-  appt-display-format 'window)   ;; pass warnings to the designated window function
-(appt-activate 1)                ;; activate appointment notification
-(display-time)                   ;; activate time display
+(appt-activate t)
 
-(org-agenda-to-appt)             ;; generate the appt list from org agenda files on emacs launch
-(run-at-time "24:01" 3600 'org-agenda-to-appt)           ;; update appt list hourly
-(add-hook 'org-finalize-agenda-hook 'org-agenda-to-appt) ;; update appt list on agenda view
+(setq appt-message-warning-time 5) ; Show notification 5 minutes before event
+(setq appt-display-interval appt-message-warning-time) ; Disable multiple reminders
+(setq appt-display-mode-line nil)
 
-;; set up the call to terminal-notifier
-(defvar my-notifier-path 
-  "terminal-notifier")
+(defun my-org-agenda-to-appt ()
+  "Use appointment data from orgmode."
+  (interactive)
+  (setq appt-time-msg-list nil)
+  (org-agenda-to-appt))
 
-(defun my-appt-send-notification (title msg)
-  (shell-command
-   (concat my-notifier-path " -message " msg " -title " title " -sender org.gnu.Emacs -active org.gnu.Emacs")))
+;; Update alarms when...
+;; (1) ... Starting Emacs
+(my-org-agenda-to-appt)
 
-;; designate the window function for my-appt-send-notification
+;; (2) ... Everyday at 12:05am (useful in case you keep Emacs always on)
+(run-at-time "10:05am" (* 24 3600) 'my-org-agenda-to-appt)
+
+;; (3) ... When save all org buffers
+(advice-add 'org-save-all-org-buffers :after 'my-org-agenda-to-appt)
+
+;; Display appointments as a window manager notification
+(setq appt-disp-window-function 'my-appt-display)
+(setq appt-delete-window-function (lambda () t))
+
+(defvar emacs-icon "/usr/share/icons/hicolor/512x512/apps/emacs25.png")
+
+(setq my-appt-notification-app (concat (getenv "HOME") "/bin/appt-notification"))
+
 (defun my-appt-display (min-to-app new-time msg)
-  (my-appt-send-notification 
-    (format "'Appointment in %s minutes'" min-to-app)    ;; passed to -title in terminal-notifier call
-    (format "'%s'" msg)))                                ;; passed to -message in terminal-notifier call
-(setq appt-disp-window-function (function my-appt-display))
+  (if (atom min-to-app)
+      (call-process my-appt-notification-app nil nil nil min-to-app msg emacs-icon)
+    (dolist (i (number-sequence 0 (1- (length min-to-app))))
+      (call-process my-appt-notification-app nil nil nil (nth i min-to-app) (nth i msg) emacs-icon))))
 
 (provide 'init-org-notifications)
+;;; init-org-notifications.el ends here
