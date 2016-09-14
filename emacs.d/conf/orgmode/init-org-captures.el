@@ -11,6 +11,9 @@
                "* TODO %?\n%a\n%U" :clock-in t :clock-resume t)
               ("n" "note" entry (file (path-join *user-org-cache-directory* "refile.org"))
                "* %? :NOTE:\n%U\n%a\n" :clock-in t :clock-resume t)
+              ("J" "Jira task" entry
+               (file (path-join *user-org-cache-directory* "refile.org"))
+               "* TODO %(oc/prmt \"Jira Ticket No.\" 'jr-no) %?\n%U\n[[https://locaweb.atlassian.net/browse/%(progn jr-no)][See more in Jira.]]\n" :clock-in t :clock-resume t)
               ("j" "Journal" entry (file+datetree (path-join *user-org-cache-directory* "diary.org"))
                "* %?\n%(oc/inc \"Things that I learned\" \"** Three things that I learn today\n\")" :clock-in t :clock-resume t)
               ("s" "Code Snippet" entry
