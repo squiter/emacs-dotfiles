@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: Emacs Lisp Footer
+# key: footer
+# --
+;;; `(file-name-nondirectory (buffer-file-name))` ends here

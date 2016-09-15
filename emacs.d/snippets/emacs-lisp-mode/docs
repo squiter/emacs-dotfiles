@@ -4,10 +4,12 @@
 # --
 ;;; ${1:file-name}.el --- ${2:Description}
 ;;
-;; Copyright (C) 2016 Brunno dos Santos <emacs at brunno dot me>
+;; Copyright (C) `(format-time-string "%Y")` Brunno dos Santos <emacs at brunno dot me>
 ;;
 ;; Author: Brunno dos Santos @squiter
 ${3:;; URL: ${4:http://github.com/squiter/${5:repository}}}
+;;
+;; Created: `(format-time-string "%e %B %Y")`
 ;;
 ;; This file is NOT part of GNU Emacs.
 ;;
