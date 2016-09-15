@@ -2,7 +2,7 @@
 # name: Emacs Lisp Documentation
 # key: docs
 # --
-;;; ${1:file-name}.el --- ${2:Description}
+;;; ${1:`(file-name-nondirectory (buffer-file-name))`} --- ${2:Description}
 ;;
 ;; Copyright (C) `(format-time-string "%Y")` Brunno dos Santos <emacs at brunno dot me>
 ;;
