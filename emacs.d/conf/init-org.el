@@ -50,6 +50,7 @@
 (require 'init-org-bullets)
 (require 'helm-org-rifle)
 (require 'init-org-customs)
+(require 'init-org-gamify)
 
 (setq org-ellipsis " ➥")
 

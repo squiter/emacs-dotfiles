@@ -1,3 +1,31 @@
+;;; init-org-captures.el --- My org capture configurations
+;;
+;; Copyright (C) 2016 Brunno dos Santos <emacs at brunno dot me>
+;;
+;; Author: Brunno dos Santos @squiter
+;; URL: http://github.com/squiter/emacs-dotfiles
+;;
+;; Created: 15 setembro 2016
+;;
+;; This file is NOT part of GNU Emacs.
+;;
+;; This program is free software: you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation, either version 3 of the License, or
+;; (at your option) any later version.
+;;
+;; This program is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+;;
+;; See <http://www.gnu.org/licenses/> for a copy of the GNU General
+;; Public License.
+;;
+;;; Commentary:
+;;
+;;; Code:
+
 ;; Org Capture
 (setq org-directory *user-org-cache-directory*)
 (setq org-default-notes-file (path-join *user-org-cache-directory* "refile.org"))
@@ -8,12 +36,12 @@
 ;; Capture templates for: TODO tasks, Notes, appointments, phone calls, meetings, and org-protocol
 (setq org-capture-templates
       (quote (("t" "todo" entry (file (path-join *user-org-cache-directory* "refile.org"))
-               "* TODO %?\n%a\n%U" :clock-in t :clock-resume t)
+               "* TODO %?\n:PROPERTIES:\n:CURRENCY_DELTAS: ((gold +10) (xp +10))\n:END\n%a\n%U" :clock-in t :clock-resume t)
               ("n" "note" entry (file (path-join *user-org-cache-directory* "refile.org"))
                "* %? :NOTE:\n%U\n%a\n" :clock-in t :clock-resume t)
               ("J" "Jira task" entry
                (file (path-join *user-org-cache-directory* "refile.org"))
-               "* TODO %(oc/prmt \"Jira Ticket No.\" 'jr-no) %?\n%U\n[[https://locaweb.atlassian.net/browse/%(progn jr-no)][See more in Jira.]]\n" :clock-in t :clock-resume t)
+               "* TODO %(oc/prmt \"Jira Ticket No.\" 'jr-no) %?\n:PROPERTIES:\n:CURRENCY_DELTAS: ((gold +10) (xp +10))\n:END\n%U\n[[https://locaweb.atlassian.net/browse/%(progn jr-no)][See more in Jira.]]\n" :clock-in t :clock-resume t)
               ("j" "Journal" entry (file+datetree (path-join *user-org-cache-directory* "diary.org"))
                "* %?\n%(oc/inc \"Things that I learned\" \"** Three things that I learn today\n\")" :clock-in t :clock-resume t)
               ("s" "Code Snippet" entry
@@ -21,9 +49,9 @@
                ;; Prompt for tag and language
                "* %? :NOTE:\t\n%U\n#+BEGIN_SRC %(eval custom/org-mode-memory)\n%c\n#+END_SRC")
               ("w" "org-protocol" entry (file (path-join *user-org-cache-directory* "refile.org"))
-               "* TODO Review %c\n%U\n" :immediate-finish t)
+               "* TODO Review %c\n:PROPERTIES:\n:CURRENCY_DELTAS: ((gold +10) (xp +10))\n:END\n%U\n" :immediate-finish t)
               ("h" "Habit" entry (file (path-join *user-org-cache-directory* "refile.org"))
-               "* NEXT %?\nSCHEDULED: %<<%Y-%m-%d %a .+1d/3d>>\n:PROPERTIES:\n:STYLE: habit\n:REPEAT_TO_STATE: NEXT\n:END:\n%U\n%a\n"))))
+               "* NEXT %?\nSCHEDULED: %<<%Y-%m-%d %a .+1d/3d>>\n:PROPERTIES:\n:STYLE: habit\n:REPEAT_TO_STATE: NEXT\n:CURRENCY_DELTAS: ((gold +5) (xp +5))\n:END:\n%U\n%a\n"))))
 
 (defvar custom/org-mode-memory nil)
 (defadvice org-capture (before custom/org-mode-memory activate)
@@ -107,3 +135,4 @@
   (org-capture))
 
 (provide 'init-org-captures)
+;;; init-org-captures.el ends here

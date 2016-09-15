@@ -10,3 +10,6 @@
 [submodule "emacs.d/themes/doom-theme"]
 	path = emacs.d/themes/doom-theme
 	url = https://github.com/hlissner/emacs-doom-theme
+[submodule "emacs.d/vendor/org-gamify"]
+	path = emacs.d/vendor/org-gamify
+	url = git@bitbucket.org:eeeickythump/org-gamify.git
