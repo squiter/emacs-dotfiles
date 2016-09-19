@@ -36,12 +36,12 @@
 ;; Capture templates for: TODO tasks, Notes, appointments, phone calls, meetings, and org-protocol
 (setq org-capture-templates
       (quote (("t" "todo" entry (file (path-join *user-org-cache-directory* "refile.org"))
-               "* TODO %?\n:PROPERTIES:\n:CURRENCY_DELTAS: ((gold +10) (xp +10))\n:END\n%a\n%U" :clock-in t :clock-resume t)
+               "* TODO %?\n:PROPERTIES:\n:CURRENCY_DELTAS: ((gold +10) (xp +10))\n:END:\n%a\n%U" :clock-in t :clock-resume t)
               ("n" "note" entry (file (path-join *user-org-cache-directory* "refile.org"))
                "* %? :NOTE:\n%U\n%a\n" :clock-in t :clock-resume t)
               ("J" "Jira task" entry
                (file (path-join *user-org-cache-directory* "refile.org"))
-               "* TODO %(oc/prmt \"Jira Ticket No.\" 'jr-no) %?\n:PROPERTIES:\n:CURRENCY_DELTAS: ((gold +10) (xp +10))\n:END\n%U\n[[https://locaweb.atlassian.net/browse/%(progn jr-no)][See more in Jira.]]\n" :clock-in t :clock-resume t)
+               "* TODO %(oc/prmt \"Jira Ticket No.\" 'jr-no) %?\n:PROPERTIES:\n:CURRENCY_DELTAS: ((gold +10) (xp +10))\n:END:\n%U\n[[https://locaweb.atlassian.net/browse/%(progn jr-no)][See more in Jira.]]\n" :clock-in t :clock-resume t)
               ("j" "Journal" entry (file+datetree (path-join *user-org-cache-directory* "diary.org"))
                "* %?\n%(oc/inc \"Things that I learned\" \"** Three things that I learn today\n\")" :clock-in t :clock-resume t)
               ("s" "Code Snippet" entry
@@ -49,7 +49,7 @@
                ;; Prompt for tag and language
                "* %? :NOTE:\t\n%U\n#+BEGIN_SRC %(eval custom/org-mode-memory)\n%c\n#+END_SRC")
               ("w" "org-protocol" entry (file (path-join *user-org-cache-directory* "refile.org"))
-               "* TODO Review %c\n:PROPERTIES:\n:CURRENCY_DELTAS: ((gold +10) (xp +10))\n:END\n%U\n" :immediate-finish t)
+               "* TODO Review %c\n:PROPERTIES:\n:CURRENCY_DELTAS: ((gold +10) (xp +10))\n:END:\n%U\n" :immediate-finish t)
               ("h" "Habit" entry (file (path-join *user-org-cache-directory* "refile.org"))
                "* NEXT %?\nSCHEDULED: %<<%Y-%m-%d %a .+1d/3d>>\n:PROPERTIES:\n:STYLE: habit\n:REPEAT_TO_STATE: NEXT\n:CURRENCY_DELTAS: ((gold +5) (xp +5))\n:END:\n%U\n%a\n"))))
 
