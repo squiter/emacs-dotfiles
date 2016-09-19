@@ -27,8 +27,8 @@
 (require 'smartparens)
 (require 'smartparens-config)
 
-(add-hook 'prog-mode-hook 'turn-on-smartparens-strict-mode)
-(add-hook 'markdown-mode-hook 'turn-on-smartparens-strict-mode)
+(add-hook 'prog-mode-hook 'turn-on-smartparens-mode)
+(add-hook 'markdown-mode-hook 'turn-on-smartparens-mode)
 
 ;; highlights matching pairs
 (show-smartparens-global-mode t)
