@@ -92,7 +92,6 @@
      (define-key ruby-mode-map (kbd "C-, b o") 'bundle-open)
      (define-key ruby-mode-map (kbd "C-, b c") 'bundle-console)
      (define-key ruby-mode-map (kbd "C-c v") 'custom/vcr-toggle)
-     (define-key ruby-mode-map (kbd "C-c m") 'mutant-check-file)
      (define-key ruby-mode-map (kbd "M-n s") 'projectile-rails-server)
      (define-key ruby-mode-map (kbd "M-n c") 'projectile-rails-console)))
 
