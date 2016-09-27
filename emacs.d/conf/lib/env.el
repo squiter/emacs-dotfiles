@@ -10,8 +10,8 @@
 
 (setenv "LC_ALL" "en_US.utf-8")
 (setenv "LANG" "en_US.utf-8")
-(setenv "SHELL" "/bin/zsh")
-(setenv "ESHELL" "/bin/zsh")
+(setenv "SHELL" "/bin/bash")
+(setenv "ESHELL" "/bin/bash")
 
 (provide 'lib/env)
 ;;; env.el ends here
