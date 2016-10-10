@@ -158,11 +158,5 @@
 ;; change surround
 (define-key smartparens-mode-map (kbd "C-(") 'sp-rewrap-sexp)
 
-;; dumb-jump
-(define-key dumb-jump-mode-map (kbd "C-M g") 'dumb-jump-go)
-(define-key dumb-jump-mode-map (kbd "C-M p") 'dumb-jump-back)
-(define-key dumb-jump-mode-map (kbd "C-M l") 'dumb-jump-quick-look)
-(define-key dumb-jump-mode-map (kbd "C-M G") 'dumb-jump-go-other-window)
-
 (provide 'init-keybindings)
 ;;; init-keybindings.el ends here

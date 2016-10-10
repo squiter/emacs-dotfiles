@@ -28,7 +28,6 @@
     dired+
     discover-my-major
     docker
-    dumb-jump
     easy-kill
     expand-region
     flycheck
