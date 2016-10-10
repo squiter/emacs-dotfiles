@@ -47,5 +47,8 @@
 ;; smart-shift
 (global-smart-shift-mode 1)
 
+;; dumb-jump
+(dumb-jump-mode)
+
 (provide 'init-simple-packages)
 ;;; init-simple-packages.el ends here
