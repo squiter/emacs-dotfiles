@@ -32,6 +32,7 @@
     expand-region
     flycheck
     frame-cmds
+    gist
     git-gutter
     git-gutter-fringe
     git-timemachine
