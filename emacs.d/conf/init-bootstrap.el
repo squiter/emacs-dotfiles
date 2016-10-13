@@ -64,7 +64,7 @@
     init-bindings
     init-smartparens
     init-org
-    init-wakatime
+    ;; init-wakatime
     init-yaml
     init-flycheck
     init-clojure
