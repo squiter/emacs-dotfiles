@@ -85,6 +85,7 @@
     init-scratch
     init-exist
     init-prettify-symbols
+    init-ctags
     rcodetools))
 
 (defun safe-require (feature)

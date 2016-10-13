@@ -158,5 +158,8 @@
 ;; change surround
 (define-key smartparens-mode-map (kbd "C-(") 'sp-rewrap-sexp)
 
+;; ctags stuff
+(global-set-key (kbd "M-*") 'pop-global-mark)
+
 (provide 'init-keybindings)
 ;;; init-keybindings.el ends here
