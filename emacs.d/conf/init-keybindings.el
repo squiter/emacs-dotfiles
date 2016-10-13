@@ -32,8 +32,8 @@
 
 ;; Kill Ring
 ;; TODO: Chose one of those keybinds
-(global-set-key (kbd "C-S-y") 'helm-show-kill-ring)
-(global-set-key (kbd "C-M-y") 'helm-show-kill-ring)
+(global-set-key (kbd "C-S-y") 'counsel-yank-pop)
+(global-set-key (kbd "C-M-y") 'counsel-yank-pop)
 
 ;; window and buffer manipulation
 (global-set-key (kbd "C-x |") 'vsplit-last-buffer)
@@ -52,7 +52,7 @@
 (global-set-key (kbd "M-n b l") 'bookmark-bmenu-list)
 (global-set-key (kbd "M-n b j") 'bookmark-jump)
 (global-set-key (kbd "M-n b o") 'bookmark-jump-other-window)
-(global-set-key (kbd "M-n b b") 'helm-bookmarks)
+(global-set-key (kbd "M-n b b") 'counsel-bookmarks)
 
 ;; unseted keybinds
 (global-unset-key (kbd "C-x C-z"))
@@ -95,7 +95,6 @@
 (global-set-key (kbd "C-s") 'swiper)
 (global-set-key (kbd "C-r") 'swiper)
 (global-set-key (kbd "C-c u") 'swiper-all)
-(global-set-key (kbd "C-c C-r") 'helm-resume)
 
 ;; language tools
 ;; I'm overwriting (count-lines-page) keybind!
