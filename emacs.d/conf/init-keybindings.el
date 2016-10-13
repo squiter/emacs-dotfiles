@@ -5,8 +5,7 @@
 
 ;; init-edit-custom-functions.el keybinds:
 (global-set-key (kbd "C-<return>") 'custom/insert-new-line)
-(global-set-key [remap move-beginning-of-line]
-                #'custom/smart-move-beginning-of-line)
+(global-set-key [remap move-beginning-of-line] #'custom/smart-move-beginning-of-line)
 (global-set-key (kbd "C-c d") 'custom/duplicate-current-line-or-region)
 (global-set-key (kbd "C-c M-w") 'custom/copy-line)
 (global-set-key [remap kill-whole-line] #'custom/kill-line)
@@ -24,6 +23,7 @@
 (global-set-key (kbd "C-c i") 'indent-buffer)
 (global-set-key (kbd "C-c e") 'eval-buffer)
 (global-set-key (kbd "C-c ]") 'custom/org-open-project-file)
+(global-set-key (kbd "C-x C-h") 'squiter/hotspots)
 
 ;; buffer/file edits
 (global-set-key (kbd "C-x C-S-k") 'delete-current-buffer-file)

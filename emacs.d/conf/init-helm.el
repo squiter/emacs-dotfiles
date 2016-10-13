@@ -22,13 +22,32 @@
   (delq nil (mapcar
              (lambda (buffer)
                (cond
-                    ((eq (with-current-buffer buffer major-mode)  'dired-mode) nil)
-                    ((eq (with-current-buffer buffer major-mode)  'org-mode) nil)
-                    ((eq (with-current-buffer buffer major-mode)  'org-agenda-mode) nil)
-                    (t buffer)))
+                ((eq (with-current-buffer buffer major-mode)  'dired-mode) nil)
+                ((eq (with-current-buffer buffer major-mode)  'org-mode) nil)
+                ((eq (with-current-buffer buffer major-mode)  'org-agenda-mode) nil)
+                (t buffer)))
              buffer-list)))
 
 (advice-add 'helm-skip-boring-buffers :filter-return 'bsl/filter-buffers)
+
+(defun squiter/hotspots ()
+  "Helm interface to my hotspots/bookmarks"
+  (interactive)
+  (helm :sources `(((name . "Mail and News")
+                    (candidates . (("Calendar" . (lambda ()  (browse-url "https://www.google.com/calendar/render")))
+                                   ("RSS" . (lambda () (browse-url "https://feedly.com")))
+                                   ("Agenda" . (lambda () (org-agenda "" " ")))))
+                    (action . (("Open" . (lambda (x) (funcall x))))))
+                   ((name . "My Locations")
+                    (candidates . ((".emacs.d" . "~/.emacs.d/" )
+                                   ("Downloads" . "~/Downloads/" )))
+                    (action . (("Open" . (lambda (x) (find-file x))))))
+                   ((name . "Work")
+                    (candidates . (("Pontos" . (lambda () (browse-url "https://portalrh.cservices.com.br/PortalLocaweb/")))))
+                    (action . (("Open" . (lambda () (funcall x))))))
+                   helm-source-recentf
+                   helm-source-bookmarks
+                   helm-source-bookmark-set)))
 
 (provide 'init-helm)
 ;;; init-helm.el ends here
