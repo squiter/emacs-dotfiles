@@ -48,5 +48,37 @@
 
 (global-set-key (kbd "C-c C-r") 'ivy-resume)
 
+;;;;;;;;;;;;;;;;;;;;;
+;; Squiter Hotspot ;;
+;;;;;;;;;;;;;;;;;;;;;
+
+(cl-defstruct hotspot-item name action)
+(setq hotspot-list (list (make-hotspot-item
+                       :name "Ponto"
+                       :action (lambda () (browse-url "https://portalrh.cservices.com.br/PortalLocaweb/")))
+                      (make-hotspot-item
+                       :name "Calendar"
+                       :action (lambda ()  (browse-url "https://www.google.com/calendar/render")))
+                      (make-hotspot-item
+                       :name ".emacs.d"
+                       :action (lambda () (find-file "~/.emacs.d/")))
+                      (make-hotspot-item
+                       :name "Downloads"
+                       :action (lambda () (find-file "~/Downloads/")))))
+
+(defun squiter/search-action-in-hs (name hslist)
+  (if (not hslist)
+      nil
+    (if (string-equal name (hotspot-item-name (car hslist)))
+        (hotspot-item-action (car hslist))
+      (squiter/search-action-in-hs name (cdr hslist)))))
+
+(defun squiter/hotspots ()
+  (interactive)
+  (ivy-read "Where do you want to go?"
+            (mapcar 'hotspot-item-name hotspot-list)
+            :action (lambda (chosen)
+                      (funcall (squiter/search-action-in-hs chosen hotspot-list)))))
+
 (provide 'init-ivy)
 ;;; init-ivy.el ends here
