@@ -32,7 +32,11 @@
   (path-join *user-dropbox-directory* "org")
   "Path to user's org cache store.")
 
+(setq org-ellipsis " ➥")
+(setq org-startup-indented t)
+
 (require 'init-org-keybinds)
+(require 'init-org-bullets)
 (require 'init-org-agenda)
 (require 'init-org-captures)
 (require 'init-org-speed-commands)
@@ -47,12 +51,10 @@
 (require 'init-org-notifications)
 (require 'init-org-babel)
 (require 'init-org-alfred)
-(require 'init-org-bullets)
 (require 'helm-org-rifle)
 (require 'init-org-customs)
 (require 'init-org-gamify)
 
-(setq org-ellipsis " ➥")
 
 ;; Tags with fast selection keys
 (setq org-tag-alist (quote ((:startgroup) ;; location group
@@ -99,8 +101,6 @@
 (defun bh/switch-to-scratch ()
   (interactive)
   (switch-to-buffer "*scratch*"))
-
-(setq org-startup-indented t)
 
 (setq org-log-into-drawer t)
 
