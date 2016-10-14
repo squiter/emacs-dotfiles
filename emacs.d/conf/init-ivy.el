@@ -30,6 +30,7 @@
 
 (setq ivy-use-virtual-buffers t)
 (setq ivy-count-format "(%d/%d) ")
+(setq ivy-height 15)
 
 ;;;;;;;;;;;;;;;;;;;;;
 ;; Squiter Hotspot ;;
