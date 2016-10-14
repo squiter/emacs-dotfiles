@@ -9,10 +9,6 @@
 ;; projectile-rails
 (add-hook 'projectile-mode-hook 'projectile-rails-on)
 
-(global-set-key (kbd "C-x f") 'counsel-projectile-find-file)
-(global-set-key (kbd "C-c p s a") 'counsel-projectile-ag)
-(global-set-key (kbd "C-x B") 'counsel-projectile-switch-to-buffer)
-
 (projectile-global-mode)
 
 ;;
@@ -55,8 +51,6 @@
   (let* ((candidates (-mapcat (lambda (d) (directory-files path t d)) rr/default-file-regexps))
          (elected (car candidates)))
     (find-file (or elected path))))
-
-(global-set-key (kbd "C-c o") 'squiter/ivy-open-project)
 
 (provide 'init-projectile)
 ;;; init-projectile.el ends here
