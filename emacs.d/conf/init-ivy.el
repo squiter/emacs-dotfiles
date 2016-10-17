@@ -41,6 +41,9 @@
                        :name "Ponto"
                        :action (lambda () (browse-url "https://portalrh.cservices.com.br/PortalLocaweb/")))
                       (make-hotspot-item
+                       :name "CI Locaweb"
+                       :action (lambda () (browse-url "http://ci.qaservices.locaweb.com.br/job/paas_paas/job/paas_hospedagem/")))
+                      (make-hotspot-item
                        :name "Calendar"
                        :action (lambda ()  (browse-url "https://www.google.com/calendar/render")))
                       (make-hotspot-item
