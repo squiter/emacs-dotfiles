@@ -48,7 +48,6 @@
 (global-set-key (kbd "<f9> s") 'bh/switch-to-scratch)
 (global-set-key (kbd "<f9> v") 'visible-mode)
 (global-set-key (kbd "<f9> l") 'org-toggle-link-display)
-(global-set-key (kbd "<f9> f") 'helm-org-rifle)
 (global-set-key (kbd "<f9> k") 'org-cut-subtree)
 
 (global-set-key (kbd "C-<f9>") 'previous-buffer)

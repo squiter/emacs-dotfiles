@@ -1,4 +1,4 @@
-;;; init=packages.el --- List and management of my packages
+;; init=packages.el --- List and management of my packages
 
 ;;; commentary:
 ;; That file contains my-packages list and a dolist function that install each package
@@ -39,10 +39,6 @@
     google-this
     google-translate
     haskell-mode
-    helm
-    helm-ag
-    helm-org-rifle
-    helm-projectile
     highlight
     hl-anything
     ido-vertical-mode
@@ -59,6 +55,7 @@
     ox-twbs
     projectile
     projectile-rails
+    counsel-projectile
     rainbow-delimiters
     rainbow-mode
     rbenv
@@ -71,7 +68,6 @@
     smartparens
     smart-shift
     sml-mode
-    swiper-helm
     tagedit
     telephone-line
     twittering-mode

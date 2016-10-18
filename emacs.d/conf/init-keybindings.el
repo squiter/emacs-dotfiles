@@ -30,11 +30,6 @@
 (global-set-key (kbd "C-x C-r") 'rename-current-buffer-file)
 (global-set-key (kbd "C-x !") 'sudo-edit)
 
-;; Kill Ring
-;; TODO: Chose one of those keybinds
-(global-set-key (kbd "C-S-y") 'helm-show-kill-ring)
-(global-set-key (kbd "C-M-y") 'helm-show-kill-ring)
-
 ;; window and buffer manipulation
 (global-set-key (kbd "C-x |") 'vsplit-last-buffer)
 (global-set-key (kbd "C-x -") 'hsplit-last-buffer)
@@ -52,7 +47,7 @@
 (global-set-key (kbd "M-n b l") 'bookmark-bmenu-list)
 (global-set-key (kbd "M-n b j") 'bookmark-jump)
 (global-set-key (kbd "M-n b o") 'bookmark-jump-other-window)
-(global-set-key (kbd "M-n b b") 'helm-bookmarks)
+(global-set-key (kbd "M-n b b") 'counsel-bookmarks)
 
 ;; unseted keybinds
 (global-unset-key (kbd "C-x C-z"))
@@ -95,7 +90,6 @@
 (global-set-key (kbd "C-s") 'swiper)
 (global-set-key (kbd "C-r") 'swiper)
 (global-set-key (kbd "C-c u") 'swiper-all)
-(global-set-key (kbd "C-c C-r") 'helm-resume)
 
 ;; language tools
 ;; I'm overwriting (count-lines-page) keybind!
@@ -160,6 +154,43 @@
 
 ;; ctags stuff
 (global-set-key (kbd "M-*") 'pop-tag-mark)
+
+;;;;;;;;;;;;;;;;;;
+;; Ivy Keybinds ;;
+;;;;;;;;;;;;;;;;;;
+
+(global-set-key (kbd "C-s") 'swiper)
+(global-set-key (kbd "M-x") (lambda () (interactive) (counsel-M-x nil)))
+(global-set-key (kbd "C-x C-f") 'counsel-find-file)
+(global-set-key (kbd "<f1> f") 'counsel-describe-function)
+(global-set-key (kbd "<f1> v") 'counsel-describe-variable)
+(global-set-key (kbd "<f1> l") 'counsel-load-library)
+(global-set-key (kbd "<f2> i") 'counsel-info-lookup-symbol)
+(global-set-key (kbd "<f2> u") 'counsel-unicode-char)
+
+(global-set-key (kbd "C-x C-l") 'counsel-locate)
+
+(global-set-key (kbd "C-c C-r") 'ivy-resume)
+
+(global-set-key (kbd "C-c v") 'ivy-push-view)
+(global-set-key (kbd "C-c V") 'ivy-pop-view)
+
+(global-set-key (kbd "C-x b") 'ivy-switch-buffer)
+
+;; Kill Ring
+;; TODO: Chose one of those keybinds
+(global-set-key (kbd "C-S-y") 'counsel-yank-pop)
+(global-set-key (kbd "C-M-y") 'counsel-yank-pop)
+
+;;;;;;;;;;;;;;;;;;;;;;;;
+;; counsel-projectile ;;
+;;;;;;;;;;;;;;;;;;;;;;;;
+
+(global-set-key (kbd "C-x f") 'counsel-projectile-find-file)
+(global-set-key (kbd "C-c p s a") 'counsel-projectile-ag)
+(global-set-key (kbd "C-x C-b") 'counsel-projectile-switch-to-buffer)
+
+(global-set-key (kbd "C-c o") 'squiter/ivy-open-project)
 
 (provide 'init-keybindings)
 ;;; init-keybindings.el ends here

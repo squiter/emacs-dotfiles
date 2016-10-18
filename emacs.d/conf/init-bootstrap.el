@@ -44,12 +44,12 @@
     init-custom-functions
     init-edit-custom-functions
     init-ui
+    init-ivy
     init-keybindings
     init-mac-switch-meta
     init-smerge
     init-dired
     init-sml
-    init-helm
     init-magit
     init-projectile
     init-path

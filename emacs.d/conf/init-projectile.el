@@ -4,20 +4,12 @@
 
 (require 'projectile)
 
+(counsel-projectile-on)
+
 ;; projectile-rails
 (add-hook 'projectile-mode-hook 'projectile-rails-on)
 
-(global-set-key (kbd "C-x f") 'helm-projectile)
-(global-set-key (kbd "C-c p s a") 'helm-do-ag-project-root)
-(global-set-key (kbd "C-x B") 'helm-projectile-switch-to-buffer)
-
 (projectile-global-mode)
-
-;;; proojectile-helm
-(setq projectile-completion-system 'helm)
-(setq projectile-switch-project-action 'helm-projectile)
-(setq helm-projectile-sources-list '(helm-source-projectile-buffers-list
-                                     helm-source-projectile-files-list))
 
 ;;
 ;;; Jumping between projects (stolen from milhouse)
@@ -28,7 +20,7 @@
 
 (defvar project-sources *all-project-directories*)
 
-;; helm integration for opening projects
+;; integration for opening projects
 ;; Jumping between projects
 ;;
 (defvar rr/project-sources *all-project-directories*)
@@ -39,17 +31,13 @@
     "Readme"
     "README"))
 
-(defun rr/helm-open-project ()
-  "Bring up a Project search interface in helm."
+(defun squiter/ivy-open-project ()
+  "Bring up a Project search interface in ivy."
   (interactive)
-  (helm :sources '(rr/helm-open-project--source)
-	:buffer "*helm-list-projects*"))
-
-(defvar rr/helm-open-project--source
-  '((name . "Open Project")
-    (delayed)
-    (candidates . rr/list-projects)
-    (action . rr/open-project)))
+  (ivy-read "Open Project: "
+            (rr/list-projects)
+            :sort t
+            :action 'rr/open-project))
 
 (defun rr/list-projects ()
   "Lists all projects given project sources."
@@ -63,8 +51,6 @@
   (let* ((candidates (-mapcat (lambda (d) (directory-files path t d)) rr/default-file-regexps))
          (elected (car candidates)))
     (find-file (or elected path))))
-
-(global-set-key (kbd "C-c o") 'rr/helm-open-project)
 
 (provide 'init-projectile)
 ;;; init-projectile.el ends here

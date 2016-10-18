@@ -51,7 +51,6 @@
 (require 'init-org-notifications)
 (require 'init-org-babel)
 (require 'init-org-alfred)
-(require 'helm-org-rifle)
 (require 'init-org-customs)
 (require 'init-org-gamify)
 
