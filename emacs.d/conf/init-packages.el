@@ -67,6 +67,7 @@
     ruby-tools
     smartparens
     smart-shift
+    smex
     sml-mode
     tagedit
     telephone-line
