@@ -16,5 +16,6 @@ emacs.d/backups/*
 emacs.d/autosave/*
 emacs.d/url/
 emacs.d/request/*
+emacs.d/smex-items
 init-secrets.el
 cider-history
