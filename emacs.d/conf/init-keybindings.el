@@ -23,7 +23,6 @@
 (global-set-key (kbd "C-c i") 'indent-buffer)
 (global-set-key (kbd "C-c e") 'eval-buffer)
 (global-set-key (kbd "C-c ]") 'custom/org-open-project-file)
-(global-set-key (kbd "C-x C-h") 'hydra-launcher/body)
 
 ;; buffer/file edits
 (global-set-key (kbd "C-x C-S-k") 'delete-current-buffer-file)
@@ -191,6 +190,13 @@
 (global-set-key (kbd "C-x C-b") 'counsel-projectile-switch-to-buffer)
 
 (global-set-key (kbd "C-c o") 'squiter/ivy-open-project)
+
+;;;;;;;;;;;;;;;;;;
+;; hydra bodies ;;
+;;;;;;;;;;;;;;;;;;
+
+(global-set-key (kbd "C-x C-h l") 'hydra-launcher/body)
+(global-set-key (kbd "C-x C-h o") 'hydra-org/body)
 
 (provide 'init-keybindings)
 ;;; init-keybindings.el ends here

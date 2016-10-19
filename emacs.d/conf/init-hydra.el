@@ -41,7 +41,27 @@ _c_: CI                _g_: Github         _e_: ~/.emacs.d
    ("C" (browse-url "https://www.google.com/calendar/render"))
    ("g" (browse-url "https://github.com/squiter"))
    ("d" (find-file "~/Downloads"))
-   ("e" (find-file "~/.emacs.d")))
+   ("e" (find-file "~/.emacs.d"))
+   ("q" nil "cancel" :color blue))
+
+(defhydra hydra-org (:color teal :hint nil)
+  "
+ORG COMMANDS:
+
+ Clock                  Navigation
+-----------------------------------------
+_cr_: Resume          _nl_: Last Stored
+_co_: Out
+_cg_: Go to
+_ce_: Estimate
+
+"
+  ("cr" org-clock-in-last)
+  ("co" org-clock-out)
+  ("cg" org-clock-goto)
+  ("ce" org-clock-modify-effort-estimate)
+  ("nl" org-refile-goto-lacest-stored)
+  ("q" nil "cancel" :color blue))
 
 (provide 'init-hydra)
 ;;; init-hydra.el ends here
