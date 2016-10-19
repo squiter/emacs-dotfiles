@@ -32,6 +32,7 @@
     expand-region
     flycheck
     frame-cmds
+    free-keys
     gist
     git-gutter
     git-gutter-fringe
