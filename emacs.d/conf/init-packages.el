@@ -69,6 +69,7 @@
     smart-shift
     smex
     sml-mode
+    swiper
     tagedit
     telephone-line
     twittering-mode
