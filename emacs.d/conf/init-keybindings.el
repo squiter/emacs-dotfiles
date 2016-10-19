@@ -195,10 +195,12 @@
 ;; hydra bodies ;;
 ;;;;;;;;;;;;;;;;;;
 
-(global-set-key (kbd "C-x C-h l") 'hydra-launcher/body)
-(global-set-key (kbd "C-x C-h o") 'hydra-org/body)
-(global-set-key (kbd "C-x C-h r") 'hydra-rectangle/body)
-(global-set-key (kbd "C-x C-h m") 'hydra-move/body)
+(define-prefix-command 'squiter/hydra)
+(global-set-key (kbd "C-c h") 'squiter/hydra)
+(define-key squiter/hydra (kbd "l") 'hydra-launcher/body)
+(define-key squiter/hydra (kbd "o") 'hydra-org/body)
+(define-key squiter/hydra (kbd "r") 'hydra-rectangle/body)
+(define-key squiter/hydra (kbd "m") 'hydra-move/body)
 
 (provide 'init-keybindings)
 ;;; init-keybindings.el ends here
