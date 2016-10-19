@@ -197,6 +197,7 @@
 
 (global-set-key (kbd "C-x C-h l") 'hydra-launcher/body)
 (global-set-key (kbd "C-x C-h o") 'hydra-org/body)
+(global-set-key (kbd "C-x C-h r") 'hydra-rectangle/body)
 
 (provide 'init-keybindings)
 ;;; init-keybindings.el ends here
