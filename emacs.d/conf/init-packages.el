@@ -41,6 +41,7 @@
     haskell-mode
     highlight
     hl-anything
+    hydra
     ido-vertical-mode
     indent-guide
     langtool

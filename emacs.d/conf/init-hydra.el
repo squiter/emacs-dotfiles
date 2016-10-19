@@ -1,11 +1,11 @@
-;;; init-ivy.el --- Ivy configuration
+;;; init-hydra.el --- Hydra configurations
 ;;
 ;; Copyright (C) 2016 Brunno dos Santos <emacs at brunno dot me>
 ;;
 ;; Author: Brunno dos Santos @squiter
 ;; URL: http://github.com/squiter/emacs-dotfiles
 ;;
-;; Created: 13 outubro 2016
+;; Created: 19 outubro 2016
 ;;
 ;; This file is NOT part of GNU Emacs.
 ;;
@@ -26,11 +26,22 @@
 ;;
 
 ;;; Code:
-(ivy-mode 1)
+(defhydra hydra-launcher (:color blue :hint nil)
+  "
+^SQUITER HOTSPOTS:^
 
-(setq ivy-use-virtual-buffers t)
-(setq ivy-count-format "(%d/%d) ")
-(setq ivy-height 15)
+ Locaweb                Pessoal             Paths
+------------------------------------------------------------------------
+_p_: Ponto             _C_: Calendar       _d_: ~/Downloads
+_c_: CI                _g_: Github         _e_: ~/.emacs.d
 
-(provide 'init-ivy)
-;;; init-ivy.el ends here
+"
+   ("p" (browse-url "https://portalrh.cservices.com.br/PortalLocaweb/"))
+   ("c" (browse-url "http://ci.qaservices.locaweb.com.br/job/paas_paas/job/paas_hospedagem/"))
+   ("C" (browse-url "https://www.google.com/calendar/render"))
+   ("g" (browse-url "https://github.com/squiter"))
+   ("d" (find-file "~/Downloads"))
+   ("e" (find-file "~/.emacs.d")))
+
+(provide 'init-hydra)
+;;; init-hydra.el ends here

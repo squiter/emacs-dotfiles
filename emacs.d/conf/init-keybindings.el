@@ -23,7 +23,7 @@
 (global-set-key (kbd "C-c i") 'indent-buffer)
 (global-set-key (kbd "C-c e") 'eval-buffer)
 (global-set-key (kbd "C-c ]") 'custom/org-open-project-file)
-(global-set-key (kbd "C-x C-h") 'squiter/hotspots)
+(global-set-key (kbd "C-x C-h") 'hydra-launcher/body)
 
 ;; buffer/file edits
 (global-set-key (kbd "C-x C-S-k") 'delete-current-buffer-file)

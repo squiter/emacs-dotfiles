@@ -86,6 +86,7 @@
     init-exist
     init-prettify-symbols
     init-ctags
+    init-hydra
     rcodetools))
 
 (defun safe-require (feature)
