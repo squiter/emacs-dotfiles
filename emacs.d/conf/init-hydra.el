@@ -89,5 +89,18 @@ _h_   _l_   _o_k        _y_ank
   ("p" kill-rectangle nil)
   ("o" nil nil))
 
+(defhydra hydra-move (:body-pre (next-line))
+   "Move"
+   ("n" next-line)
+   ("p" previous-line)
+   ("f" forward-char)
+   ("b" bacFkward-char)
+   ("a" beginning-of-line)
+   ("e" move-end-of-line)
+   ("v" scroll-up-command)
+   ;; Converting M-v to V here by analogy.
+   ("V" scroll-down-command)
+   ("l" recenter-top-bottom))
+
 (provide 'init-hydra)
 ;;; init-hydra.el ends here
