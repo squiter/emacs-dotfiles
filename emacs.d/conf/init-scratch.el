@@ -30,12 +30,6 @@
 (defvar keybindings-file (concat *emacsd-directory* "/conf" "/init-keybindings.el"))
 (defvar tips-file (concat *emacsd-directory* "/pragmatic-tips.txt"))
 
-(defun read-lines (filePath)
-  "Return a list of lines of a file at FILEPATH."
-  (with-temp-buffer
-    (insert-file-contents filePath)
-    (split-string (buffer-string) "\n" t)))
-
 (defun is-comment (st)
   "Check if ST start with ;."
   (equal (substring st 0 1) ";"))

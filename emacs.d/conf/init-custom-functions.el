@@ -152,5 +152,11 @@ is already narrowed."
       (set-selective-display
        (if selective-display nil (or col 1))))))
 
+(defun read-lines (filePath)
+  "Return a list of lines of a file at FILEPATH."
+  (with-temp-buffer
+    (insert-file-contents filePath)
+    (split-string (buffer-string) "\n" t)))
+
 (provide 'init-custom-functions)
 ;;; init-custom-functions.el ends here
