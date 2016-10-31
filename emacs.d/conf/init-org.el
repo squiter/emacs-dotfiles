@@ -35,6 +35,11 @@
 (setq org-ellipsis " ➥")
 (setq org-startup-indented t)
 
+;; Set images with 1/3 of my display size
+(setq org-image-actual-width (/ (display-pixel-width) 3))
+;; Load images on startup
+(setq org-startup-with-inline-images t)
+
 (require 'init-org-keybinds)
 (require 'init-org-bullets)
 (require 'init-org-agenda)
@@ -53,7 +58,6 @@
 (require 'init-org-alfred)
 (require 'init-org-customs)
 (require 'init-org-gamify)
-
 
 ;; Tags with fast selection keys
 (setq org-tag-alist (quote ((:startgroup) ;; location group
