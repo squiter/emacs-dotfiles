@@ -45,6 +45,7 @@
     hydra
     ido-vertical-mode
     indent-guide
+    imenu-list
     langtool
     magit
     markdown-mode+
