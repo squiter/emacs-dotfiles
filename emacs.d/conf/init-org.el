@@ -73,7 +73,7 @@
                             ("HOLD" . ?h)
                             ("NOTE" . ?n)
                             ("crypt" . ?k)
-                            ("BORROWED" . ?b)
+                            ("LENT" . ?l)
                             ("BILLS" . ?B)
                             ("CANCELLED" . ?c)
                             ("FLAGGED" . ??))))
