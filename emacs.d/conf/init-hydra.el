@@ -26,6 +26,11 @@
 ;;
 
 ;;; Code:
+
+;;;;;;;;;;;;;;;;;;;
+;; hydra-laucher ;;
+;;;;;;;;;;;;;;;;;;;
+
 (defhydra hydra-launcher (:color blue :hint nil)
   "
 ^SQUITER HOTSPOTS:^
@@ -36,13 +41,19 @@ _p_: Ponto             _C_: Calendar       _d_: ~/Downloads
 _c_: CI                _g_: Github         _e_: ~/.emacs.d
 
 "
-   ("p" (browse-url "https://portalrh.cservices.com.br/PortalLocaweb/"))
-   ("c" (browse-url "http://ci.qaservices.locaweb.com.br/job/paas_paas/job/paas_hospedagem/"))
-   ("C" (browse-url "https://www.google.com/calendar/render"))
-   ("g" (browse-url "https://github.com/squiter"))
-   ("d" (find-file "~/Downloads"))
-   ("e" (find-file "~/.emacs.d"))
-   ("q" nil "cancel" :color blue))
+  ("p" (browse-url "https://portalrh.cservices.com.br/PortalLocaweb/"))
+  ("c" (browse-url "http://ci.qaservices.locaweb.com.br/job/paas_paas/job/paas_hospedagem/"))
+  ("C" (browse-url "https://www.google.com/calendar/render"))
+  ("g" (browse-url "https://github.com/squiter"))
+  ("d" (find-file "~/Downloads"))
+  ("e" (find-file "~/.emacs.d"))
+  ("q" nil "cancel" :color blue))
+
+
+;;;;;;;;;;;;;;;
+;; hydra-org ;;
+;;;;;;;;;;;;;;;
+
 
 (defhydra hydra-org (:color teal :hint nil)
   "
@@ -63,9 +74,15 @@ _ce_: Estimate
   ("nl" org-refile-goto-lacest-stored)
   ("q" nil "cancel" :color blue))
 
+
+;;;;;;;;;;;;;;;;;;;;;
+;; hydra-rectangle ;;
+;;;;;;;;;;;;;;;;;;;;;
+
+
 (defhydra hydra-rectangle (:body-pre (rectangle-mark-mode 1)
-                           :color pink
-                           :post (deactivate-mark))
+                                     :color pink
+                                     :post (deactivate-mark))
   "
   ^_k_^     _d_elete    _s_tring
 _h_   _l_   _o_k        _y_ank
@@ -89,18 +106,35 @@ _h_   _l_   _o_k        _y_ank
   ("p" kill-rectangle nil)
   ("o" nil nil))
 
+
+;;;;;;;;;;;;;;;;
+;; hydra-move ;;
+;;;;;;;;;;;;;;;;
+
+
 (defhydra hydra-move (:body-pre (next-line))
-   "Move"
-   ("n" next-line)
-   ("p" previous-line)
-   ("f" forward-char)
-   ("b" bacFkward-char)
-   ("a" beginning-of-line)
-   ("e" move-end-of-line)
-   ("v" scroll-up-command)
-   ;; Converting M-v to V here by analogy.
-   ("V" scroll-down-command)
-   ("l" recenter-top-bottom))
+  "Move"
+  ("n" next-line)
+  ("p" previous-line)
+  ("f" forward-char)
+  ("b" bacFkward-char)
+  ("a" beginning-of-line)
+  ("e" move-end-of-line)
+  ("v" scroll-up-command)
+  ;; Converting M-v to V here by analogy.
+  ("V" scroll-down-command)
+  ("l" recenter-top-bottom))
+
+(defun reload-project-links ()
+  (eval `(defhydra hydra-project-launcher (:column 3)
+           "Fast links by projects"
+           ,@(mapcar (lambda (x)
+                       (list (car x) `(browse-url ,(cadr x)) (caddr x)))
+                     (mapcar (lambda (line)
+                               (split-string line " - "))
+                             (read-lines (concat (projectile-project-root) ".hydra-links")))))))
+
+(add-hook 'projectile-after-switch-project-hook #'reload-project-links)
 
 (provide 'init-hydra)
 ;;; init-hydra.el ends here

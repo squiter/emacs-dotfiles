@@ -196,7 +196,7 @@
 ;;;;;;;;;;;;;;;;;;
 
 (define-prefix-command 'squiter/hydra)
-(global-set-key (kbd "C-c h") 'squiter/hydra)
+(global-set-key (kbd "<f6>") 'squiter/hydra)
 (define-key squiter/hydra (kbd "l") 'hydra-launcher/body)
 (define-key squiter/hydra (kbd "o") 'hydra-org/body)
 (define-key squiter/hydra (kbd "r") 'hydra-rectangle/body)
