@@ -14,6 +14,7 @@
 (defvar my-packages
   '(
     ace-window
+    achievements
     anzu
     apel
     auto-package-update
