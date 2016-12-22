@@ -34,5 +34,8 @@
 
 (global-set-key (kbd "M-n b c") 'plambert/branch-changelog)
 
+(define-key magit-branch-section-map (kbd "RET") 'magit-checkout)
+(define-key magit-branch-section-map (kbd "S-<return>") 'magit-branch-and-checkout)
+
 (provide 'init-magit)
 ;;; init-magit.el ends here
