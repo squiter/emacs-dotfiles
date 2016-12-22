@@ -57,6 +57,14 @@
          ,(squiter/oc-template "morning-journal.org")
          :clock-in t
          :clock-resume t)
+        ("e" "Evening Journal" entry (file+datetree (path-join *user-org-cache-directory* "diary.org"))
+         ,(squiter/oc-template "evening-journal.org")
+         :clock-in t
+         :clock-resume t)
+        ("w" "Weekly Review" entry (file+datetree (path-join *user-org-cache-directory* "diary.org"))
+         ,(squiter/oc-template "weekly-review.org")
+         :clock-in t
+         :clock-resume t)
         ("s" "Code Snippet" entry
          (file (path-join *user-org-cache-directory* "snippets.org"))
          ;; Prompt for tag and language
