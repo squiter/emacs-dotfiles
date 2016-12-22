@@ -158,5 +158,11 @@ is already narrowed."
     (insert-file-contents filePath)
     (split-string (buffer-string) "\n" t)))
 
+(defun get-string-from-file (filePath)
+  "Return filePath's file content."
+  (with-temp-buffer
+    (insert-file-contents filePath)
+    (buffer-string)))
+
 (provide 'init-custom-functions)
 ;;; init-custom-functions.el ends here
