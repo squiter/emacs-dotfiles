@@ -17,5 +17,7 @@ emacs.d/autosave/*
 emacs.d/url/
 emacs.d/request/*
 emacs.d/smex-items
+emacs.d/session.*
+emacs.d/network-security.data
 init-secrets.el
 cider-history
