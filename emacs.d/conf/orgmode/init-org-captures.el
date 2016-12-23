@@ -34,6 +34,10 @@
 ;; I use C-c c to start capture mode
 (global-set-key (kbd "C-c c") 'org-capture)
 
+(defun squiter/oc-template (file)
+  "Get org template using a FILE."
+  (get-string-from-file (path-join org-capture-directory file)))
+
 ;; Capture templates for: TODO tasks, Notes, appointments, phone calls, meetings, and org-protocol
 (setq org-capture-templates
       `(("t" "todo" entry (file (path-join *user-org-cache-directory* "refile.org"))
@@ -71,10 +75,6 @@
          "* %? :NOTE:\t\n%U\n#+BEGIN_SRC %(eval custom/org-mode-memory)\n%c\n#+END_SRC")
         ("h" "Habit" entry (file (path-join *user-org-cache-directory* "refile.org"))
          ,(squiter/oc-template "habit.org"))))
-
-(defun squiter/oc-template (file)
-  "Get org template using a FILE."
-  (get-string-from-file (path-join org-capture-directory file)))
 
 (defvar custom/org-mode-memory nil)
 (defadvice org-capture (before custom/org-mode-memory activate)
