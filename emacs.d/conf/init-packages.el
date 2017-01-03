@@ -76,6 +76,7 @@
     swiper
     tagedit
     telephone-line
+    try
     twittering-mode
     undo-tree
     wakatime-mode
