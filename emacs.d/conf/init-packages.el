@@ -56,6 +56,7 @@
     ob-restclient
     ob-sml
     org-bullets
+    org-gcal
     ox-twbs
     projectile
     projectile-rails

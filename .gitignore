@@ -19,5 +19,6 @@ emacs.d/request/*
 emacs.d/smex-items
 emacs.d/session.*
 emacs.d/network-security.data
+emacs.d/org-gcal
 init-secrets.el
 cider-history
