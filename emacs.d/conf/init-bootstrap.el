@@ -70,6 +70,7 @@
     init-clojure
     init-restclient
     init-yasnippet
+    init-tramp
     init-twittering-mode
     init-haskell
     init-which-key
