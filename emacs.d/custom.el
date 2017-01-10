@@ -5,6 +5,7 @@
  ;; If there is more than one, they won't work right.
  '(gitlab-remote-pattern "\\`.+code\\.locaweb\\.com\\.br:\\(.+\\)\\.git\\'")
  '(gitlab-url "https://code.locaweb.com.br")
+ '(ivy-youtube-key *youtube-key*)
  '(livedown:autostart nil)
  '(livedown:open t)
  '(livedown:port 1337)

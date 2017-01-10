@@ -47,6 +47,7 @@
     ido-vertical-mode
     indent-guide
     imenu-list
+    ivy-youtube
     langtool
     magit
     markdown-mode+
