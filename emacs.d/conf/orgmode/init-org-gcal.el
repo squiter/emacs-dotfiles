@@ -38,7 +38,7 @@
             (org-gcal-sync)
             (message "Google Calendar Synced!")))
 
-(add-hook 'org-capture-after-finalize-hook
+(add-hook 'org-after-refile-insert-hook
           (lambda ()
             (message "Syncing Google Calendar...")
             (org-gcal-sync)
