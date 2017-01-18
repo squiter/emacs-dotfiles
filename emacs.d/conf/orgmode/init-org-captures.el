@@ -74,7 +74,9 @@
          ;; Prompt for tag and language
          "* %? :NOTE:\t\n%U\n#+BEGIN_SRC %(eval custom/org-mode-memory)\n%c\n#+END_SRC")
         ("h" "Habit" entry (file (path-join *user-org-cache-directory* "refile.org"))
-         ,(squiter/oc-template "habit.org"))))
+         ,(squiter/oc-template "habit.org")
+         :clock-in t
+         :clock-resume t)))
 
 (defvar custom/org-mode-memory nil)
 (defadvice org-capture (before custom/org-mode-memory activate)
