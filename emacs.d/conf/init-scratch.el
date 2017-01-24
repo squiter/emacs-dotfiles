@@ -25,7 +25,7 @@
 ;; This file will make your scratch buffer more fun!
 
 ;;; Code:
-(defvar welcome-message '(";;; Bem vindo Squiter 🐱"))
+(defvar welcome-message '(";;; Welcome Squiter 🐱"))
 
 (defvar keybindings-file (concat *emacsd-directory* "/conf" "/init-keybindings.el"))
 (defvar tips-file (concat *emacsd-directory* "/pragmatic-tips.txt"))
@@ -45,8 +45,8 @@ It use PREFIX message and a random line of FILENAME."
   (let ((random-binding (get-random-line filename)))
     (concat prefix random-binding)))
 
-(add-to-list 'welcome-message (build-message ";;; Binding do dia: " keybindings-file))
-(add-to-list 'welcome-message (build-message ";;; Dica do dia: " tips-file))
+(add-to-list 'welcome-message (build-message ";;; Binding of the day: " keybindings-file))
+(add-to-list 'welcome-message (build-message ";;; Tip of the day: " tips-file))
 (add-to-list 'welcome-message "\n")
 
 (setq initial-scratch-message (mapconcat 'identity (reverse welcome-message) "\n"))

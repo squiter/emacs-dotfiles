@@ -67,6 +67,7 @@
     init-wakatime
     init-yaml
     init-flycheck
+    init-flyspell
     init-clojure
     init-restclient
     init-yasnippet
