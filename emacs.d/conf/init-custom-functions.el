@@ -164,5 +164,12 @@ is already narrowed."
     (insert-file-contents filePath)
     (buffer-string)))
 
+(fset 'squiter/org-attach-path-to-img
+      (lambda (&optional arg)
+        "Keyboard macro."
+        (interactive "p")
+        (kmacro-exec-ring-item
+         (quote ("\344\344\344\344.[[]]" 0 "%d")) arg)))
+
 (provide 'init-custom-functions)
 ;;; init-custom-functions.el ends here
