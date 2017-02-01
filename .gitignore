@@ -20,5 +20,6 @@ emacs.d/smex-items
 emacs.d/session.*
 emacs.d/network-security.data
 emacs.d/org-gcal
+emacs.d/org-clock-save.el
 init-secrets.el
 cider-history
