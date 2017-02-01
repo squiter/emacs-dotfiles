@@ -6,9 +6,6 @@
  '(gitlab-remote-pattern "\\`.+code\\.locaweb\\.com\\.br:\\(.+\\)\\.git\\'")
  '(gitlab-url "https://code.locaweb.com.br")
  '(ivy-youtube-key *youtube-key*)
- '(livedown:autostart nil)
- '(livedown:open t)
- '(livedown:port 1337)
  '(org-modules
    (quote
     (org-bbdb org-bibtex org-docview org-gnus org-info org-irc org-mhe org-rmail org-w3m org-drill)))

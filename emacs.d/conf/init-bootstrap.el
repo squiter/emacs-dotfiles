@@ -83,7 +83,6 @@
     init-langtool
     init-google
     vmd-mode
-    init-emacs-livedown
     init-scratch
     init-exist
     init-prettify-symbols
