@@ -1,3 +1,0 @@
-[submodule "emacs.d/vendor/ob-racket"]
-	path = emacs.d/vendor/ob-racket
-	url = git@github.com:wallyqs/ob-racket.git
