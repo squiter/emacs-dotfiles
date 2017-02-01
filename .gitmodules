@@ -1,6 +1,3 @@
 [submodule "emacs.d/vendor/ob-racket"]
 	path = emacs.d/vendor/ob-racket
 	url = git@github.com:wallyqs/ob-racket.git
-[submodule "emacs.d/vendor/org-gamify"]
-	path = emacs.d/vendor/org-gamify
-	url = git@bitbucket.org:eeeickythump/org-gamify.git
