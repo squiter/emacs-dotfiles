@@ -40,10 +40,12 @@
 _p_: Ponto             _C_: Calendar       _d_: ~/Downloads
 _c_: CI                _g_: Github         _e_: ~/.emacs.d
 _m_: Merge Requests
+_r_: Retro
 "
   ("p" (browse-url "https://portalrh.cservices.com.br/PortalLocaweb/"))
   ("c" (browse-url "http://ci.qaservices.locaweb.com.br/job/paas_paas/job/paas_hospedagem/"))
   ("m" (browse-url "https://code.locaweb.com.br/dashboard/merge_requests?scope=all&state=opened&utf8=%E2%9C%93&label_name%5B%5D=novo-provisionamento"))
+  ("r" (browse-url *locaweb-retro-link*))
   ("C" (browse-url "https://www.google.com/calendar/render"))
   ("g" (browse-url "https://github.com/squiter"))
   ("d" (find-file "~/Downloads"))
