@@ -8,7 +8,7 @@
 
 ;; doom theme options
 (add-to-list 'load-path (concat *emacsd-directory* "/themes/doom-theme"))
-(require 'doom-theme)
+(require 'doom-themes)
 (load-theme 'doom-one t)
 
 (setq

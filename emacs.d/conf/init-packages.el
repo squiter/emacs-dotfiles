@@ -1,4 +1,4 @@
-;; init=packages.el --- List and management of my packages
+;; init-packages.el --- List and management of my packages
 
 ;;; commentary:
 ;; That file contains my-packages list and a dolist function that install each package
@@ -29,6 +29,7 @@
     dired+
     discover-my-major
     docker
+    doom-themes
     easy-kill
     expand-region
     flycheck
