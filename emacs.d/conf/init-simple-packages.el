@@ -47,5 +47,8 @@
 ;; smart-shift
 (global-smart-shift-mode 1)
 
+;; beacon-mode
+(beacon-mode 1)
+
 (provide 'init-simple-packages)
 ;;; init-simple-packages.el ends here

@@ -20,6 +20,7 @@
     auto-package-update
     avy
     back-button
+    beacon
     bundler
     cider
     clojure-mode
