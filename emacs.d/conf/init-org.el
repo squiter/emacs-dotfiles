@@ -76,6 +76,7 @@
                             ("crypt" . ?k)
                             ("LENT" . ?l)
                             ("BILLS" . ?B)
+                            ("SKIPPED" . ?s)
                             ("CANCELLED" . ?c)
                             ("FLAGGED" . ??))))
 
