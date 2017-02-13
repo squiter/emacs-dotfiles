@@ -29,6 +29,9 @@
 ;;; Code:
 (require 'dired)
 
+;; allow editing file permissions
+(setq wdired-allow-to-change-permissions t)
+
 ;; Reload dired after making changes
 (--each '(dired-do-rename
           dired-do-copy
