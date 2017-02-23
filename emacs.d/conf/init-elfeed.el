@@ -35,6 +35,11 @@
 
 (setq elfeed-db-directory (path-join *user-elfeed-directory* "elfeeddb"))
 
+;; Mark all YouTube entries
+(add-hook 'elfeed-new-entry-hook
+          (elfeed-make-tagger :feed-url "youtube\\.com"
+                              :add '(video youtube)))
+
 (defun elfeed-mark-all-as-read ()
       (interactive)
       (mark-whole-buffer)
@@ -55,6 +60,12 @@
   (interactive)
   (elfeed-db-save)
   (quit-window))
+
+(defun squiter/elfeed-save ()
+  "The function elfeed-db-save is not an interactive function."
+  (interactive)
+  (elfeed-db-save)
+  (message "Elfeed database saved."))
 
 (defalias 'elfeed-toggle-star
   (elfeed-expose #'elfeed-search-toggle-all 'star))

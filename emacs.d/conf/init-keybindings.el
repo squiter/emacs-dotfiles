@@ -208,6 +208,7 @@
 (define-key elfeed-search-mode-map (kbd "Q") 'bjm/elfeed-save-db-and-bury)
 (define-key elfeed-search-mode-map (kbd "m") 'elfeed-toggle-star)
 (define-key elfeed-search-mode-map (kbd "M") 'elfeed-toggle-star)
+(define-key elfeed-search-mode-map (kbd "s") 'squiter/elfeed-save)
 
 (provide 'init-keybindings)
 ;;; init-keybindings.el ends here
