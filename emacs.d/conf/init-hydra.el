@@ -39,7 +39,7 @@
 ------------------------------------------------------------------------
 _p_: Ponto             _C_: Calendar       _d_: ~/Downloads
 _c_: CI                _g_: Github         _e_: ~/.emacs.d
-_m_: Merge Requests
+_m_: Merge Requests    _f_: Elfeed         _E_: ~/Dropbox/elfeed
 _r_: Retro
 "
   ("p" (browse-url "https://portalrh.cservices.com.br/PortalLocaweb/"))
@@ -50,6 +50,8 @@ _r_: Retro
   ("g" (browse-url "https://github.com/squiter"))
   ("d" (find-file "~/Downloads"))
   ("e" (find-file "~/.emacs.d"))
+  ("E" (find-file "~/Dropbox/elfeed"))
+  ("f" (bjm/elfeed-load-db-and-open))
   ("q" nil "cancel" :color blue))
 
 

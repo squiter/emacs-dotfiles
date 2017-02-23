@@ -200,5 +200,14 @@
 (define-key squiter/hydra (kbd "r") 'hydra-rectangle/body)
 (define-key squiter/hydra (kbd "m") 'hydra-move/body)
 
+;;;;;;;;;;;;;;;;;;;;;
+;; elfeed keybinds ;;
+;;;;;;;;;;;;;;;;;;;;;
+
+(define-key elfeed-search-mode-map (kbd "q") 'bjm/elfeed-save-db-and-bury)
+(define-key elfeed-search-mode-map (kbd "Q") 'bjm/elfeed-save-db-and-bury)
+(define-key elfeed-search-mode-map (kbd "m") 'elfeed-toggle-star)
+(define-key elfeed-search-mode-map (kbd "M") 'elfeed-toggle-star)
+
 (provide 'init-keybindings)
 ;;; init-keybindings.el ends here

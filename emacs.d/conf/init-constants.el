@@ -15,6 +15,9 @@
   (path-join *user-home-directory* "dropbox")
   "Path to Dropbox on user's machine.")
 
+(defconst *user-elfeed-directory*
+  (path-join *user-dropbox-directory* "elfeed"))
+
 (defconst *projects-directory*
   (path-join *user-home-directory* "projetos")
   "Path to my default project directory.")

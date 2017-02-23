@@ -88,6 +88,7 @@
     init-prettify-symbols
     init-ctags
     init-hydra
+    init-elfeed
     rcodetools))
 
 (defun safe-require (feature)
