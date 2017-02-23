@@ -41,9 +41,9 @@
                               :add '(video youtube)))
 
 (defun elfeed-mark-all-as-read ()
-      (interactive)
-      (mark-whole-buffer)
-      (elfeed-search-untag-all-unread))
+  (interactive)
+  (mark-whole-buffer)
+  (elfeed-search-untag-all-unread))
 
 ;;functions to support syncing .elfeed between machines
 ;;makes sure elfeed reads index from disk before launching
@@ -69,6 +69,52 @@
 
 (defalias 'elfeed-toggle-star
   (elfeed-expose #'elfeed-search-toggle-all 'star))
+
+(defun copy-elfeed-link (entry)
+  "Copy the ENTRY URL to the clipboard."
+  (interactive)
+  (let* ((link (elfeed-entry-link entry)))
+    (kill-new link)
+    (x-set-selection 'PRIMARY link)
+    (message "Yanked: %s" link)))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Creates a orgmode note with entry link ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defun copy-elfeed-link-title-to-org (entry)
+  "Copy the ENTRY title and URL as org link to the clipboard."
+  (interactive)
+  (let* ((link (elfeed-entry-link entry))
+         (title (elfeed-entry-title entry))
+         (titlelink (concat "[[" link "][" title "]]")))
+    (when titlelink
+      (kill-new titlelink)
+      (x-set-selection 'PRIMARY titlelink)
+      (message "Yanked: %s" titlelink))))
+
+(defun elfeed-show-quick-url-note ()
+  "Fastest way to capture entry link to org agenda from elfeed show mode"
+  (interactive)
+  (copy-elfeed-link-title-to-org elfeed-show-entry)
+  (org-capture nil "n")
+  (yank)
+  (org-capture-finalize))
+
+(defun elfeed-search-quick-url-note ()
+  "In search mode, capture the title and link for the selected
+entry or entries in org aganda."
+  (interactive)
+  (let ((entries (elfeed-search-selected)))
+    (cl-loop for entry in entries
+             do (elfeed-untag entry 'unread)
+             when (elfeed-entry-link entry)
+             do (copy-elfeed-link-title-to-org entry)
+             do (org-capture nil "n")
+             do (yank)
+             do (org-capture-finalize)
+             (mapc #'elfeed-search-update-entry entries))
+    (unless (use-region-p) (forward-line))))
 
 (provide 'init-elfeed)
 ;;; init-elfeed.el ends here

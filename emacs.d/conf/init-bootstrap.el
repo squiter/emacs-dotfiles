@@ -45,7 +45,6 @@
     init-edit-custom-functions
     init-ui
     init-ivy
-    init-keybindings
     init-mac-switch-meta
     init-smerge
     init-dired
@@ -89,7 +88,8 @@
     init-ctags
     init-hydra
     init-elfeed
-    rcodetools))
+    rcodetools
+    init-keybindings))
 
 (defun safe-require (feature)
   "Safely requires FEATURE."

@@ -205,10 +205,14 @@
 ;;;;;;;;;;;;;;;;;;;;;
 
 (define-key elfeed-search-mode-map (kbd "q") 'bjm/elfeed-save-db-and-bury)
-(define-key elfeed-search-mode-map (kbd "Q") 'bjm/elfeed-save-db-and-bury)
 (define-key elfeed-search-mode-map (kbd "m") 'elfeed-toggle-star)
-(define-key elfeed-search-mode-map (kbd "M") 'elfeed-toggle-star)
 (define-key elfeed-search-mode-map (kbd "s") 'squiter/elfeed-save)
+(define-key elfeed-search-mode-map (kbd "o") 'elfeed-search-quick-url-note)
+
+(define-key elfeed-show-mode-map (kbd "q") 'bjm/elfeed-save-db-and-bury)
+(define-key elfeed-show-mode-map (kbd "m") 'elfeed-toggle-star)
+(define-key elfeed-show-mode-map (kbd "s") 'squiter/elfeed-save)
+(define-key elfeed-show-mode-map (kbd "o") 'elfeed-show-quick-url-note)
 
 (provide 'init-keybindings)
 ;;; init-keybindings.el ends here
