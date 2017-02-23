@@ -9,6 +9,7 @@
  '(gitlab-remote-pattern "\\`.+code\\.locaweb\\.com\\.br:\\(.+\\)\\.git\\'")
  '(gitlab-url "https://code.locaweb.com.br")
  '(ivy-youtube-key *youtube-key*)
+ '(ivy-youtube-play-at "/usr/bin/vlc")
  '(org-modules
    (quote
     (org-bbdb org-bibtex org-docview org-gnus org-info org-irc org-mhe org-rmail org-w3m org-drill)))
