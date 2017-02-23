@@ -35,22 +35,25 @@
   "
 ^SQUITER HOTSPOTS:^
 
- Locaweb                Pessoal             Paths
-------------------------------------------------------------------------
-_p_: Ponto             _C_: Calendar       _d_: ~/Downloads
-_c_: CI                _g_: Github         _e_: ~/.emacs.d
-_m_: Merge Requests    _f_: Elfeed         _E_: ~/Dropbox/elfeed
+ Locaweb                  Pessoal               Paths
+--------------------------------------------------------------------------
+_p_: Ponto               _C_: Calendar         _D_: ~/Downloads
+_c_: CI                  _g_: Github           _e_: ~/.emacs.d
+_m_: Merge Requests      _f_: Elfeed           _E_: ../elfeed.org
 _r_: Retro
+_d_: Docs Hospedagem
+--------------------------------------------------------------------------
 "
   ("p" (browse-url "https://portalrh.cservices.com.br/PortalLocaweb/"))
   ("c" (browse-url "http://ci.qaservices.locaweb.com.br/job/paas_paas/job/paas_hospedagem/"))
   ("m" (browse-url "https://code.locaweb.com.br/dashboard/merge_requests?scope=all&state=opened&utf8=%E2%9C%93&label_name%5B%5D=novo-provisionamento"))
-  ("r" (browse-url *locaweb-retro-link*))
+  ("r" (browse-url "https://maps.groupmap.com/maps"))
+  ("d" (browse-url "http://apps-hospedagem.docs.arda.locaweb.com.br"))
   ("C" (browse-url "https://www.google.com/calendar/render"))
   ("g" (browse-url "https://github.com/squiter"))
-  ("d" (find-file "~/Downloads"))
+  ("D" (find-file "~/Downloads"))
   ("e" (find-file "~/.emacs.d"))
-  ("E" (find-file "~/Dropbox/elfeed"))
+  ("E" (find-file "~/Dropbox/elfeed/elfeed.org"))
   ("f" (bjm/elfeed-load-db-and-open))
   ("q" nil "cancel" :color blue))
 
