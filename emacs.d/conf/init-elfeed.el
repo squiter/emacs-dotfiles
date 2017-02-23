@@ -28,10 +28,6 @@
 ;;; Code:
 (require 'elfeed)
 
-;; elfeed-goodies configurations
-(require 'elfeed-goodies)
-(elfeed-goodies/setup)
-
 ;; elfeed-org configurations
 (require 'elfeed-org)
 (elfeed-org)

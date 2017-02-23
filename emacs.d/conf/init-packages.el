@@ -33,7 +33,6 @@
     doom-themes
     easy-kill
     elfeed
-    elfeed-goodies
     elfeed-org
     expand-region
     flycheck
