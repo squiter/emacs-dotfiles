@@ -78,6 +78,33 @@
     (x-set-selection 'PRIMARY link)
     (message "Yanked: %s" link)))
 
+;;;;;;;;;;;;;;;;
+;; instapaper ;;
+;;;;;;;;;;;;;;;;
+(require 'instapaper)
+
+(setq instapaper-username "squiter85@gmail.com")
+(setq instapaper-password *instapaper-password*)
+
+(defun squiter/elfeed-show-add-to-instapaper ()
+  "Save current entry in show mode to Instapaper."
+  (interactive)
+  (let ((link (elfeed-entry-link elfeed-show-entry)))
+    (instapaper-add link)
+    (message "Added to Instapaper: %s" link)))
+
+(defun squiter/elfeed-search-add-to-instapaper ()
+  "Save current entry in search mode to Instapaper."
+  (interactive)
+  (let ((entries (elfeed-search-selected)))
+    (cl-loop for entry in entries
+             do (elfeed-untag entry 'unread)
+             when (elfeed-entry-link entry)
+             do (instapaper-add (elfeed-entry-link entry))
+             do (message "Added to Instapaper: %s" link)
+             (mapc #'elfeed-search-update-entry entries))
+    (unless (use-region-p) (forward-line))))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Creates a orgmode note with entry link ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
