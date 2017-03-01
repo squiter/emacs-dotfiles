@@ -199,6 +199,7 @@
 (define-key squiter/hydra (kbd "o") 'hydra-org/body)
 (define-key squiter/hydra (kbd "r") 'hydra-rectangle/body)
 (define-key squiter/hydra (kbd "m") 'hydra-move/body)
+(define-key squiter/hydra (kbd "e") 'mz/hydra-elfeed/body)
 
 ;;;;;;;;;;;;;;;;;;;;;
 ;; elfeed keybinds ;;
@@ -206,13 +207,13 @@
 
 (define-key elfeed-search-mode-map (kbd "q") 'bjm/elfeed-save-db-and-bury)
 (define-key elfeed-search-mode-map (kbd "m") 'elfeed-toggle-star)
-(define-key elfeed-search-mode-map (kbd "s") 'squiter/elfeed-save)
+(define-key elfeed-search-mode-map (kbd "S") 'squiter/elfeed-save)
 (define-key elfeed-search-mode-map (kbd "o") 'elfeed-search-quick-url-note)
 (define-key elfeed-search-mode-map (kbd "i") 'squiter/elfeed-search-add-to-instapaper)
 
 (define-key elfeed-show-mode-map (kbd "q") 'bjm/elfeed-save-db-and-bury)
 (define-key elfeed-show-mode-map (kbd "m") 'elfeed-toggle-star)
-(define-key elfeed-show-mode-map (kbd "s") 'squiter/elfeed-save)
+(define-key elfeed-show-mode-map (kbd "S") 'squiter/elfeed-save)
 (define-key elfeed-show-mode-map (kbd "o") 'elfeed-show-quick-url-note)
 (define-key elfeed-show-mode-map (kbd "i") 'squiter/elfeed-show-add-to-instapaper)
 

@@ -144,5 +144,25 @@ _h_   _l_   _o_k        _y_ank
 
 (add-hook 'projectile-after-switch-project-hook #'reload-project-links)
 
+(defhydra mz/hydra-elfeed (:columns 4)
+  "filter"
+  ("a" (elfeed-search-set-filter "@6-months-ago +apple") "apple")
+  ("e" (elfeed-search-set-filter "@6-months-ago +emacs") "emacs")
+  ("E" (elfeed-search-set-filter "@6-months-ago +entertainment") "entertainment")
+  ("g" (elfeed-search-set-filter "@6-months-ago +games") "games")
+  ("c" (elfeed-search-set-filter "@6-months-ago +code") "code")
+  ("w" (elfeed-search-set-filter "@6-months-ago +web") "web")
+  ("r" (elfeed-search-set-filter "@6-months-ago +ruby") "ruby")
+  ("t" (elfeed-search-set-filter "@6-months-ago +tech") "tech")
+  ("f" (elfeed-search-set-filter "@6-months-ago +fun") "fun")
+  ("C" (elfeed-search-set-filter "@6-months-ago +comics") "comics")
+  ("*" (elfeed-search-set-filter "@6-months-ago +star") "Starred")
+  ("M" elfeed-toggle-star "Mark")
+  ("A" (elfeed-search-set-filter "@6-months-ago") "All")
+  ("T" (elfeed-search-set-filter "@1-day-ago") "Today")
+  ("Q" bjm/elfeed-save-db-and-bury "Quit Elfeed" :color blue)
+  ("q" nil "quit" :color blue)
+  )
+
 (provide 'init-hydra)
 ;;; init-hydra.el ends here
