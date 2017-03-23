@@ -144,25 +144,49 @@ _h_   _l_   _o_k        _y_ank
 
 (add-hook 'projectile-after-switch-project-hook #'reload-project-links)
 
-(defhydra mz/hydra-elfeed (:columns 4)
-  "filter"
-  ("a" (elfeed-search-set-filter "@6-months-ago +apple") "apple")
-  ("e" (elfeed-search-set-filter "@6-months-ago +emacs") "emacs")
-  ("E" (elfeed-search-set-filter "@6-months-ago +entertainment") "entertainment")
-  ("g" (elfeed-search-set-filter "@6-months-ago +games") "games")
-  ("c" (elfeed-search-set-filter "@6-months-ago +code") "code")
-  ("w" (elfeed-search-set-filter "@6-months-ago +web") "web")
-  ("r" (elfeed-search-set-filter "@6-months-ago +ruby") "ruby")
-  ("t" (elfeed-search-set-filter "@6-months-ago +tech") "tech")
-  ("f" (elfeed-search-set-filter "@6-months-ago +fun") "fun")
-  ("C" (elfeed-search-set-filter "@6-months-ago +comics") "comics")
-  ("*" (elfeed-search-set-filter "@6-months-ago +star") "Starred")
-  ("M" elfeed-toggle-star "Mark")
-  ("A" (elfeed-search-set-filter "@6-months-ago") "All")
-  ("T" (elfeed-search-set-filter "@1-day-ago") "Today")
-  ("Q" bjm/elfeed-save-db-and-bury "Quit Elfeed" :color blue)
-  ("q" nil "quit" :color blue)
-  )
+;;;;;;;;;;;;;;;;;;
+;; elffed hydra ;;
+;;;;;;;;;;;;;;;;;;
+
+(defun z/hasCap (s)
+  "Check if the string S has an upcase char."
+  (let ((case-fold-search nil))
+    (string-match-p "[[:upper:]]" s)))
+
+(defun z/get-hydra-option-key (s)
+  "Return single upper case letter (converted to lower) or first using string S."
+  (interactive)
+  (let ( (loc (z/hasCap s)))
+    (if loc
+	(downcase (substring s loc (+ loc 1)))
+      (substring s 0 1))))
+
+(defun mz/make-elfeed-cats (tags)
+  "Return a list of lists.  Each line is like (c function hint).  Use TAGS to create it."
+  (interactive)
+  (mapcar (lambda (tag)
+	    (let* ((tagstring (symbol-name tag))
+		   (c (z/get-hydra-option-key tagstring)))
+	      (list c (append '(elfeed-search-set-filter)
+                              (list (format "@6-months-ago +%s" tagstring) )) tagstring)))
+	  tags))
+
+(defun mz/make-and-run-elfeed-hydra ()
+  "Build the tag list and call hydra body."
+  (interactive)
+  (mz/make-elfeed-hydra)
+  (mz/hydra-elfeed/body))
+
+(defmacro mz/make-elfeed-hydra ()
+  `(defhydra mz/hydra-elfeed (:columns 4)
+     "filter"
+     ,@(mz/make-elfeed-cats (elfeed-db-get-all-tags))
+     ("*" (elfeed-search-set-filter "@6-months-ago +star") "Starred")
+     ("M" elfeed-toggle-star "Mark")
+     ("A" (elfeed-search-set-filter "@6-months-ago") "All")
+     ("T" (elfeed-search-set-filter "@1-day-ago") "Today")
+     ("Q" bjm/elfeed-save-db-and-bury "Quit Elfeed" :color blue)
+     ("q" nil "quit" :color blue)))
 
 (provide 'init-hydra)
 ;;; init-hydra.el ends here

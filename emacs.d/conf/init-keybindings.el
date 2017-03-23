@@ -199,7 +199,7 @@
 (define-key squiter/hydra (kbd "o") 'hydra-org/body)
 (define-key squiter/hydra (kbd "r") 'hydra-rectangle/body)
 (define-key squiter/hydra (kbd "m") 'hydra-move/body)
-(define-key squiter/hydra (kbd "e") 'mz/hydra-elfeed/body)
+(define-key squiter/hydra (kbd "e") 'mz/make-and-run-elfeed-hydra)
 
 ;;;;;;;;;;;;;;;;;;;;;
 ;; elfeed keybinds ;;
