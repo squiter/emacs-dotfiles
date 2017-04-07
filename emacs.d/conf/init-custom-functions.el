@@ -164,6 +164,10 @@ is already narrowed."
     (insert-file-contents filePath)
     (buffer-string)))
 
+(defun insert-current-date ()
+  (interactive)
+  (insert (shell-command-to-string "echo -n $(date +%Y-%m-%d)")))
+
 (fset 'squiter/org-attach-path-to-img
       (lambda (&optional arg)
         "Keyboard macro."
