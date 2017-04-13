@@ -88,7 +88,7 @@
     init-ctags
     init-hydra
     init-elfeed
-    inti-pomidor
+    init-pomidor
     rcodetools
     init-keybindings))
 
