@@ -6,9 +6,6 @@
 (add-to-list 'custom-theme-load-path (concat *emacsd-directory* "/themes"))
 (add-to-list 'load-path (concat *emacsd-directory* "/themes"))
 
-;; doom theme options
-(add-to-list 'load-path (concat *emacsd-directory* "/themes/doom-theme"))
-(require 'doom-themes)
 (load-theme 'doom-one t)
 
 (setq
