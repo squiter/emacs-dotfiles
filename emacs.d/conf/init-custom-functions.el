@@ -168,6 +168,10 @@ is already narrowed."
   (interactive)
   (insert (shell-command-to-string "echo -n $(date +%Y-%m-%d)")))
 
+(defun insert-today ()
+  (interactive)
+  (insert-current-date))
+
 (fset 'squiter/org-attach-path-to-img
       (lambda (&optional arg)
         "Keyboard macro."
