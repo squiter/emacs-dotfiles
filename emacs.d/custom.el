@@ -6,6 +6,7 @@
  '(custom-safe-themes
    (quote
     ("ad1c2abad40e11d22156fe3987fd9b74b9e1c822264a07dacb24e0b3133aaed1" "945fe66fbc30a7cbe0ed3e970195a7ee79ee34f49a86bc96d02662ab449b8134" "9f3181dc1fabe5d58bbbda8c48ef7ece59b01bed606cfb868dd147e8b36af97c" default)))
+ '(exist/access-token *my-exist-access-token*)
  '(gitlab-remote-pattern "\\`.+code\\.locaweb\\.com\\.br:\\(.+\\)\\.git\\'")
  '(gitlab-url "https://code.locaweb.com.br")
  '(ivy-youtube-key *youtube-key*)

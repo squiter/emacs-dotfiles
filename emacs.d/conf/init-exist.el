@@ -26,9 +26,17 @@
 
 ;;; Code:
 
+(require 'org)
 (require 'request)
 
-(defvar exist/access-token *my-exist-access-token*)
+(defgroup exist nil
+  "Exist settings."
+  :group 'tools)
+
+(defcustom exist/access-token nil
+  "Your Exist.io access token."
+  :type '(string)
+  :group 'exist)
 
 (defvar exist/root-url "https://exist.io/api/1")
 (defvar exist/authorization (concat "Bearer " exist/access-token))
