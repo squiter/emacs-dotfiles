@@ -50,6 +50,7 @@
     hydra
     ido-vertical-mode
     indent-guide
+    indent-tools
     instapaper
     imenu-list
     ivy-youtube

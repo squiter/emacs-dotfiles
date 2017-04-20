@@ -50,5 +50,8 @@
 ;; beacon-mode
 (beacon-mode 1)
 
+;; indent-tools
+(require 'indent-tools)
+
 (provide 'init-simple-packages)
 ;;; init-simple-packages.el ends here

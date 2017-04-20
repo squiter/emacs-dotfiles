@@ -201,6 +201,9 @@
 (define-key squiter/hydra (kbd "m") 'hydra-move/body)
 (define-key squiter/hydra (kbd "e") 'mz/make-and-run-elfeed-hydra)
 
+;; Indent-tools hydra
+(global-set-key (kbd "C-c >") 'indent-tools-hydra/body)
+
 ;;;;;;;;;;;;;;;;;;;;;
 ;; elfeed keybinds ;;
 ;;;;;;;;;;;;;;;;;;;;;
