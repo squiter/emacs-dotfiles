@@ -17,7 +17,7 @@
    (quote
     (instapaper beacon doom-themes doom-theme moe-theme free-keys zeal-at-point yasnippet yaml-mode yagist which-key web-mode wakatime-mode undo-tree twittering-mode telephone-line tagedit smex smart-shift smartparens ruby-tools rubocop rspec-mode rhtml-mode request rbenv rainbow-mode rainbow-delimiters counsel-projectile projectile-rails projectile ox-twbs org-bullets ob-sml ob-restclient neotree mutant multiple-cursors markdown-mode+ magit langtool indent-guide ido-vertical-mode hl-anything highlight haskell-mode google-translate google-this git-timemachine git-gutter-fringe git-gutter gist frame-cmds flycheck expand-region easy-kill docker discover-my-major dired+ company-emoji company clojure-mode-extra-font-locking cider bundler back-button auto-package-update apel anzu ace-window)))
  '(wakatime-cli-path "/usr/local/bin/wakatime")
- '(wakatime-python-bin "/usr/bin/python"))
+ '(wakatime-python-bin nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
