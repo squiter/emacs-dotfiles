@@ -83,18 +83,6 @@
     (find-file-other-window file)
     (goto-line line)))
 
-(eval-after-load 'ruby-mode
-  '(progn
-     (define-key ruby-mode-map (kbd "C-c , ,") 'senny-ruby-open-spec-other-buffer)
-     (define-key ruby-mode-map (kbd "#") 'senny-ruby-interpolate)
-     (define-key ruby-mode-map (kbd "C-, b e") 'bundle-exec)
-     (define-key ruby-mode-map (kbd "C-, b i") 'bundle-install)
-     (define-key ruby-mode-map (kbd "C-, b o") 'bundle-open)
-     (define-key ruby-mode-map (kbd "C-, b c") 'bundle-console)
-     (define-key ruby-mode-map (kbd "C-c v") 'custom/vcr-toggle)
-     (define-key ruby-mode-map (kbd "M-n s") 'projectile-rails-server)
-     (define-key ruby-mode-map (kbd "M-n c") 'projectile-rails-console)))
-
 ;; -- GODAMMIT RUBY INDENTATION!!! --
 ;; don't indent parenthesis in a weird way
 (setq ruby-align-chained-calls nil
@@ -131,8 +119,6 @@
                    (projectile-expand-root "db/migrate/"))
                   nil
                   "^\\([^.]\\|\\.[^.]\\|\\.\\..\\)"))))))
-
-(global-set-key (kbd "C-, l m") 'squiter/rails-go-to-last-migration)
 
 (provide 'init-ruby)
 ;;; init-ruby.el ends here
