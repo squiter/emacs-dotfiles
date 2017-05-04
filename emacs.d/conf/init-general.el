@@ -25,6 +25,12 @@
 ;; make indentation commands use space only
 (setq-default indent-tabs-mode nil)
 
+;; force json-mode to indent with 2 spaces
+(add-hook 'json-mode-hook
+          (lambda ()
+            (make-local-variable 'js-indent-level)
+            (setq js-indent-level 2)))
+
 ;; whitespace display
 (global-whitespace-mode)
 (setq whitespace-global-modes
