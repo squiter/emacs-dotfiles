@@ -237,6 +237,19 @@
      (define-key ruby-mode-map (kbd "M-n c") 'projectile-rails-console)
      (define-key ruby-mode-map (kbd "C-, l m") 'squiter/rails-go-to-last-migration)))
 
+;;;;;;;;;;;;;;;;;
+;; Git & Magit ;;
+;;;;;;;;;;;;;;;;;
+
+;; To resolve git conflicts
+(setq smerge-command-prefix (kbd "C-c M-s"))
+
+(global-set-key (kbd "C-c g") 'magit-status)
+(global-set-key (kbd "M-g c") 'magit-checkout)
+(global-set-key (kbd "M-n b c") 'plambert/branch-changelog)
+(define-key magit-branch-section-map (kbd "RET") 'magit-checkout)
+(define-key magit-branch-section-map (kbd "S-<return>") 'magit-branch-and-checkout)
+(define-key magit-status-mode-map (kbd "q") 'magit-quit-session)
 
 (provide 'init-keybindings)
 ;;; init-keybindings.el ends here

@@ -4,9 +4,6 @@
 
 (require 'magit)
 
-(global-set-key (kbd "C-c g") 'magit-status)
-(global-set-key (kbd "M-g c") 'magit-checkout)
-
 ;; Magit, dont fuck with me!
 (setq magit-push-always-verify nil)
 
@@ -22,8 +19,6 @@
   (kill-buffer)
   (jump-to-register :magit-fullscreen))
 
-(define-key magit-status-mode-map (kbd "q") 'magit-quit-session)
-
 ;; stolen from https://github.com/p-lambert/emacs-dotfiles
 (defun plambert/branch-changelog ()
   (interactive)
@@ -31,11 +26,6 @@
         (cmd "git log --format='* %s' origin/master..HEAD"))
     (kill-new (shell-command-to-string cmd))
     (message "Changelog copied to kill-ring.")))
-
-(global-set-key (kbd "M-n b c") 'plambert/branch-changelog)
-
-(define-key magit-branch-section-map (kbd "RET") 'magit-checkout)
-(define-key magit-branch-section-map (kbd "S-<return>") 'magit-branch-and-checkout)
 
 (provide 'init-magit)
 ;;; init-magit.el ends here
