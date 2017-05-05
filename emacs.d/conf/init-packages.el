@@ -53,6 +53,7 @@
     indent-tools
     instapaper
     imenu-list
+    ivy-rich
     ivy-youtube
     langtool
     magit

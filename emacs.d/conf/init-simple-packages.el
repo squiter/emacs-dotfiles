@@ -53,5 +53,9 @@
 ;; indent-tools
 (require 'indent-tools)
 
+;; ivy-rich
+(require 'ivy-rich)
+(ivy-set-display-transformer 'ivy-switch-buffer 'ivy-rich-switch-buffer-transformer)
+
 (provide 'init-simple-packages)
 ;;; init-simple-packages.el ends here
