@@ -43,6 +43,14 @@
 (defvar exist/headers `(("Content-Type" . "application/json")
                         ("Authorization" . ,exist/authorization)))
 
+(defun exist/validates-pre-requirements ()
+  (unless exist/access-token
+    (user-error "[Exist error] You need to set exist/access-token"))
+  (unless (org-agenda-files)
+    (user-error "[Exist error] You need to set org-agenda-files"))
+  (unless (eq org-log-done 'time)
+    (user-error "[Exist error] You need to set org-log done to '(time)")))
+
 (defun exist/build-uri (uri)
   "Create a complete and valid API url with URI."
   (concat exist/root-url uri))
@@ -54,6 +62,7 @@
 
 (defun exist/send-tasks (quantity)
   "Send the QUANTITY value to exist.io."
+  (exist/validates-pre-requirements)
   (request
    (exist/build-uri "/attributes/update/")
    :type "POST"
@@ -65,6 +74,7 @@
 
 (defun exist/setup ()
   "Get permission to edit tasks_completed in Exist.io."
+  (exist/validates-pre-requirements)
   (request
    (exist/build-uri "/attributes/acquire/")
    :type "POST"
