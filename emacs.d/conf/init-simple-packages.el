@@ -57,5 +57,8 @@
 (require 'ivy-rich)
 (ivy-set-display-transformer 'ivy-switch-buffer 'ivy-rich-switch-buffer-transformer)
 
+;; all-the-icons-ivy
+(all-the-icons-ivy-setup)
+
 (provide 'init-simple-packages)
 ;;; init-simple-packages.el ends here

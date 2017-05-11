@@ -15,6 +15,7 @@
   '(
     ace-window
     achievements
+    all-the-icons-ivy
     anzu
     apel
     auto-package-update
