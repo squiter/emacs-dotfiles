@@ -56,6 +56,7 @@
     ivy-rich
     ivy-youtube
     langtool
+    lua-mode
     magit
     markdown-mode+
     multiple-cursors
