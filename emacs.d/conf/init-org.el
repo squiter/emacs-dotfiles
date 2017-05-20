@@ -57,7 +57,6 @@
 (require 'init-org-babel)
 (require 'init-org-alfred)
 (require 'init-org-customs)
-(require 'init-org-gamify)
 (require 'init-org-gcal)
 
 ;; Tags with fast selection keys
