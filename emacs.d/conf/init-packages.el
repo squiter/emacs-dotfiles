@@ -37,6 +37,8 @@
     elfeed-org
     expand-region
     flycheck
+    flycheck-pos-tip
+    flycheck-clojure
     frame-cmds
     free-keys
     gist
@@ -95,8 +97,8 @@
     which-key
     yagist
     yaml-mode
-    yasnippet
     zeal-at-point
+    yasnippet
   )
   "A list of packages to be installed at application lauch.")
 
