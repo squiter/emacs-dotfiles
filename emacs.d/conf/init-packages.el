@@ -82,6 +82,7 @@
     rspec-mode
     rubocop
     ruby-tools
+    symbol-overlay
     smartparens
     smart-shift
     smex

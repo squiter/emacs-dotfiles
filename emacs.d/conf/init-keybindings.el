@@ -34,7 +34,6 @@
 (global-set-key (kbd "C-x -") 'hsplit-last-buffer)
 (global-set-key (kbd "C-x =") 'swap-buffers-in-windows)
 (global-set-key (kbd "M-o") 'other-window)
-(global-set-key (kbd "M-i") 'other-frame)
 (global-set-key (kbd "M-0") 'delete-window)
 (global-set-key (kbd "M-k") 'kill-buffer)
 (global-set-key (kbd "M-1") 'delete-other-windows)
@@ -250,6 +249,19 @@
 (define-key magit-branch-section-map (kbd "RET") 'magit-checkout)
 (define-key magit-branch-section-map (kbd "S-<return>") 'magit-branch-and-checkout)
 (define-key magit-status-mode-map (kbd "q") 'magit-quit-session)
+
+
+;;;;;;;;;;;;;;;;;;;;
+;; symbol-overlay ;;
+;;;;;;;;;;;;;;;;;;;;
+(global-unset-key (kbd "M-i"))
+(global-set-key (kbd "M-i i") 'symbol-overlay-put)
+(global-set-key (kbd "M-i n") 'symbol-overlay-switch-forward)
+(global-set-key (kbd "M-i p") 'symbol-overlay-switch-backward)
+(global-set-key (kbd "M-i r") 'symbol-overlay-rename)
+(global-set-key (kbd "M-i d") 'symbol-overlay-jump-to-definition)
+(global-set-key (kbd "M-i <f7>") 'symbol-overlay-mode)
+(global-set-key (kbd "M-i <f8>") 'symbol-overlay-remove-all)
 
 (provide 'init-keybindings)
 ;;; init-keybindings.el ends here
