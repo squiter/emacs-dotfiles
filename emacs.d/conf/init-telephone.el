@@ -36,15 +36,14 @@
                     :foreground "#7C71C4"
                     :background "#20272e")
 
-(telephone-line-defsegment* squiter/telephone-line-buffer-segment
+(telephone-line-defsegment* squiter/telephone-line-buffer-segment ()
   `("["
     ,(telephone-line-raw mode-line-modified t)
     ,"] "
     ,(telephone-line-raw mode-line-buffer-identification t)))
 
-(telephone-line-defsegment* squiter/telephone-line-projectile-project-name
-  `(""
-    ,(telephone-line-raw (ignore-errors (format "📁 %s" (projectile-project-name))))))
+(telephone-line-defsegment* squiter/telephone-line-projectile-project-name ()
+  `("📁 " ,(projectile-project-name)))
 
 (setq telephone-line-lhs
       '((accent . (squiter/telephone-line-buffer-segment
