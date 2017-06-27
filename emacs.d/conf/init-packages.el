@@ -58,6 +58,7 @@
     imenu-list
     ivy-rich
     ivy-youtube
+    json-navigator
     langtool
     lua-mode
     magit
