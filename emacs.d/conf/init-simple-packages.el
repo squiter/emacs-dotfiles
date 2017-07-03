@@ -57,8 +57,9 @@
 (require 'ivy-rich)
 (ivy-set-display-transformer 'ivy-switch-buffer 'ivy-rich-switch-buffer-transformer)
 
-;; all-the-icons-ivy
+;; all-the-icons
 (all-the-icons-ivy-setup)
+(add-hook 'dired-mode-hook #'all-the-icons-dired-mode)
 
 (provide 'init-simple-packages)
 ;;; init-simple-packages.el ends here
