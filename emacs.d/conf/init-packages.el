@@ -80,6 +80,7 @@
     rainbow-mode
     rbenv
     request
+    restart-emacs
     restclient
     rhtml-mode
     rspec-mode
