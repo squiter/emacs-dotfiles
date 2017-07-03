@@ -42,6 +42,18 @@
 (telephone-line-defsegment* squiter/telephone-line-projectile-project-name ()
   `("📁 " ,(projectile-project-name)))
 
+(telephone-line-defsegment* squiter/major-mode ()
+  (propertize (all-the-icons-icon-for-mode major-mode)
+              'face `(:height 0.9 :family ,(all-the-icons-fileicon-family))
+              'display '(raise -0.1)
+              'help-echo major-mode))
+
+(telephone-line-defsegment* squiter/file-icon ()
+  (propertize (all-the-icons-icon-for-file (buffer-name))
+              'face `(:height 0.9 :family ,(all-the-icons-fileicon-family))
+              'display '(raise -0.1)))
+
+
 (defun shackra/vc-state ()
   (vc-state (buffer-file-name (current-buffer))))
 
@@ -50,7 +62,7 @@
                  (`finished (if flycheck-current-errors
                                 (let ((count (let-alist (flycheck-count-errors flycheck-current-errors)
                                                (+ (or .warning 0) (or .error 0)))))
-                                  (format " ✖ %s Issue%s" count (unless (eq 1 count) "s")))
+                                  (format " ✖ %s Issue(s)" count))
                               " ✔ No Issues"))
                  (`running     " ⟲ Working...")
                  (`no-checker  " ⚠ No Checker")
@@ -112,9 +124,10 @@
                 ))))
 
 (setq telephone-line-rhs
-      '((nil    . (telephone-line-misc-info-segment))
-        (accent . (telephone-line-major-mode-segment
-                   telephone-line-position-segment))))
+      '((nil    . (squiter/major-mode
+                   ;; squiter/file-icon
+                   telephone-line-misc-info-segment))
+        (accent . (telephone-line-position-segment))))
 
 (setq telephone-line-primary-left-separator 'telephone-line-identity-left
       telephone-line-left-separator 'telephone-line-identity-left

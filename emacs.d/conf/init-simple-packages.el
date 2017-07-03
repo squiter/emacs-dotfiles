@@ -58,6 +58,7 @@
 (ivy-set-display-transformer 'ivy-switch-buffer 'ivy-rich-switch-buffer-transformer)
 
 ;; all-the-icons
+(require 'all-the-icons)
 (all-the-icons-ivy-setup)
 (add-hook 'dired-mode-hook #'all-the-icons-dired-mode)
 

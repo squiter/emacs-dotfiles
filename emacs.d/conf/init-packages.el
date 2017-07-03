@@ -15,6 +15,7 @@
   '(
     ace-window
     achievements
+    all-the-icons
     all-the-icons-ivy
     all-the-icons-dired
     anzu
