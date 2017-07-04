@@ -36,11 +36,16 @@
                     :foreground "#7C71C4"
                     :background "#20272e")
 
+(defun squiter/buffer-for-project ()
+  (if (string-match-p "^[^\*].*[^\*]$" (buffer-name))
+      t))
+
 (telephone-line-defsegment* squiter/telephone-line-buffer-segment ()
   `("",(telephone-line-raw mode-line-buffer-identification t)))
 
 (telephone-line-defsegment* squiter/telephone-line-projectile-project-name ()
-  `("📁 " ,(projectile-project-name)))
+  (if (squiter/buffer-for-project)
+    `("📁 " ,(projectile-project-name))))
 
 (telephone-line-defsegment* squiter/major-mode ()
   (propertize (all-the-icons-icon-for-mode major-mode)
@@ -48,17 +53,18 @@
               'display '(raise -0.1)
               'help-echo major-mode))
 
+;; TODO: Use this
 (telephone-line-defsegment* squiter/file-icon ()
   (propertize (all-the-icons-icon-for-file (buffer-name))
               'face `(:height 0.9 :family ,(all-the-icons-fileicon-family))
               'display '(raise -0.1)))
 
-
 (defun shackra/vc-state ()
   (vc-state (buffer-file-name (current-buffer))))
 
 (telephone-line-defsegment* shackra-flycheck-status ()
-  (let* ((text (pcase flycheck-last-status-change
+  (if (squiter/buffer-for-project)
+      (let* ((text (pcase flycheck-last-status-change
                  (`finished (if flycheck-current-errors
                                 (let ((count (let-alist (flycheck-count-errors flycheck-current-errors)
                                                (+ (or .warning 0) (or .error 0)))))
@@ -75,7 +81,7 @@
                 'mouse-face '(:box 1)
                 'face `(:height 0.8) 'display '(raise 0.1)
                 'local-map (make-mode-line-mouse-map
-                            'mouse-1 (lambda () (interactive) (flycheck-list-errors))))))
+                            'mouse-1 (lambda () (interactive) (flycheck-list-errors)))))))
 
 (telephone-line-defsegment* shackra-buffer-vc-modified-segment ()
   (cond ((buffer-modified-p)
