@@ -58,7 +58,7 @@
 (global-set-key (kbd "C-s-<f12>") 'bh/save-then-publish)
 
 (global-set-key (kbd "C-c c") 'org-capture)
-(global-set-key (kbd "<s-return>") 'org-agenda-open-link)
+(global-set-key (kbd "C-o") 'org-agenda-open-link)
 
 (define-key org-mode-map (kbd "C-M-<return>") 'newline-and-indent)
 (define-key org-mode-map (kbd "C-c ]") 'previous-buffer)
