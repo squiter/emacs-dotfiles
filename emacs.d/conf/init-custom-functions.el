@@ -179,5 +179,10 @@ is already narrowed."
         (kmacro-exec-ring-item
          (quote ("\344\344\344\344.[[]]" 0 "%d")) arg)))
 
+(defun squiter/say-it ()
+  "Use espeak to say the selected text."
+  (interactive)
+  (call-process "/usr/bin/espeak" nil t nil (buffer-substring (mark) (point))))
+
 (provide 'init-custom-functions)
 ;;; init-custom-functions.el ends here
