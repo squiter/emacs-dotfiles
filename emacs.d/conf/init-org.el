@@ -58,6 +58,7 @@
 (require 'init-org-alfred)
 (require 'init-org-customs)
 (require 'init-org-gcal)
+(require 'init-org-insert-image)
 
 ;; Tags with fast selection keys
 (setq org-tag-alist (quote ((:startgroup) ;; location group
