@@ -62,5 +62,9 @@
 (all-the-icons-ivy-setup)
 (add-hook 'dired-mode-hook #'all-the-icons-dired-mode)
 
+;; dired-collapse
+(require 'dired-collapse)
+(add-hook 'dired-mode-hook #'dired-collapse-mode)
+
 (provide 'init-simple-packages)
 ;;; init-simple-packages.el ends here

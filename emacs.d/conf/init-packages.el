@@ -31,6 +31,7 @@
     company
     company-emoji
     dired+
+    dired-collapse
     discover-my-major
     docker
     doom-themes
