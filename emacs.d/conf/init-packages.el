@@ -15,6 +15,7 @@
   '(
     ace-window
     achievements
+    alchemist
     all-the-icons
     all-the-icons-ivy
     all-the-icons-dired
@@ -42,6 +43,7 @@
     flycheck
     flycheck-pos-tip
     flycheck-clojure
+    flycheck-credo
     frame-cmds
     free-keys
     gist

@@ -90,6 +90,7 @@
     init-elfeed
     init-pomidor
     rcodetools
+    init-elixir
     init-keybindings))
 
 (defun safe-require (feature)
