@@ -88,6 +88,7 @@
     rhtml-mode
     rspec-mode
     rubocop
+    ruby-refactor
     ruby-tools
     symbol-overlay
     smartparens

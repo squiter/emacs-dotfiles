@@ -4,6 +4,7 @@
 
 (require 'rspec-mode)
 (require 'ruby-tools)
+(require 'ruby-refactor)
 
 ;; do not add encoding comment automatically
 (setq ruby-insert-encoding-magic-comment nil)
@@ -34,6 +35,9 @@
 
 ;; mutant
 (add-hook 'ruby-mode-hook 'mutant-mode)
+
+;; ruby-refactor
+(add-hook 'ruby-mode-hook 'ruby-refactor-mode-launch)
 
 (require 'rubocop)
 
