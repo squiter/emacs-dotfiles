@@ -11,8 +11,19 @@
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.html.eex$" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.css$" . web-mode))
 
-(add-hook 'web-mode-hook #'(lambda () (smartparens-mode -1)))
+(defun rr/web-mode-conf ()
+  (setq web-mode-extra-auto-pairs
+        '(("eex"  . (("do" "end")))
+          ))
+  (setq web-mode-markup-indent-offset 2)
+  (setq web-mode-css-indent-offset 2)
+  (setq web-mode-enable-current-column-highlight t)
+  (smartparens-mode -1))
+
+(add-hook 'web-mode-hook 'rr/web-mode-conf)
 
 (provide 'init-web-mode)
 ;;; init-web-mode.el ends here
