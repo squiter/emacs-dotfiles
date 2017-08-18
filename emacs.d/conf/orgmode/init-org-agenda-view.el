@@ -19,6 +19,11 @@
                             (org-agenda-start-day "-7d")
                             (org-agenda-entry-types '(:timestamp))
                             (org-agenda-show-log t)))))
+              ("d" "Completed tasks (include habits) from today"
+               ((agenda "" ((org-agenda-span 1)
+                            (org-agenda-start-day ".")
+                            (org-agenda-entry-types '(:timestamp))
+                            (org-agenda-show-log t)))))
               (" " "Agenda"
                ((agenda "" nil)
                 (tags "REFILE"
