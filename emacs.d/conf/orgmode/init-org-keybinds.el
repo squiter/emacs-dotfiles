@@ -49,6 +49,7 @@
 (global-set-key (kbd "<f9> v") 'visible-mode)
 (global-set-key (kbd "<f9> l") 'org-toggle-link-display)
 (global-set-key (kbd "<f9> k") 'org-cut-subtree)
+(global-set-key (kbd "<f9> r") 'squiter/org-refile-hydra/body)
 
 (global-set-key (kbd "C-<f9>") 'previous-buffer)
 (global-set-key (kbd "M-<f9>") 'org-toggle-inline-images)

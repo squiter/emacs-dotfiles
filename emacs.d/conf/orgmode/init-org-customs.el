@@ -40,7 +40,7 @@ TODO-STATE is a regexp for matching to TODO states.  It is provided to
 `zin/find-state' to match inactive timestamps.
 SINCE is compared to the result of `zin/org-date-diff'.  If
 `zin/org-date-diff' is greater than SINCE, the entry is shown in the
-Agenda. 
+Agenda.
 Optional argument DONE allows for done and not-done headlines to be
 evaluated.  If DONE is non-nil, match completed tasks.
 Optional argument ALL is passed to `zin/find-state' to specify whether
@@ -92,6 +92,38 @@ Optional argument COMPARE allows for comparison to a specific date rather than t
   (let* ((start-date (if compare compare (calendar-current-date))))
     (- (calendar-absolute-from-gregorian start-date) (org-time-string-to-absolute (buffer-substring-no-properties start end)))
     ))
+
+;; Adapted from https://emacs.stackexchange.com/questions/8045/org-refile-to-a-known-fixed-location
+(defun my/refile (file headline &optional arg)
+  "Refile to a specific location.
+With a 'C-u' ARG argument, we jump to that location (see
+`org-refile').
+Use `org-agenda-refile' in `org-agenda' mode."
+  (let* ((pos (with-current-buffer (or (get-buffer file)	;Is the file open in a buffer already?
+				       (find-file-noselect file)) ;Otherwise, try to find the file by name (Note, default-directory matters here if it isn't absolute)
+		(or (org-find-exact-headline-in-buffer headline)
+		    (error "Can't find headline `%s'" headline))))
+	 (filepath (buffer-file-name (marker-buffer pos)));If we're given a relative name, find absolute path
+	 (rfloc (list headline filepath nil pos)))
+    (if (and (eq major-mode 'org-agenda-mode) (not (and arg (listp arg)))) ;Don't use org-agenda-refile if we're just jumping
+	(org-agenda-refile nil rfloc)
+      (org-refile arg nil rfloc))))
+
+(defun josh/refile (file headline &optional arg)
+  "Refile to HEADLINE in FILE. Clean up org-capture if it's activated.
+With a `C-u` ARG, just jump to the headline."
+  (interactive "P")
+  (let ((is-capturing (and (boundp 'org-capture-mode) org-capture-mode)))
+    (cond
+     ((and arg (listp arg))	    ;Are we jumping?
+      (my/refile file headline arg))
+     ;; Are we in org-capture-mode?
+     (is-capturing      	;Minor mode variable that's defined when capturing
+      (josh/org-capture-refile-but-with-args file headline arg))
+     (t
+      (my/refile file headline arg)))
+    (when (or arg is-capturing)
+      (setq hydra-deactivate t))))
 
 (provide 'init-org-customs)
 ;;; init-org-customs.el ends here

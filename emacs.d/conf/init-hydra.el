@@ -188,5 +188,43 @@ _h_   _l_   _o_k        _y_ank
      ("Q" bjm/elfeed-save-db-and-bury "Quit Elfeed" :color blue)
      ("q" nil "quit" :color blue)))
 
+
+;;;;;;;;;;;;;;;;;;;;;;
+;; Org-refile hydra ;;
+;;;;;;;;;;;;;;;;;;;;;;
+
+(defmacro josh/make-org-refile-hydra (hydraname file keyandheadline)
+  "Make a hydra named HYDRANAME with refile targets to FILE.
+KEYANDHEADLINE should be a list of cons cells of the form (\"key\" . \"headline\")"
+  `(defhydra ,hydraname (:color blue :after-exit
+                                (unless (or hydra-deactivate
+                                            current-prefix-arg) ;If we're just jumping to a location, quit the hydra
+                                  (squiter/org-refile-hydra/body)))
+     ,file
+     ,@(cl-loop for kv in keyandheadline
+		collect (list (car kv) (list 'josh/refile file (cdr kv) 'current-prefix-arg) (cdr kv)))
+     ("q" nil "cancel")))
+
+(josh/make-org-refile-hydra squiter/org-refile-hydra-master
+                            "master.org"
+                            (("l" . "Learning Tasks")
+                             ("p" . "Podcasts")
+                             ("m" . "Manutenção de Coisas")
+                             ("a" . "Ambiente de Desenvolvimento")
+                             ("b" . "Bills")
+                             ("n" . "Notes")
+                             ("t" . "Tasks")))
+
+(josh/make-org-refile-hydra squiter/org-refile-hydra-locaweb
+                            "locaweb.org"
+                            (("t" . "Tasks")
+                             ("n" . "Notes")))
+
+(defhydra squiter/org-refile-hydra (:foreign-keys run)
+  "Refile"
+  ("m" squiter/org-refile-hydra-master/body "master.org" :exit t)
+  ("l" squiter/org-refile-hydra-locaweb/body "locaweb.org" :exit t)
+  ("q" nil "cancel"))
+
 (provide 'init-hydra)
 ;;; init-hydra.el ends here
