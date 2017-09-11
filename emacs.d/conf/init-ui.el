@@ -6,7 +6,7 @@
 (add-to-list 'custom-theme-load-path (concat *emacsd-directory* "/themes"))
 (add-to-list 'load-path (concat *emacsd-directory* "/themes"))
 
-(load-theme 'doom-one t)
+(load-theme 'challenger-deep t)
 
 (setq
  ;; better startup

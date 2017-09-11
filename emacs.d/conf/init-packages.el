@@ -27,6 +27,7 @@
     beacon
     bundler
     cider
+    challenger-deep-theme
     clojure-mode
     clojure-mode-extra-font-locking
     company

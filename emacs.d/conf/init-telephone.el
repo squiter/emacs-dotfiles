@@ -22,19 +22,19 @@
 (require 'telephone-line)
 
 (set-face-attribute 'telephone-line-accent-active nil
-                    :background "#7C71C4"
+                    :background "#5fafff"
                     :foreground "black"
                     :box nil)
 
 (set-face-attribute 'mode-line-inactive nil
                     :box nil
-                    :foreground "#7C71C4"
-                    :background "#20272e")
+                    :foreground "#5fafff"
+                    :background "#1b182c")
 
 (set-face-attribute 'mode-line nil
                     :box '(:line-width 1 :style raised)
-                    :foreground "#7C71C4"
-                    :background "#20272e")
+                    :foreground "#5fafff"
+                    :background "#1b182c")
 
 (defun squiter/buffer-for-project ()
   (if (string-match-p "^[^\*].*[^\*]$" (buffer-name))
