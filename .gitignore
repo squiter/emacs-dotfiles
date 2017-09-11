@@ -24,3 +24,4 @@ emacs.d/org-clock-save.el
 init-secrets.el
 cider-history
 emacs.d/games/*
+/emacs.d/ivy-youtube-history
