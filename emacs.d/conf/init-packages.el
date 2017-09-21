@@ -26,6 +26,8 @@
     back-button
     beacon
     bundler
+    calfw
+    calfw-org
     cider
     challenger-deep-theme
     clojure-mode

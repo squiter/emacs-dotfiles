@@ -66,5 +66,9 @@
 (require 'dired-collapse)
 (add-hook 'dired-mode-hook #'dired-collapse-mode)
 
+;; calfw
+(require 'calfw)
+(require 'calfw-org)
+
 (provide 'init-simple-packages)
 ;;; init-simple-packages.el ends here
