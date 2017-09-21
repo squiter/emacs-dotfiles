@@ -31,6 +31,7 @@
 (setq ivy-use-virtual-buffers t)
 (setq ivy-count-format "(%d/%d) ")
 (setq ivy-height 15)
+(setq ivy-initial-inputs-alist nil)
 
 (provide 'init-ivy)
 ;;; init-ivy.el ends here
