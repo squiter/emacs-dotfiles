@@ -124,5 +124,31 @@
                   nil
                   "^\\([^.]\\|\\.[^.]\\|\\.\\..\\)"))))))
 
+(defcustom endless/ruby-extensions-file
+  "../console_extensions.rb"
+  "File loaded when a ruby console is started.
+Name is relative to the project root.")
+
+;; Skip ENV prompt that shows up in some cases.
+(setq inf-ruby-console-environment "development")
+
+(defun endless/run-ruby ()
+  (interactive)
+  (require 'inf-ruby)
+  (let ((default-directory (projectile-project-root))
+        (was-running (get-buffer-process inf-ruby-buffer)))
+    ;; This function automatically decides between starting
+    ;; a new console or visiting an existing one.
+    (inf-ruby-console-auto)
+    (when (and (not was-running)
+               (get-buffer-process (current-buffer))
+               (file-readable-p endless/ruby-extensions-file))
+      ;; If this brand new buffer has lots of lines then
+      ;; some exception probably happened.
+      (send-string
+       (get-buffer-process (current-buffer))
+       (concat "require '" endless/ruby-extensions-file
+               "'\n")))))
+
 (provide 'init-ruby)
 ;;; init-ruby.el ends here
