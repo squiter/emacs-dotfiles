@@ -70,5 +70,9 @@
 (require 'calfw)
 (require 'calfw-org)
 
+;; bash-completion
+(require 'bash-completion)
+(bash-completion-setup)
+
 (provide 'init-simple-packages)
 ;;; init-simple-packages.el ends here

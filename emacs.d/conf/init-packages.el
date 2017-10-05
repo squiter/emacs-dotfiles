@@ -24,6 +24,7 @@
     auto-package-update
     avy
     back-button
+    bash-completion
     beacon
     bundler
     calfw
