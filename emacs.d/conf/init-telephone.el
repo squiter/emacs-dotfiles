@@ -119,6 +119,13 @@
           'face `(:height 0.8 :family ,(all-the-icons-faicon-family))
           'display '(raise 0.1) 'help-echo "Added file."))))
 
+(telephone-line-defsegment* squiter-vcr-on-segment ()
+  (if (equal major-mode 'ruby-mode)
+      (cond ((equal (getenv "VCR_OFF") nil)
+             (propertize "🎥" 'face `(:foreground "green") 'help-echo "VCR ON"))
+        ((equal (getenv "VCR_OFF") "true")
+         (propertize "🎥" 'face `(:foreground "red") 'help-echo "VCR OFF")))))
+
 (setq telephone-line-lhs
       '((accent . (squiter/telephone-line-buffer-segment
                    telephone-line-process-segment
@@ -132,7 +139,8 @@
 (setq telephone-line-rhs
       '((nil    . (squiter/major-mode
                    ;; squiter/file-icon
-                   telephone-line-misc-info-segment))
+                   telephone-line-misc-info-segment
+                   squiter-vcr-on-segment))
         (accent . (telephone-line-position-segment))))
 
 (setq telephone-line-primary-left-separator 'telephone-line-identity-left
