@@ -74,5 +74,8 @@
 (require 'bash-completion)
 (bash-completion-setup)
 
+;; pdf-tools
+(pdf-tools-install)
+
 (provide 'init-simple-packages)
 ;;; init-simple-packages.el ends here
