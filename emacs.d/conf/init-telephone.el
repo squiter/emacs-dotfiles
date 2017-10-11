@@ -49,7 +49,7 @@
 
 (telephone-line-defsegment* squiter/major-mode ()
   (propertize (all-the-icons-icon-for-mode major-mode)
-              'face `(:height 0.9 :family ,(all-the-icons-fileicon-family))
+              'face `(:height 0.9 :family ,(all-the-icons-icon-family-for-mode major-mode))
               'display '(raise -0.1)
               'help-echo major-mode))
 
