@@ -131,16 +131,14 @@
                    telephone-line-process-segment
                    telephone-line-erc-modified-channels-segment))
         (nil . (telephone-line-process-segment
-                shackra-buffer-vc-modified-segment
-                squiter/telephone-line-projectile-project-name
-                shackra-flycheck-status
-                ))))
+                shackra-buffer-vc-modified-segment))
+        (accent . (squiter/telephone-line-projectile-project-name))
+        (nil . (shackra-flycheck-status))))
 
 (setq telephone-line-rhs
-      '((nil    . (squiter/major-mode
-                   ;; squiter/file-icon
-                   telephone-line-misc-info-segment
-                   squiter-vcr-on-segment))
+      '((nil . (squiter/major-mode
+                telephone-line-misc-info-segment
+                squiter-vcr-on-segment))
         (accent . (telephone-line-position-segment))))
 
 (setq telephone-line-primary-left-separator 'telephone-line-identity-left
