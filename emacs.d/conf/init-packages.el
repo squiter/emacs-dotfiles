@@ -77,6 +77,7 @@
     neotree
     ob-restclient
     ob-sml
+    ocodo-svg-modelines
     org-bullets
     org-gcal
     ox-twbs

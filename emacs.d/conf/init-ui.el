@@ -53,7 +53,11 @@
       '("emacs@"
         (:eval (squiter/get-window-name))))
 
-(require 'init-telephone)
+;; (require 'init-telephone)
+
+;; ocodo-svg-modelines
+(ocodo-svg-modelines-init)
+(setq smt/current-theme 'ocodo-mesh-aqua-smt)
 
 (provide 'init-ui)
 ;;; init-ui.el ends here
