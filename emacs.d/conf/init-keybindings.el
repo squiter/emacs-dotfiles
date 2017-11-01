@@ -237,7 +237,8 @@
      (define-key ruby-mode-map (kbd "M-n s") 'projectile-rails-server)
      (define-key ruby-mode-map (kbd "M-n c") 'projectile-rails-console)
      (define-key ruby-mode-map (kbd "C-, l m") 'squiter/rails-go-to-last-migration)
-     (define-key ruby-mode-map (kbd "C-c M-j") #'endless/run-ruby)))
+     (define-key ruby-mode-map (kbd "C-c M-j") #'endless/run-ruby)
+     (define-key ruby-mode-map (kbd "M-n l") 'squiter/ruby-linear-modules)))
 
 ;;;;;;;;;;;;;;;;;
 ;; Git & Magit ;;

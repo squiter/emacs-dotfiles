@@ -161,5 +161,12 @@ downcased, no preceding underscore.
   (interactive "p")
   (move-line (if (null n) 1 n)))
 
+(fset 'squiter/ruby-linear-modules
+      (lambda (&optional arg)
+        "Keyboard macro."
+        (interactive "p")
+        (kmacro-exec-ring-item
+         (quote ([5 14 1 134217828 4 backspace 58 58] 0 "%d")) arg)))
+
 (provide 'init-edit-custom-functions)
 ;;; init-edit-custom-functions.el ends here
