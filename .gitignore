@@ -25,3 +25,4 @@ init-secrets.el
 cider-history
 emacs.d/games/*
 /emacs.d/ivy-youtube-history
+/emacs.d/magithub/*

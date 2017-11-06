@@ -71,6 +71,7 @@
     langtool
     lua-mode
     magit
+    magithub
     markdown-mode+
     multiple-cursors
     mutant
