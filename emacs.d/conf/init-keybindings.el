@@ -253,7 +253,8 @@
 (define-key magit-branch-section-map (kbd "RET") 'magit-checkout)
 (define-key magit-branch-section-map (kbd "S-<return>") 'magit-branch-and-checkout)
 (define-key magit-status-mode-map (kbd "q") 'magit-quit-session)
-
+;; to keep compatibility with my keybinds
+(define-key magit-status-mode-map (kbd "M-1") 'delete-other-windows)
 
 ;;;;;;;;;;;;;;;;;;;;
 ;; symbol-overlay ;;
