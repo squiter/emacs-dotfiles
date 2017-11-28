@@ -33,5 +33,8 @@
 (setq ivy-height 15)
 (setq ivy-initial-inputs-alist nil)
 
+(ivy-set-occur 'swiper 'swiper-occur)
+(ivy-set-occur 'ivy-switch-buffer 'ivy-switch-buffer-occur)
+
 (provide 'init-ivy)
 ;;; init-ivy.el ends here
