@@ -25,6 +25,9 @@
 
 ;;; Code:
 (require 'org)
+(require 'org-habit)
+(require 'org-id)
+(require 'org-crypt)
 
 (add-to-list 'load-path (expand-file-name "conf/orgmode" user-emacs-directory))
 
@@ -50,9 +53,6 @@
 (require 'init-org-agenda-tunned)
 (require 'init-org-clock)
 (require 'init-org-projects)
-(require 'init-org-habit)
-(require 'init-org-crypt)
-(require 'init-org-id)
 (require 'init-org-notifications)
 (require 'init-org-babel)
 (require 'init-org-alfred)
