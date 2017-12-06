@@ -122,8 +122,6 @@
 (global-set-key (kbd "C-c m n") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-c m r") 'mc/set-rectangular-region-anchor)
 
-(global-set-key (kbd "C-c f") 'aj-toggle-fold)
-
 ;; kill sexp
 (define-key smartparens-mode-map (kbd "M-[ k") 'sp-kill-hybrid-sexp)
 
@@ -267,6 +265,13 @@
 (global-set-key (kbd "M-i d") 'symbol-overlay-jump-to-definition)
 (global-set-key (kbd "M-i <f7>") 'symbol-overlay-mode)
 (global-set-key (kbd "M-i <f8>") 'symbol-overlay-remove-all)
+
+
+;;;;;;;;;;;;;;;;;;;
+;; iy-go-to-char ;;
+;;;;;;;;;;;;;;;;;;;
+(global-set-key (kbd "C-c f") 'iy-go-to-char)
+(global-set-key (kbd "C-c F") 'iy-go-to-char-backward)
 
 (provide 'init-keybindings)
 ;;; init-keybindings.el ends here

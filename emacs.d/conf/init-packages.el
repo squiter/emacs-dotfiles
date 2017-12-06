@@ -68,6 +68,7 @@
     imenu-list
     ivy-rich
     ivy-youtube
+    iy-go-to-char
     json-navigator
     langtool
     lua-mode
