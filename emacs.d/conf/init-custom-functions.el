@@ -184,5 +184,15 @@ is already narrowed."
   (interactive)
   (call-process "/usr/bin/espeak" nil t nil (buffer-substring (mark) (point))))
 
+(defun squiter/list-ebooks ()
+  "list everything recursively"
+  (interactive)
+  (let* ((cands
+          (split-string
+           (shell-command-to-string (concat "find " *user-ebook-directory*)) "\n" t)))
+    (ivy-read "File: " cands
+              :action #'find-file
+              :caller 'fhd/counsel-everything)))
+
 (provide 'init-custom-functions)
 ;;; init-custom-functions.el ends here

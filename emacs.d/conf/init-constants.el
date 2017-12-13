@@ -15,6 +15,9 @@
   (path-join *user-home-directory* "dropbox")
   "Path to Dropbox on user's machine.")
 
+(defconst *user-ebook-directory*
+  (path-join *user-dropbox-directory* "e-Books"))
+
 (defconst *user-elfeed-directory*
   (path-join *user-dropbox-directory* "elfeed"))
 
