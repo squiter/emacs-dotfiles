@@ -4,12 +4,12 @@
 
 (require 'projectile)
 
-(counsel-projectile-on)
+(counsel-projectile-mode)
 
 ;; projectile-rails
 (add-hook 'projectile-mode-hook 'projectile-rails-on)
 
-(projectile-global-mode)
+(projectile-mode)
 
 ;;
 ;;; Jumping between projects (stolen from milhouse)
