@@ -71,6 +71,7 @@
     iy-go-to-char
     json-navigator
     langtool
+    ledger-mode
     lua-mode
     magit
     magithub
