@@ -40,7 +40,7 @@
 _p_: Ponto               _C_: Calendar         _D_: ~/Downloads
 _c_: CI                  _g_: Github           _e_: ~/.emacs.d
 _m_: Merge Requests      _f_: Elfeed           _E_: ../elfeed.org
-_r_: Retro
+_r_: Retro                                   ^_l_: ../ledger.data
 _d_: Docs Hospedagem
 --------------------------------------------------------------------------
 "
@@ -54,6 +54,7 @@ _d_: Docs Hospedagem
   ("D" (find-file "~/Downloads"))
   ("e" (find-file "~/.emacs.d"))
   ("E" (find-file "~/Dropbox/elfeed/elfeed.org"))
+  ("l" (find-file "~/Dropbox/ledger/ledger.data"))
   ("f" (bjm/elfeed-load-db-and-open))
   ("q" nil "cancel" :color blue))
 
