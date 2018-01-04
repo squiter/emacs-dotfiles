@@ -194,5 +194,18 @@ is already narrowed."
               :action #'find-file
               :caller 'fhd/counsel-everything)))
 
+(defun squiter/ledger-bitcoin-status ()
+  (interactive)
+  (request
+   "https://api.coindesk.com/v1/bpi/currentprice/BRL.json"
+   :type "GET"
+   :parser 'json-read
+   :success (function*
+             (lambda (&key data &allow-other-keys)
+               (when data
+                 (let ((date (shell-command-to-string "echo -n $(date +%Y/%m/%d)"))
+                       (time (shell-command-to-string "echo -n $(date +%H:%M:%S)")))
+                   (insert (format "P %s %s BTC $%S" date time (cdr (car (nthcdr 4 (car (nthcdr 2 (car (nthcdr 2 data)))))))))))))))
+
 (provide 'init-custom-functions)
 ;;; init-custom-functions.el ends here
