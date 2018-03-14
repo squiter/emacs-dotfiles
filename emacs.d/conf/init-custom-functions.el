@@ -207,5 +207,30 @@ is already narrowed."
                        (time (shell-command-to-string "echo -n $(date +%H:%M:%S)")))
                    (insert (format "P %s %s BTC $%S" date time (cdr (car (nthcdr 4 (car (nthcdr 2 (car (nthcdr 2 data)))))))))))))))
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Functions to get current url of remote repo with file and line number ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defun squiter/get-relative-file-with-line ()
+  (let ((relative-name (file-relative-name (buffer-file-name) (projectile-project-root)))
+        (line-number (number-to-string (line-number-at-pos))))
+    (concat relative-name "#L" line-number)))
+
+(defun squiter/get-current-remote-url ()
+  (let ((bare-remote-url (magit-get "remote" (magit-get-remote) "url"))
+        (current-branch (magit-get-current-branch)))
+    (format "https://code.locaweb.com.br/%s/blob/%s/"
+            (replace-regexp-in-string
+             "\\`.+locaweb\\.com\\.br:\\(.+\\)\\.git\\'" "\\1"
+             bare-remote-url)
+            current-branch)))
+
+(defun squiter/get-url-for-this-line-number ()
+  (interactive)
+  (let ((repo-url (squiter/get-current-remote-url))
+        (file-with-line-number (squiter/get-relative-file-with-line)))
+    (kill-new (concat repo-url file-with-line-number))
+    (message "Repo + File + Line number succefully copied!")))
+
 (provide 'init-custom-functions)
 ;;; init-custom-functions.el ends here
