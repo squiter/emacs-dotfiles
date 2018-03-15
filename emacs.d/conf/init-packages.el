@@ -42,6 +42,7 @@
     docker
     doom-themes
     easy-kill
+    edit-server
     elfeed
     elfeed-org
     expand-region

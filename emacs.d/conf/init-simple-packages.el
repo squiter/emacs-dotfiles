@@ -81,5 +81,10 @@
 (require 'magithub)
 (magithub-feature-autoinject t)
 
+;; edit-server
+(when (require 'edit-server nil t)
+  (setq edit-server-new-frame nil)
+  (edit-server-start))
+
 (provide 'init-simple-packages)
 ;;; init-simple-packages.el ends here
