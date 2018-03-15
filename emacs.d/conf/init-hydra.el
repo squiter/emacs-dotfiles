@@ -219,6 +219,8 @@ KEYANDHEADLINE should be a list of cons cells of the form (\"key\" . \"headline\
 (josh/make-org-refile-hydra squiter/org-refile-hydra-locaweb
                             "locaweb.org"
                             (("t" . "Tasks")
+                             ("f" . "Friday4Fun")
+                             ("r" . "Retrospective Tasks")
                              ("n" . "Notes")))
 
 (defhydra squiter/org-refile-hydra (:foreign-keys run)
