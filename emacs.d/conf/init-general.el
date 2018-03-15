@@ -49,5 +49,9 @@
 ;; better scrolls
 (setq scroll-conservatively 101)
 
+;; this setting will always revert the buffer when a file change in
+;; disk. I use this to revert my refile.org and avoid conflicts
+(global-auto-revert-mode t)
+
 (provide 'init-general)
 ;;; init-general.el ends here
