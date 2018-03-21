@@ -86,5 +86,9 @@
   (setq edit-server-new-frame nil)
   (edit-server-start))
 
+;; beancount
+(require 'beancount)
+(add-to-list 'auto-mode-alist '("\\.beancount\\'" . beancount-mode))
+
 (provide 'init-simple-packages)
 ;;; init-simple-packages.el ends here

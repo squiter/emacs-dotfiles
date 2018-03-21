@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: add-entry
+# key: add
+# expand-env: ((yas-indent-line 'fixed) (yas-wrap-around-region 'nil))
+# --
+`(format-time-string "%Y-%m-%d")`$0 $1"${2:title}"
+  ${3:account}  ${4:value} ${5:BRL}
+  ${6:account}
+$7
