@@ -6,8 +6,8 @@
 (add-to-list 'custom-theme-load-path (concat *emacsd-directory* "/themes"))
 (add-to-list 'load-path (concat *emacsd-directory* "/themes"))
 
-;; (load-theme 'challenger-deep t)
-(load-theme 'apropospriate-light t)
+(load-theme 'challenger-deep t)
+;; (load-theme 'apropospriate-light t)
 
 (setq
  ;; better startup
@@ -25,7 +25,7 @@
 (tool-bar-mode -1)
 (menu-bar-mode -1)
 (scroll-bar-mode -1)
-(set-face-attribute 'default nil :height 140 :font "Monofur")
+(set-face-attribute 'default nil :height 140 :font "Inconsolata")
 
 ;; line numbers
 (add-hook 'prog-mode-hook 'linum-mode)
@@ -54,12 +54,7 @@
       '("emacs@"
         (:eval (squiter/get-window-name))))
 
-;; (require 'init-telephone)
-
-;; ocodo-svg-modelines
-(ocodo-svg-modelines-init)
-;; (setq smt/current-theme 'ocodo-mesh-aqua-smt)
-(setq smt/current-theme 'ocodo-kawaii-light-smt)
+(require 'init-telephone)
 
 (provide 'init-ui)
 ;;; init-ui.el ends here
