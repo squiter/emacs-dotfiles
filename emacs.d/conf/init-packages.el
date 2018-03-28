@@ -40,6 +40,7 @@
     dired-collapse
     discover-my-major
     docker
+    dockerfile-mode
     doom-themes
     easy-kill
     edit-server

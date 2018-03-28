@@ -90,5 +90,8 @@
 (require 'beancount)
 (add-to-list 'auto-mode-alist '("\\.beancount\\'" . beancount-mode))
 
+;; dockerfile-mode
+(add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode))
+
 (provide 'init-simple-packages)
 ;;; init-simple-packages.el ends here
