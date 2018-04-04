@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: date
+# description: date format to use in beancount
+# key: date
+# --
+${1:`(format-time-string "%Y")`}-${2:`(format-time-string "%m")`}-${3:`(format-time-string "%d")`} ${4:!} $5
