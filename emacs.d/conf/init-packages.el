@@ -46,6 +46,7 @@
     edit-server
     elfeed
     elfeed-org
+    enh-ruby-mode
     expand-region
     flycheck
     flycheck-pos-tip

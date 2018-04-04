@@ -223,7 +223,7 @@
 ;; ruby-mode ;;
 ;;;;;;;;;;;;;;;
 
-(eval-after-load 'ruby-mode
+(eval-after-load 'enh-ruby-mode
   '(progn
      (define-key ruby-mode-map (kbd "C-c , ,") 'senny-ruby-open-spec-other-buffer)
      (define-key ruby-mode-map (kbd "#") 'senny-ruby-interpolate)

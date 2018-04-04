@@ -33,6 +33,7 @@
 
 (add-hook 'racket-mode-hook 'my-pretty-lambda)
 (add-hook 'ruby-mode-hook 'my-pretty-lambda)
+(add-hook 'enh-ruby-mode-hook 'my-pretty-lambda)
 (add-hook 'org-mode-hook 'my-pretty-lambda)
 (add-hook 'emacs-lisp-mode-hook 'my-pretty-lambda)
 

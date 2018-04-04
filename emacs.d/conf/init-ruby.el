@@ -6,6 +6,15 @@
 (require 'ruby-tools)
 (require 'ruby-refactor)
 
+;; enh-ruby-mode
+(autoload 'enh-ruby-mode "enh-ruby-mode" "Major mode for ruby files" t)
+(add-to-list 'interpreter-mode-alist '("ruby" . enh-ruby-mode))
+
+;; Enhanced Ruby Mode defines its own specific faces with the hook
+;; erm-define-faces. If your theme is already defining those faces, to
+;; not overwrite them, just remove the hook with:
+(remove-hook 'enh-ruby-mode-hook 'erm-define-faces)
+
 ;; do not add encoding comment automatically
 (setq ruby-insert-encoding-magic-comment nil)
 
@@ -31,18 +40,21 @@
               "\\Gemfile$"
               "\\Godfile$"
               "\\.god$"))
-  (add-to-list 'auto-mode-alist `(,fp . ruby-mode)))
+  (add-to-list 'auto-mode-alist `(,fp . enh-ruby-mode)))
 
 ;; mutant
 (add-hook 'ruby-mode-hook 'mutant-mode)
+(add-hook 'enh-ruby-mode-hook 'mutant-mode)
 
 ;; ruby-refactor
 (add-hook 'ruby-mode-hook 'ruby-refactor-mode-launch)
+(add-hook 'enh-ruby-mode-hook 'ruby-refactor-mode-launch)
 
 (require 'rubocop)
 
 ;; Rubocop
 (add-hook 'ruby-mode-hook 'rubocop-mode)
+(add-hook 'enh-ruby-mode-hook 'rubocop-mode)
 
 ;;open the spec of a class
 (defun senny-ruby-open-spec-other-buffer ()
