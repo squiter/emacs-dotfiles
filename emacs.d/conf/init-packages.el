@@ -107,6 +107,7 @@
     smart-shift
     smex
     sml-mode
+    ssh-agency
     swiper
     tagedit
     telephone-line

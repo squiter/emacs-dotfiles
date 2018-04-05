@@ -93,5 +93,8 @@
 ;; dockerfile-mode
 (add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode))
 
+;; ssh-agency
+(require 'ssh-agency)
+
 (provide 'init-simple-packages)
 ;;; init-simple-packages.el ends here
