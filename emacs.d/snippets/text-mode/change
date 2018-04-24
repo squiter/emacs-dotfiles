@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: change
+# key: change
+# --
+Change da \`${1:hodor}\` solcitada via \`${2:RITM}\` agendada para \``(format-time-string "%d/%m")`$3 ${4:00}-${5:00}\` com @rafael.olivieri
+
+\`\`\`
+${6:changelog}
+\`\`\`
