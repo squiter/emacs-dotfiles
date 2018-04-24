@@ -225,18 +225,18 @@
 
 (eval-after-load 'enh-ruby-mode
   '(progn
-     (define-key ruby-mode-map (kbd "C-c , ,") 'senny-ruby-open-spec-other-buffer)
-     (define-key ruby-mode-map (kbd "#") 'senny-ruby-interpolate)
-     (define-key ruby-mode-map (kbd "C-, b e") 'bundle-exec)
-     (define-key ruby-mode-map (kbd "C-, b i") 'bundle-install)
-     (define-key ruby-mode-map (kbd "C-, b o") 'bundle-open)
-     (define-key ruby-mode-map (kbd "C-, b c") 'bundle-console)
-     (define-key ruby-mode-map (kbd "C-c v") 'custom/vcr-toggle)
-     (define-key ruby-mode-map (kbd "M-n s") 'projectile-rails-server)
-     (define-key ruby-mode-map (kbd "M-n c") 'projectile-rails-console)
-     (define-key ruby-mode-map (kbd "C-, l m") 'squiter/rails-go-to-last-migration)
-     (define-key ruby-mode-map (kbd "C-c M-j") #'endless/run-ruby)
-     (define-key ruby-mode-map (kbd "M-n l") 'squiter/ruby-linear-modules)))
+     (define-key enh-ruby-mode-map (kbd "C-c , ,") 'senny-ruby-open-spec-other-buffer)
+     (define-key enh-ruby-mode-map (kbd "#") 'senny-ruby-interpolate)
+     (define-key enh-ruby-mode-map (kbd "C-, b e") 'bundle-exec)
+     (define-key enh-ruby-mode-map (kbd "C-, b i") 'bundle-install)
+     (define-key enh-ruby-mode-map (kbd "C-, b o") 'bundle-open)
+     (define-key enh-ruby-mode-map (kbd "C-, b c") 'bundle-console)
+     (define-key enh-ruby-mode-map (kbd "C-c v") 'custom/vcr-toggle)
+     (define-key enh-ruby-mode-map (kbd "M-n s") 'projectile-rails-server)
+     (define-key enh-ruby-mode-map (kbd "M-n c") 'projectile-rails-console)
+     (define-key enh-ruby-mode-map (kbd "C-, l m") 'squiter/rails-go-to-last-migration)
+     (define-key enh-ruby-mode-map (kbd "C-c M-j") #'endless/run-ruby)
+     (define-key enh-ruby-mode-map (kbd "M-n l") 'squiter/ruby-linear-modules)))
 
 ;;;;;;;;;;;;;;;;;
 ;; Git & Magit ;;
