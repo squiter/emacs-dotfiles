@@ -36,7 +36,6 @@
     clojure-mode-extra-font-locking
     company
     company-emoji
-    dired+
     dired-collapse
     discover-my-major
     docker
@@ -52,7 +51,6 @@
     flycheck-pos-tip
     flycheck-clojure
     flycheck-credo
-    frame-cmds
     free-keys
     gist
     git-gutter
