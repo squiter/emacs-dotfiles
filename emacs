@@ -44,6 +44,8 @@
   (package-install 'use-package)
   (require 'use-package))
 
+(setq use-package-always-ensure t)
+
 (setq rr/initialization-errors nil)
 
 (require 'init-bootstrap)

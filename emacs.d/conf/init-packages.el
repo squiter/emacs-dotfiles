@@ -14,33 +14,23 @@
     all-the-icons
     all-the-icons-ivy
     all-the-icons-dired
-    anzu
     apropospriate-theme
-    auto-package-update
     avy
-    back-button
-    bash-completion
-    beacon
     bundler
-    calfw
-    calfw-org
     cider
     challenger-deep-theme
     clojure-mode
     clojure-mode-extra-font-locking
     company
     company-emoji
-    dired-collapse
     discover-my-major
     docker
-    dockerfile-mode
     doom-themes
     easy-kill
     edit-server
     elfeed
     elfeed-org
     enh-ruby-mode
-    expand-region
     flycheck
     flycheck-pos-tip
     flycheck-clojure
@@ -57,11 +47,8 @@
     hl-anything
     hydra
     ido-vertical-mode
-    indent-guide
-    indent-tools
     instapaper
     imenu-list
-    ivy-rich
     ivy-youtube
     iy-go-to-char
     json-navigator
@@ -71,9 +58,7 @@
     magit
     magithub
     markdown-mode+
-    multiple-cursors
     mutant
-    neotree
     ob-restclient
     ob-sml
     org-bullets
@@ -83,7 +68,6 @@
     projectile
     projectile-rails
     counsel-projectile
-    rainbow-delimiters
     rainbow-mode
     rbenv
     request
@@ -96,20 +80,16 @@
     ruby-tools
     symbol-overlay
     smartparens
-    smart-shift
     smex
     sml-mode
-    ssh-agency
     swiper
     tagedit
     telephone-line
     try
     twittering-mode
-    undo-tree
     wakatime-mode
     web-mode
     which-key
-    yagist
     yaml-mode
     zeal-at-point
     yasnippet

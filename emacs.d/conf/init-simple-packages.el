@@ -4,97 +4,48 @@
 ;;  init-file I use this file
 ;;; Code:
 
-;; Requiring Apel alist
-(require 'alist)
+(use-package anzu :config (global-anzu-mode +1))
+(use-package indent-guide :config (indent-guide-global-mode))
+(use-package back-button :config (back-button-mode 1))
+(use-package neotree :bind ("C-c n" . 'neotree-toggle))
+(use-package expand-region :bind ("C-=" . 'er/expand-region))
+(use-package auto-package-update :config (auto-package-update-maybe))
+(use-package undo-tree :config (global-undo-tree-mode 1))
+(use-package smart-shift :config (global-smart-shift-mode 1))
+(use-package beacon :config (beacon-mode 1))
+(use-package multiple-cursors :init (setq mc/always-run-for-all t))
+(use-package beancount :mode ("\\.beancount\\'" . beancount-mode))
+(use-package dockerfile-mode :mode "Dockerfile\\'")
+(use-package bash-completion :config (bash-completion-setup))
+(use-package pdf-tools :config (pdf-tools-install))
+(use-package magithub :config (magithub-feature-autoinject t))
+(use-package dired-collapse :hook dired-mode)
+(use-package vmd-mode)
+(use-package indent-tools)
+(use-package calfw)
+(use-package calfw-org)
+(use-package ssh-agency)
 
-;; anzu
-(global-anzu-mode +1)
+(use-package yagist
+  :init
+  (setq yagist-github-token *user-github-token*))
 
-;; Indent-guide
-(indent-guide-global-mode)
+(use-package rainbow-delimiters
+  :hook (prog-mode . rainbow-delimiters-mode))
 
-;; back-button
-(back-button-mode 1)
-
-;; neotree
-(global-set-key (kbd "C-c n") 'neotree-toggle)
-
-;; expand-region
-(global-set-key (kbd "C-=") 'er/expand-region)
-
-;; auto-package-update
-(auto-package-update-maybe)
-
-;; yagist
-(setq yagist-github-token *user-github-token*)
-
-;; typing of emacs
-(autoload 'typing-of-emacs "typing" "The Typing Of Emacs, a game." t)
-
-;; rainbow-delimiters
-(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
-
-;; require vmd-mode
-(require 'vmd-mode)
-
-;; turn on undo-tree everywhere
-(global-undo-tree-mode 1)
-
-;; multiple cursors
-(require 'multiple-cursors)
-(setq mc/always-run-for-all t)
-
-;; smart-shift
-(global-smart-shift-mode 1)
-
-;; beacon-mode
-(beacon-mode 1)
-
-;; indent-tools
-(require 'indent-tools)
-
-;; ivy-rich
-(require 'ivy-rich)
-(ivy-set-display-transformer 'ivy-switch-buffer 'ivy-rich-switch-buffer-transformer)
-
-;; all-the-icons
-(require 'all-the-icons)
-(all-the-icons-ivy-setup)
-(add-hook 'dired-mode-hook #'all-the-icons-dired-mode)
-
-;; dired-collapse
-(require 'dired-collapse)
-(add-hook 'dired-mode-hook #'dired-collapse-mode)
-
-;; calfw
-(require 'calfw)
-(require 'calfw-org)
-
-;; bash-completion
-(require 'bash-completion)
-(bash-completion-setup)
-
-;; pdf-tools
-(pdf-tools-install)
-
-;; magithub
-(require 'magithub)
-(magithub-feature-autoinject t)
+(use-package ivy-rich
+  :config
+  (ivy-set-display-transformer 'ivy-switch-buffer 'ivy-rich-switch-buffer-transformer))
 
 ;; edit-server
 (when (require 'edit-server nil t)
   (setq edit-server-new-frame nil)
   (edit-server-start))
 
-;; beancount
-(require 'beancount)
-(add-to-list 'auto-mode-alist '("\\.beancount\\'" . beancount-mode))
-
-;; dockerfile-mode
-(add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode))
-
-;; ssh-agency
-(require 'ssh-agency)
+;; all-the-icons
+(require 'all-the-icons)
+(all-the-icons-ivy-setup)
+(add-hook 'dired-mode-hook #'all-the-icons-dired-mode)
 
 (provide 'init-simple-packages)
 ;;; init-simple-packages.el ends here
