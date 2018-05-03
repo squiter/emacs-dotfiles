@@ -5,11 +5,6 @@
 ;; This idea of managing packages was stolen from: https://github.com/rranelli/emacs-dotfiles
 
 ;;; code:
-(require 'package)
-(package-initialize)
-
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.milkbox.net/packages/") t)
 
 (defvar my-packages
   '(
