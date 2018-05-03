@@ -15,7 +15,6 @@
     all-the-icons-ivy
     all-the-icons-dired
     anzu
-    apel
     apropospriate-theme
     auto-package-update
     avy
