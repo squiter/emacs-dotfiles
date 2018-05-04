@@ -23,8 +23,6 @@
     doom-themes
     easy-kill
     edit-server
-    elfeed
-    elfeed-org
     enh-ruby-mode
     flycheck
     flycheck-pos-tip
@@ -42,7 +40,6 @@
     hl-anything
     hydra
     ido-vertical-mode
-    instapaper
     imenu-list
     ivy-youtube
     iy-go-to-char

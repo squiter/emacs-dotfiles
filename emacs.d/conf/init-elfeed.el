@@ -26,122 +26,118 @@
 ;;
 
 ;;; Code:
-(require 'elfeed)
+(use-package elfeed
+  :init
+  (setq elfeed-db-directory (path-join *user-elfeed-directory* "elfeeddb"))
 
-;; elfeed-org configurations
-(require 'elfeed-org)
-(elfeed-org)
-(setq rmh-elfeed-org-files (list (path-join *user-elfeed-directory* "elfeed.org")))
+  :config
+  (defun elfeed-mark-all-as-read ()
+    (interactive)
+    (mark-whole-buffer)
+    (elfeed-search-untag-all-unread))
 
-(setq elfeed-db-directory (path-join *user-elfeed-directory* "elfeeddb"))
+  ;;functions to support syncing .elfeed between machines
+  ;;makes sure elfeed reads index from disk before launching
+  (defun bjm/elfeed-load-db-and-open ()
+    "Wrapper to load the elfeed db from disk before opening."
+    (interactive)
+    (elfeed-db-load)
+    (elfeed)
+    (elfeed-search-update--force))
 
-;; Mark all YouTube entries
-(add-hook 'elfeed-new-entry-hook
-          (elfeed-make-tagger :feed-url "youtube\\.com"
-                              :add '(video youtube)))
+  ;;write to disk when quiting
+  (defun bjm/elfeed-save-db-and-bury ()
+    "Wrapper to save the elfeed db to disk before burying buffer."
+    (interactive)
+    (elfeed-db-save)
+    (quit-window))
 
-(defun elfeed-mark-all-as-read ()
-  (interactive)
-  (mark-whole-buffer)
-  (elfeed-search-untag-all-unread))
+  (defun squiter/elfeed-save ()
+    "The function elfeed-db-save is not an interactive function."
+    (interactive)
+    (elfeed-db-save)
+    (message "Elfeed database saved."))
 
-;;functions to support syncing .elfeed between machines
-;;makes sure elfeed reads index from disk before launching
-(defun bjm/elfeed-load-db-and-open ()
-  "Wrapper to load the elfeed db from disk before opening."
-  (interactive)
-  (elfeed-db-load)
-  (elfeed)
-  (elfeed-search-update--force))
+  (defalias 'elfeed-toggle-star
+    (elfeed-expose #'elfeed-search-toggle-all 'star))
 
-;;write to disk when quiting
-(defun bjm/elfeed-save-db-and-bury ()
-  "Wrapper to save the elfeed db to disk before burying buffer."
-  (interactive)
-  (elfeed-db-save)
-  (quit-window))
+  (defun copy-elfeed-link (entry)
+    "Copy the ENTRY URL to the clipboard."
+    (interactive)
+    (let* ((link (elfeed-entry-link entry)))
+      (kill-new link)
+      (x-set-selection 'PRIMARY link)
+      (message "Yanked: %s" link)))
 
-(defun squiter/elfeed-save ()
-  "The function elfeed-db-save is not an interactive function."
-  (interactive)
-  (elfeed-db-save)
-  (message "Elfeed database saved."))
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; Creates a orgmode note with entry link ;;
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(defalias 'elfeed-toggle-star
-  (elfeed-expose #'elfeed-search-toggle-all 'star))
+  (defun copy-elfeed-link-title-to-org (entry)
+    "Copy the ENTRY title and URL as org link to the clipboard."
+    (interactive)
+    (let* ((link (elfeed-entry-link entry))
+           (title (elfeed-entry-title entry))
+           (titlelink (concat "[[" link "][" title "]]")))
+      (when titlelink
+        (kill-new titlelink)
+        (x-set-selection 'PRIMARY titlelink)
+        (message "Yanked: %s" titlelink))))
 
-(defun copy-elfeed-link (entry)
-  "Copy the ENTRY URL to the clipboard."
-  (interactive)
-  (let* ((link (elfeed-entry-link entry)))
-    (kill-new link)
-    (x-set-selection 'PRIMARY link)
-    (message "Yanked: %s" link)))
+  (defun elfeed-show-quick-url-note ()
+    "Fastest way to capture entry link to org agenda from elfeed show mode"
+    (interactive)
+    (copy-elfeed-link-title-to-org elfeed-show-entry)
+    (org-capture nil "n")
+    (yank)
+    (org-capture-finalize))
 
-;;;;;;;;;;;;;;;;
-;; instapaper ;;
-;;;;;;;;;;;;;;;;
-(require 'instapaper)
-
-(setq instapaper-username "squiter85@gmail.com")
-(setq instapaper-password *instapaper-password*)
-
-(defun squiter/elfeed-show-add-to-instapaper ()
-  "Save current entry in show mode to Instapaper."
-  (interactive)
-  (let ((link (elfeed-entry-link elfeed-show-entry)))
-    (instapaper-add link)
-    (message "Added to Instapaper: %s" link)))
-
-(defun squiter/elfeed-search-add-to-instapaper ()
-  "Save current entry in search mode to Instapaper."
-  (interactive)
-  (let ((entries (elfeed-search-selected)))
-    (cl-loop for entry in entries
-             do (elfeed-untag entry 'unread)
-             when (elfeed-entry-link entry)
-             do (instapaper-add (elfeed-entry-link entry))
-             do (message "Added to Instapaper: %s" link)
-             (mapc #'elfeed-search-update-entry entries))
-    (unless (use-region-p) (forward-line))))
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Creates a orgmode note with entry link ;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(defun copy-elfeed-link-title-to-org (entry)
-  "Copy the ENTRY title and URL as org link to the clipboard."
-  (interactive)
-  (let* ((link (elfeed-entry-link entry))
-         (title (elfeed-entry-title entry))
-         (titlelink (concat "[[" link "][" title "]]")))
-    (when titlelink
-      (kill-new titlelink)
-      (x-set-selection 'PRIMARY titlelink)
-      (message "Yanked: %s" titlelink))))
-
-(defun elfeed-show-quick-url-note ()
-  "Fastest way to capture entry link to org agenda from elfeed show mode"
-  (interactive)
-  (copy-elfeed-link-title-to-org elfeed-show-entry)
-  (org-capture nil "n")
-  (yank)
-  (org-capture-finalize))
-
-(defun elfeed-search-quick-url-note ()
-  "In search mode, capture the title and link for the selected
+  (defun elfeed-search-quick-url-note ()
+    "In search mode, capture the title and link for the selected
 entry or entries in org aganda."
-  (interactive)
-  (let ((entries (elfeed-search-selected)))
-    (cl-loop for entry in entries
-             do (elfeed-untag entry 'unread)
-             when (elfeed-entry-link entry)
-             do (copy-elfeed-link-title-to-org entry)
-             do (org-capture nil "n")
-             do (yank)
-             do (org-capture-finalize)
-             (mapc #'elfeed-search-update-entry entries))
-    (unless (use-region-p) (forward-line))))
+    (interactive)
+    (let ((entries (elfeed-search-selected)))
+      (cl-loop for entry in entries
+               do (elfeed-untag entry 'unread)
+               when (elfeed-entry-link entry)
+               do (copy-elfeed-link-title-to-org entry)
+               do (org-capture nil "n")
+               do (yank)
+               do (org-capture-finalize)
+               (mapc #'elfeed-search-update-entry entries))
+      (unless (use-region-p) (forward-line)))))
+
+(use-package elfeed-org
+  :init
+  (elfeed-org)
+  (setq rmh-elfeed-org-files (list (path-join *user-elfeed-directory* "elfeed.org"))))
+
+(use-package instapaper
+  :init
+  (setq instapaper-username "squiter85@gmail.com")
+  (setq instapaper-password *instapaper-password*)
+
+  :config
+
+  (defun squiter/elfeed-show-add-to-instapaper ()
+    "Save current entry in show mode to Instapaper."
+    (interactive)
+    (let ((link (elfeed-entry-link elfeed-show-entry)))
+      (instapaper-add link)
+      (message "Added to Instapaper: %s" link)))
+
+  (defun squiter/elfeed-search-add-to-instapaper ()
+    "Save current entry in search mode to Instapaper."
+    (interactive)
+    (let ((entries (elfeed-search-selected)))
+      (cl-loop for entry in entries
+               do (elfeed-untag entry 'unread)
+               when (elfeed-entry-link entry)
+               do (instapaper-add (elfeed-entry-link entry))
+               do (message "Added to Instapaper: %s" link)
+               (mapc #'elfeed-search-update-entry entries))
+      (unless (use-region-p) (forward-line)))))
+
 
 (provide 'init-elfeed)
 ;;; init-elfeed.el ends here
