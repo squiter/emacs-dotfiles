@@ -23,10 +23,6 @@
     easy-kill
     edit-server
     enh-ruby-mode
-    flycheck
-    flycheck-pos-tip
-    flycheck-clojure
-    flycheck-credo
     free-keys
     gist
     git-gutter

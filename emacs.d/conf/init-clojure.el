@@ -92,5 +92,8 @@
               :map cider-mode-map
               ("C-c u" . 'cider-user-ns)))
 
+(use-package flycheck-clojure
+  :config (eval-after-load 'flycheck '(flycheck-clojure-setup)))
+
 (provide 'init-clojure)
 ;;; init-clojure.el ends here
