@@ -18,8 +18,6 @@
     avy
     bundler
     challenger-deep-theme
-    company
-    company-emoji
     discover-my-major
     docker
     doom-themes
