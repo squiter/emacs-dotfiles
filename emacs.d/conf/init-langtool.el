@@ -23,16 +23,17 @@
 ;;; Commentary:
 
 ;;; Code:
-(require 'langtool)
+(use-package langtool
+  :init
 
-(setq langtool-language-tool-jar "/opt/LanguageTool-3.4/languagetool-commandline.jar")
+  (setq langtool-language-tool-jar "/opt/LanguageTool-3.4/languagetool-commandline.jar")
 
-(setq langtool-disabled-rules
-      '(
-        "WHITESPACE_RULE"
-        "EN_UNPAIRED_BRACKETS"
-        "COMMA_PARENTHESIS_WHITESPACE"
-        "EN_QUOTES"))
+  (setq langtool-disabled-rules
+        '(
+          "WHITESPACE_RULE"
+          "EN_UNPAIRED_BRACKETS"
+          "COMMA_PARENTHESIS_WHITESPACE"
+          "EN_QUOTES")))
 
 (provide 'init-langtool)
 ;;; init-langtool.el ends here
