@@ -26,13 +26,13 @@
 ;;
 
 ;;; Code:
+(use-package alchemist
+  :hook ((elixir-mode . alchemist-mode)
+         (elixir-mode . flycheck-mode))
+  :init (setq alchemist-key-command-prefix (kbd "C-c ,")))
 
-(add-hook 'elixir-mode-hook 'alchemist-mode)
-
-(setq alchemist-key-command-prefix (kbd "C-c ,")) ;; default: (kbd "C-c a")
-
-(eval-after-load 'flycheck '(flycheck-credo-setup))
-(add-hook 'elixir-mode-hook 'flycheck-mode)
+(use-package flycheck-credo
+  :config (eval-after-load 'flycheck '(flycheck-credo-setup)))
 
 (provide 'init-elixir)
 ;;; init-elixir.el ends here
