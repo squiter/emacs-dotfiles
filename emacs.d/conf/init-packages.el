@@ -34,7 +34,6 @@
     highlight
     hl-anything
     hydra
-    ido-vertical-mode
     imenu-list
     ivy-youtube
     iy-go-to-char
