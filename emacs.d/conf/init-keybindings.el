@@ -100,10 +100,6 @@
 (global-set-key (kbd "C-x l m") 'langtool-show-message-at-point)
 (global-set-key (kbd "C-x l b") 'langtool-correct-buffer)
 
-;; google-this and google-translate
-(global-set-key (kbd "C-x g") 'google-this-mode-submap)
-(global-set-key [remap google-this] 'google-translate-smooth-translate)
-
 ;; undo-tree
 (global-set-key (kbd "C-z") 'undo-tree-undo)
 (global-set-key (kbd "C-S-z") 'undo-tree-redo)

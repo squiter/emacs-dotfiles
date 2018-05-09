@@ -28,8 +28,6 @@
     git-gutter
     git-gutter-fringe
     git-timemachine
-    google-this
-    google-translate
     haskell-mode
     highlight
     hl-anything

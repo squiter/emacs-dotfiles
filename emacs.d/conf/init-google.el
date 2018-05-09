@@ -26,10 +26,17 @@
 
 ;;; Code:
 
-(google-this-mode 1)
+(use-package google-this :config (google-this-mode 1))
 
-(setq google-translate-translation-directions-alist
-      '(("en" . "pt") ("pt" . "en")))
+(use-package google-translate
+  :init
+  (setq google-translate-translation-directions-alist
+        '(("en" . "pt") ("pt" . "en")))
+  :bind ("C-x / t" . google-translate-smooth-translate))
+
+;; google-this and google-translate
+;; (global-set-key (kbd "C-x g") 'google-this-mode-submap)
+;; (global-set-key [remap google-this] 'google-translate-smooth-translate)
 
 (provide 'init-google)
 ;;; init-google.el ends here.
