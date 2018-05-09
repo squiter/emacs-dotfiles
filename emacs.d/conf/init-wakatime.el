@@ -27,9 +27,11 @@
 
 ;;; Code:
 
-(setq wakatime-cli-path "/usr/local/bin/wakatime")
-
-(global-wakatime-mode)
+(use-package wakatime-mode
+  :init
+  (setq wakatime-cli-path "/usr/local/bin/wakatime")
+  :config
+  (global-wakatime-mode))
 
 (provide 'init-wakatime)
 ;;; init-wakatime.el ends here

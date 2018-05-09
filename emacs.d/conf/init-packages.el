@@ -66,7 +66,6 @@
     swiper
     tagedit
     try
-    wakatime-mode
     web-mode
     which-key
     yaml-mode
