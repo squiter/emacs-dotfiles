@@ -65,7 +65,6 @@
     sml-mode
     swiper
     tagedit
-    telephone-line
     try
     twittering-mode
     wakatime-mode
