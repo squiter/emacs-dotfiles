@@ -66,7 +66,6 @@
     swiper
     tagedit
     try
-    web-mode
     which-key
     yaml-mode
     zeal-at-point
