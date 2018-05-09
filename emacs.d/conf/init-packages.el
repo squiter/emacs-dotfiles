@@ -66,7 +66,6 @@
     swiper
     tagedit
     try
-    twittering-mode
     wakatime-mode
     web-mode
     which-key

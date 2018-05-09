@@ -6,9 +6,12 @@
 
 ;;; Code:
 
-(setq twittering-icon-mode t)
-(global-set-key (kbd "C-, t") 'twittering-update-status-from-pop-up-buffer)
-(setq twittering-convert-fix-size 24)
+(use-package twittering-mode
+  :init
+  (setq twittering-icon-mode t)
+  (setq twittering-convert-fix-size 24)
+  :bind
+  ("C-x t" . twittering-update-status-from-pop-up-buffer))
 
 (provide 'init-twittering-mode)
 ;;; init-twittering-mode.el ends here
