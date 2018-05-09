@@ -24,25 +24,24 @@
 ;;
 
 ;;; Code:
-(require 'smartparens)
-(require 'smartparens-config)
+(use-package smartparens
+  :hook ((prog-mode . turn-on-smartparens-mode)
+         (markdown-mode . turn-on-smartparens-mode))
+  :config
 
-(add-hook 'prog-mode-hook 'turn-on-smartparens-mode)
-(add-hook 'markdown-mode-hook 'turn-on-smartparens-mode)
+  ;; highlights matching pairs
+  (show-smartparens-global-mode t)
 
-;; highlights matching pairs
-(show-smartparens-global-mode t)
+  ;; Pipes are parens too :)
+  (sp-with-modes '(ruby-mode)
+    (sp-local-pair "|" "|"))
 
-;; Pipes are parens too :)
-(sp-with-modes '(ruby-mode)
-  (sp-local-pair "|" "|"))
+  (sp-with-modes '(org-mode)
+    (sp-local-pair "=" "="))
 
-(sp-with-modes '(org-mode)
-  (sp-local-pair "=" "="))
-
-(sp-with-modes '(rhtml-mode)
-  (sp-local-pair "<" ">")
-  (sp-local-pair "<%" "%>"))
+  (sp-with-modes '(rhtml-mode)
+    (sp-local-pair "<" ">")
+    (sp-local-pair "<%" "%>")))
 
 (provide 'init-smartparens)
 ;;; init-smartparens.el ends here

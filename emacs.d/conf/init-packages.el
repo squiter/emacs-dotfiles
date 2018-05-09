@@ -61,7 +61,6 @@
     ruby-refactor
     ruby-tools
     symbol-overlay
-    smartparens
     smex
     sml-mode
     swiper
