@@ -23,27 +23,28 @@
 ;;; Commentary:
 
 ;;; Code:
-(require 'which-key)
+(use-package which-key
+  :init
 
-;; TODO: this settings seems to not work
-(setq which-key-paging-prefixes '("C-x"))
-(setq which-key-paging-key "<f5>")
+  ;; TODO: this settings seems to not work
+  (setq which-key-paging-prefixes '("C-x"))
+  (setq which-key-paging-key "<f5>")
 
-;; Set the time delay (in seconds) for the which-key popup to appear.
-(setq which-key-idle-delay 0.7)
+  ;; Set the time delay (in seconds) for the which-key popup to appear.
+  (setq which-key-idle-delay 0.7)
 
-;; Set the separator used between keys and descriptions. Change this setting to
-;; an ASCII character if your font does not show the default arrow. The second
-;; setting here allows for extra padding for Unicode characters. which-key uses
-;; characters as a means of width measurement, so wide Unicode characters can
-;; throw off the calculation.
-(setq which-key-separator " → " )
-(setq which-key-unicode-correction 3)
+  ;; Set the separator used between keys and descriptions. Change this setting to
+  ;; an ASCII character if your font does not show the default arrow. The second
+  ;; setting here allows for extra padding for Unicode characters. which-key uses
+  ;; characters as a means of width measurement, so wide Unicode characters can
+  ;; throw off the calculation.
+  (setq which-key-separator " → " )
+  (setq which-key-unicode-correction 3)
 
-;; Set to t to show the count of keys shown vs. total keys in the mode line.
-(setq which-key-show-remaining-keys t)
+  ;; Set to t to show the count of keys shown vs. total keys in the mode line.
+  (setq which-key-show-remaining-keys t)
 
-(which-key-mode)
+  :config (which-key-mode))
 
 (provide 'init-which-key)
 ;;; init-which-key.el ends here

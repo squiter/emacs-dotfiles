@@ -66,7 +66,6 @@
     swiper
     tagedit
     try
-    which-key
     zeal-at-point
     wgrep
   )
