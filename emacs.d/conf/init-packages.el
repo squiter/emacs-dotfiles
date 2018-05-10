@@ -67,7 +67,6 @@
     tagedit
     try
     which-key
-    yaml-mode
     zeal-at-point
     wgrep
   )

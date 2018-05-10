@@ -1,7 +1,8 @@
-(add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
-(add-to-list 'auto-mode-alist '("\\.yaml$" . yaml-mode))
-(add-to-list 'auto-mode-alist '("\\.yml\\.example$" . yaml-mode))
+(use-package yaml-mode
+  :mode (("\\.yml$" . yaml-mode)
+         ("\\.yaml$" . yaml-mode)
+         ("\\.yml\\.example$" . yaml-mode))
 
-(add-hook 'yaml-mode-hook 'linum-mode)
+  :hook (yaml-mode . linum-mode))
 
-(provide 'init-yaml)
+  (provide 'init-yaml)
