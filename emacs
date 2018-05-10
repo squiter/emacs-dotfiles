@@ -53,6 +53,7 @@
   (require 'use-package))
 
 (setq use-package-always-ensure t)
+(setq use-package-compute-statistics t)
 
 (setq rr/initialization-errors nil)
 
