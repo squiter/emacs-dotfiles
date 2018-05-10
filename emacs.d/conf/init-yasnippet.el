@@ -1,46 +1,43 @@
 ;;; init-yasnippet.el --- Configurations for Yasnippet Package
 ;;; Commentary:
 ;;; Code:
-(require 'yasnippet)
+(use-package yasnippet
+  :hook (term-mode . (lambda() (yas-minor-mode -1)))
 
-(setq yas-snippet-dirs (expand-file-name "snippets" user-emacs-directory))
+  :init
+  (setq yas-snippet-dirs (expand-file-name "snippets" user-emacs-directory))
+  (defvar warning-suppress-types '(yasnippet backquote-change))
+  (defvar custom/yas-guess-mode nil)
 
-(yas-global-mode 1)
+  :config
+  (yas-global-mode 1)
 
-;; disable yasnipet for any terminal mode
-(add-hook 'term-mode-hook (lambda()
-                            (yas-minor-mode -1)))
+  (defadvice yas-new-snippet (before custom/yas-guess-mode activate)
+    (setq custom/yas-guess-mode (symbol-name major-mode)))
 
-(defvar warning-suppress-types '(yasnippet backquote-change))
-;; (add-to-list 'warning-suppress-types '(yasnippet backquote-change))
+  (defun custom/yas-save-snippet ()
+    "Automatically save snippet under the correct directory."
+    (interactive)
+    (if buffer-file-name
+        (save-buffer)
+      (let (mode
+            snippet-name
+            location
+            (yas-dir (car yas-snippet-dirs)))
+        (save-excursion
+          (beginning-of-buffer)
+          (search-forward-regexp "name: \\([a-z-_]+\\)")
+          (setq snippet-name (match-string 1)))
 
-(defvar custom/yas-guess-mode nil)
-(defadvice yas-new-snippet (before custom/yas-guess-mode activate)
-  (setq custom/yas-guess-mode (symbol-name major-mode)))
+        (setq mode (read-string "Snippet mode: " custom/yas-guess-mode))
+        (setq location (format "%s/%s/%s" yas-dir mode snippet-name))
 
-(defun custom/yas-save-snippet ()
-  "Automatically save snippet under the correct directory."
-  (interactive)
-  (if buffer-file-name
-      (save-buffer)
-    (let (mode
-          snippet-name
-          location
-          (yas-dir (car yas-snippet-dirs)))
-      (save-excursion
-        (beginning-of-buffer)
-        (search-forward-regexp "name: \\([a-z-_]+\\)")
-        (setq snippet-name (match-string 1)))
+        (write-file location)))
+    (yas-reload-all))
 
-      (setq mode (read-string "Snippet mode: " custom/yas-guess-mode))
-      (setq location (format "%s/%s/%s" yas-dir mode snippet-name))
-
-      (write-file location)))
-  (yas-reload-all))
-
-(defun custom/yas-dired ()
-  (interactive)
-  (dired yas-snippet-dirs))
+  (defun custom/yas-dired ()
+    (interactive)
+    (dired yas-snippet-dirs)))
 
 (provide 'init-yasnippet)
 ;;; init-yasnippet.el ends here

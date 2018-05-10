@@ -69,7 +69,6 @@
     which-key
     yaml-mode
     zeal-at-point
-    yasnippet
     wgrep
   )
   "A list of packages to be installed at application lauch.")
