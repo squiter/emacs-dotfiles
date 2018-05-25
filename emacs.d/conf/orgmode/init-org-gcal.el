@@ -35,13 +35,13 @@
 (add-hook 'org-agenda-mode-hook
           (lambda ()
             (message "Syncing Google Calendar...")
-            (org-gcal-sync)
+            (org-gcal-fetch)
             (message "Google Calendar Synced!")))
 
 (add-hook 'org-after-refile-insert-hook
           (lambda ()
             (message "Syncing Google Calendar...")
-            (org-gcal-sync)
+            (org-gcal-fetch)
             (message "Google Calendar Synced!")))
 
 (provide 'init-org-gcal)
