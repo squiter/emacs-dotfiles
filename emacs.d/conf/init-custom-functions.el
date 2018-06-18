@@ -232,5 +232,16 @@ is already narrowed."
     (kill-new (concat repo-url file-with-line-number))
     (message "Repo + File + Line number succefully copied!")))
 
+(defun my-dired-frame (directory)
+  "Open up a dired frame which closes on exit."
+  (interactive)
+  (switch-to-buffer (dired directory))
+  (local-set-key
+   (kbd "C-x C-c")
+   (lambda ()
+     (interactive)
+     (kill-this-buffer)
+     (save-buffers-kill-terminal 't))))
+
 (provide 'init-custom-functions)
 ;;; init-custom-functions.el ends here
