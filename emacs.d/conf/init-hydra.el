@@ -40,7 +40,7 @@
 _p_: Ponto               _C_: Calendar         _D_: ~/Downloads
 _c_: CI                  _g_: Github           _e_: ~/.emacs.d
 _m_: Merge Requests      _f_: Elfeed           _E_: ../elfeed.org
-_r_: Retro                                   ^_l_: ../ledger.beancount
+_r_: Retro               _x_: Exist.io         _l_: ../ledger.beancount
 _d_: Docs Hospedagem
 --------------------------------------------------------------------------
 "
@@ -51,6 +51,7 @@ _d_: Docs Hospedagem
   ("d" (browse-url "http://apps-hospedagem.docs.arda.locaweb.com.br"))
   ("C" (browse-url "https://www.google.com/calendar/render"))
   ("g" (browse-url "https://github.com/squiter"))
+  ("x" (browse-url (format "https://exist.io/mood/timeline/edit/%s/" (format-time-string "%Y-%m-%d"))))
   ("D" (find-file "~/Downloads"))
   ("e" (find-file "~/.emacs.d"))
   ("E" (find-file "~/Dropbox/elfeed/elfeed.org"))
