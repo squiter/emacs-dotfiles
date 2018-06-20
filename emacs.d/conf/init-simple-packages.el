@@ -25,6 +25,7 @@
 (use-package calfw)
 (use-package calfw-org)
 (use-package ssh-agency)
+(use-package jira-markup-mode :ensure t)
 
 (use-package yagist
   :init
