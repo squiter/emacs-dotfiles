@@ -22,10 +22,21 @@
 (use-package dired-collapse :hook dired-mode)
 (use-package vmd-mode)
 (use-package indent-tools)
-(use-package calfw)
-(use-package calfw-org)
 (use-package ssh-agency)
 (use-package jira-markup-mode :ensure t)
+
+(use-package init-calendars
+  :ensure nil ;; "package" created with config/init-calendars.el
+  :config
+
+  (defun cfw:open-all-calendars ()
+    (interactive)
+    (cfw:open-calendar-buffer
+     :contents-sources
+     (list
+      (cfw:org-create-source "Green")
+      (cfw:ical-create-source "Locaweb" *locaweb-ical-url* "IndianRed")
+      (cfw:ical-create-source "Google" *google-principal-calendar-url* "Red")))))
 
 (use-package yagist
   :init
