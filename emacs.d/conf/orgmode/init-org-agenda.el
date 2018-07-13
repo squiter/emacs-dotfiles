@@ -4,6 +4,8 @@
 ;; Use sticky agenda's so they persist
 (setq org-agenda-sticky t)
 
+(setq org-agenda-window-setup "only-window")
+
 ;; TODOS
 (setq org-todo-keywords
       (quote ((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d)")
