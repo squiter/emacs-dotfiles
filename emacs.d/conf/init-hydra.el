@@ -49,7 +49,7 @@ _d_: Docs Hospedagem
   ("m" (browse-url "https://code.locaweb.com.br/dashboard/merge_requests?scope=all&state=opened&utf8=%E2%9C%93&label_name%5B%5D=novo-provisionamento"))
   ("r" (browse-url "https://maps.groupmap.com/maps"))
   ("d" (browse-url "http://apps-hospedagem.docs.arda.locaweb.com.br"))
-  ("C" (browse-url "https://www.google.com/calendar/render"))
+  ("C" (cfw:open-all-calendars))
   ("g" (browse-url "https://github.com/squiter"))
   ("x" (browse-url (format "https://exist.io/mood/timeline/edit/%s/" (format-time-string "%Y-%m-%d"))))
   ("D" (find-file "~/Downloads"))
