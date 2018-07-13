@@ -24,6 +24,7 @@
 (use-package indent-tools)
 (use-package ssh-agency)
 (use-package jira-markup-mode :ensure t)
+(use-package cheat-sh)
 
 (use-package init-calendars
   :ensure nil ;; "package" created with config/init-calendars.el
