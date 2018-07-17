@@ -104,9 +104,6 @@
 (global-set-key (kbd "C-z") 'undo-tree-undo)
 (global-set-key (kbd "C-S-z") 'undo-tree-redo)
 
-;; zeal-at-point
-(global-set-key (kbd "C-c C-d") 'zeal-at-point)
-
 ;; yasnippet
 (global-set-key (kbd "C-c y n") 'yas-new-snippet)
 (global-set-key (kbd "C-c y d") 'custom/yas-dired)

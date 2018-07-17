@@ -23,7 +23,6 @@
     easy-kill
     edit-server
     enh-ruby-mode
-    free-keys
     gist
     git-gutter
     git-gutter-fringe
@@ -54,7 +53,6 @@
     rainbow-mode
     rbenv
     request
-    restart-emacs
     rhtml-mode
     rspec-mode
     rubocop
@@ -65,9 +63,7 @@
     sml-mode
     swiper
     tagedit
-    try
     zeal-at-point
-    wgrep
   )
   "A list of packages to be installed at application lauch.")
 

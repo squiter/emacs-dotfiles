@@ -25,6 +25,12 @@
 (use-package ssh-agency)
 (use-package jira-markup-mode :ensure t)
 (use-package cheat-sh)
+(use-package wgrep)
+(use-package try)
+(use-package free-keys)
+(use-package restart-emacs)
+(use-package zeal-at-point :bind ("C-c C-d" . 'zeal-at-point))
+
 
 (use-package init-calendars
   :ensure nil ;; "package" created with config/init-calendars.el
@@ -38,6 +44,7 @@
       (cfw:org-create-source "Green")
       (cfw:ical-create-source "Locaweb" *locaweb-ical-url* "IndianRed")
       (cfw:ical-create-source "Google" *google-principal-calendar-url* "Red")))))
+
 
 (use-package yagist
   :init
