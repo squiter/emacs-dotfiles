@@ -231,21 +231,13 @@
      (define-key enh-ruby-mode-map (kbd "C-c M-j") #'endless/run-ruby)
      (define-key enh-ruby-mode-map (kbd "M-n l") 'squiter/ruby-linear-modules)))
 
-;;;;;;;;;;;;;;;;;
-;; Git & Magit ;;
-;;;;;;;;;;;;;;;;;
+;;;;;;;;;;
+;; Git  ;;
+;;;;;;;;;;
 
 ;; To resolve git conflicts
 (setq smerge-command-prefix (kbd "C-c M-s"))
 
-(global-set-key (kbd "C-c g") 'magit-status)
-(global-set-key (kbd "M-g c") 'magit-checkout)
-(global-set-key (kbd "M-n b c") 'plambert/branch-changelog)
-(define-key magit-branch-section-map (kbd "RET") 'magit-checkout)
-(define-key magit-branch-section-map (kbd "S-<return>") 'magit-branch-and-checkout)
-(define-key magit-status-mode-map (kbd "q") 'magit-quit-session)
-;; to keep compatibility with my keybinds
-(define-key magit-status-mode-map (kbd "M-1") 'delete-other-windows)
 
 ;;;;;;;;;;;;;;;;;;;;
 ;; symbol-overlay ;;
