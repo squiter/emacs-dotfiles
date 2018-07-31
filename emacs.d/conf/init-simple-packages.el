@@ -54,9 +54,11 @@
   :hook (prog-mode . rainbow-delimiters-mode))
 
 ;; edit-server
-(when (require 'edit-server nil t)
-  (setq edit-server-new-frame nil)
-  (edit-server-start))
+(use-package edit-server
+  :config
+  (when (require 'edit-server nil t)
+    (setq edit-server-new-frame nil)
+    (edit-server-start)))
 
 ;; all-the-icons
 (require 'all-the-icons)

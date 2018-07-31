@@ -20,7 +20,6 @@
     docker
     doom-themes
     easy-kill
-    edit-server
     enh-ruby-mode
     gist
     git-gutter
