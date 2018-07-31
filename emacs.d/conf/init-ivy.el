@@ -26,15 +26,54 @@
 ;;
 
 ;;; Code:
-(ivy-mode 1)
+(use-package counsel
+  :after ivy
+  :config (counsel-mode)
+  :bind (("M-x" . counsel-M-x)
+         ("C-x C-f" . counsel-find-file)
+         ("<f1> f" . counsel-describe-function)
+         ("<f1> v" . counsel-describe-variable)
+         ("<f1> l" . counsel-load-library)
+         ("<f2> i" . counsel-info-lookup-symbol)
+         ("<f2> u" . counsel-unicode-char)
+         ("C-x C-l" . counsel-locate)
+         ("M-n b b" . counsel-bookmarks)
+         ("C-S-y" . counsel-yank-pop)
+         ("C-M-y" . counsel-yank-pop)))
 
-(setq ivy-use-virtual-buffers t)
-(setq ivy-count-format "(%d/%d) ")
-(setq ivy-height 15)
-(setq ivy-initial-inputs-alist nil)
+(use-package ivy
+  :defer 0.1
+  :diminish
+  :bind (("C-c C-r" . ivy-resume)
+         ("C-x B" . ivy-switch-buffer-other-window)
+         ("C-c v" . ivy-push-view)
+         ("C-c V" . ivy-pop-view)
+         ("C-x b" . ivy-switch-buffer))
+  :custom
+  (ivy-count-format "(%d/%d) ")
+  (ivy-use-virtual-buffers t)
+  (ivy-height 15)
+  (ivy-initial-inputs-alist nil)
+  :config (ivy-mode))
 
-(ivy-set-occur 'swiper 'swiper-occur)
-(ivy-set-occur 'ivy-switch-buffer 'ivy-switch-buffer-occur)
+(use-package ivy-rich
+  :after ivy
+  :custom
+  (ivy-virtual-abbreviate 'full
+                          ivy-rich-switch-buffer-align-virtual-buffer t
+                          ivy-rich-path-style 'abbrev)
+  :config (ivy-rich-mode 1))
+
+(use-package swiper
+  :after ivy
+  :bind (("C-s" . swiper)
+         ("C-r" . swiper)))
+
+;; TODO: Make it works with ivy-rich
+;; (use-package all-the-icons-ivy
+;;   :after ivy all-the-icons
+;;   :config (all-the-icons-ivy-setup))
 
 (provide 'init-ivy)
 ;;; init-ivy.el ends here
+

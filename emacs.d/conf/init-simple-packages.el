@@ -53,10 +53,6 @@
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
 
-(use-package ivy-rich
-  :config
-  (ivy-set-display-transformer 'ivy-switch-buffer 'ivy-rich-switch-buffer-transformer))
-
 ;; edit-server
 (when (require 'edit-server nil t)
   (setq edit-server-new-frame nil)
@@ -64,7 +60,6 @@
 
 ;; all-the-icons
 (require 'all-the-icons)
-(all-the-icons-ivy-setup)
 (add-hook 'dired-mode-hook #'all-the-icons-dired-mode)
 
 (provide 'init-simple-packages)

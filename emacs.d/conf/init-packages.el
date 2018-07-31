@@ -11,7 +11,6 @@
     ace-window
     achievements
     all-the-icons
-    all-the-icons-ivy
     all-the-icons-dired
     apropospriate-theme
     avy
@@ -61,7 +60,6 @@
     symbol-overlay
     smex
     sml-mode
-    swiper
     tagedit
     zeal-at-point
   )
