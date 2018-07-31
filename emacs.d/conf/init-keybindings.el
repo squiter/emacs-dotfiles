@@ -60,12 +60,6 @@
 (global-set-key (kbd "s-%") 'anzu-query-replace-at-cursor)
 (global-set-key (kbd "C-%") 'anzu-replace-at-cursor-thing)
 
-;; avy
-(global-set-key (kbd "C-x a f") 'avy-goto-line)
-(global-set-key (kbd "C-x j") 'avy-goto-char-timer)
-(global-set-key (kbd "C-x a w") 'avy-goto-word-1)
-(global-set-key (kbd "C-x a e") 'avy-goto-word-0)
-
 ;; ace-window
 (global-set-key (kbd "C-x a W") 'ace-window)
 

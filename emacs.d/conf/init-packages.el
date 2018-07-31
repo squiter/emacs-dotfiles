@@ -11,7 +11,6 @@
     ace-window
     achievements
     apropospriate-theme
-    avy
     bundler
     challenger-deep-theme
     discover-my-major
