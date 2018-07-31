@@ -10,8 +10,6 @@
   '(
     ace-window
     achievements
-    all-the-icons
-    all-the-icons-dired
     apropospriate-theme
     avy
     bundler

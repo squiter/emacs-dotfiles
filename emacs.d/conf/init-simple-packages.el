@@ -45,7 +45,6 @@
       (cfw:ical-create-source "Locaweb" *locaweb-ical-url* "IndianRed")
       (cfw:ical-create-source "Google" *google-principal-calendar-url* "Red")))))
 
-
 (use-package yagist
   :init
   (setq yagist-github-token *user-github-token*))
@@ -61,8 +60,10 @@
     (edit-server-start)))
 
 ;; all-the-icons
-(require 'all-the-icons)
-(add-hook 'dired-mode-hook #'all-the-icons-dired-mode)
+(use-package all-the-icons)
+(use-package all-the-icons-dired
+  :after all-the-icons
+  :hook (dired-mode . all-the-icons-dired-mode))
 
 (provide 'init-simple-packages)
 ;;; init-simple-packages.el ends here
