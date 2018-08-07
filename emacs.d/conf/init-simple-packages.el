@@ -45,6 +45,8 @@
       (cfw:ical-create-source "Locaweb" *locaweb-ical-url* "IndianRed")
       (cfw:ical-create-source "Google" *google-principal-calendar-url* "Red")))))
 
+(use-package init-java :ensure nil)
+
 (use-package yagist
   :init
   (setq yagist-github-token *user-github-token*))
