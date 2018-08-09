@@ -22,7 +22,7 @@
    (haskell . t)
    (java . t)
    (clojure . t)
-   (sh . t)
+   (shell . t)
    (org . t)
    (latex . t)
    (sql . t)

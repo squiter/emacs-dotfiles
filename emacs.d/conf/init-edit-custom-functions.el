@@ -135,8 +135,9 @@ downcased, no preceding underscore.
                       (1+ (car bounds)) (cdr bounds))
       (downcase-region (car bounds) (cdr bounds)))))
 
-(defun remove-duplicate-lines
-    (replace-regexp "\\([^\n]+\n\\)\\1+" "\\1"))
+;; TODO: Fix this malformed arglist
+;; (defun remove-duplicate-lines
+;;     (replace-regexp "\\([^\n]+\n\\)\\1+" "\\1"))
 
 (defun move-line (n)
   "Move the current line up or down by N lines."

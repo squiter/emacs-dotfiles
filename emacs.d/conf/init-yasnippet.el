@@ -5,7 +5,7 @@
   :hook (term-mode . (lambda() (yas-minor-mode -1)))
 
   :init
-  (setq yas-snippet-dirs (expand-file-name "snippets" user-emacs-directory))
+  (setq yas-snippet-dirs (list (expand-file-name "snippets" user-emacs-directory)))
   (defvar warning-suppress-types '(yasnippet backquote-change))
   (defvar custom/yas-guess-mode nil)
 
