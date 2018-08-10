@@ -137,16 +137,6 @@
 ;; ctags stuff
 (global-set-key (kbd "M-*") 'pop-tag-mark)
 
-;;;;;;;;;;;;;;;;;;;;;;;;
-;; counsel-projectile ;;
-;;;;;;;;;;;;;;;;;;;;;;;;
-
-(global-set-key (kbd "C-x f") 'counsel-projectile-find-file)
-(global-set-key (kbd "C-c p s a") 'counsel-projectile-ag)
-(global-set-key (kbd "C-x C-b") 'counsel-projectile-switch-to-buffer)
-
-(global-set-key (kbd "C-c o") 'squiter/ivy-open-project)
-
 ;;;;;;;;;;;;;;;;;;
 ;; hydra bodies ;;
 ;;;;;;;;;;;;;;;;;;

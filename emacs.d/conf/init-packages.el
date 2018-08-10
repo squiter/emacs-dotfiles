@@ -42,9 +42,6 @@
     org-gcal
     ox-twbs
     pdf-tools
-    projectile
-    projectile-rails
-    counsel-projectile
     rainbow-mode
     rbenv
     request
