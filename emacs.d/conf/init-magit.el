@@ -38,7 +38,7 @@
       (kill-new (shell-command-to-string cmd))
       (message "Changelog copied to kill-ring."))))
 
-(use-package magit-todos :hook (magit-mode . magit-todos-mode))
+(use-package magit-todos :after magit :config (magit-todos-mode))
 
 (provide 'init-magit)
 ;;; init-magit.el ends here
