@@ -4,6 +4,7 @@
 ;;  init-file I use this file
 ;;; Code:
 
+(use-package ag)
 (use-package anzu :config (global-anzu-mode +1))
 (use-package indent-guide :config (indent-guide-global-mode))
 (use-package back-button :config (back-button-mode 1))
