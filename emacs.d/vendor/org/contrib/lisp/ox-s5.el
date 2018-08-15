@@ -292,7 +292,8 @@ which will make the list into a \"build\"."
              "<%s class='org-%s%s'>" tag tag
              (if (org-export-get-node-property :INCREMENTAL plain-list t)
                  " incremental" ""))
-            contents (org-html-end-plain-list type))))
+            contents
+	    (format "</%s>" tag))))
 
 (defun org-s5-inner-template (contents info)
   "Return body of document string after HTML conversion.
@@ -304,13 +305,15 @@ holding export options."
   "Return complete document string after HTML conversion.
 CONTENTS is the transcoded contents string.  INFO is a plist
 holding export options."
-  (let ((org-html-divs
-	 (if (equal (plist-get info :html-container) "li")
-	     (append '((content "ol" "content")) org-s5--divs)
-	   org-s5--divs))
-	 (info (plist-put
+  (let ((info (plist-put
+	       (plist-put
 		(plist-put info :html-preamble (plist-get info :s5-preamble))
-		:html-postamble (plist-get info :s5-postamble))))
+		:html-postamble
+		(plist-get info :s5-postamble))
+	       :html-divs
+	       (if (equal "li" (plist-get info :html-container))
+		   (cons '(content "ol" "content") org-s5--divs)
+		 org-s5--divs))))
     (mapconcat
      'identity
      (list

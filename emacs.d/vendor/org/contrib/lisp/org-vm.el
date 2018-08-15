@@ -1,10 +1,10 @@
 ;;; org-vm.el --- Support for links to VM messages from within Org-mode
 
-;; Copyright (C) 2004-2016 Free Software Foundation, Inc.
+;; Copyright (C) 2004-2018 Free Software Foundation, Inc.
 
 ;; Author: Carsten Dominik <carsten at orgmode dot org>
 ;; Keywords: outlines, hypermedia, calendar, wp
-;; Homepage: http://orgmode.org
+;; Homepage: https://orgmode.org
 ;;
 ;; Support for IMAP folders added
 ;; by Konrad Hinsen <konrad dot hinsen at fastmail dot net>
@@ -55,9 +55,8 @@
 (defvar vm-folder-directory)
 
 ;; Install the link type
-(org-add-link-type "vm" 'org-vm-open)
-(org-add-link-type "vm-imap" 'org-vm-imap-open)
-(add-hook 'org-store-link-functions 'org-vm-store-link)
+(org-link-set-parameters "vm" :follow #'org-vm-open :store #'org-vm-store-link)
+(org-link-set-parameters "vm-imap" :follow #'org-vm-imap-open)
 
 ;; Implementation
 (defun org-vm-store-link ()
@@ -77,12 +76,6 @@
              (message-id (vm-su-message-id message))
              (link-type (if (vm-imap-folder-p) "vm-imap" "vm"))
 	     (date (vm-get-header-contents message "Date"))
-	     (date-ts (and date (format-time-string
-				 (org-time-stamp-format t)
-				 (date-to-time date))))
-	     (date-ts-ia (and date (format-time-string
-				    (org-time-stamp-format t t)
-				    (date-to-time date))))
 	     folder desc link)
         (if (vm-imap-folder-p)
 	    (let ((spec (vm-imap-find-spec-for-buffer (current-buffer))))
@@ -93,12 +86,9 @@
                      (string-match (concat "^" (regexp-quote vm-folder-directory))
                                    folder))
                 (setq folder (replace-match "" t t folder)))))
-        (setq message-id (org-remove-angle-brackets message-id))
+        (setq message-id (org-unbracket-string "<" ">" message-id))
 	(org-store-link-props :type link-type :from from :to to :subject subject
-			      :message-id message-id)
-	(when date
-	  (org-add-link-props :date date :date-timestamp date-ts
-			      :date-timestamp-inactive date-ts-ia))
+			      :message-id message-id :date date)
 	(setq desc (org-email-link-description))
 	(setq link (concat (concat link-type ":") folder "#" message-id))
 	(org-add-link-props :link link :description desc)
@@ -126,12 +116,10 @@
 	(cond
 	 ((featurep 'tramp)
 	  ;; use tramp to access the file
-	  (if (featurep 'xemacs)
-	      (setq folder (format "[%s@%s]%s" user host file))
-	    (setq folder (format "/%s@%s:%s" user host file))))
+	  (setq folder (format "/%s@%s:%s" user host file)))
 	 (t
 	  ;; use ange-ftp or efs
-	  (require (if (featurep 'xemacs) 'efs 'ange-ftp))
+	  (require 'ange-ftp)
 	  (setq folder (format "/%s@%s:%s" user host file))))))
   (when folder
     (funcall (cdr (assq 'vm org-link-frame-setup)) folder readonly)

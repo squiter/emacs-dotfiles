@@ -2,7 +2,7 @@
 ;;
 ;; Author: Carsten Dominik <carsten at orgmode dot org>
 ;; Keywords: outlines, hypermedia, calendar, wp
-;; Homepage: http://orgmode.org
+;; Homepage: https://orgmode.org
 ;; Version: 1.0
 ;;
 ;; This file is not yet part of GNU Emacs.
@@ -25,8 +25,10 @@
 
 (require 'org)
 
-(org-add-link-type "man" 'org-man-open 'org-man-export)
-(add-hook 'org-store-link-functions 'org-man-store-link)
+(org-link-set-parameters "man"
+			 :follow #'org-man-open
+			 :export #'org-man-export
+			 :store #'org-man-store-link)
 
 (defcustom org-man-command 'man
   "The Emacs command to be used to display a man page."

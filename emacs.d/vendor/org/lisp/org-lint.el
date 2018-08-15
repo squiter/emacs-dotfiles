@@ -1,22 +1,24 @@
 ;;; org-lint.el --- Linting for Org documents        -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2015  Free Software Foundation
+;; Copyright (C) 2015-2018 Free Software Foundation, Inc.
 
 ;; Author: Nicolas Goaziou <mail@nicolasgoaziou.fr>
 ;; Keywords: outlines, hypermedia, calendar, wp
 
-;; This program is free software; you can redistribute it and/or modify
+;; This file is part of GNU Emacs.
+
+;; GNU Emacs is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
 ;; the Free Software Foundation, either version 3 of the License, or
 ;; (at your option) any later version.
 
-;; This program is distributed in the hope that it will be useful,
+;; GNU Emacs is distributed in the hope that it will be useful,
 ;; but WITHOUT ANY WARRANTY; without even the implied warranty of
 ;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 ;; GNU General Public License for more details.
 
 ;; You should have received a copy of the GNU General Public License
-;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
+;; along with GNU Emacs.  If not, see <https://www.gnu.org/licenses/>.
 
 ;;; Commentary:
 
@@ -68,8 +70,10 @@
 ;;   - orphaned affiliated keywords
 ;;   - obsolete affiliated keywords
 ;;   - missing language in src blocks
+;;   - missing back-end in export blocks
 ;;   - invalid Babel call blocks
 ;;   - NAME values with a colon
+;;   - deprecated export block syntax
 ;;   - deprecated Babel header properties
 ;;   - wrong header arguments in src blocks
 ;;   - misuse of CATEGORY keyword
@@ -80,10 +84,12 @@
 ;;   - links to non-existent local files
 ;;   - SETUPFILE keywords with non-existent file parameter
 ;;   - INCLUDE keywords with wrong link parameter
+;;   - obsolete markup in INCLUDE keyword
 ;;   - unknown items in OPTIONS keyword
 ;;   - spurious macro arguments or invalid macro templates
 ;;   - special properties in properties drawer
 ;;   - obsolete syntax for PROPERTIES drawers
+;;   - Invalid EFFORT property value
 ;;   - missing definition for footnote references
 ;;   - missing reference for footnote definitions
 ;;   - non-footnote definitions in footnote section
@@ -93,6 +99,8 @@
 ;;   - incomplete drawers
 ;;   - indented diary-sexps
 ;;   - obsolete QUOTE section
+;;   - obsolete "file+application" link
+;;   - blank headlines with tags
 
 
 ;;; Code:
@@ -143,14 +151,23 @@
     :description "Report obsolete affiliated keywords"
     :categories '(obsolete))
    (make-org-lint-checker
+    :name 'deprecated-export-blocks
+    :description "Report deprecated export block syntax"
+    :categories '(obsolete export)
+    :trust 'low)
+   (make-org-lint-checker
     :name 'deprecated-header-syntax
     :description "Report deprecated Babel header syntax"
-    :categories '(babel obsolete)
+    :categories '(obsolete babel)
     :trust 'low)
    (make-org-lint-checker
     :name 'missing-language-in-src-block
     :description "Report missing language in src blocks"
     :categories '(babel))
+   (make-org-lint-checker
+    :name 'missing-backend-in-export-block
+    :description "Report missing back-end in export blocks"
+    :categories '(export))
    (make-org-lint-checker
     :name 'invalid-babel-call-block
     :description "Report invalid Babel call blocks"
@@ -203,6 +220,11 @@
     :categories '(export)
     :trust 'low)
    (make-org-lint-checker
+    :name 'obsolete-include-markup
+    :description "Report obsolete markup in INCLUDE keyword"
+    :categories '(obsolete export)
+    :trust 'low)
+   (make-org-lint-checker
     :name 'unknown-options-item
     :description "Report unknown items in OPTIONS keyword"
     :categories '(export)
@@ -220,6 +242,10 @@
     :name 'obsolete-properties-drawer
     :description "Report obsolete syntax for properties drawers"
     :categories '(obsolete properties))
+   (make-org-lint-checker
+    :name 'invalid-effort-property
+    :description "Report invalid duration in EFFORT property"
+    :categories '(properties))
    (make-org-lint-checker
     :name 'undefined-footnote-reference
     :description "Report missing definition for footnote references"
@@ -256,6 +282,15 @@
     :name 'quote-section
     :description "Report obsolete QUOTE section"
     :categories '(obsolete)
+    :trust 'low)
+   (make-org-lint-checker
+    :name 'file-application
+    :description "Report obsolete \"file+application\" link"
+    :categories '(link obsolete))
+   (make-org-lint-checker
+    :name 'empty-headline-with-tags
+    :description "Report ambiguous empty headlines with tags"
+    :categories '(headline)
     :trust 'low))
   "List of all available checkers.")
 
@@ -318,7 +353,7 @@ called with one argument, the key used for comparison."
   (org-lint--collect-duplicates
    ast
    'target
-   (lambda (target) (org-split-string (org-element-property :value target)))
+   (lambda (target) (split-string (org-element-property :value target)))
    (lambda (target _) (org-element-property :begin target))
    (lambda (key)
      (format "Duplicate target <<%s>>" (mapconcat #'identity key " ")))))
@@ -341,7 +376,7 @@ called with one argument, the key used for comparison."
       (lambda (k)
 	(let ((key (org-element-property :key k)))
 	  (and (or (let ((case-fold-search t))
-		     (org-string-match-p "\\`ATTR_[-_A-Za-z0-9]+\\'" key))
+		     (string-match-p "\\`ATTR_[-_A-Za-z0-9]+\\'" key))
 		   (member key keywords))
 	       (list (org-element-property :post-affiliated k)
 		     (format "Orphaned affiliated keyword: \"%s\"" key))))))))
@@ -353,7 +388,7 @@ called with one argument, the key used for comparison."
 				    t)))
 	reports)
     (while (re-search-forward regexp nil t)
-      (let ((key (upcase (org-match-string-no-properties 1))))
+      (let ((key (upcase (match-string-no-properties 1))))
 	(when (< (point)
 		 (org-element-property :post-affiliated (org-element-at-point)))
 	  (push
@@ -367,6 +402,20 @@ called with one argument, the key used for comparison."
 		    (_ "NAME"))))
 	   reports))))
     reports))
+
+(defun org-lint-deprecated-export-blocks (ast)
+  (let ((deprecated '("ASCII" "BEAMER" "HTML" "LATEX" "MAN" "MARKDOWN" "MD"
+		      "ODT" "ORG" "TEXINFO")))
+    (org-element-map ast 'special-block
+      (lambda (b)
+	(let ((type (org-element-property :type b)))
+	  (when (member-ignore-case type deprecated)
+	    (list
+	     (org-element-property :post-affiliated b)
+	     (format
+	      "Deprecated syntax for export block.  Use \"BEGIN_EXPORT %s\" \
+instead"
+	      type))))))))
 
 (defun org-lint-deprecated-header-syntax (ast)
   (let* ((deprecated-babel-properties
@@ -385,7 +434,7 @@ called with one argument, the key used for comparison."
 		    (list (org-element-property :begin datum)
 			  (format "Deprecated syntax for \"%s\".  \
 Use header-args instead"
-				  (org-match-string-no-properties 1 value))))))
+				  (match-string-no-properties 1 value))))))
 	    (`node-property
 	     (and (member-ignore-case key deprecated-babel-properties)
 		  (list
@@ -401,6 +450,13 @@ Use :header-args: instead"
 	(list (org-element-property :post-affiliated b)
 	      "Missing language in source block")))))
 
+(defun org-lint-missing-backend-in-export-block (ast)
+  (org-element-map ast 'export-block
+    (lambda (b)
+      (unless (org-element-property :type b)
+	(list (org-element-property :post-affiliated b)
+	      "Missing back-end in export block")))))
+
 (defun org-lint-invalid-babel-call-block (ast)
   (org-element-map ast 'babel-call
     (lambda (b)
@@ -409,7 +465,7 @@ Use :header-args: instead"
 	(list (org-element-property :post-affiliated b)
 	      "Invalid syntax in babel call block"))
        ((let ((h (org-element-property :end-header b)))
-	  (and h (org-string-match-p "\\`\\[.*\\]\\'" h)))
+	  (and h (string-match-p "\\`\\[.*\\]\\'" h)))
 	(list
 	 (org-element-property :post-affiliated b)
 	 "Babel call's end header must not be wrapped within brackets"))))))
@@ -491,6 +547,16 @@ Use :header-args: instead"
 		      "Incorrect contents for PROPERTIES drawer"
 		    "Incorrect location for PROPERTIES drawer"))))))))
 
+(defun org-lint-invalid-effort-property (ast)
+  (org-element-map ast 'node-property
+    (lambda (p)
+      (when (equal "EFFORT" (org-element-property :key p))
+	(let ((value (org-element-property :value p)))
+	  (and (org-string-nw-p value)
+	       (not (org-duration-p value))
+	       (list (org-element-property :begin p)
+		     (format "Invalid effort duration format: %S" value))))))))
+
 (defun org-lint-link-to-local-file (ast)
   (org-element-map ast 'link
     (lambda (l)
@@ -509,7 +575,8 @@ Use :header-args: instead"
   (org-element-map ast 'keyword
     (lambda (k)
       (when (equal (org-element-property :key k) "SETUPFILE")
-	(let ((file (org-remove-double-quotes
+	(let ((file (org-unbracket-string
+		     "\"" "\""
 		     (org-element-property :value k))))
 	  (and (not (file-remote-p file))
 	       (not (file-exists-p file))
@@ -524,7 +591,7 @@ Use :header-args: instead"
 	       (path
 		(and (string-match "^\\(\".+\"\\|\\S-+\\)[ \t]*" value)
 		     (save-match-data
-		       (org-remove-double-quotes (match-string 1 value))))))
+		       (org-unbracket-string "\"" "\"" (match-string 1 value))))))
 	  (if (not path)
 	      (list (org-element-property :post-affiliated k)
 		    "Missing location argument in INCLUDE keyword")
@@ -554,6 +621,25 @@ Use :header-args: instead"
 				 "Invalid search part \"%s\" in INCLUDE keyword"
 				 search))))
 		    (unless visiting (kill-buffer buffer))))))))))))
+
+(defun org-lint-obsolete-include-markup (ast)
+  (let ((regexp (format "\\`\\(?:\".+\"\\|\\S-+\\)[ \t]+%s"
+			(regexp-opt
+			 '("ASCII" "BEAMER" "HTML" "LATEX" "MAN" "MARKDOWN" "MD"
+			   "ODT" "ORG" "TEXINFO")
+			 t))))
+    (org-element-map ast 'keyword
+      (lambda (k)
+	(when (equal (org-element-property :key k) "INCLUDE")
+	  (let ((case-fold-search t)
+		(value (org-element-property :value k)))
+	    (when (string-match regexp value)
+	      (let ((markup (match-string-no-properties 1 value)))
+		(list (org-element-property :post-affiliated k)
+		      (format "Obsolete markup \"%s\" in INCLUDE keyword.  \
+Use \"export %s\" instead"
+			      markup
+			      markup))))))))))
 
 (defun org-lint-unknown-options-item (ast)
   (let ((allowed (delq nil
@@ -653,7 +739,7 @@ Use :header-args: instead"
     (org-element-map ast 'footnote-reference
       (lambda (f)
 	(let ((label (org-element-property :label f)))
-	  (and label
+	  (and (eq 'standard (org-element-property :type f))
 	       (not (member label definitions))
 	       (list (org-element-property :begin f)
 		     (format "Missing definition for footnote [%s]"
@@ -676,7 +762,7 @@ Use :header-args: instead"
     (lambda (e)
       (let ((name (org-element-property :name e)))
 	(and name
-	     (org-string-match-p ":" name)
+	     (string-match-p ":" name)
 	     (list (progn
 		     (goto-char (org-element-property :begin e))
 		     (re-search-forward
@@ -700,7 +786,7 @@ Use :header-args: instead"
 (defun org-lint-incomplete-drawer (_)
   (let (reports)
     (while (re-search-forward org-drawer-regexp nil t)
-      (let ((name (org-trim (org-match-string-no-properties 0)))
+      (let ((name (org-trim (match-string-no-properties 0)))
 	    (element (org-element-at-point)))
 	(pcase (org-element-type element)
 	  ((or `drawer `property-drawer)
@@ -755,7 +841,7 @@ Use :header-args: instead"
 		 (regexp-opt org-element-dual-keywords)))
 	reports)
     (while (re-search-forward regexp nil t)
-      (let ((name (org-match-string-no-properties 1)))
+      (let ((name (match-string-no-properties 1)))
 	(unless (or (string-prefix-p "BEGIN" name t)
 		    (string-prefix-p "END" name t)
 		    (save-excursion
@@ -781,7 +867,7 @@ Use :header-args: instead"
 			 (org-element-property :commentedp e))))
 	     nil t '(footnote-definition property-drawer))
 	   (list (org-element-property :begin h)
-		 "Extraneous elements in footnote section")))))
+		 "Extraneous elements in footnote section are not exported")))))
 
 (defun org-lint-quote-section (ast)
   (org-element-map ast '(headline inlinetask)
@@ -791,6 +877,14 @@ Use :header-args: instead"
 		 (string-prefix-p (concat org-comment-string " QUOTE ") title))
 	     (list (org-element-property :begin h)
 		   "Deprecated QUOTE section"))))))
+
+(defun org-lint-file-application (ast)
+  (org-element-map ast 'link
+    (lambda (l)
+      (let ((app (org-element-property :application l)))
+	(and app
+	     (list (org-element-property :begin l)
+		   (format "Deprecated \"file+%s\" link type" app)))))))
 
 (defun org-lint-wrong-header-argument (ast)
   (let* ((reports)
@@ -883,35 +977,22 @@ Use :header-args: instead"
 			       (and (boundp v) (symbol-value v))))
 			org-babel-common-header-args-w-values))
 	       (datum-header-values
-		(apply
-		 #'org-babel-merge-params
-		 org-babel-default-header-args
-		 (and language
-		      (let ((v (intern (concat "org-babel-default-header-args:"
-					       language))))
-			(and (boundp v) (symbol-value v))))
-		 (append
-		  (list (and (memq type '(babel-call inline-babel-call))
-			     org-babel-default-lob-header-args))
-		  (progn (goto-char (org-element-property :begin datum))
-			 (org-babel-params-from-properties language))
-		  (list
-		   (org-babel-parse-header-arguments
-		    (org-trim
-		     (pcase type
-		       (`src-block
-			(mapconcat
-			 #'identity
-			 (cons (org-element-property :parameters datum)
-			       (org-element-property :header datum))
-			 " "))
-		       (`inline-src-block
-			(or (org-element-property :parameters datum) ""))
-		       (_
-			(concat
-			 (org-element-property :inside-header datum)
-			 " "
-			 (org-element-property :end-header datum)))))))))))
+		(org-babel-parse-header-arguments
+		 (org-trim
+		  (pcase type
+		    (`src-block
+		     (mapconcat
+		      #'identity
+		      (cons (org-element-property :parameters datum)
+			    (org-element-property :header datum))
+		      " "))
+		    (`inline-src-block
+		     (or (org-element-property :parameters datum) ""))
+		    (_
+		     (concat
+		      (org-element-property :inside-header datum)
+		      " "
+		      (org-element-property :end-header datum))))))))
 	  (dolist (header datum-header-values)
 	    (let ((allowed-values
 		   (cdr (assoc-string (substring (symbol-name (car header)) 1)
@@ -919,7 +1000,7 @@ Use :header-args: instead"
 	      (unless (memq allowed-values '(:any nil))
 		(let ((values (cdr header))
 		      groups-alist)
-		  (dolist (v (if (stringp values) (org-split-string values)
+		  (dolist (v (if (stringp values) (split-string values)
 			       (list values)))
 		    (let ((valid-value nil))
 		      (catch 'exit
@@ -955,6 +1036,15 @@ Use :header-args: instead"
 				    (car header)))
 			   reports))))))))))))
     reports))
+
+(defun org-lint-empty-headline-with-tags (ast)
+  (org-element-map ast '(headline inlinetask)
+    (lambda (h)
+      (let ((title (org-element-property :raw-value h)))
+	(and (string-match-p "\\`:[[:alnum:]_@#%:]+:\\'" title)
+	     (list (org-element-property :begin h)
+		   (format "Headline containing only tags is ambiguous: %S"
+			   title)))))))
 
 
 ;;; Reports UI
@@ -1002,14 +1092,15 @@ for `tabulated-list-printer'."
 	(mapcar
 	 (lambda (report)
 	   (list
-	    (incf id)
+	    (cl-incf id)
 	    (apply #'vector
 		   (cons
 		    (progn
 		      (goto-char (car report))
 		      (beginning-of-line)
 		      (prog1 (number-to-string
-			      (incf last-line (count-lines last-pos (point))))
+			      (cl-incf last-line
+				       (count-lines last-pos (point))))
 			(setf last-pos (point))))
 		    (cdr report)))))
 	 ;; Insert trust level in generated reports.  Also sort them
@@ -1103,16 +1194,16 @@ Checker will also be ignored in all subsequent reports."
 (defun org-lint (&optional arg)
   "Check current Org buffer for syntax mistakes.
 
-By default, run all checkers.  With a single prefix ARG \
-\\[universal-argument],
-select one category of checkers only.  With a double prefix
-\\[universal-argument] \\[universal-argument], select one precise \
+By default, run all checkers.  With a `\\[universal-argument]' prefix ARG, \
+select one
+category of checkers only.  With a `\\[universal-argument] \
+\\[universal-argument]' prefix, run one precise
 checker by its name.
 
 ARG can also be a list of checker names, as symbols, to run."
   (interactive "P")
   (unless (derived-mode-p 'org-mode) (user-error "Not in an Org buffer"))
-  (when (org-called-interactively-p)
+  (when (called-interactively-p 'any)
     (message "Org linting process starting..."))
   (let ((checkers
 	 (pcase arg
@@ -1141,7 +1232,7 @@ ARG can also be a list of checker names, as symbols, to run."
 	    (cl-remove-if-not (lambda (c) (memq (org-lint-checker-name c) arg))
 			       org-lint--checkers))
 	   (_ (user-error "Invalid argument `%S' for `org-lint'" arg)))))
-    (if (not (org-called-interactively-p))
+    (if (not (called-interactively-p 'any))
 	(org-lint--generate-reports (current-buffer) checkers)
       (org-lint--display-reports (current-buffer) checkers)
       (message "Org linting process completed"))))

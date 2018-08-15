@@ -1,6 +1,6 @@
 ;;; ox-groff.el --- Groff Back-End for Org Export Engine
 
-;; Copyright (C) 2011-2016  Free Software Foundation, Inc.
+;; Copyright (C) 2011-2018  Free Software Foundation, Inc.
 
 ;; Author: Nicolas Goaziou <n.goaziou at gmail dot com>
 ;; Author: Luis R Anaya <papoanaya aroba hot mail punto com>
@@ -92,7 +92,6 @@
     (underline . org-groff-underline)
     (verbatim . org-groff-verbatim)
     (verse-block . org-groff-verse-block))
-  :export-block "GROFF"
   :menu-entry
   '(?g "Export to GROFF"
        ((?g "As GROFF file" org-groff-export-to-groff)
@@ -824,9 +823,7 @@ information."
   (concat
    (format "\\fB%s\\fP " org-clock-string)
    (format org-groff-inactive-timestamp-format
-           (concat (org-translate-time
-		    (org-element-property :raw-value
-					  (org-element-property :value clock)))
+           (concat (org-timestamp-translate (org-element-property :value clock))
                    (let ((time (org-element-property :duration clock)))
                      (and time (format " (%s)" time)))))))
 
@@ -1066,9 +1063,7 @@ contextual information."
   (let* ((code (org-element-property :value inline-src-block)))
     (cond
      (org-groff-source-highlight
-      (let* ((tmpdir (if (featurep 'xemacs)
-                         temp-directory
-                       temporary-file-directory))
+      (let* ((tmpdir temporary-file-directory)
              (in-file  (make-temp-name
                         (expand-file-name "srchilite" tmpdir)))
              (out-file (make-temp-name
@@ -1412,22 +1407,19 @@ information."
                (concat
                 (format "\\fR %s \\fP" org-closed-string)
                 (format org-groff-inactive-timestamp-format
-                        (org-translate-time
-			 (org-element-property :raw-value closed))))))
+                        (org-timestamp-translate closed)))))
            (let ((deadline (org-element-property :deadline planning)))
              (when deadline
                (concat
                 (format "\\fB %s \\fP" org-deadline-string)
                 (format org-groff-active-timestamp-format
-                        (org-translate-time
-			 (org-element-property :raw-value deadline))))))
+                        (org-timestamp-translate deadline)))))
            (let ((scheduled (org-element-property :scheduled planning)))
              (when scheduled
                (concat
                 (format "\\fR %s \\fP" org-scheduled-string)
                 (format org-groff-active-timestamp-format
-                        (org-translate-time
-			 (org-element-property :raw-value scheduled))))))))
+                        (org-timestamp-translate scheduled)))))))
     "")
    ""))
 
@@ -1489,9 +1481,7 @@ contextual information."
          (custom-env (and lang
                           (cadr (assq (intern lang)
                                       org-groff-custom-lang-environments))))
-         (num-start (case (org-element-property :number-lines src-block)
-                      (continued (org-export-get-loc src-block info))
-                      (new 0)))
+         (num-start (org-export-get-loc src-block info))
          (retain-labels (org-element-property :retain-labels src-block))
          (caption (and (not (org-export-read-attribute
 			     :attr_groff src-block :disable-caption))
@@ -1507,9 +1497,7 @@ contextual information."
 
      ;; Case 2.  Source fontification.
      (org-groff-source-highlight
-      (let* ((tmpdir (if (featurep 'xemacs)
-			 temp-directory
-		       temporary-file-directory))
+      (let* ((tmpdir temporary-file-directory)
 	     (in-file  (make-temp-name
 			(expand-file-name "srchilite" tmpdir)))
 	     (out-file (make-temp-name
@@ -1903,6 +1891,7 @@ Return PDF file name or an error if it couldn't be produced."
   (let* ((base-name (file-name-sans-extension (file-name-nondirectory file)))
 	 (full-name (file-truename file))
 	 (out-dir (file-name-directory file))
+	 (time (current-time))
 	 ;; Properly set working directory for compilation.
 	 (default-directory (if (file-name-absolute-p file)
 				(file-name-directory full-name)
@@ -1937,7 +1926,12 @@ Return PDF file name or an error if it couldn't be produced."
       (let ((pdffile (concat out-dir base-name ".pdf")))
 	;; Check for process failure.  Provide collected errors if
 	;; possible.
-	(if (not (file-exists-p pdffile))
+	(if (or (not (file-exists-p pdffile))
+		;; Only compare times up to whole seconds as some
+		;; filesystems (e.g. HFS+) do not retain any finer
+		;; granularity.
+		(time-less-p (cl-subseq (nth 5 (file-attributes pdffile)) 0 2)
+			     (cl-subseq time 0 2)))
 	    (error (concat (format "PDF file %s wasn't produced" pdffile)
 			   (when errors (concat ": " errors))))
 	  ;; Else remove log files, when specified, and signal end of

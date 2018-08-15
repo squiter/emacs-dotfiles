@@ -69,12 +69,12 @@
 
 ;; org link functions
 ;; bare git link
-(org-add-link-type "gitbare" 'org-gitbare-open)
+(org-link-set-parameters "gitbare" :follow #'org-gitbare-open)
 
 (defun org-gitbare-open (str)
   (let* ((strlist (org-git-split-string str))
-         (gitdir (first strlist))
-         (object (second strlist)))
+         (gitdir (nth 0 strlist))
+         (object (nth 1 strlist)))
     (org-git-open-file-internal gitdir object)))
 
 
@@ -92,18 +92,22 @@
     (setq buffer-read-only t)))
 
 ;; user friendly link
-(org-add-link-type "git" 'org-git-open)
+(org-link-set-parameters "git" :follow #'org-git-open :store #'org-git-store-link)
 
 (defun org-git-open (str)
   (let* ((strlist (org-git-split-string str))
-         (filepath (first strlist))
-         (commit (second strlist))
-         (line (third strlist))
+         (filepath (nth 0 strlist))
+         (commit (nth 1 strlist))
+         (line (nth 2 strlist))
          (dirlist (org-git-find-gitdir (file-truename filepath)))
-         (gitdir (first dirlist))
-         (relpath (second dirlist)))
+         (gitdir (nth 0 dirlist))
+         (relpath (nth 1 dirlist)))
     (org-git-open-file-internal gitdir (concat commit ":" relpath))
-    (when line (goto-line (string-to-int line)))))
+    (when line
+      (save-restriction
+	(widen)
+	(goto-char (point-min))
+	(forward-line (1- (string-to-number line)))))))
 
 
 ;; Utility functions (file names etc)
@@ -122,23 +126,21 @@
   the path. Example: (org-git-find-gitdir
   \"~/gitrepos/foo/bar.txt\") returns
   '(\"/home/user/gitrepos/.git\" \"foo/bar.txt\"). When not in a git repository, return nil."
-  (let ((dir (file-name-directory path))
+  (let ((dir (expand-file-name (file-name-directory path)))
         (relpath (file-name-nondirectory path)))
     (catch 'toplevel
       (while (not (file-exists-p (expand-file-name ".git" dir)))
         (let ((dirlist (org-git-split-dirpath dir)))
-          (when (string= (second dirlist) "") ; at top level
+          (when (string= (nth 1 dirlist) "") ; at top level
             (throw 'toplevel nil))
-          (setq dir (first dirlist)
-                relpath (concat (file-name-as-directory (second dirlist)) relpath))))
+          (setq dir (nth 0 dirlist)
+                relpath (concat (file-name-as-directory (nth 1 dirlist)) relpath))))
       (list (expand-file-name ".git" dir) relpath))))
 
 
 (eval-and-compile
-  (if (featurep 'xemacs)
-      (defalias 'org-git-gitrepos-p 'org-git-find-gitdir)
-    (defalias 'org-git-gitrepos-p 'org-git-find-gitdir
-      "Return non-nil if path is in git repository")))
+  (defalias 'org-git-gitrepos-p 'org-git-find-gitdir
+    "Return non-nil if path is in git repository"))
 
 ;; splitting the link string
 
@@ -176,7 +178,7 @@ than two double colons, str2 and/or str3 may be set the empty string."
 (defun org-git-create-git-link (file &optional line)
   "Create git link part to file at specific time"
   (interactive "FFile: ")
-  (let* ((gitdir (first (org-git-find-gitdir (file-truename file))))
+  (let* ((gitdir (nth 0 (org-git-find-gitdir (file-truename file))))
          (branchname (org-git-get-current-branch gitdir))
          (timestring (format-time-string "%Y-%m-%d" (current-time))))
     (concat "git:" file "::" (org-git-create-searchstring branchname timestring)
@@ -191,8 +193,6 @@ than two double colons, str2 and/or str3 may be set the empty string."
 	(org-store-link-props
 	 :type "git"
 	 :link (org-git-create-git-link file line))))))
-
-(add-hook 'org-store-link-functions 'org-git-store-link)
 
 (defun org-git-insert-link-interactively (file searchstring &optional description)
   (interactive "FFile: \nsSearch string: \nsDescription: ")

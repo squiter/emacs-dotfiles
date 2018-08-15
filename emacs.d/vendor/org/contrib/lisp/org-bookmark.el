@@ -1,5 +1,5 @@
 ;;; org-bookmark.el - Support for links to bookmark
-;; Copyright (C) 2008-2016 Free Software Foundation, Inc.
+;; Copyright (C) 2008-2018 Free Software Foundation, Inc.
 ;;
 ;; Author: Tokuya Kameshima <kames AT fa2.so-net.ne.jp>
 ;; Version: 1.0
@@ -47,8 +47,9 @@ Otherwise prompt the user for the right bookmark to use."
   :group 'org-bookmark
   :type 'boolean)
 
-(org-add-link-type "bookmark" 'org-bookmark-open)
-(add-hook 'org-store-link-functions 'org-bookmark-store-link)
+(org-link-set-parameters "bookmark"
+			 :follow #'org-bookmark-open
+			 :store #'org-bookmark-store-link)
 
 (defun org-bookmark-open (bookmark)
   "Visit the bookmark BOOKMARK."

@@ -1,11 +1,11 @@
 ;;; org-wl.el --- Support for links to Wanderlust messages from within Org-mode
 
-;; Copyright (C) 2004-2016 Free Software Foundation, Inc.
+;; Copyright (C) 2004-2018 Free Software Foundation, Inc.
 
 ;; Author: Tokuya Kameshima <kames at fa2 dot so-net dot ne dot jp>
 ;;         David Maus <dmaus at ictsoc dot de>
 ;; Keywords: outlines, hypermedia, calendar, wp
-;; Homepage: http://orgmode.org
+;; Homepage: https://orgmode.org
 ;;
 ;; This file is not part of GNU Emacs.
 ;;
@@ -109,8 +109,7 @@ googlegroups otherwise."
   "List of folder indicators.  See Wanderlust manual, section 3.")
 
 ;; Install the link type
-(org-add-link-type "wl" 'org-wl-open)
-(add-hook 'org-store-link-functions 'org-wl-store-link)
+(org-link-set-parameters "wl" :follow #'org-wl-open :store #'org-wl-store-link)
 
 ;; Implementation
 
@@ -192,18 +191,12 @@ ENTITY is a message entity."
 		 (message-id
 		  (org-wl-message-field 'message-id wl-message-entity))
 		 (message-id-no-brackets
-		  (org-remove-angle-brackets message-id))
+		  (org-unbracket-string "<" ">" message-id))
 		 (from (org-wl-message-field 'from wl-message-entity))
 		 (to (org-wl-message-field 'to wl-message-entity))
 		 (xref (org-wl-message-field 'xref wl-message-entity))
 		 (subject (org-wl-message-field 'subject wl-message-entity))
 		 (date (org-wl-message-field 'date wl-message-entity))
-		 (date-ts (and date (format-time-string
-				     (org-time-stamp-format t)
-				     (date-to-time date))))
-		 (date-ts-ia (and date (format-time-string
-					(org-time-stamp-format t t)
-					(date-to-time date))))
 		 desc link)
 
 	    ;; remove text properties of subject string to avoid possible bug
@@ -243,9 +236,7 @@ ENTITY is a message entity."
 	      (setq desc (org-email-link-description))
 	      (setq link (concat "wl:" folder-name "#" message-id-no-brackets))
 	      (org-add-link-props :link link :description desc)))
-	    (when date
-	      (org-add-link-props :date date :date-timestamp date-ts
-				  :date-timestamp-inactive date-ts-ia))
+	    (org-add-link-props :date date)
 	    (or link xref)))))))
 
 (defun org-wl-open-nntp (path)
@@ -287,8 +278,8 @@ for namazu index."
 				      org-wl-namazu-default-index)
 				 org-wl-namazu-default-index
 			       (read-directory-name "Namazu index: ")))))
-      (if (not (elmo-folder-exists-p (org-no-warnings
-				      (wl-folder-get-elmo-folder folder))))
+      (if (not (elmo-folder-exists-p (with-no-warnings
+				       (wl-folder-get-elmo-folder folder))))
 	  (error "No such folder: %s" folder))
       (let ((old-buf (current-buffer))
 	    (old-point (point-marker)))
@@ -299,7 +290,7 @@ for namazu index."
 	  ;; in the old buffer.
 	  (goto-char old-point))
 	(when article
-	  (if (org-string-match-p "@" article)
+	  (if (string-match-p "@" article)
 	      (wl-summary-jump-to-msg-by-message-id (org-add-angle-brackets
 						     article))
 	    (or (wl-summary-jump-to-msg (string-to-number article))

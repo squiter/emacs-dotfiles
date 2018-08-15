@@ -1,10 +1,10 @@
 ;;; org-mew.el --- Support for links to Mew messages from within Org-mode
 
-;; Copyright (C) 2008-2016 Free Software Foundation, Inc.
+;; Copyright (C) 2008-2018 Free Software Foundation, Inc.
 
 ;; Author: Tokuya Kameshima <kames at fa2 dot so-net dot ne dot jp>
 ;; Keywords: outlines, hypermedia, calendar, wp
-;; Homepage: http://orgmode.org
+;; Homepage: https://orgmode.org
 
 ;; This file is not part of GNU Emacs.
 
@@ -148,8 +148,7 @@ with \"t\" key."
 (defvar mew-summary-goto-line-then-display)
 
 ;; Install the link type
-(org-add-link-type "mew" 'org-mew-open)
-(add-hook 'org-store-link-functions 'org-mew-store-link)
+(org-link-set-parameters "mew" :follow #'org-mew-open :store #'org-mew-store-link)
 
 ;; Implementation
 (defun org-mew-store-link ()
@@ -167,20 +166,11 @@ with \"t\" key."
 	       (from (mew-header-get-value "From:"))
 	       (to (mew-header-get-value "To:"))
 	       (date (mew-header-get-value "Date:"))
-	       (date-ts (and date (format-time-string
-				   (org-time-stamp-format t)
-				   (date-to-time date))))
-	       (date-ts-ia (and date (format-time-string
-				      (org-time-stamp-format t t)
-				      (date-to-time date))))
 	       (subject (mew-header-get-value "Subject:"))
 	       desc link)
-	  (org-store-link-props :type "mew" :from from :to to
+	  (org-store-link-props :type "mew" :from from :to to :date date
 				:subject subject :message-id message-id)
-	  (when date
-	    (org-add-link-props :date date :date-timestamp date-ts
-				:date-timestamp-inactive date-ts-ia))
-	  (setq message-id (org-remove-angle-brackets message-id))
+	  (setq message-id (org-unbracket-string "<" ">" message-id))
 	  (setq desc (org-email-link-description))
 	  (setq link (concat "mew:" folder-name "#" message-id))
 	  (org-add-link-props :link link :description desc)
@@ -290,12 +280,12 @@ the subject and the group number to extract.  You can get rid of
 	(setq subject (mew-header-get-value "Subject:"))
 	(setq message-id (mew-header-get-value "Message-Id:"))
 	(setq references (mew-header-get-value "References:")))
-      (setq id-list (mapcar (lambda (id) (org-remove-angle-brackets id))
+      (setq id-list (mapcar (lambda (id) (org-unbracket-string "<" ">" id))
 			    (mew-idstr-to-id-list references)))
       (if last-reference-only
 	  (setq id-list (last id-list))
 	(if message-id
-	    (setq id-list (cons (org-remove-angle-brackets message-id)
+	    (setq id-list (cons (org-unbracket-string "<" ">" message-id)
 				id-list))))
       (when (and by-subject (stringp subject))
 	(catch 'matched
