@@ -230,5 +230,18 @@ KEYANDHEADLINE should be a list of cons cells of the form (\"key\" . \"headline\
   ("l" squiter/org-refile-hydra-locaweb/body "locaweb.org" :exit t)
   ("q" nil "cancel"))
 
+(defhydra squiter/hydra-edit-conf (:hint nil :columns 3)
+  "Edit system configuration files (Ubuntu)"
+  ("d" (find-file "~/.local/share/applications/") ".desktop files in Home")
+  ("D" (find-file "/usr/local/share/applications/") ".desktop files in /usr")
+  ("i" (find-file "~/.config/i3/config") "i3 config")
+  ("3" (find-file "~/.config/i3status/config") "i3 status config")
+  ("s" (find-file "/sudo::/etc/apt/source.list") "Package source list")
+  ("h" (find-file "/sudo::/etc/hosts") "/etc/hosts")
+  ("r" (find-file "/sudo::/etc/resolv.conf") "/etc/resolv.conf")
+  ("cr" (find-file "/sudo::/etc/cgrules.conf") "Cgroups rules")
+  ("cc" (find-file "/sudo::/etc/cgconfig.conf") "Cgroups config")
+  ("q" nil "quit" :color red))
+
 (provide 'init-hydra)
 ;;; init-hydra.el ends here
