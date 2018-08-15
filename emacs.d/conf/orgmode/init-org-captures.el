@@ -40,40 +40,40 @@
 
 ;; Capture templates for: TODO tasks, Notes, appointments, phone calls, meetings, and org-protocol
 (setq org-capture-templates
-      `(("t" "todo" entry (file (path-join *user-org-cache-directory* "refile.org"))
+      `(("t" "todo" entry (file ,(path-join *user-org-cache-directory* "refile.org"))
          ,(squiter/oc-template "todo.org")
          :clock-in t
          :clock-resume t)
-        ("n" "note" entry (file (path-join *user-org-cache-directory* "refile.org"))
+        ("n" "note" entry (file ,(path-join *user-org-cache-directory* "refile.org"))
          ,(squiter/oc-template "note.org")
          :clock-in t
          :clock-resume t)
         ("J" "Jira task" entry
-         (file (path-join *user-org-cache-directory* "refile.org"))
+         (file ,(path-join *user-org-cache-directory* "refile.org"))
          "* TODO %(oc/prmt \"Jira Ticket No.\" 'jr-no) %?\n:PROPERTIES:\n:CURRENCY_DELTAS: ((gold +10) (xp +10))\n:END:\n%U\n[[https://locaweb.atlassian.net/browse/%(progn jr-no)][See more in Jira.]]\n"
          :clock-in t
          :clock-resume t)
-        ("j" "Journal" entry (file+datetree (path-join *user-org-cache-directory* "diary.org"))
+        ("j" "Journal" entry (file+olp+datetree ,(path-join *user-org-cache-directory* "diary.org"))
          "* %?\n%(oc/inc \"Things that I learned\" \"** Three things that I learn today\n\")"
          :clock-in t
          :clock-resume t)
-        ("m" "Morning Journal" entry (file+datetree (path-join *user-org-cache-directory* "diary.org"))
+        ("m" "Morning Journal" entry (file+olp+datetree ,(path-join *user-org-cache-directory* "diary.org"))
          ,(squiter/oc-template "morning-journal.org")
          :clock-in t
          :clock-resume t)
-        ("e" "Evening Journal" entry (file+datetree (path-join *user-org-cache-directory* "diary.org"))
+        ("e" "Evening Journal" entry (file+olp+datetree ,(path-join *user-org-cache-directory* "diary.org"))
          ,(squiter/oc-template "evening-journal.org")
          :clock-in t
          :clock-resume t)
-        ("w" "Weekly Review" entry (file+datetree (path-join *user-org-cache-directory* "diary.org"))
+        ("w" "Weekly Review" entry (file+olp+datetree ,(path-join *user-org-cache-directory* "diary.org"))
          ,(squiter/oc-template "weekly-review.org")
          :clock-in t
          :clock-resume t)
         ("s" "Code Snippet" entry
-         (file (path-join *user-org-cache-directory* "snippets.org"))
+         (file ,(path-join *user-org-cache-directory* "snippets.org"))
          ;; Prompt for tag and language
          "* %? :NOTE:\t\n%U\n#+BEGIN_SRC %(eval custom/org-mode-memory)\n%c\n#+END_SRC")
-        ("h" "Habit" entry (file (path-join *user-org-cache-directory* "refile.org"))
+        ("h" "Habit" entry (file ,(path-join *user-org-cache-directory* "refile.org"))
          ,(squiter/oc-template "habit.org")
          :clock-in t
          :clock-resume t)))

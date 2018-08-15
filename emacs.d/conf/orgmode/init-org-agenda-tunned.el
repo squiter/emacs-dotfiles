@@ -57,10 +57,14 @@
 (setq org-agenda-start-on-weekday 1)
 
 ;; Enable display of the time grid so we can see the marker for the current time
-(setq org-agenda-time-grid (quote ((daily today remove-match)
-                                   #("----------------" 0 16 (org-heading t))
-                                   (0900 1100 1300 1500 1700))))
-
+;; This commented one is for orgmode 8.3
+;; (setq org-agenda-time-grid (quote ((daily today remove-match)
+;;                                    #("----------------" 0 16 (org-heading t))
+;;                                    (0900 1100 1300 1500 1700))))
+(setq org-agenda-time-grid (quote
+                             ((daily today remove-match)
+                              (0900 1100 1300 1500 1700)
+                              "......" "----------------")))
 ;; Display tags farther right
 (setq org-agenda-tags-column -102)
 
