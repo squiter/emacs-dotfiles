@@ -29,10 +29,7 @@
 (use-package projectile
   :bind-keymap ("C-c p" . projectile-command-map)
   :bind
-  (("C-c o" . squiter/ivy-open-project)
-   ("C-x f" . projectile-find-file)
-   :map projectile-command-map
-   ("s a" . projectile-ag))
+  ("C-c o" . squiter/ivy-open-project)
 
   :commands (projectile-project-p)
   :config
@@ -83,15 +80,16 @@
   :after projectile
   :hook (projectile-mode . projectile-rails-on))
 
-;; TODO: waiting https://github.com/ericdanan/counsel-projectile/pull/92
-;; (use-package counsel-projectile
-;;   :after (projectile counsel)
-;;   :bind
-;;   ("C-x f" . counsel-projectile-find-file)
-;;   ("C-c p s a" . counsel-projectile-ag)
-;;   ("C-x C-b" . counsel-projectile-switch-to-buffer)
+(use-package counsel-projectile
+  ;; :after (projectile counsel)
+  :bind
+  (("C-x f" . counsel-projectile-find-file)
+   ("C-x C-b" . counsel-projectile-switch-to-buffer)
+   :map projectile-command-map
+   ("s a" . projectile-ag))
 
-;;   :config (counsel-projectile-mode))
+
+  :config (counsel-projectile-mode))
 
 (provide 'init-projectile)
 ;;; init-projectile.el ends here
