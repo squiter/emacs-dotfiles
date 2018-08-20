@@ -224,10 +224,15 @@ KEYANDHEADLINE should be a list of cons cells of the form (\"key\" . \"headline\
                              ("r" . "Retrospective Tasks")
                              ("n" . "Notes")))
 
+(josh/make-org-refile-hydra squiter/org-refile-hydra-geloefogo
+                            "geloefogo.org"
+                            (("t" . "Tasks")))
+
 (defhydra squiter/org-refile-hydra (:foreign-keys run)
   "Refile"
   ("m" squiter/org-refile-hydra-master/body "master.org" :exit t)
   ("l" squiter/org-refile-hydra-locaweb/body "locaweb.org" :exit t)
+  ("g" squiter/org-refile-hydra-geloefogo/body "geloefogo.org" :exit t)
   ("q" nil "cancel"))
 
 (defhydra squiter/hydra-edit-conf (:hint nil :columns 3)
