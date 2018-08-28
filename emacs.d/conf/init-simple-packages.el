@@ -31,7 +31,7 @@
 (use-package free-keys)
 (use-package restart-emacs)
 (use-package zeal-at-point :bind ("C-c C-d" . 'zeal-at-point))
-
+(use-package pocket-reader)
 
 (use-package init-calendars
   :ensure nil ;; "package" created with config/init-calendars.el
