@@ -73,5 +73,13 @@
   ([remap kill-ring-save] . easy-kill)
   ([remap mark-sexp] . easy-mark))
 
+(use-package discover-my-major
+  :bind ("C-h C-m" . discover-my-major))
+
+(use-package docker)
+(use-package imenu-list)
+(use-package markdown-mode+)
+(use-package rainbow-mode)
+
 (provide 'init-simple-packages)
 ;;; init-simple-packages.el ends here

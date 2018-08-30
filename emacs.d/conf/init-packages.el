@@ -9,12 +9,9 @@
 (defvar my-packages
   '(
     ace-window
-    achievements
     apropospriate-theme
     bundler
     challenger-deep-theme
-    discover-my-major
-    docker
     doom-themes
     enh-ruby-mode
     gist
@@ -24,7 +21,6 @@
     haskell-mode
     highlight
     hl-anything
-    imenu-list
     ivy-youtube
     iy-go-to-char
     json-navigator
@@ -32,7 +28,6 @@
     lua-mode
     magit
     magithub
-    markdown-mode+
     mutant
     ob-restclient
     ob-sml
@@ -40,7 +35,6 @@
     org-gcal
     ox-twbs
     pdf-tools
-    rainbow-mode
     rbenv
     request
     rhtml-mode
