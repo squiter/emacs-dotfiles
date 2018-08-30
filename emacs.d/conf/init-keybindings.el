@@ -68,10 +68,6 @@
 (global-set-key [f3] 'hl-find-next-thing)
 (global-set-key [(shift f3)] 'hl-find-prev-thing)
 
-;; easy-kill
-(global-set-key [remap kill-ring-save] 'easy-kill)
-(global-set-key [remap mark-sexp] 'easy-mark)
-
 ;; sexp navigation
 (global-set-key [(super f)] 'sp-next-sexp)
 (global-set-key [(super b)] 'sp-previous-sexp)

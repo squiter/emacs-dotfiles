@@ -16,7 +16,6 @@
     discover-my-major
     docker
     doom-themes
-    easy-kill
     enh-ruby-mode
     gist
     git-gutter

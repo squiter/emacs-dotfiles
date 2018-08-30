@@ -68,5 +68,10 @@
   :after all-the-icons
   :hook (dired-mode . all-the-icons-dired-mode))
 
+(use-package easy-kill
+  :bind
+  ([remap kill-ring-save] . easy-kill)
+  ([remap mark-sexp] . easy-mark))
+
 (provide 'init-simple-packages)
 ;;; init-simple-packages.el ends here
