@@ -25,7 +25,6 @@
     haskell-mode
     highlight
     hl-anything
-    hydra
     imenu-list
     ivy-youtube
     iy-go-to-char

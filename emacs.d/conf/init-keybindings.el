@@ -137,19 +137,6 @@
 ;; ctags stuff
 (global-set-key (kbd "M-*") 'pop-tag-mark)
 
-;;;;;;;;;;;;;;;;;;
-;; hydra bodies ;;
-;;;;;;;;;;;;;;;;;;
-
-(define-prefix-command 'squiter/hydra)
-(global-set-key (kbd "<f6>") 'squiter/hydra)
-(define-key squiter/hydra (kbd "l") 'hydra-launcher/body)
-(define-key squiter/hydra (kbd "o") 'hydra-org/body)
-(define-key squiter/hydra (kbd "r") 'hydra-rectangle/body)
-(define-key squiter/hydra (kbd "m") 'hydra-move/body)
-(define-key squiter/hydra (kbd "e") 'mz/make-and-run-elfeed-hydra)
-(define-key squiter/hydra (kbd "c") 'squiter/hydra-edit-conf/body)
-
 ;; Indent-tools hydra
 (global-set-key (kbd "C-c >") 'indent-tools-hydra/body)
 
