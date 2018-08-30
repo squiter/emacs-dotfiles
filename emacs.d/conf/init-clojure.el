@@ -41,7 +41,22 @@
                           (define-clojure-indent (facts 1))))
   :init
   (eval-after-load 'clojure
-    (define-key clojure-mode-map (kbd "M-n n") 'clojure-insert-ns-form)))
+    (define-key clojure-mode-map (kbd "M-n n") 'clojure-insert-ns-form))
+
+  :config
+  (define-clojure-indent
+    (defroutes 'defun)
+    (GET 2)
+    (POST 2)
+    (PUT 2)
+    (DELETE 2)
+    (HEAD 2)
+    (ANY 2)
+    (OPTIONS 2)
+    (PATCH 2)
+    (rfn 2)
+    (let-routes 1)
+    (context 2)))
 
 (use-package clojure-mode-extra-font-locking)
 
