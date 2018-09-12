@@ -39,6 +39,10 @@
                               (1 font-lock-keyword-face))))
                           (define-clojure-indent (fact 1))
                           (define-clojure-indent (facts 1))))
+
+  :bind (:map clojure-mode-map
+              ("C-c C-r m l" . clojure-move-to-let))
+
   :init
   (eval-after-load 'clojure
     (define-key clojure-mode-map (kbd "M-n n") 'clojure-insert-ns-form))
@@ -107,8 +111,8 @@
               :map cider-mode-map
               ("C-c u" . 'cider-user-ns)))
 
-(use-package flycheck-clojure
-  :config (eval-after-load 'flycheck '(flycheck-clojure-setup)))
+;; (use-package flycheck-clojure
+;;   :config (eval-after-load 'flycheck '(flycheck-clojure-setup)))
 
 (provide 'init-clojure)
 ;;; init-clojure.el ends here
