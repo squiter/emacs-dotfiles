@@ -188,13 +188,6 @@
 (global-set-key (kbd "M-i <f7>") 'symbol-overlay-mode)
 (global-set-key (kbd "M-i <f8>") 'symbol-overlay-remove-all)
 
-
-;;;;;;;;;;;;;;;;;;;
-;; iy-go-to-char ;;
-;;;;;;;;;;;;;;;;;;;
-(global-set-key (kbd "C-c f") 'iy-go-to-char)
-(global-set-key (kbd "C-c F") 'iy-go-to-char-backward)
-
 (define-key edit-server-edit-mode-map (kbd "C-c C-c") 'edit-server-done)
 
 (provide 'init-keybindings)
