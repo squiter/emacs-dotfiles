@@ -10,11 +10,10 @@
   '(
     ace-window
     apropospriate-theme
-    bundler
     challenger-deep-theme
     doom-themes
+    bundler
     enh-ruby-mode
-    gist
     haskell-mode
     highlight
     hl-anything
