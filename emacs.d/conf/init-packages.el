@@ -15,7 +15,6 @@
     doom-themes
     enh-ruby-mode
     gist
-    git-timemachine
     haskell-mode
     highlight
     hl-anything
