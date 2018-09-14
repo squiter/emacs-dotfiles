@@ -15,8 +15,6 @@
     doom-themes
     enh-ruby-mode
     gist
-    git-gutter
-    git-gutter-fringe
     git-timemachine
     haskell-mode
     highlight

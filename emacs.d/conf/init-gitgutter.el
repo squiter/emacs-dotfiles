@@ -24,23 +24,22 @@
 ;;
 
 ;;; Code:
+(use-package git-gutter-fringe
+  :config
+  (define-fringe-bitmap 'git-gutter-fr:added
+    [224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224]
+    nil nil 'center)
+  (define-fringe-bitmap 'git-gutter-fr:modified
+    [224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224]
+    nil nil 'center)
+  (define-fringe-bitmap 'git-gutter-fr:deleted
+    [0 0 0 0 0 0 0 0 0 0 0 0 0 128 192 224 240 248]
+    nil nil 'center))
 
-(require 'git-gutter-fringe)
-
-(global-git-gutter-mode t)
-
-(define-fringe-bitmap 'git-gutter-fr:added
-  [224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224]
-  nil nil 'center)
-(define-fringe-bitmap 'git-gutter-fr:modified
-  [224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224]
-  nil nil 'center)
-(define-fringe-bitmap 'git-gutter-fr:deleted
-  [0 0 0 0 0 0 0 0 0 0 0 0 0 128 192 224 240 248]
-  nil nil 'center)
-
-;; Refreshing git-gutter
-(add-hook 'focus-in-hook 'git-gutter:update-all-windows)
+(use-package git-gutter
+  :config
+  (global-git-gutter-mode t)
+  (add-hook 'focus-in-hook 'git-gutter:update-all-windows))
 
 (provide 'init-gitgutter)
 ;;; init-gitgutter.el ends here
