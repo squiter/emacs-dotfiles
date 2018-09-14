@@ -19,7 +19,6 @@
 (use-package dockerfile-mode :mode "Dockerfile\\'")
 (use-package bash-completion :config (bash-completion-setup))
 (use-package pdf-tools :config (pdf-tools-install))
-(use-package magithub :config (magithub-feature-autoinject t))
 (use-package dired-collapse :hook dired-mode)
 (use-package vmd-mode)
 (use-package indent-tools)
