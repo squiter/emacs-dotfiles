@@ -20,12 +20,8 @@
     highlight
     hl-anything
     ivy-youtube
-    iy-go-to-char
     json-navigator
-    ledger-mode
     lua-mode
-    magit
-    magithub
     mutant
     ob-restclient
     ob-sml
