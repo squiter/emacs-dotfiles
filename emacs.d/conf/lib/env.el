@@ -12,6 +12,8 @@
 (setenv "LANG" "en_US.utf-8")
 (setenv "SHELL" "/bin/bash")
 (setenv "ESHELL" "/bin/bash")
+(setenv "EDITOR" "emacsclient")
+(setenv "VISUAL" (getenv "EDITOR"))
 
 (provide 'lib/env)
 ;;; env.el ends here
