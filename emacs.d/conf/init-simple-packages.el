@@ -34,6 +34,9 @@
 (use-package git-timemachine)
 (use-package gist)
 
+(use-package adjust-parens
+  :hook ((emacs-lisp-mode clojure-mode) . adjust-parens-mode))
+
 (use-package init-calendars
   :ensure nil ;; "package" created with config/init-calendars.el
   :config
