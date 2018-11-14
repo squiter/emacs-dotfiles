@@ -53,7 +53,7 @@
 (setq appt-disp-window-function 'my-appt-display)
 (setq appt-delete-window-function (lambda () t))
 
-(defvar emacs-icon "/usr/share/icons/hicolor/512x512/apps/emacs25.png")
+(defvar emacs-icon "/usr/share/icons/hicolor/48x48/apps/emacs25.png")
 
 (setq my-appt-notification-app (concat (getenv "HOME") "/bin/appt-notification"))
 
