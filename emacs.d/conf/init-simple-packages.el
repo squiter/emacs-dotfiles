@@ -15,7 +15,6 @@
 (use-package smart-shift :config (global-smart-shift-mode 1))
 (use-package beacon :config (beacon-mode 1))
 (use-package multiple-cursors :init (setq mc/always-run-for-all t))
-(use-package beancount :mode ("\\.beancount\\'" . beancount-mode))
 (use-package dockerfile-mode :mode "Dockerfile\\'")
 (use-package bash-completion :config (bash-completion-setup))
 (use-package pdf-tools :config (pdf-tools-install))
@@ -84,6 +83,16 @@
 (use-package imenu-list)
 (use-package markdown-mode+)
 (use-package rainbow-mode)
+
+(use-package beancount
+  :ensure nil
+  :mode ("\\.beancount\\'" . beancount-mode)
+  :bind ("C-c h" . squiter/beancount-holdings)
+  :config
+
+  (defun squiter/beancount-holdings ()
+    (interactive)
+    (async-shell-command "bean-report ~/dropbox/ledger/ledger.beancount holdings")))
 
 (provide 'init-simple-packages)
 ;;; init-simple-packages.el ends here
