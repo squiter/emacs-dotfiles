@@ -53,6 +53,9 @@
 
 (define-key dired-mode-map (kbd "?") 'dired-get-size)
 
+;; Dired open Wdired
+(define-key dired-mode-map (kbd "e") 'wdired-change-to-wdired-mode)
+
 ;;; Show Kbytes on dired
 (setq dired-listing-switches "-alh")
 
