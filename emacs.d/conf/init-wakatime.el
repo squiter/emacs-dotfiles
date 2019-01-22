@@ -29,7 +29,7 @@
 
 (use-package wakatime-mode
   :init
-  (setq wakatime-cli-path "/usr/local/bin/wakatime")
+  (setq wakatime-cli-path *wakatime-dir*)
   :config
   (global-wakatime-mode))
 
