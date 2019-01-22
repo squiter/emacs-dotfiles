@@ -19,7 +19,7 @@
 (setq ruby-insert-encoding-magic-comment nil)
 
 ;; this hook enable debug in rspec-mode
-(add-hook 'after-init-hook 'inf-ruby-switch-setup)
+;; TODO: (add-hook 'after-init-hook 'inf-ruby-switch-setup)
 
 ;; rspec-mode configuration
 (setq rspec-use-rake-when-possible nil)
