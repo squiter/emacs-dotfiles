@@ -94,5 +94,7 @@
     (interactive)
     (async-shell-command "bean-report ~/dropbox/ledger/ledger.beancount holdings")))
 
+(use-package init-nu :ensure nil)
+
 (provide 'init-simple-packages)
 ;;; init-simple-packages.el ends here
