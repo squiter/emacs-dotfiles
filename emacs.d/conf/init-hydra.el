@@ -228,11 +228,9 @@ KEYANDHEADLINE should be a list of cons cells of the form (\"key\" . \"headline\
                                ("n" . "Notes")
                                ("t" . "Tasks")))
 
-  (josh/make-org-refile-hydra squiter/org-refile-hydra-locaweb
-                              "locaweb.org"
+  (josh/make-org-refile-hydra squiter/org-refile-hydra-nubank
+                              "nubank.org"
                               (("t" . "Tasks")
-                               ("f" . "Friday4Fun")
-                               ("r" . "Retrospective Tasks")
                                ("n" . "Notes")))
 
   (josh/make-org-refile-hydra squiter/org-refile-hydra-geloefogo
@@ -242,7 +240,7 @@ KEYANDHEADLINE should be a list of cons cells of the form (\"key\" . \"headline\
   (defhydra squiter/org-refile-hydra (:foreign-keys run)
     "Refile"
     ("m" squiter/org-refile-hydra-master/body "master.org" :exit t)
-    ("l" squiter/org-refile-hydra-locaweb/body "locaweb.org" :exit t)
+    ("n" squiter/org-refile-hydra-nubank/body "nubank.org" :exit t)
     ("g" squiter/org-refile-hydra-geloefogo/body "geloefogo.org" :exit t)
     ("q" nil "cancel"))
 
