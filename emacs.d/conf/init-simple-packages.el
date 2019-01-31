@@ -95,6 +95,10 @@
     (async-shell-command "bean-report ~/dropbox/ledger/ledger.beancount holdings")))
 
 (use-package init-nu :ensure nil)
+(use-package dictionary)
+(use-package synosaurus
+  :init
+  (synosaurus-mode))
 
 (provide 'init-simple-packages)
 ;;; init-simple-packages.el ends here
