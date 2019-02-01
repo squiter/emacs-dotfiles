@@ -1,11 +1,11 @@
-;;; init-wakatime.el --- Wakatime configuration
+;;; init-nu.el --- Includes nu.el
 ;;
-;; Copyright (C) 2016 Brunno dos Santos <emacs at brunno dot me>
+;; Copyright (C) 2019 Brunno dos Santos <emacs at brunno dot me>
 ;;
 ;; Author: Brunno dos Santos @squiter
 ;; URL: http://github.com/squiter/emacs-dotfiles
 ;;
-;; Created: 21 outubro 2016
+;; Created: 22 January 2019
 ;;
 ;; This file is NOT part of GNU Emacs.
 ;;
@@ -27,11 +27,10 @@
 
 ;;; Code:
 
-(use-package wakatime-mode
-  :init
-  (setq wakatime-cli-path *wakatime-dir*)
-  :config
-  (global-wakatime-mode))
+(let ((nudev-emacs-path "~/dev/nu/nudev/ides/emacs/"))
+  (when (file-directory-p nudev-emacs-path)
+    (add-to-list 'load-path nudev-emacs-path)
+    (require 'nu)))
 
-(provide 'init-wakatime)
-;;; init-wakatime.el ends here
+(provide 'init-nu)
+;;; init-nu.el ends here

@@ -219,11 +219,24 @@ is already narrowed."
 (defun squiter/get-current-remote-url ()
   (let ((bare-remote-url (magit-get "remote" (magit-get-remote) "url"))
         (current-branch (magit-get-current-branch)))
-    (format "https://code.locaweb.com.br/%s/blob/%s/"
-            (replace-regexp-in-string
-             "\\`.+locaweb\\.com\\.br:\\(.+\\)\\.git\\'" "\\1"
-             bare-remote-url)
-            current-branch)))
+    (cond ((string-match "github\\.com" bare-remote-url)
+           (format "https://github.com/%s/blob/%s/"
+                   (replace-regexp-in-string
+                    "\\`.+github\\.com:\\(.+\\)\\.git\\'" "\\1"
+                    bare-remote-url)
+                   current-branch))
+          ((string-match "bitbucket\\.org" repo)
+           (format "https://bitbucket.org/%s/src/%s/"
+                   (replace-regexp-in-string
+                    "\\`.+bitbucket\\.org:\\(.+\\)\\.git\\'" "\\1"
+                    bare-remote-url)
+                   current-branch))
+          (t
+           (format "https://code.locaweb.com.br/%s/blob/%s/"
+                   (replace-regexp-in-string
+                    "\\`.+locaweb\\.com\\.br:\\(.+\\)\\.git\\'" "\\1"
+                    bare-remote-url)
+                   current-branch)))))
 
 (defun squiter/get-url-for-this-line-number ()
   (interactive)

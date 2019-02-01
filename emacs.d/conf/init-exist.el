@@ -90,8 +90,9 @@
    (exist/closed-tasks-at
     (format-time-string "%Y-%m-%d"))))
 
-(advice-add 'org-agenda-quit :before 'exist/send-today-tasks)
-(advice-add 'org-save-all-org-buffers :after 'exist/send-today-tasks)
+;; TODO: Fix this exist.io integration
+;; (advice-add 'org-agenda-quit :before 'exist/send-today-tasks)
+;; (advice-add 'org-save-all-org-buffers :after 'exist/send-today-tasks)
 
 (provide 'init-exist)
 ;;; init-exist.el ends here
