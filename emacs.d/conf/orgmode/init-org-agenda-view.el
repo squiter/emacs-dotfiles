@@ -13,6 +13,9 @@
                ((org-agenda-overriding-header "Habits")
                 (org-agenda-sorting-strategy
                  '(todo-state-down effort-up category-keep))))
+              ("r" "Refile" tags "REFILE"
+               ((org-agenda-overriding-header "Tasks and Notes to Refile")
+                (org-tags-match-list-sublevels t)))
               ("W" "Completed and/or deferred tasks from previous week"
                ((agenda "" ((org-agenda-span 7)
                             (org-agenda-skip-function 'squiter/skip-habits)
