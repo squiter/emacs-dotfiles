@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: keybind description in i3
+# key: key
+# --
+
+# %%hotkey: ${1:Some description of the following bindsym} %%
