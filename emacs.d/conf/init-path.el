@@ -6,16 +6,10 @@
 
 ;; if OSX
 
-(defun set-exec-path-from-shell-PATH ()
-  "Function that set $PATH env var."
-  (interactive)
-  (let ((path-from-shell (replace-regexp-in-string "[ \t\n]*$" "" (shell-command-to-string "$SHELL --login -i -c 'echo $PATH'"))))
-    (setenv "PATH" path-from-shell)
-    (setq exec-path (split-string path-from-shell path-separator))))
-
-(if (eq system-type 'darwin)
-    (when (window-system)
-      (set-exec-path-from-shell-PATH)))
+(use-package exec-path-from-shell
+       :ensure t
+       :config
+       (exec-path-from-shell-initialize))
 
 (provide 'init-path)
 ;;; init-path.el ends here
