@@ -27,9 +27,7 @@
 (scroll-bar-mode -1)
 (set-face-attribute 'default nil :height 140 :font "Inconsolata")
 
-;; line numbers
-(add-hook 'prog-mode-hook 'linum-mode)
-(setq linum-format "%4d ")
+(global-display-line-numbers-mode)
 
 ;; Highlight current line
 (global-hl-line-mode 1)

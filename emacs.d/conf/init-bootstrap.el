@@ -58,7 +58,6 @@
     init-smartparens
     init-org
     init-wakatime
-    init-yaml
     init-flycheck
     init-flyspell
     init-clojure

@@ -100,5 +100,10 @@
   :init
   (synosaurus-mode))
 
+(use-package yaml-mode
+  :mode (("\\.yml$" . yaml-mode)
+         ("\\.yaml$" . yaml-mode)
+         ("\\.yml\\.example$" . yaml-mode)))
+
 (provide 'init-simple-packages)
 ;;; init-simple-packages.el ends here
