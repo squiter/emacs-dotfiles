@@ -105,5 +105,8 @@
          ("\\.yaml$" . yaml-mode)
          ("\\.yml\\.example$" . yaml-mode)))
 
+(use-package auto-highlight-symbol
+  :hook (prog-mode . auto-highlight-symbol-mode))
+
 (provide 'init-simple-packages)
 ;;; init-simple-packages.el ends here
