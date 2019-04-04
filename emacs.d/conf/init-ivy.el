@@ -28,7 +28,24 @@
 ;;; Code:
 (use-package counsel
   :after ivy
-  :config (counsel-mode)
+  :config
+  (counsel-mode)
+  (defun ivy-with-thing-at-point (cmd)
+    (let ((ivy-initial-inputs-alist
+           (list
+            (cons cmd (thing-at-point 'symbol)))))
+      (funcall cmd)))
+
+  ;; Example 1
+  (defun counsel-ag-thing-at-point ()
+    (interactive)
+    (ivy-with-thing-at-point 'counsel-ag))
+
+  ;; Example 2
+  (defun swiper-thing-at-point ()
+    (interactive)
+    (ivy-with-thing-at-point 'swiper))
+
   :bind (("M-x" . counsel-M-x)
          ("C-x C-f" . counsel-find-file)
          ("<f1> f" . counsel-describe-function)
@@ -39,7 +56,9 @@
          ("C-x C-l" . counsel-locate)
          ("M-n b b" . counsel-bookmarks)
          ("C-S-y" . counsel-yank-pop)
-         ("C-M-y" . counsel-yank-pop)))
+         ("C-M-y" . counsel-yank-pop)
+         ("M-n a" . counsel-ag-thing-at-point)
+         ("M-n s" . swiper-thing-at-point)))
 
 (use-package ivy
   :defer 0.1
