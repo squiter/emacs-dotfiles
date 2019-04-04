@@ -69,7 +69,7 @@
          ("\\.boot$" . clojure-mode)
          ("\\.cljs.*$" . clojure-mode)
          ("lein-env" . enh-ruby-mode))
-  :hook (cider-mode . cider-turn-on-eldoc-mode)
+  :hook (cider-mode . eldoc-mode)
   :config
   ;; go right to the REPL buffer when it's finished connecting
   (setq cider-repl-pop-to-buffer-on-connect t)
