@@ -67,13 +67,27 @@
          ("C-x B" . ivy-switch-buffer-other-window)
          ("C-c v" . ivy-push-view)
          ("C-c V" . ivy-pop-view)
-         ("C-x b" . ivy-switch-buffer))
+         ("C-x b" . ivy-switch-buffer)
+         ("C-!" . ivy-yank-complete-symbol-at-point))
   :custom
   (ivy-count-format "(%d/%d) ")
   (ivy-use-virtual-buffers t)
   (ivy-height 15)
   (ivy-initial-inputs-alist nil)
-  :config (ivy-mode))
+  :config
+
+  (ivy-mode)
+
+  (defun ivy-yank-complete-symbol-at-point (&optional arg)
+  "inserts whole symbol from buffer to ivy prompt. Prefix args allowed"
+  (interactive "p")
+  (unless (fboundp 'forward-symbol)
+    (require 'thingatpt))
+  (let ((text (with-ivy-window
+      		(forward-thing 'symbol (or arg 1))
+      		(thing-at-point 'symbol 'no-props))))
+    (when text
+      (insert (replace-regexp-in-string " +" " " text t t))))))
 
 (use-package ivy-rich
   :after ivy
