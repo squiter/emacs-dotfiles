@@ -138,6 +138,8 @@ In a dired buffer, it will open the current directory."
     (start-process "osascript-getinfo" nil "osascript" "-e" script) ; Run AppleScript.
     ))
 
+(use-package dired-quick-sort
+  :config (dired-quick-sort-setup))
 
 (provide 'init-dired)
 ;;; init-dired.el ends here
