@@ -60,6 +60,13 @@
 (require 'init-org-gcal)
 (require 'init-org-insert-image)
 
+(add-hook 'org-mode-hook (lambda ()
+   "Beautify Org Checkbox Symbol"
+   (push '("[ ]" . "☐") prettify-symbols-alist)
+   (push '("[X]" . "☑") prettify-symbols-alist)
+   (push '("[-]" . "❍") prettify-symbols-alist)
+   (prettify-symbols-mode)))
+
 ;; Tags with fast selection keys
 (setq org-tag-alist (quote ((:startgroup) ;; location group
                             ("@office" . ?O)
