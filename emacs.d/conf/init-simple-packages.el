@@ -32,6 +32,7 @@
 (use-package pocket-reader)
 (use-package git-timemachine)
 (use-package gist)
+(use-package terraform-mode)
 
 (use-package adjust-parens
   :hook ((emacs-lisp-mode clojure-mode) . adjust-parens-mode))
