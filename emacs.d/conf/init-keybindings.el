@@ -1,4 +1,4 @@
-;;; init-keybindings.el --- My custom keybindigs
+ ?;;; init-keybindings.el --- My custom keybindigs
 ;;; Commentary:
 ;;  This file doesn't contain specific mode keybindings
 ;;; Code:
@@ -101,9 +101,6 @@
 (global-set-key (kbd "C-c m n") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-c m r") 'mc/set-rectangular-region-anchor)
 
-;; kill sexp
-(define-key smartparens-mode-map (kbd "M-[ k") 'sp-kill-hybrid-sexp)
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Smartparend keybinds ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -132,6 +129,11 @@
 
 ;; Indent-tools hydra
 (global-set-key (kbd "C-c >") 'indent-tools-hydra/body)
+
+;; kill sexp
+(define-key smartparens-mode-map (kbd "M-[ k") 'sp-kill-hybrid-sexp)
+
+(define-key smartparens-mode-map (kbd "M-[ [") 'hydra-smartparens/body)
 
 ;;;;;;;;;;;;;;;;;;;;;
 ;; elfeed keybinds ;;
