@@ -134,5 +134,8 @@
 (use-package cider-hydra
   :after cider)
 
+(use-package cider-eval-sexp-fu
+  :after cider)
+
 (provide 'init-clojure)
 ;;; init-clojure.el ends here
