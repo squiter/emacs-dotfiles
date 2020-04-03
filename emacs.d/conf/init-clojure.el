@@ -27,7 +27,12 @@
 ;; https://github.com/flyingmachine/emacs-for-clojure/
 
 ;;; Code:
+
+;; run brew install borkdude/brew/clj-kondo
+(use-package flycheck-clj-kondo)
+
 (use-package clojure-mode
+  :after flycheck-clj-kindo
   :hook (clojure-mode . subword-mode)
   :hook (clojure-mode . (lambda ()
                           (setq inferior-lisp-program "lein repl")
@@ -48,6 +53,7 @@
     (define-key clojure-mode-map (kbd "M-n n") 'clojure-insert-ns-form))
 
   :config
+  (require 'flycheck-clj-kondo)
   (define-clojure-indent
     (defroutes 'defun)
     (GET 2)
