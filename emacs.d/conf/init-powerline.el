@@ -28,10 +28,14 @@
 
 ;;; Code:
 
+(use-package eyebrowse
+  :bind (("C-c C-w k" . eyebrowse-close-window-config)
+         ("C-c C-w l" . eyebrowse-last-window-config))
+  :config (eyebrowse-mode t))
+
 (use-package powerline
   :ensure t
   :init (use-package eyebrowse)
-
   :config
 
   (defun make-rect (color height width)
