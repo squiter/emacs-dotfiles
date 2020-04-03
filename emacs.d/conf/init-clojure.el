@@ -67,6 +67,7 @@
 (use-package cider
   :mode (("\\.edn$" . clojure-mode)
          ("\\.boot$" . clojure-mode)
+         ("\\.repl$" . clojure-mode)
          ("\\.cljs.*$" . clojure-mode)
          ("lein-env" . enh-ruby-mode))
   :hook (cider-mode . eldoc-mode)
@@ -123,6 +124,9 @@
     (cljr-add-keybindings-with-prefix "C-c C-m"))
 
   :config (add-hook 'clojure-mode-hook #'my-clojure-mode-hook))
+
+(use-package cider-hydra
+  :after cider)
 
 (provide 'init-clojure)
 ;;; init-clojure.el ends here
