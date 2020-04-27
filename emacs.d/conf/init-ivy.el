@@ -73,8 +73,9 @@
   (ivy-count-format "(%d/%d) ")
   (ivy-use-virtual-buffers t)
   (ivy-height 15)
-  (ivy-initial-inputs-alist nil)
   :config
+
+  (setq ivy-initial-inputs-alist nil)
 
   (ivy-mode)
 
