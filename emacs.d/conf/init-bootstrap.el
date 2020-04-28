@@ -39,6 +39,7 @@
     init-edit-custom-functions
     init-ui
     init-ivy
+    init-lsp
     init-mac-switch-meta
     init-smerge
     init-dired

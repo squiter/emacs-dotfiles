@@ -1,7 +1,12 @@
 ;;; init-company.el --- My company configuration
 ;;; Commentary:
 ;;; Code:
-(use-package company :hook (after-init . global-company-mode))
+(use-package company
+  :hook (after-init . global-company-mode)
+  :config
+  (setq company-minimum-prefix-length 1
+        company-idle-delay 0.1))
+
 (use-package company-emoji
   :hook ((after-init . company-emoji-init)
          (after-make-frame-functions . darwin-set-emoji-font))
