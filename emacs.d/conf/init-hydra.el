@@ -238,11 +238,16 @@ KEYANDHEADLINE should be a list of cons cells of the form (\"key\" . \"headline\
                               "geloefogo.org"
                               (("t" . "Tasks")))
 
+  (josh/make-org-refile-hydra squiter/org-refile-hydra-crypt
+                              "crypt.org"
+                              (("n" . "notes")))
+
   (defhydra squiter/org-refile-hydra (:foreign-keys run)
     "Refile"
     ("m" squiter/org-refile-hydra-master/body "master.org" :exit t)
     ("n" squiter/org-refile-hydra-nubank/body "nubank.org" :exit t)
     ("g" squiter/org-refile-hydra-geloefogo/body "geloefogo.org" :exit t)
+    ("k" squiter/org-refile-hydra-crypt/body "crypt.org" :exit t)
     ("q" nil "cancel"))
 
   (defhydra squiter/hydra-edit-conf (:hint nil :columns 3)
