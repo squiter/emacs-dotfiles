@@ -26,23 +26,27 @@
 ;;
 
 ;;; Code:
-(require 'org-gcal)
 
-(setq org-gcal-client-id *google-calendar-client-id*
-      org-gcal-client-secret *google-calendar-secret-id*
-      org-gcal-file-alist `(("squiter85@gmail.com" . ,(path-join *user-org-cache-directory* "gcal.org"))))
+(use-package persist)
 
-(add-hook 'org-agenda-mode-hook
-          (lambda ()
-            (message "Syncing Google Calendar...")
-            (org-gcal-fetch)
-            (message "Google Calendar Synced!")))
+(use-package org-gcal
+  :after persist
+  :config
+  (setq org-gcal-client-id *google-calendar-client-id*
+        org-gcal-client-secret *google-calendar-secret-id*
+        org-gcal-file-alist `(("squiter85@gmail.com" . ,(path-join *user-org-cache-directory* "gcal.org"))))
 
-(add-hook 'org-after-refile-insert-hook
-          (lambda ()
-            (message "Syncing Google Calendar...")
-            (org-gcal-fetch)
-            (message "Google Calendar Synced!")))
+  (add-hook 'org-agenda-mode-hook
+            (lambda ()
+              (message "Syncing Google Calendar...")
+              (org-gcal-fetch)
+              (message "Google Calendar Synced!")))
+
+  (add-hook 'org-after-refile-insert-hook
+            (lambda ()
+              (message "Syncing Google Calendar...")
+              (org-gcal-fetch)
+              (message "Google Calendar Synced!"))))
 
 (provide 'init-org-gcal)
 ;;; init-org-gcal.el ends here

@@ -24,7 +24,6 @@
     ob-restclient
     ob-sml
     org-bullets
-    org-gcal
     ox-twbs
     pdf-tools
     rbenv
