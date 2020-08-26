@@ -7,8 +7,6 @@
 
 ;;; Code:
 
-(server-start)
-
 (defun make-orgcapture-frame ()
   "Create a new frame and run `org-capture'."
   (interactive)

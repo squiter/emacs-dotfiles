@@ -66,4 +66,6 @@
              (mapconcat #'identity rr/initialization-errors "\n")
            "All is sane, and init.el got to its end"))
 (message "======================================")
+
+(server-start)
 ;;; emacs file ends here
