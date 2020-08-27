@@ -30,6 +30,9 @@
   :after ivy
   :config
   (counsel-mode)
+
+  (setq ivy-initial-inputs-alist nil)
+
   (defun ivy-with-thing-at-point (cmd)
     (let ((ivy-initial-inputs-alist
            (list
@@ -74,9 +77,8 @@
   (ivy-count-format "(%d/%d) ")
   (ivy-use-virtual-buffers t)
   (ivy-height 15)
+  (ivy-initial-inputs-alist nil)
   :config
-
-  (setq ivy-initial-inputs-alist nil)
 
   (ivy-mode)
 
