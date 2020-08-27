@@ -27,3 +27,6 @@ emacs.d/games/*
 /emacs.d/ivy-youtube-history
 /emacs.d/magithub/*
 /emacs.d/.lsp-session-v1
+/emacs.d/speed-type/
+/emacs.d/persist/
+/emacs.d/transient/
