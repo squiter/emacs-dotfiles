@@ -109,5 +109,7 @@
 (use-package auto-highlight-symbol
   :hook (prog-mode . auto-highlight-symbol-mode))
 
+(use-package speed-type)
+
 (provide 'init-simple-packages)
 ;;; init-simple-packages.el ends here
