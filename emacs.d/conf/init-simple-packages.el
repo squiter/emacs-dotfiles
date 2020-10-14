@@ -110,6 +110,7 @@
   :hook (prog-mode . auto-highlight-symbol-mode))
 
 (use-package speed-type)
+(use-package i3wm-config-mode)
 
 (provide 'init-simple-packages)
 ;;; init-simple-packages.el ends here
