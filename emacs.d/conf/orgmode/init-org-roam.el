@@ -43,7 +43,8 @@
   :bind (:map org-roam-mode-map
               (("C-c z l" . org-roam)
                ("C-c z f" . org-roam-find-file)
-               ("C-c z g" . org-roam-graph-show))
+               ("C-c z g" . org-roam-graph-show)
+               ("C-c z s" . org-roam-server-mode))
               :map org-mode-map
               (("C-c z i" . org-roam-insert))
               (("C-c z I" . org-roam-insert-immediate)))
@@ -61,7 +62,15 @@
         org-roam-server-network-arrows nil
         org-roam-server-network-label-truncate t
         org-roam-server-network-label-truncate-length 60
-        org-roam-server-network-label-wrap-length 20))
+        org-roam-server-network-label-wrap-length 20)
+
+  (defun org-roam-server-open ()
+    "Opens the url for the org-roam-server"
+    (interactive)
+    (browse-url (concat "http://" org-roam-server-host ":" (number-to-string org-roam-server-port))))
+
+  :bind (:map org-roam-mode-map
+              (("C-c z o" . org-roam-server-open))))
 
 (provide 'init-org-roam)
 ;;; init-org-roam.el ends here
