@@ -34,6 +34,7 @@
   (after-init . org-roam-mode)
   :custom
   (org-roam-directory (path-join *user-dropbox-directory* "org-roam"))
+  (org-roam-db-location (path-join *user-dropbox-directory* "org-roam" "org-roam.db"))
   (org-roam-capture-templates
    `(("d" "default" plain #'org-roam-capture--get-point
       "%?\n\n* Links\n- %a\n"
