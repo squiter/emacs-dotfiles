@@ -35,7 +35,8 @@
 (use-package terraform-mode)
 
 (use-package adjust-parens
-  :hook ((emacs-lisp-mode clojure-mode) . adjust-parens-mode))
+  :hook (emacs-lisp-mode . adjust-parens-mode)
+  :hook (clojure-mode . adjust-parens-mode))
 
 (use-package init-calendars
   :ensure nil ;; "package" created with config/init-calendars.el
