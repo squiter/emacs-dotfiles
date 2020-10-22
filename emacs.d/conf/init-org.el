@@ -43,6 +43,8 @@
 ;; Load images on startup
 (setq org-startup-with-inline-images t)
 
+(setq org-log-reschedule 'time)
+
 (require 'init-org-keybinds)
 (require 'init-org-bullets)
 (require 'init-org-agenda)
