@@ -29,8 +29,11 @@
 ;;; Code:
 
 (use-package eyebrowse
-  :bind (("C-c C-w k" . eyebrowse-close-window-config)
-         ("C-c C-w l" . eyebrowse-last-window-config))
+  :bind (:map eyebrowse-mode-map
+              ("M-e k" . eyebrowse-close-window-config)
+              ("M-e l" . eyebrowse-last-window-config))
+  :custom
+  (eyebrowse-keymap-prefix (kbd "M-e"))
   :config (eyebrowse-mode t))
 
 (use-package powerline
