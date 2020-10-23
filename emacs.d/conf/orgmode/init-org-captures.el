@@ -76,6 +76,10 @@
         ("h" "Habit" entry (file ,(path-join *user-org-cache-directory* "refile.org"))
          ,(squiter/oc-template "habit.org")
          :clock-in t
+         :clock-resume t)
+        ("1" "1:1 Meetings" entry (file ,(path-join *user-org-cache-directory* "refile.org"))
+         ,(squiter/oc-template "one-o-one-meeting.org")
+         :clock-in t
          :clock-resume t)))
 
 (defvar custom/org-mode-memory nil)
