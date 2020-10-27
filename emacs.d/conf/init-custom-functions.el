@@ -256,5 +256,12 @@ is already narrowed."
      (kill-this-buffer)
      (save-buffers-kill-terminal 't))))
 
+(defun my/open-buffer-path-in-explorer ()
+  "Run explorer on the directory of the current buffer."
+  (interactive)
+  (shell-command (concat
+                  "xdg-open "
+                  default-directory)))
+
 (provide 'init-custom-functions)
 ;;; init-custom-functions.el ends here
