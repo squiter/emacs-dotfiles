@@ -4,7 +4,10 @@
 ;;  init-file I use this file
 ;;; Code:
 
-(use-package ag)
+(use-package ag
+  :ensure-system-package ag)
+(use-package rg
+  :ensure-system-package rg)
 (use-package anzu :config (global-anzu-mode +1))
 (use-package indent-guide :config (indent-guide-global-mode))
 (use-package back-button :config (back-button-mode 1))
@@ -81,7 +84,8 @@
 (use-package discover-my-major
   :bind ("C-h C-m" . discover-my-major))
 
-(use-package docker)
+(use-package docker
+  :ensure-system-package docker)
 (use-package imenu-list)
 (use-package markdown-mode+)
 (use-package rainbow-mode)

@@ -52,6 +52,9 @@
   (package-install 'use-package)
   (require 'use-package))
 
+(use-package use-package-ensure-system-package
+  :ensure t)
+
 (setq use-package-always-ensure t)
 (setq use-package-compute-statistics t)
 
