@@ -77,7 +77,7 @@
          ,(squiter/oc-template "habit.org")
          :clock-in t
          :clock-resume t)
-        ("1" "1:1 Meetings" entry (file ,(path-join *user-org-cache-directory* "refile.org"))
+        ("1" "1:1 Meetings" entry (file+headline ,(path-join *user-org-cache-directory* "nubank.org") "1:1 Meetings")
          ,(squiter/oc-template "one-o-one-meeting.org")
          :clock-in t
          :clock-resume t)))
