@@ -212,5 +212,12 @@ has no effect."
 (setq my/org-habit-show-graphs-everywhere t)
 (advice-add #'org-agenda-finalize :before #'my/org-agenda-mark-habits)
 
+(defun my-init-hook ()
+  (split-window-right)
+  (let ((org-agenda-window-setup 'other-window))
+    (org-agenda nil " ")))
+
+(add-hook 'window-setup-hook #'my-init-hook)
+
 (provide 'init-org)
 ;;; init-org.el ends here
