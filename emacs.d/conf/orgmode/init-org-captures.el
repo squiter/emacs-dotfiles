@@ -123,17 +123,19 @@
     (after delete-capture-frame activate)
   "Advise capture-finalize to close the frame"
   (if (equal "capture" (frame-parameter nil 'name))
-      (delete-frame)))
-
-(defadvice org-capture-destroy
-    (after delete-capture-frame activate)
-  "Advise capture-destroy to close the frame"
-  (if (equal "capture" (frame-parameter nil 'name))
-      (delete-frame)))
+        (delete-frame)))
 
 ;; make the frame contain a single window. by default org-capture
 ;; splits the window.
-(add-hook 'org-capture-mode-hook 'delete-other-windows)
+;; (add-hook 'org-capture-mode-hook 'delete-other-windows)
+
+(defun my-capture-hook ()
+  (when (string= "1" (plist-get org-capture-plist :key))
+    (progn
+      (org-tags-view nil "ONEONONE")
+      (vsplit-last-buffer))))
+
+(add-hook 'org-capture-mode-hook #'my-capture-hook)
 
 (defadvice org-switch-to-buffer-other-window
     (after supress-window-splitting activate)
