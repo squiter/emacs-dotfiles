@@ -5,7 +5,9 @@
   :hook (after-init . global-company-mode)
   :config
   (setq company-minimum-prefix-length 2
-        company-idle-delay 0.1))
+        company-idle-delay 0.1
+        company-echo-delay 0
+        company-show-numbers t))
 
 (use-package company-emoji
   :hook ((after-init . company-emoji-init)
