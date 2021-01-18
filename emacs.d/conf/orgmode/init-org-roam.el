@@ -39,16 +39,17 @@
    `(("d" "default" plain #'org-roam-capture--get-point
       "%?\n\n* Links\n- %a\n"
       :file-name "%<%Y%m%d%H%M%S>-${slug}"
-      :head "#+title: ${title}\n#+roam_tags: %(oc/prmt \"Roam Tags\" 'tags)\n#+roam_key: %(oc/prmt \"Roam Key\" 'key)\n#+created_at: %U\n#+STARTUP: showall\n\n"
+      :head "#+title: ${title}\n#+roam_tags: %(oc/prmt \"Roam Tags\" 'tags)\n#+created_at: %U\n#+STARTUP: showall\n\n"
       :unnarrowed t)))
   :bind (:map org-roam-mode-map
               (("C-c z l" . org-roam)
                ("C-c z f" . org-roam-find-file)
                ("C-c z g" . org-roam-graph-show)
-               ("C-c z s" . org-roam-server-mode))
+               ("C-c z s" . org-roam-server-mode)
+               ("C-c z t" . org-roam-dailies-find-today))
               :map org-mode-map
-              (("C-c z i" . org-roam-insert))
-              (("C-c z I" . org-roam-insert-immediate)))
+              (("C-c z i" . org-roam-insert)
+               ("C-c z I" . org-roam-insert-immediate)))
   :config
   (require 'org-roam-protocol))
 
