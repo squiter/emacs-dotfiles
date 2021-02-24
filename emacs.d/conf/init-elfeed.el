@@ -27,10 +27,22 @@
 
 ;;; Code:
 (use-package elfeed
+  :defer t
+  :bind ((:map elfeed-show-mode-map
+               ("q" . 'bjm/elfeed-save-db-and-bury)
+               ("m" . 'elfeed-toggle-star)
+               ("S" . 'squiter/elfeed-save)
+               ("o" . 'elfeed-show-quick-url-note)
+          :map elfeed-search-mode-map
+               ("q" . 'bjm/elfeed-save-db-and-bury)
+               ("m" . 'elfeed-toggle-star)
+               ("S" . 'squiter/elfeed-save)
+               ("o" . 'elfeed-search-quick-url-note)))
   :init
   (setq elfeed-db-directory (path-join *user-elfeed-directory* "elfeeddb"))
 
   :config
+
   (defun elfeed-mark-all-as-read ()
     (interactive)
     (mark-whole-buffer)
@@ -108,6 +120,7 @@ entry or entries in org aganda."
       (unless (use-region-p) (forward-line)))))
 
 (use-package elfeed-org
+  :after elfeed
   :init
   (elfeed-org)
   (setq rmh-elfeed-org-files (list (path-join *user-elfeed-directory* "elfeed.org"))))
