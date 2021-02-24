@@ -24,7 +24,6 @@
 
 ;;; Code:
 (use-package which-key
-  :defer t
   :init
 
   ;; TODO: this settings seems to not work
