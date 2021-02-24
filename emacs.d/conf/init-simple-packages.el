@@ -128,5 +128,12 @@
 (use-package speed-type :commands speed-type-text)
 (use-package i3wm-config-mode)
 
+(use-package anzu
+  :defer t
+  :bind (("M-%" . 'anzu-query-replace)
+         ("C-M-%" . 'anzu-query-replace-regexp)
+         ("s-%" . 'anzu-query-replace-at-cursor)
+         ("C-%" . 'anzu-replace-at-cursor-thing)))
+
 (provide 'init-simple-packages)
 ;;; init-simple-packages.el ends here
