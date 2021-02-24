@@ -16,11 +16,7 @@
     haskell-mode
     highlight
     hl-anything
-    ivy-youtube
-    json-navigator
-    lua-mode
     mutant
-    ox-twbs
     rbenv
     request
     rhtml-mode
@@ -28,9 +24,6 @@
     rubocop
     ruby-refactor
     ruby-tools
-    symbol-overlay
-    smex
-    tagedit
   )
   "A list of packages to be installed at application lauch.")
 

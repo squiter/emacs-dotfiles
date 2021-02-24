@@ -33,7 +33,8 @@
 (use-package pocket-reader :defer t)
 (use-package git-timemachine :defer t)
 (use-package gist :defer t)
-(use-package terraform-mode)
+(use-package terraform-mode :defer t)
+(use-package lua-mode :defer t)
 
 (use-package multiple-cursors
   :commands (mc/mark-all-like-this
@@ -134,6 +135,12 @@
          ("C-M-%" . 'anzu-query-replace-regexp)
          ("s-%" . 'anzu-query-replace-at-cursor)
          ("C-%" . 'anzu-replace-at-cursor-thing)))
+
+(use-package symbol-overlay)
+
+(use-package json-navigator
+  :commands (json-navigator-navigate-after-point
+             json-navigator-navigate-region))
 
 (provide 'init-simple-packages)
 ;;; init-simple-packages.el ends here
