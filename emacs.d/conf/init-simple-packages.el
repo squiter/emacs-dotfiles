@@ -10,34 +10,39 @@
 (use-package rg
   :commands (rg projectile-ripgrep)
   :ensure-system-package rg)
-(use-package anzu :config (global-anzu-mode +1))
 (use-package indent-guide :config (indent-guide-global-mode))
-(use-package back-button :defer t :config (back-button-mode 1))
 (use-package neotree :bind ("C-c n" . 'neotree-toggle))
 (use-package expand-region :bind ("C-=" . 'er/expand-region))
 (use-package auto-package-update :config (auto-package-update-maybe))
 (use-package undo-tree :defer t :config (global-undo-tree-mode 1))
+;; TODO: try to use more this package:
 (use-package smart-shift :config (global-smart-shift-mode 1))
 (use-package beacon :config (beacon-mode 1))
-(use-package multiple-cursors :init (setq mc/always-run-for-all t))
 (use-package dockerfile-mode :mode "Dockerfile\\'")
 (use-package bash-completion :defer t :config (bash-completion-setup))
 ;; (use-package pdf-tools :config (pdf-tools-install))
 (use-package dired-collapse :hook dired-mode)
-(use-package vmd-mode)
-(use-package indent-tools)
+(use-package vmd-mode :commands vmd-mode)
+(use-package indent-tools :commands indent-tools-hydra/body)
 (use-package ssh-agency)
 (use-package jira-markup-mode :defer t :ensure t)
-(use-package cheat-sh)
+(use-package cheat-sh :commands cheat-sh)
 (use-package wgrep :defer t)
-(use-package try :defer t)
+(use-package try :commands try)
 (use-package free-keys :commands free-keys)
 (use-package restart-emacs :commands restart-emacs)
-(use-package zeal-at-point :bind ("C-c C-d" . 'zeal-at-point))
 (use-package pocket-reader :defer t)
 (use-package git-timemachine :defer t)
 (use-package gist :defer t)
 (use-package terraform-mode)
+
+(use-package multiple-cursors
+  :commands (mc/mark-all-like-this
+             mc/mark-more-like-this-extended
+             mc/mark-more-like-this
+             mc/edit-lines
+             mc/set-rectangular-region-anchor)
+  :init (setq mc/always-run-for-all t))
 
 (use-package adjust-parens
   :hook (emacs-lisp-mode . adjust-parens-mode)
