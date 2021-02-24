@@ -5,36 +5,38 @@
 ;;; Code:
 
 (use-package ag
+  :commands (ag projectile-ag)
   :ensure-system-package ag)
 (use-package rg
+  :commands (rg projectile-ripgrep)
   :ensure-system-package rg)
 (use-package anzu :config (global-anzu-mode +1))
 (use-package indent-guide :config (indent-guide-global-mode))
-(use-package back-button :config (back-button-mode 1))
+(use-package back-button :defer t :config (back-button-mode 1))
 (use-package neotree :bind ("C-c n" . 'neotree-toggle))
 (use-package expand-region :bind ("C-=" . 'er/expand-region))
 (use-package auto-package-update :config (auto-package-update-maybe))
-(use-package undo-tree :config (global-undo-tree-mode 1))
+(use-package undo-tree :defer t :config (global-undo-tree-mode 1))
 (use-package smart-shift :config (global-smart-shift-mode 1))
 (use-package beacon :config (beacon-mode 1))
 (use-package multiple-cursors :init (setq mc/always-run-for-all t))
 (use-package dockerfile-mode :mode "Dockerfile\\'")
-(use-package bash-completion :config (bash-completion-setup))
-(use-package pdf-tools :config (pdf-tools-install))
+(use-package bash-completion :defer t :config (bash-completion-setup))
+;; (use-package pdf-tools :config (pdf-tools-install))
 (use-package dired-collapse :hook dired-mode)
 (use-package vmd-mode)
 (use-package indent-tools)
 (use-package ssh-agency)
-(use-package jira-markup-mode :ensure t)
+(use-package jira-markup-mode :defer t :ensure t)
 (use-package cheat-sh)
-(use-package wgrep)
-(use-package try)
-(use-package free-keys)
-(use-package restart-emacs)
+(use-package wgrep :defer t)
+(use-package try :defer t)
+(use-package free-keys :commands free-keys)
+(use-package restart-emacs :commands restart-emacs)
 (use-package zeal-at-point :bind ("C-c C-d" . 'zeal-at-point))
-(use-package pocket-reader)
-(use-package git-timemachine)
-(use-package gist)
+(use-package pocket-reader :defer t)
+(use-package git-timemachine :defer t)
+(use-package gist :defer t)
 (use-package terraform-mode)
 
 (use-package adjust-parens
@@ -42,6 +44,7 @@
   :hook (clojure-mode . adjust-parens-mode))
 
 (use-package init-calendars
+  :defer t
   :ensure nil ;; "package" created with config/init-calendars.el
   :config
 
@@ -57,6 +60,7 @@
 (use-package init-java :ensure nil)
 
 (use-package yagist
+  :defer t
   :init
   (setq yagist-github-token *user-github-token*))
 
@@ -77,6 +81,7 @@
   :hook (dired-mode . all-the-icons-dired-mode))
 
 (use-package easy-kill
+  :defer t
   :bind
   ([remap kill-ring-save] . easy-kill)
   ([remap mark-sexp] . easy-mark))
@@ -85,8 +90,9 @@
   :bind ("C-h C-m" . discover-my-major))
 
 (use-package docker
+  :commands docker
   :ensure-system-package docker)
-(use-package imenu-list)
+(use-package imenu-list :commands imenu-list)
 (use-package markdown-mode+)
 (use-package rainbow-mode)
 
@@ -101,8 +107,9 @@
     (async-shell-command "bean-report ~/dropbox/ledger/ledger.beancount holdings")))
 
 (use-package init-nu :ensure nil)
-(use-package dictionary)
+(use-package dictionary :defer t)
 (use-package synosaurus
+  :defer t
   :init
   (synosaurus-mode))
 
@@ -114,7 +121,7 @@
 (use-package auto-highlight-symbol
   :hook (prog-mode . auto-highlight-symbol-mode))
 
-(use-package speed-type)
+(use-package speed-type :commands speed-type-text)
 (use-package i3wm-config-mode)
 
 (provide 'init-simple-packages)

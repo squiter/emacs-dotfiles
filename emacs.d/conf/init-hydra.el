@@ -31,6 +31,7 @@
 ;; hydra-laucher ;;
 ;;;;;;;;;;;;;;;;;;;
 (use-package hydra
+  :defer t
   :init (define-prefix-command 'squiter/hydra-map)
   :bind (("<f6>" . 'squiter/hydra-map)
          :map squiter/hydra-map

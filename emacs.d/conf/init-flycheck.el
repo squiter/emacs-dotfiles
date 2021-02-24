@@ -6,6 +6,7 @@
   :init (setq-default flycheck-disabled-checkers '(html-tidy)))
 
 (use-package flycheck-pos-tip
+  :after flycheck
   :config
   (with-eval-after-load 'flycheck (flycheck-pos-tip-mode))
   (eval-after-load 'flycheck

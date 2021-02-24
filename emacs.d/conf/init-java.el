@@ -27,6 +27,7 @@
 
 ;;; Code:
 (use-package meghanada
+  :defer t
   :hook (java-mode . (lambda ()
                       (meghanada-mode t)
                       (flycheck-mode +1)
