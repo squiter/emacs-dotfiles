@@ -7,7 +7,6 @@
       org-export-babel-evaluate nil)
 
 (setq org-babel-clojure-backend 'cider)
-(require 'cider)
 
 ;; racket configuration
 (add-to-list 'load-path (expand-file-name "vendor/ob-racket" user-emacs-directory))
@@ -29,6 +28,9 @@
    (sml . t)
    (racket . t)
    (restclient . t)))
+
+(use-package ob-restclient :defer t)
+(use-package ob-sml :defer t)
 
 (provide 'init-org-babel)
 ;;; init-org-babel.el ends here

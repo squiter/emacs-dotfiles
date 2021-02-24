@@ -21,8 +21,6 @@
     json-navigator
     lua-mode
     mutant
-    ob-restclient
-    ob-sml
     ox-twbs
     rbenv
     request
