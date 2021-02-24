@@ -23,12 +23,11 @@
 ;;; Commentary:
 
 ;;; Code:
-(require 'org-bullets)
-
-(setq org-bullets-bullet-list
-      '("◉" "◎" "⚫" "○" "►" "◇"))
-
-(add-hook 'org-mode-hook 'org-bullets-mode 1)
+(use-package org-bullets
+  :hook (org-mode . org-bullets-mode)
+  :config
+  (setq org-bullets-bullet-list
+        '("◉" "◎" "⚫" "○" "►" "◇")))
 
 (provide 'init-org-bullets)
 ;; init-org-bullets.el ends here

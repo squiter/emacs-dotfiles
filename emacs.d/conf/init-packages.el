@@ -23,7 +23,6 @@
     mutant
     ob-restclient
     ob-sml
-    org-bullets
     ox-twbs
     rbenv
     request
