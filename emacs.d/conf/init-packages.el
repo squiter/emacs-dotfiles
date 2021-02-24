@@ -13,7 +13,6 @@
     doom-themes
     bundler
     enh-ruby-mode
-    haskell-mode
     highlight
     hl-anything
     mutant

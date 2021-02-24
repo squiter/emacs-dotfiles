@@ -1,26 +1,27 @@
 ;;; init-haskell.el --- Configures haskell-mode.
 ;;; Commentary:
 ;;; Code:
-(setq haskell-font-lock-symbols t)
+(use-package haskell-mode
+  :defer t
+  :hook ((haskell-mode-hook . haskell-indentation-mode)
+         (haskell-mode-hook . inf-haskell-mode)
+         (haskell-mode-hook . turn-on-haskell-font-lock))
+  :config
+  (remove-hook 'haskell-mode-hook 'pretty-symbols-mode)
 
-(setq haskell-program-name "ghci") ;; ghci rules !
+  (setq haskell-font-lock-symbols t)
 
-(add-hook 'haskell-mode-hook 'haskell-indentation-mode)
-(add-hook 'haskell-mode-hook 'inf-haskell-mode)
+  (setq haskell-program-name "ghci") ;; ghci rules !
 
-;; -- haskell font lock --
-(add-hook 'haskell-mode-hook 'turn-on-haskell-font-lock)
-(remove-hook 'haskell-mode-hook 'pretty-symbols-mode)
-
-(defvar rr/haskell-font-lock-extra-symbols
-  '(("<alpha>" . #X03B1)
-    ("<beta>" . #X03B2)
-    ("<gamma>" . #X03B3)
-    ("<delta>" . #X03B4)
-    (".." . #X2026)
-    ("`elem`" . #X2208)
-    ("elem" . #X2208)
-    ("^" . #X2191)))
+  (defvar rr/haskell-font-lock-extra-symbols
+    '(("<alpha>" . #X03B1)
+      ("<beta>" . #X03B2)
+      ("<gamma>" . #X03B3)
+      ("<delta>" . #X03B4)
+      (".." . #X2026)
+      ("`elem`" . #X2208)
+      ("elem" . #X2208)
+      ("^" . #X2191))))
 
  ;; (eval-after-load 'haskell-font-lock
  ;;  '(progn
