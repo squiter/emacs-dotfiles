@@ -8,7 +8,6 @@
 
 (defvar my-packages
   '(
-    ace-window
     apropospriate-theme
     challenger-deep-theme
     doom-themes

@@ -54,9 +54,6 @@
 ;;======================  Package's Keybinds ===========================;;
 ;;======================================================================;;
 
-;; ace-window
-(global-set-key (kbd "C-x a W") 'ace-window)
-
 ;; hl-anything
 (global-set-key [(super f3)] 'hl-highlight-thingatpt-local)
 (global-set-key [f3] 'hl-find-next-thing)
