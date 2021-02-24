@@ -33,7 +33,6 @@
     ruby-tools
     symbol-overlay
     smex
-    sml-mode
     tagedit
     zeal-at-point
   )
