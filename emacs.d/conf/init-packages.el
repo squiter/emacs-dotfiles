@@ -34,7 +34,6 @@
     symbol-overlay
     smex
     tagedit
-    zeal-at-point
   )
   "A list of packages to be installed at application lauch.")
 
