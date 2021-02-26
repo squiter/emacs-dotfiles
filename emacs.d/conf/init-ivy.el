@@ -106,6 +106,9 @@
   :bind (("C-s" . swiper)
          ("C-r" . swiper)))
 
+(use-package ivy-youtube
+  :after ivy)
+
 ;; TODO: Make it works with ivy-rich
 ;; (use-package all-the-icons-ivy
 ;;   :after ivy all-the-icons
