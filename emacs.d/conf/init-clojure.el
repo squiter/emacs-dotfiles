@@ -29,10 +29,10 @@
 ;;; Code:
 
 ;; run brew install borkdude/brew/clj-kondo
-(use-package flycheck-clj-kondo)
+(use-package flycheck-clj-kondo
+  :after (flycheck clojure-mode))
 
 (use-package clojure-mode
-  :after flycheck-clj-kindo
   :hook (clojure-mode . subword-mode)
   :hook (clojure-mode . (lambda ()
                           (setq inferior-lisp-program "lein repl")
@@ -46,14 +46,12 @@
                           (define-clojure-indent (facts 1))))
 
   :bind (:map clojure-mode-map
-              ("C-c C-r m l" . clojure-move-to-let))
-
-  :init
-  (eval-after-load 'clojure
-    (define-key clojure-mode-map (kbd "M-n n") 'clojure-insert-ns-form))
+              ("C-c C-r m l" . clojure-move-to-let)
+              ("M-n n" . clojure-insert-ns-form))
 
   :config
-  (require 'flycheck-clj-kondo)
+  ;; I think I don't need this require here!
+  ;; (require 'flycheck-clj-kondo)
   (define-clojure-indent
     (defroutes 'defun)
     (GET 2)
@@ -67,8 +65,6 @@
     (rfn 2)
     (let-routes 1)
     (context 2)))
-
-(use-package clojure-mode-extra-font-locking)
 
 (use-package cider
   :mode (("\\.edn$" . clojure-mode)
@@ -122,6 +118,7 @@
 ;;   :config (eval-after-load 'flycheck '(flycheck-clojure-setup)))
 
 (use-package clj-refactor
+  :after clojure-mode
   :init
   (defun my-clojure-mode-hook ()
     (clj-refactor-mode 1)
