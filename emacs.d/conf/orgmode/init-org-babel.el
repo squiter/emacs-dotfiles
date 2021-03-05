@@ -3,6 +3,9 @@
 ;;  Stolen from: https://github.com/rranelli/emacs-dotfiles
 ;;; Code:
 ;; Setting up babel support for languages
+(use-package ob-restclient)
+(use-package ob-sml)
+
 (setq org-babel-sh-command "bash"
       org-export-babel-evaluate nil)
 
@@ -29,8 +32,6 @@
    (racket . t)
    (restclient . t)))
 
-(use-package ob-restclient :defer t)
-(use-package ob-sml :defer t)
 
 (provide 'init-org-babel)
 ;;; init-org-babel.el ends here
