@@ -27,26 +27,34 @@
 
 ;;; Code:
 
-(use-package persist)
+(use-package persist :defer t)
 
+;; TODO: Fix this package installation
 (use-package org-gcal
-  :after persist
-  :config
+  :hook ((org-agenda-mode-hook . squiter/gcal-fetch-with-messages)
+         (org-after-refile-insert-hook . squiter/gcal-fetch-with-messages))
+  :init
   (setq org-gcal-client-id *google-calendar-client-id*
         org-gcal-client-secret *google-calendar-secret-id*
         org-gcal-file-alist `(("squiter85@gmail.com" . ,(path-join *user-org-cache-directory* "gcal.org"))))
 
-  (add-hook 'org-agenda-mode-hook
-            (lambda ()
-              (message "Syncing Google Calendar...")
-              (org-gcal-fetch)
-              (message "Google Calendar Synced!")))
+  (defun squiter/gcal-fetch-with-messages ()
+    (message "Syncing Google Calendar...")
+    (org-gcal-fetch)
+    (message "Google Calendar Synced!"))
 
-  (add-hook 'org-after-refile-insert-hook
-            (lambda ()
-              (message "Syncing Google Calendar...")
-              (org-gcal-fetch)
-              (message "Google Calendar Synced!"))))
+  ;; (add-hook 'org-agenda-mode-hook
+  ;;           (lambda ()
+  ;;             (message "Syncing Google Calendar...")
+  ;;             (org-gcal-fetch)
+  ;;             (message "Google Calendar Synced!")))
+
+  ;; (add-hook 'org-after-refile-insert-hook
+  ;;           (lambda ()
+  ;;             (message "Syncing Google Calendar...")
+  ;;             (org-gcal-fetch)
+  ;;             (message "Google Calendar Synced!")))
+  (message "org-cal loaded!!"))
 
 (provide 'init-org-gcal)
 ;;; init-org-gcal.el ends here
