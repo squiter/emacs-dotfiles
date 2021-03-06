@@ -142,5 +142,8 @@
   :commands (json-navigator-navigate-after-point
              json-navigator-navigate-region))
 
+(use-package nix-mode
+  :mode "\\.nix\\'")
+
 (provide 'init-simple-packages)
 ;;; init-simple-packages.el ends here

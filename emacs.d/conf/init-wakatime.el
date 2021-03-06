@@ -29,7 +29,9 @@
 
 (use-package wakatime-mode
   :init
-  (setq wakatime-cli-path *wakatime-dir*)
+  (if (file-exists-p *wakatime-dir*)
+      (setq wakatime-cli-path *wakatime-dir*)
+    (setq wakatime-cli-path *wakatime-nix-dir*))
   :config
   (global-wakatime-mode))
 

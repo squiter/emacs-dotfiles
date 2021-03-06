@@ -15,5 +15,13 @@
 (setenv "EDITOR" "emacsclient")
 (setenv "VISUAL" (getenv "EDITOR"))
 
+(if (file-exists-p "/bin/bash")
+    (progn
+      (setenv "SHELL" "/bin/bash")
+      (setenv "ESHELL" "/bin/bash"))
+  (progn
+    (setenv "SHELL" "/run/current-system/sw/bin/bash")
+    (setenv "ESHELL" "/run/current-system/sw/bin/bash")))
+
 (provide 'lib/env)
 ;;; env.el ends here

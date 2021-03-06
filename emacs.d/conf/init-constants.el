@@ -5,7 +5,6 @@
 (require 'lib/path)
 (require 'lib/env)
 
-
 ;;; (Directories) ;;;
 (defconst *user-home-directory*
   (getenv-or "HOME" (concat (expand-file-name "~") "/"))
@@ -36,6 +35,14 @@
 (defconst *emacsd-directory*
   (path-join *emacs-dotfiles-dir* "emacs.d")
   "Path to emacs.d directory.")
+
+(defconst *nixos-current-binaries*
+  (path-join "/" "run" "current-system" "sw" "bin")
+  "Path to the current binaries of NixOS ")
+
+(defconst *wakatime-nix-dir*
+  (path-join *nixos-current-binaries* "wakatime")
+  "Path to the wakatime binary in NixOS.")
 
 (defconst *wakatime-dir*
   (path-join *user-home-directory* ".local" "bin" "wakatime")
