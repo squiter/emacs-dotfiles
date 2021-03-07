@@ -263,6 +263,7 @@ KEYANDHEADLINE should be a list of cons cells of the form (\"key\" . \"headline\
     ("r" (find-file "/sudo::/etc/resolv.conf") "/etc/resolv.conf")
     ("cr" (find-file "/sudo::/etc/cgrules.conf") "Cgroups rules")
     ("cc" (find-file "/sudo::/etc/cgconfig.conf") "Cgroups config")
+    ("n" (find-file "/sudo::/etc/nixos/configuration.nix"))
     ("q" nil "quit" :color red))
 
   (defhydra hydra-smartparens (:hint nil)
