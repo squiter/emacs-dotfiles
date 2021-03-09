@@ -26,6 +26,11 @@
 ;;
 
 ;;; Code:
+(use-package smex
+  :defines smex-save-file
+  :config
+  (smex-initialize))
+
 (use-package counsel
   :after ivy
   :config
