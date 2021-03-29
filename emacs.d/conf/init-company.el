@@ -19,6 +19,8 @@
         (set-fontset-font t 'symbol (font-spec :family "Apple Color Emoji") frame 'prepend)
       (set-fontset-font t 'symbol (font-spec :family "Symbola") frame 'prepend)))
 
+  (setq company-format-margin-function #'company-vscode-light-icons-margin)
+
   (set-emoji-font nil))
 
 (provide 'init-company)
