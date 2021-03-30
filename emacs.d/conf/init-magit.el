@@ -16,6 +16,8 @@
   (:map magit-status-mode-map
         ("q"   . magit-quit-session)
         ("M-1" . delete-other-windows))
+  (:map git-commit-mode-map
+        ("C-c C-a" . git-commit-co-authored))
 
   :config
   (defadvice magit-status (around magit-fullscreen activate)
