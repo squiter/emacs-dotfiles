@@ -125,5 +125,32 @@ With a `C-u` ARG, just jump to the headline."
     (when (or arg is-capturing)
       (setq hydra-deactivate t))))
 
+(defun my-org-export-each-headline-to-markdown (&optional scope)
+  "Export each headline to a markdown file with the title as filename.
+If SCOPE is nil headlines in the current buffer are exported.
+For other valid values for SCOPE see `org-map-entries'.
+Already existing files are overwritten."
+  (interactive)
+  ;; Widen buffer temporarily as narrowing would affect the exporting.
+  (org-with-wide-buffer
+   (save-mark-and-excursion
+     ;; Loop through each headline.
+     (org-map-entries
+      (lambda ()
+        ;; Get the plain headline text without statistics and make filename.
+        (let* ((title (car (last (org-get-outline-path t))))
+               (dir (file-name-directory buffer-file-name))
+               (filename (concat dir title ".md")))
+          ;; Set the active region.
+          (set-mark (point))
+          (outline-next-preface)
+          (activate-mark)
+          ;; Export the region to a markdown file.
+          (with-current-buffer (org-md-export-as-markdown)
+            ;; Save the buffer to file and kill it.
+            (write-file filename)
+            (kill-current-buffer))))
+      nil scope))))
+
 (provide 'init-org-customs)
 ;;; init-org-customs.el ends here
