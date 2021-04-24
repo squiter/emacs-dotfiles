@@ -33,5 +33,9 @@
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
+(use-package grip-mode
+  :bind (:map markdown-mode-command-map
+         ("g" . grip-mode)))
+
 (provide 'init-markdown)
 ;;; init-markdown.el ends here
