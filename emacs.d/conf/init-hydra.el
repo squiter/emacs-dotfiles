@@ -48,28 +48,24 @@
     "
 ^SQUITER HOTSPOTS:^
 
- Locaweb                  Pessoal               Paths
+ Nubank                  Pessoal               Paths
 --------------------------------------------------------------------------
-_p_: Ponto               _C_: Calendar         _D_: ~/Downloads
-_c_: CI                  _g_: Github           _e_: ~/.emacs.d
-_m_: Merge Requests      _f_: Elfeed           _E_: ../elfeed.org
-_r_: Retro               _x_: Exist.io         _l_: ../ledger.beancount
-_d_: Docs Hospedagem
+_o_: Okta Home           _g_: Github            _D_: ~/Downloads
+_s_: CI                  _f_: Elfeed            _e_: ~/.emacs.d
+_r_: d2dh                _x_: Exist.io          _E_: ../elfeed.org
+                                                _l_: ../ledger.beancount
 --------------------------------------------------------------------------
 "
-    ("p" (browse-url "https://portalrh.cservices.com.br/PortalLocaweb/"))
-    ("c" (browse-url "http://ci.qaservices.locaweb.com.br/job/paas_paas/job/paas_hospedagem/"))
-    ("m" (browse-url "https://code.locaweb.com.br/dashboard/merge_requests?scope=all&state=opened&utf8=%E2%9C%93&label_name%5B%5D=novo-provisionamento"))
-    ("r" (browse-url "https://maps.groupmap.com/maps"))
-    ("d" (browse-url "http://apps-hospedagem.docs.arda.locaweb.com.br"))
-    ("C" (cfw:open-all-calendars))
+    ("o" (browse-url "https://nubank.okta.com/app/UserHome"))
+    ("s" (browse-url "https://app.slack.com/"))
+    ("r" (counsel-find-file "~/dev/code/d2dh/restclient"))
     ("g" (browse-url "https://github.com/squiter"))
+    ("f" (bjm/elfeed-load-db-and-open))
     ("x" (browse-url (format "https://exist.io/mood/timeline/edit/%s/" (format-time-string "%Y-%m-%d"))))
-    ("D" (find-file "~/Downloads"))
+    ("D" (counsel-find-file "~/Downloads"))
     ("e" (find-file "~/.emacs.d"))
     ("E" (find-file "~/Dropbox/elfeed/elfeed.org"))
     ("l" (find-file "~/Dropbox/ledger/ledger.beancount"))
-    ("f" (bjm/elfeed-load-db-and-open))
     ("q" nil "cancel" :color blue))
 
 
@@ -257,6 +253,7 @@ KEYANDHEADLINE should be a list of cons cells of the form (\"key\" . \"headline\
     ("D" (find-file "/usr/local/share/applications/") ".desktop files in /usr")
     ("i" (find-file "~/.config/i3/config") "i3 config")
     ("3" (find-file "~/.config/i3status/config") "i3 status config")
+    ("e" (find-file "~/.config/espanso/default.yml") "espanso config")
     ("s" (find-file "/sudo::/etc/apt/sources.list") "Package source list")
     ("S" (find-file "/sudo::/etc/apt/sources.list.d") "Package source dir for ppas")
     ("h" (find-file "/sudo::/etc/hosts") "/etc/hosts")
