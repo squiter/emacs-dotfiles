@@ -43,7 +43,8 @@
   (setq lsp-ui-doc-position "top"
         lsp-ui-flycheck-enable t
         lsp-ui-imenu-enable t
-        lsp-ui-sideline-ignore-duplicate t))
+        lsp-ui-sideline-ignore-duplicate t
+        lsp-ui-sideline-enable nil))
 (use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
 (use-package lsp-treemacs :commands lsp-treemacs-errors-list)
 (use-package company-lsp :commands company-lsp)
