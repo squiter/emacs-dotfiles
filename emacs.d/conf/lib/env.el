@@ -8,8 +8,8 @@
       (getenv env)
     value))
 
-(setenv "LC_ALL" "en_US.utf-8")
-(setenv "LANG" "en_US.utf-8")
+;; (setenv "LC_ALL" "en_US.utf-8")
+;; (setenv "LANG" "en_US.utf-8")
 (setenv "SHELL" "/bin/bash")
 (setenv "ESHELL" "/bin/bash")
 (setenv "EDITOR" "emacsclient")
