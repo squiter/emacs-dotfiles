@@ -53,7 +53,9 @@
 (defun bh/show-org-agenda ()
   (interactive)
   (if org-agenda-sticky
-      (switch-to-buffer "*Org Agenda( )*")
+      (if (get-buffer "*Org Agenda( )*")
+          (switch-to-buffer "*Org Agenda( )*")
+        (org-agenda nil " "))
     (switch-to-buffer "*Org Agenda*"))
   (delete-other-windows))
 
