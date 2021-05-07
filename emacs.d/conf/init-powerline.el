@@ -66,8 +66,8 @@
                   (:eval
                    (let* ((active (powerline-selected-window-active))
                           (modified (buffer-modified-p))
-                          (face1 (if active 'powerline-active1 'powerline-inactive1))
-                          (face2 (if active 'powerline-active2 'powerline-inactive2))
+                          (face1 (if active 'mode-line 'mode-line-inactive))
+                          (face2 (if active 'mode-line 'mode-line-inactive))
                           (bar-color (cond ((and active modified) (face-foreground 'error))
                                            (active (face-background 'cursor))
                                            (t (face-background 'tooltip))))

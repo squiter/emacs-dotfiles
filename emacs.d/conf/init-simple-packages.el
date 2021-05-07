@@ -145,5 +145,7 @@
 (use-package nix-mode
   :mode "\\.nix\\'")
 
+(use-package shades-of-purple-theme)
+
 (provide 'init-simple-packages)
 ;;; init-simple-packages.el ends here

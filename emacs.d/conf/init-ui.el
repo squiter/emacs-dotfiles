@@ -6,7 +6,8 @@
 (add-to-list 'custom-theme-load-path (concat *emacsd-directory* "/themes"))
 (add-to-list 'load-path (concat *emacsd-directory* "/themes"))
 
-(load-theme 'challenger-deep t)
+(load-theme 'shades-of-purple t)
+;; (load-theme 'challenger-deep t)
 ;; (load-theme 'apropospriate-light t)
 
 (global-display-line-numbers-mode)
