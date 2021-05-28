@@ -98,7 +98,6 @@
   :commands docker
   :ensure-system-package docker)
 (use-package imenu-list :commands imenu-list)
-(use-package markdown-mode+)
 (use-package rainbow-mode)
 
 (use-package beancount
