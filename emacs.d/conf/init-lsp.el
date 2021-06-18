@@ -47,13 +47,13 @@
   (define-key lsp-ui-mode-map [remap xref-find-definitions] #'lsp-ui-peek-find-definitions)
   (define-key lsp-ui-mode-map [remap xref-find-references] #'lsp-ui-peek-find-references)
   (setq lsp-ui-doc-position "top"
+        lsp-ui-doc-show-with-cursor nil
         lsp-ui-flycheck-enable t
         lsp-ui-imenu-enable t
         lsp-ui-sideline-ignore-duplicate t
         lsp-ui-sideline-enable nil))
 (use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
 (use-package lsp-treemacs :commands lsp-treemacs-errors-list)
-(use-package company-lsp :commands company-lsp)
 
 (provide 'init-lsp)
 ;;; init-lsp.el ends here
