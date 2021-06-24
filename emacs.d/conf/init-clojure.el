@@ -64,7 +64,10 @@
     (PATCH 2)
     (rfn 2)
     (let-routes 1)
-    (context 2)))
+    (context 2))
+
+  ;; Babashka Config
+  (add-to-list 'interpreter-mode-alist '("bb" . clojure-mode)))
 
 (use-package cider
   :mode (("\\.edn$" . clojure-mode)
