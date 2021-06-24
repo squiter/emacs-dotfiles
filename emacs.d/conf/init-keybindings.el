@@ -167,5 +167,7 @@
 
 (define-key edit-server-edit-mode-map (kbd "C-c C-c") 'edit-server-done)
 
+(global-set-key (kbd "C-c r") 'raise-sexp)
+
 (provide 'init-keybindings)
 ;;; init-keybindings.el ends here
