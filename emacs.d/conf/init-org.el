@@ -61,7 +61,6 @@
 (require 'init-org-customs)
 (require 'init-org-gcal)
 (require 'init-org-insert-image)
-(require 'init-org-roam)
 
 (add-hook 'org-mode-hook (lambda ()
    "Beautify Org Checkbox Symbol"
