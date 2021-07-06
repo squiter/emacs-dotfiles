@@ -27,6 +27,22 @@
 (use-package smartparens
   :hook ((prog-mode . turn-on-smartparens-mode)
          (markdown-mode . turn-on-smartparens-mode))
+  :bind (:map smartparens-mode-map
+              ("C-c ( f" . sp-forward-sexp)
+              ("C-c ( b" . sp-backward-sexp)
+              ("C-c ( a" . sp-beginning-of-sexp)
+              ("C-c ( e" . sp-end-of-sexp)
+              ("C-c ( d" . sp-down-sexp)
+              ("C-c ( u" . sp-up-sexp)
+              ("C-c ( n" . sp-next-sexp)
+              ("C-c ( p" . sp-previous-sexp)
+              ("C-c ( k" . 'sp-kill-hybrid-sexp)
+              ("C-c ( (" . 'hydra-smartparens/body)
+              ("C-c ) s b" . 'sp-backward-slurp-sexp)
+              ("C-c ) s f" . 'sp-forward-slurp-sexp)
+              ("C-c ) b b" . 'sp-backward-barf-sexp)
+              ("C-c ) b f" . 'sp-forward-barf-sexp)
+              ("C-(" . 'sp-rewrap-sexp))
   :config
 
   ;; highlights matching pairs

@@ -91,39 +91,12 @@
 (global-set-key (kbd "C-c m n") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-c m r") 'mc/set-rectangular-region-anchor)
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Smartparend keybinds ;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-;; navigation keybinds
-(define-key smartparens-mode-map (kbd "M-[ f") 'sp-forward-sexp)
-(define-key smartparens-mode-map (kbd "M-[ b") 'sp-backward-sexp)
-(define-key smartparens-mode-map (kbd "M-[ a") 'sp-beginning-of-sexp)
-(define-key smartparens-mode-map (kbd "M-[ e") 'sp-end-of-sexp)
-(define-key smartparens-mode-map (kbd "M-[ d") 'sp-down-sexp)
-(define-key smartparens-mode-map (kbd "M-[ u") 'sp-up-sexp)
-(define-key smartparens-mode-map (kbd "M-[ n") 'sp-next-sexp)
-(define-key smartparens-mode-map (kbd "M-[ p") 'sp-previous-sexp)
-
-;; slurp and barf
-(define-key smartparens-mode-map (kbd "M-] s b") 'sp-backward-slurp-sexp)
-(define-key smartparens-mode-map (kbd "M-] s f") 'sp-forward-slurp-sexp)
-(define-key smartparens-mode-map (kbd "M-] b b") 'sp-backward-barf-sexp)
-(define-key smartparens-mode-map (kbd "M-] b f") 'sp-forward-barf-sexp)
-
-;; change surround
-(define-key smartparens-mode-map (kbd "C-(") 'sp-rewrap-sexp)
-
 ;; ctags stuff
 (global-set-key (kbd "M-*") 'pop-tag-mark)
 
 ;; Indent-tools hydra
 (global-set-key (kbd "C-c >") 'indent-tools-hydra/body)
 
-;; kill sexp
-(define-key smartparens-mode-map (kbd "M-[ k") 'sp-kill-hybrid-sexp)
-
-(define-key smartparens-mode-map (kbd "M-[ [") 'hydra-smartparens/body)
 
 ;;;;;;;;;;;;;;;
 ;; ruby-mode ;;
