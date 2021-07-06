@@ -1,4 +1,4 @@
- ?;;; init-keybindings.el --- My custom keybindigs
+;;; init-keybindings.el --- My custom keybindigs
 ;;; Commentary:
 ;;  This file doesn't contain specific mode keybindings
 ;;; Code:
