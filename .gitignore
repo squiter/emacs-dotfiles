@@ -30,3 +30,5 @@ emacs.d/games/*
 /emacs.d/speed-type/
 /emacs.d/persist/
 /emacs.d/transient/
+/emacs.d/workspace/
+/emacs.d/.org-generic-id-locations
