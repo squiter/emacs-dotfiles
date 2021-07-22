@@ -258,5 +258,49 @@ is already narrowed."
                   "xdg-open "
                   default-directory)))
 
+;; TODO: Make this function writes the output in a file
+(defun squiter/describe-personal-keybindings ()
+  "Display all the personal keybindings defined by `bind-key'."
+  (interactive)
+  (with-output-to-temp-buffer "*Squiter :: Personal Keybindings*"
+    (let (last-binding)
+      (dolist (binding
+               (setq personal-keybindings
+                     (sort personal-keybindings
+                           (lambda (l r)
+                             (car (compare-keybindings l r))))))
+
+        (if (eq (cdar last-binding) (cdar binding))
+          (if (and last-binding
+                   (cdr (compare-keybindings last-binding binding)))
+              (princ "")))
+
+        (let* ((key-name (caar binding))
+               (at-present (lookup-key (or (symbol-value (cdar binding))
+                                           (current-global-map))
+                                       (read-kbd-macro key-name)))
+               (command (nth 1 binding))
+               (was-command (nth 2 binding))
+               (command-desc (get-binding-description command))
+               (was-command-desc (and was-command
+                                      (get-binding-description was-command)))
+               (at-present-desc (get-binding-description at-present)))
+          (let ((line
+                 (format
+                  (format "%%-%ds%%-%ds%%s\n" (car bind-key-column-widths)
+                          (cdr bind-key-column-widths))
+                  key-name (format "`%s\'" command-desc)
+                  (if (string= command-desc at-present-desc)
+                      (if (or (null was-command)
+                              (string= command-desc was-command-desc))
+                          ""
+                        (format "was `%s\'" was-command-desc))
+                    (format "[now: `%s\']" at-present)))))
+            (princ (if (string-match "[ \t]+\n" line)
+                       (replace-match "\n" t t line)
+                     line))))
+
+        (setq last-binding binding)))))
+
 (provide 'init-custom-functions)
 ;;; init-custom-functions.el ends here

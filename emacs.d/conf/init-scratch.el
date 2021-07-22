@@ -27,6 +27,7 @@
 ;;; Code:
 (defvar welcome-message '(";;; Welcome Squiter 🐱"))
 
+;; TODO: Try to get this bindings from `describe-personal-keybinds`
 (defvar keybindings-file (concat *emacsd-directory* "/conf" "/init-keybindings.el"))
 (defvar tips-file (concat *emacsd-directory* "/pragmatic-tips.txt"))
 
@@ -50,6 +51,17 @@ It use PREFIX message and a random line of FILENAME."
 (add-to-list 'welcome-message "\n")
 
 (setq initial-scratch-message (mapconcat 'identity (reverse welcome-message) "\n"))
+
+(use-package dashboard
+  :config
+  (setq dashboard-items '((recents  . 5)
+                        (bookmarks . 5)
+                        (projects . 5)
+                        (agenda . 5)))
+  (setq dashboard-set-heading-icons t)
+  (setq dashboard-set-file-icons t)
+  (setq dashboard-startup-banner 3)
+  (dashboard-setup-startup-hook))
 
 (provide 'init-scratch)
 ;;; init-scratch.el ends here
