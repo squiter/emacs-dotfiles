@@ -30,6 +30,7 @@
 ;; TODO: test this
 (use-package lsp-mode
   :hook ((clojure-mode . lsp)
+         (elixir-mode . lsp)
          (lsp-mode . lsp-enable-which-key-integration))
   :commands lsp
   :init

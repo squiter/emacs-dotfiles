@@ -35,5 +35,8 @@
   :after alchemist
   :config (eval-after-load 'flycheck '(flycheck-credo-setup)))
 
+(use-package exunit
+  :hook (elixir-mode . exunit-mode))
+
 (provide 'init-elixir)
 ;;; init-elixir.el ends here
