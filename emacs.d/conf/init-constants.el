@@ -51,7 +51,8 @@
 (defconst *all-project-directories*
   (list
    *projects-directory*
-   (path-join *user-home-directory* "dev" "nu"))
+   (path-join *user-home-directory* "dev" "nu")
+   (path-join *user-home-directory* "dev" "finbits"))
   "List of all my project directories.")
 
 (provide 'init-constants)
