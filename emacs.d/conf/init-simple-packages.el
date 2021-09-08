@@ -147,6 +147,12 @@
 (use-package shades-of-purple-theme)
 
 (use-package scala-mode :interpreter ("scala" . scala-mode))
+(use-package typescript-mode
+  :defer t
+  :mode (("\\.ts\\'" . typescript-mode)
+         ("\\.tsx\\'" . typescript-mode))
+  :config
+  (setq typescript-indent-level 2))
 
 (provide 'init-simple-packages)
 ;;; init-simple-packages.el ends here
