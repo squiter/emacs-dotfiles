@@ -29,6 +29,8 @@
 (use-package alchemist
   :hook ((elixir-mode . alchemist-mode)
          (elixir-mode . flycheck-mode))
+  :bind (:map elixir-mode-map
+              ("C-c i" . elixir-format))
   :init (setq alchemist-key-command-prefix (kbd "C-c ,")))
 
 (use-package flycheck-credo
