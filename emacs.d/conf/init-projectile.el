@@ -30,6 +30,7 @@
   :bind-keymap ("C-c p" . projectile-command-map)
   :bind
   ("C-c o" . squiter/ivy-open-project)
+  ("C-c M-&" . projectile-run-async-shell-command-in-root)
 
   :commands (projectile-project-p)
   :config
