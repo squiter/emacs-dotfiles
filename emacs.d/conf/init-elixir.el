@@ -38,7 +38,16 @@
   :config (eval-after-load 'flycheck '(flycheck-credo-setup)))
 
 (use-package exunit
-  :hook (elixir-mode . exunit-mode))
+  :after (elixir-mode)
+  :hook (elixir-mode . exunit-mode)
+
+  :bind
+  (:map elixir-mode-map
+        ("C-c , a" . exunit-verify-all)
+        ("C-c , A" . exunit-verify-all-in-umbrella)
+        ("C-c , s" . exunit-verify-single)
+        ("C-c , v" . exunit-verify)
+        ("C-c , r" . exunit-rerun)))
 
 (provide 'init-elixir)
 ;;; init-elixir.el ends here
