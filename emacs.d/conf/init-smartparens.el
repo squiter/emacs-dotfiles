@@ -52,6 +52,10 @@
   (sp-with-modes '(ruby-mode)
     (sp-local-pair "|" "|"))
 
+  ;; I don't know if this is really necessary, but it works
+  (sp-with-modes '(elixir-mode)
+    (sp-local-pair "do" "end"))
+
   (sp-with-modes '(org-mode)
     (sp-local-pair "=" "="))
 
