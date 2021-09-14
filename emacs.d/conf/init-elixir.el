@@ -34,8 +34,13 @@
   :init (setq alchemist-key-command-prefix (kbd "C-c ,")))
 
 (use-package flycheck-credo
-  :after alchemist
-  :config (eval-after-load 'flycheck '(flycheck-credo-setup)))
+  :after (flycheck elixir-mode)
+
+  :custom
+  (flycheck-elixir-credo-strict t)
+
+  :hook
+  (elixir-mode . flycheck-credo-setup))
 
 (use-package exunit
   :after (elixir-mode)
