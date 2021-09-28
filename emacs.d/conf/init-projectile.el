@@ -29,8 +29,10 @@
 (use-package projectile
   :bind-keymap ("C-c p" . projectile-command-map)
   :bind
-  ("C-c o" . squiter/ivy-open-project)
-  ("C-c M-&" . projectile-run-async-shell-command-in-root)
+  (("C-c o" . squiter/ivy-open-project)
+   :map projectile-command-map
+   ("&" . projectile-run-async-shell-command-in-root)
+   ("w" . squiter/copy-relative-path))
 
   :commands (projectile-project-p)
   :config
@@ -75,7 +77,11 @@
     ;; TODO: Add default file get.
     (let* ((candidates (-mapcat (lambda (d) (directory-files path t d)) rr/default-file-regexps))
            (elected (car candidates)))
-      (find-file (or elected path)))))
+      (find-file (or elected path))))
+
+  (defun squiter/copy-relative-path ()
+    (interactive)
+    (kill-new (file-relative-name buffer-file-name (projectile-project-root)))))
 
 (use-package projectile-rails
   :after projectile
