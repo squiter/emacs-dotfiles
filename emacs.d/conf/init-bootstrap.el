@@ -84,6 +84,7 @@
     init-elfeed
     rcodetools
     init-elixir
+    init-javascript
     init-keybindings))
 
 (defun safe-require (feature)
