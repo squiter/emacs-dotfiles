@@ -53,5 +53,8 @@
 ;; disk. I use this to revert my refile.org and avoid conflicts
 (global-auto-revert-mode t)
 
+;; enable cameCase support for all programming modes
+(add-hook 'prog-mode-hook 'subword-mode)
+
 (provide 'init-general)
 ;;; init-general.el ends here
