@@ -26,5 +26,12 @@
 
   (add-hook 'web-mode-hook 'rr/web-mode-conf))
 
+(use-package emmet-mode
+  :hook ((web-mode . emmet-mode)
+         (typescript-mode . emmet-mode))
+  :config
+  (setq emmet-self-closing-tag-style " /")
+  (add-to-list 'emmet-jsx-major-modes 'typescript-mode))
+
 (provide 'init-web-mode)
 ;;; init-web-mode.el ends here
