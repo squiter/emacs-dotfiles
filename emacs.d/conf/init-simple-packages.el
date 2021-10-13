@@ -154,5 +154,10 @@
   :config
   (setq typescript-indent-level 2))
 
+(use-package prettier-js
+  :hook ((web-mode . prettier-js-mode)
+         (typescript-mode . prettier-js-mode))
+  :custom (prettier-js-command "/home/squiter/.npm-global/bin/prettier"))
+
 (provide 'init-simple-packages)
 ;;; init-simple-packages.el ends here
