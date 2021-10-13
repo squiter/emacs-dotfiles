@@ -32,3 +32,4 @@ emacs.d/games/*
 /emacs.d/transient/
 /emacs.d/workspace/
 /emacs.d/.org-generic-id-locations
+/emacs.d/.cache/
