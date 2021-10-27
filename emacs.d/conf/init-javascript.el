@@ -34,9 +34,17 @@
   (setq typescript-indent-level 2))
 
 (use-package prettier-js
+  :defer t
   :hook ((web-mode . prettier-js-mode)
          (typescript-mode . prettier-js-mode))
   :custom (prettier-js-command "/home/squiter/.npm-global/bin/prettier"))
+
+(use-package tide
+  :defer t
+  :after (typescript-mode company flycheck)
+  :hook ((typescript-mode . tide-setup)
+         (typescript-mode . tide-hl-identifier-mode)
+         (before-save . tide-format-before-save)))
 
 (provide 'init-javascript)
 ;;; init-javascript.el ends here
