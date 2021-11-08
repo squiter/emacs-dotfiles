@@ -147,6 +147,7 @@
 (use-package shades-of-purple-theme)
 
 (use-package scala-mode :interpreter ("scala" . scala-mode))
+(use-package rust-mode)
 
 (provide 'init-simple-packages)
 ;;; init-simple-packages.el ends here
