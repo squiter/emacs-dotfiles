@@ -32,6 +32,7 @@
   :hook ((clojure-mode . lsp)
          (elixir-mode . lsp)
          (typescript-mode . lsp)
+         (rustic-mode . lsp)
          (lsp-mode . lsp-enable-which-key-integration))
   :commands lsp
   :init
@@ -41,7 +42,11 @@
   (lsp-register-client
    (make-lsp-client :new-connection (lsp-stdio-connection '("rnix-lsp"))
                     :major-modes '(nix-mode)
-                    :server-id 'nix)))
+                    :server-id 'nix))
+  :custom
+  (lsp-rust-analyzer-cargo-watch-command "clippy")
+  (lsp-rust-analyzer-server-display-inlay-hints t)
+  (lsp-eldoc-render-all t))
 
 (use-package lsp-ui
   :commands lsp-ui-mode
@@ -53,7 +58,10 @@
         lsp-ui-flycheck-enable t
         lsp-ui-imenu-enable t
         lsp-ui-sideline-ignore-duplicate t
-        lsp-ui-sideline-enable nil))
+        lsp-ui-sideline-show-hover t
+        lsp-ui-sideline-enable nil
+        lsp-ui-peek-always-show t))
+
 (use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
 (use-package lsp-treemacs :commands lsp-treemacs-errors-list)
 
