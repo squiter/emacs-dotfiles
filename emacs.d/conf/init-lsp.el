@@ -37,6 +37,8 @@
   :commands lsp
   :init
   (setq lsp-keymap-prefix "C-c l")
+  (setq gc-cons-threshold 100000000)
+  (setq read-process-output-max (* 1024 1024)) ;; 1mb
   :config
   (add-to-list 'lsp-language-id-configuration '(nix-mode . "nix"))
   (lsp-register-client
