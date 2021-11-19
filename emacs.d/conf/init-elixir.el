@@ -43,8 +43,7 @@
   (elixir-mode . flycheck-credo-setup))
 
 (use-package exunit
-  :after (elixir-mode)
-  :hook (elixir-mode . exunit-mode)
+  :hook (alchemist-mode . exunit-mode)
 
   :bind
   (:map elixir-mode-map
@@ -52,7 +51,8 @@
         ("C-c , A" . exunit-verify-all-in-umbrella)
         ("C-c , s" . exunit-verify-single)
         ("C-c , v" . exunit-verify)
-        ("C-c , r" . exunit-rerun)))
+        ("C-c , r" . exunit-rerun)
+        ("C-c , f" . exunit-toggle-file-and-test)))
 
 (provide 'init-elixir)
 ;;; init-elixir.el ends here
