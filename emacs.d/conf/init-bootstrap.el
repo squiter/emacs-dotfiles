@@ -85,6 +85,7 @@
     rcodetools
     init-elixir
     init-javascript
+    init-rust
     init-keybindings))
 
 (defun safe-require (feature)
