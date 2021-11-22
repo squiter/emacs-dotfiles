@@ -9,6 +9,7 @@
   :bind
   ("C-c g"   . magit-status)
   ("M-g c"   . magit-checkout)
+  ("M-g l"   . magit-log-buffer-file)
   ("M-n b c" . plambert/branch-changelog)
   (:map magit-branch-section-map
         ("RET"        . magit-checkout)
