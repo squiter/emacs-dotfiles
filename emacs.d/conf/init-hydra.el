@@ -239,15 +239,15 @@ KEYANDHEADLINE should be a list of cons cells of the form (\"key\" . \"headline\
                               "crypt.org"
                               (("n" . "notes")))
 
-  (defhydra squiter/org-refile-hydra (:foreign-keys run)
+  (defhydra squiter/org-refile-hydra (:foreign-keys run :exit t)
     "Refile"
-    ("m" squiter/org-refile-hydra-master/body "master.org" :exit t)
-    ("n" squiter/org-refile-hydra-nubank/body "nubank.org" :exit t)
-    ("g" squiter/org-refile-hydra-geloefogo/body "geloefogo.org" :exit t)
-    ("k" squiter/org-refile-hydra-crypt/body "crypt.org" :exit t)
+    ("m" squiter/org-refile-hydra-master/body "master.org")
+    ("n" squiter/org-refile-hydra-nubank/body "nubank.org")
+    ("g" squiter/org-refile-hydra-geloefogo/body "geloefogo.org")
+    ("k" squiter/org-refile-hydra-crypt/body "crypt.org")
     ("q" nil "cancel"))
 
-  (defhydra squiter/hydra-edit-conf (:hint nil :columns 3)
+  (defhydra squiter/hydra-edit-conf (:hint nil :columns 3 :exit t)
     "Edit system configuration files (Ubuntu)"
     ("d" (find-file "~/.local/share/applications/") ".desktop files in Home")
     ("D" (find-file "/usr/local/share/applications/") ".desktop files in /usr")
