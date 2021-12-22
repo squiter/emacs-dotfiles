@@ -30,10 +30,9 @@
   :hook ((web-mode . emmet-mode)
          (typescript-mode . emmet-mode))
   :bind (("C-<tab>" . emmet-expand-line))
-  :init
+  :config
   (unbind-key "<C-return>" emmet-mode-keymap)
   (unbind-key "C-j" emmet-mode-keymap)
-  :config
   (setq emmet-self-closing-tag-style " /")
   (add-to-list 'emmet-jsx-major-modes 'typescript-mode))
 
