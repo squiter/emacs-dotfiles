@@ -148,5 +148,15 @@
 
 (use-package scala-mode :interpreter ("scala" . scala-mode))
 
+(use-package tzc
+  :init
+  (setq tzc-main-dir "/run/current-system/etc/zoneinfo/")
+  (setq tzc-favourite-time-zones-alist '(("UTC+0000" "UTC")
+					 ("America/New_York" "New York")
+					 ("America/Sao_Paulo" "Sao Paulo")
+					 ("UK/London" "London")
+					 ("Europe/Berlin" "Berlin")
+					 ("Asia/Tokyo" "Tokyo"))))
+
 (provide 'init-simple-packages)
 ;;; init-simple-packages.el ends here
