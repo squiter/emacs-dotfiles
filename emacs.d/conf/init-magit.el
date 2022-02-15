@@ -42,7 +42,8 @@
       (message "Changelog copied to kill-ring."))))
 
 (use-package magit-todos :after magit :config (magit-todos-mode))
-(use-package magithub :after magit :config (magithub-feature-autoinject t))
+(use-package forge :after magit)
+(use-package github-review :after magit)
 
 (provide 'init-magit)
 ;;; init-magit.el ends here
