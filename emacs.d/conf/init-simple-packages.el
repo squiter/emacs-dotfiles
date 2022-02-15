@@ -4,6 +4,12 @@
 ;;  init-file I use this file
 ;;; Code:
 
+(use-package avy
+  :bind (("C-) c" . avy-goto-char)
+         ("C-) 2" . avy-goto-char-2)
+         ("C-) t" . avy-goto-char-timer)
+         ("C-) w" . avy-goto-word-1)))
+
 (use-package ag
   :commands (ag projectile-ag)
   :ensure-system-package ag)
