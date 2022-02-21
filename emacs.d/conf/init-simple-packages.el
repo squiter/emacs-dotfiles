@@ -163,6 +163,7 @@
 					 ("Asia/Tokyo" "Tokyo"))))
 
 (use-package request)
+(use-package rhtml-mode :defer t)
 
 ;; Themes
 (use-package shades-of-purple-theme)

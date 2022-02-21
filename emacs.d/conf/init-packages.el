@@ -12,7 +12,6 @@
     enh-ruby-mode
     mutant
     rbenv
-    rhtml-mode
     rspec-mode
     rubocop
     ruby-refactor
