@@ -33,7 +33,7 @@
 (defvar init-files
   '(init-secrets
     init-constants
-    init-packages
+    init-simple-packages
     init-general
     init-custom-functions
     init-edit-custom-functions
