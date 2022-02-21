@@ -161,6 +161,9 @@
 					 ("UK/London" "London")
 					 ("Europe/Berlin" "Berlin")
 					 ("Asia/Tokyo" "Tokyo"))))
+
+(use-package request)
+
 ;; Themes
 (use-package shades-of-purple-theme)
 ;; (use-package apropospriate-theme)

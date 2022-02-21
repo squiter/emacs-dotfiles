@@ -70,14 +70,12 @@
     init-which-key
     init-markdown
     vkill
-    init-cas
     init-artist-mode
     init-git-pr
     init-langtool
     init-google
     vmd-mode
     init-scratch
-    init-exist
     init-prettify-symbols
     init-ctags
     init-hydra

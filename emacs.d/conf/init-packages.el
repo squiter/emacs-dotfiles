@@ -12,7 +12,6 @@
     enh-ruby-mode
     mutant
     rbenv
-    request
     rhtml-mode
     rspec-mode
     rubocop
