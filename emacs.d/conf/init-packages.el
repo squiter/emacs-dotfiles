@@ -8,9 +8,6 @@
 
 (defvar my-packages
   '(
-    apropospriate-theme
-    challenger-deep-theme
-    doom-themes
     bundler
     enh-ruby-mode
     highlight

@@ -150,8 +150,6 @@
 (use-package nix-mode
   :mode "\\.nix\\'")
 
-(use-package shades-of-purple-theme)
-
 (use-package scala-mode :interpreter ("scala" . scala-mode))
 
 (use-package tzc
@@ -163,6 +161,11 @@
 					 ("UK/London" "London")
 					 ("Europe/Berlin" "Berlin")
 					 ("Asia/Tokyo" "Tokyo"))))
+;; Themes
+(use-package shades-of-purple-theme)
+;; (use-package apropospriate-theme)
+;; (use-package challenger-deep-theme)
+;; (use-package doom-themes)
 
 (provide 'init-simple-packages)
 ;;; init-simple-packages.el ends here
