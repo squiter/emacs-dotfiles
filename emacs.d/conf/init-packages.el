@@ -7,16 +7,7 @@
 ;;; code:
 
 (defvar my-packages
-  '(
-    bundler
-    enh-ruby-mode
-    mutant
-    rbenv
-    rspec-mode
-    rubocop
-    ruby-refactor
-    ruby-tools
-  )
+  '()
   "A list of packages to be installed at application lauch.")
 
 ;; package loading (stolen from chuck that stoled from milhouse)

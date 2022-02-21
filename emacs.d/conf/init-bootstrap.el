@@ -47,7 +47,6 @@
     init-magit
     init-projectile
     init-path
-    init-rbenv
     init-ruby
     init-web-mode
     init-company
