@@ -11,7 +11,6 @@
     bundler
     enh-ruby-mode
     highlight
-    hl-anything
     mutant
     rbenv
     request

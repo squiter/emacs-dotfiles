@@ -53,11 +53,6 @@
 ;;======================  Package's Keybinds ===========================;;
 ;;======================================================================;;
 
-;; hl-anything
-(global-set-key [(super f3)] 'hl-highlight-thingatpt-local)
-(global-set-key [f3] 'hl-find-next-thing)
-(global-set-key [(shift f3)] 'hl-find-prev-thing)
-
 ;; sexp navigation
 (global-set-key [(super f)] 'sp-next-sexp)
 (global-set-key [(super b)] 'sp-previous-sexp)
