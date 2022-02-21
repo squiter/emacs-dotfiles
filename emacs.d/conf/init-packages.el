@@ -10,7 +10,6 @@
   '(
     bundler
     enh-ruby-mode
-    highlight
     mutant
     rbenv
     request
