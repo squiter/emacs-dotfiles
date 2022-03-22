@@ -17,13 +17,13 @@
 (global-set-key (kbd "M-<down>") 'move-line-down)
 (global-set-key [remap fill-paragraph] #'endless/fill-or-unfill)
 (define-key ctl-x-map "n" #'narrow-or-widen-dwim)
-(global-set-key (kbd "C-M-z") 'zap-to-before-char)
 
 ;; miscellaneous
 (global-set-key (kbd "C-c w") 'whitespace-cleanup)
 (global-set-key (kbd "C-c i") 'indent-buffer)
 (global-set-key (kbd "C-c e") 'eval-buffer)
 (global-set-key (kbd "C-c ]") 'custom/org-open-project-file)
+(global-set-key (kbd "C-M-z") 'zap-up-to-char)
 
 ;; buffer/file edits
 (global-set-key (kbd "C-x C-S-k") 'delete-current-buffer-file)
