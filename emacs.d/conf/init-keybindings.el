@@ -17,6 +17,7 @@
 (global-set-key (kbd "M-<down>") 'move-line-down)
 (global-set-key [remap fill-paragraph] #'endless/fill-or-unfill)
 (define-key ctl-x-map "n" #'narrow-or-widen-dwim)
+(global-set-key (kbd "C-M-z") 'zap-to-before-char)
 
 ;; miscellaneous
 (global-set-key (kbd "C-c w") 'whitespace-cleanup)
