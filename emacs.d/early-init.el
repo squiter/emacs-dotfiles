@@ -23,4 +23,4 @@
 (tool-bar-mode -1)
 (menu-bar-mode -1)
 (scroll-bar-mode -1)
-(set-face-attribute 'default nil :height 140 :family "Iosevka" :weight 'normal)
+(set-face-attribute 'default nil :height 160 :family "Iosevka" :weight 'normal)
