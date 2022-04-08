@@ -156,11 +156,9 @@
   :init
   (setq tzc-main-dir "/run/current-system/etc/zoneinfo/")
   (setq tzc-favourite-time-zones-alist '(("UTC+0000" "UTC")
-					 ("America/New_York" "New York")
-					 ("America/Sao_Paulo" "Sao Paulo")
-					 ("UK/London" "London")
-					 ("Europe/Berlin" "Berlin")
-					 ("Asia/Tokyo" "Tokyo"))))
+                                         ("America/New_York" "New York")
+                                         ("America/Sao_Paulo" "Sao Paulo")
+                                         ("Euurope/Lisbon"))))
 
 (use-package request)
 (use-package rhtml-mode :defer t)
