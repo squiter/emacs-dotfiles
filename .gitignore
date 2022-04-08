@@ -33,3 +33,6 @@ emacs.d/games/*
 /emacs.d/workspace/
 /emacs.d/.org-generic-id-locations
 /emacs.d/.cache/
+/emacs.d/aspell_words.txt
+/emacs.d/forge-database.sqlite
+/emacs.d/projects
