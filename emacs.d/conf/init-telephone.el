@@ -21,21 +21,22 @@
 
 (use-package telephone-line
   :config
+  (setq telephone-line-height 25)
 
   (set-face-attribute 'telephone-line-accent-active nil
-                      :background "#5fafff"
-                      :foreground "black"
+                      :background "#B362FF"
+                      :foreground "#1b182c"
                       :box nil)
 
   (set-face-attribute 'mode-line-inactive nil
                       :box nil
-                      :foreground "#5fafff"
-                      :background "#1b182c")
+                      :foreground "#B362FF"
+                      :background "#2D2B55")
 
   (set-face-attribute 'mode-line nil
                       :box '(:line-width 1 :style raised)
-                      :foreground "#5fafff"
-                      :background "#1b182c")
+                      :foreground "#B362FF"
+                      :background "#2D2B55")
 
   (defun squiter/buffer-for-project ()
     (if (string-match-p "^[^\*].*[^\*]$" (buffer-name))
@@ -51,7 +52,7 @@
   (telephone-line-defsegment* squiter/major-mode ()
     (propertize (all-the-icons-icon-for-mode major-mode)
                 'face `(:height 0.9 :family ,(all-the-icons-icon-family-for-mode major-mode))
-                'display '(raise -0.1)
+                'display '(raise 0.1)
                 'help-echo major-mode))
 
   ;; TODO: Use this

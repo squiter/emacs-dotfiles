@@ -35,8 +35,8 @@
       '("emacs@"
         (:eval (squiter/get-window-name))))
 
-;; (require 'init-telephone)
-(require 'init-powerline)
+(require 'init-telephone)
+;; (require 'init-powerline)
 
 (provide 'init-ui)
 ;;; init-ui.el ends here
