@@ -45,5 +45,8 @@
 (use-package forge :after magit)
 (use-package github-review :after magit)
 
+(use-package magit-delta
+  :hook (magit-mode . magit-delta-mode))
+
 (provide 'init-magit)
 ;;; init-magit.el ends here
