@@ -3,15 +3,14 @@
 ;;; code:
 
 (use-package smerge-mode
-  :commands smerge-mode
   :bind (("C-c s RET" . smerge-keep-current)
          ("C-c s n" . smerge-next)
          ("C-c s p" . smerge-prev)
          ("C-c s a" . smerge-keep-all)
          ("C-c s b" . smerge-keep-base)
          ("C-c s m" . smerge-keep-upper)
-	 ("C-c s u" . smerge-keep-upper)
-	 ("C-c s l" . smerge-keep-lower))
+         ("C-c s u" . smerge-keep-upper)
+         ("C-c s l" . smerge-keep-lower))
   :init
   (progn
     (defun sm-try-smerge ()
