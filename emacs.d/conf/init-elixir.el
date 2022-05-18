@@ -31,7 +31,8 @@
          (elixir-mode . flycheck-mode))
   :bind (:map elixir-mode-map
               ("C-c i" . elixir-format))
-  :init (setq alchemist-key-command-prefix (kbd "C-c ,")))
+  :init (setq alchemist-key-command-prefix (kbd "C-c ,"))
+  :config (add-hook 'before-save-hook 'elixir-format))
 
 (use-package flycheck-credo
   :after (flycheck elixir-mode)
