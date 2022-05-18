@@ -17,8 +17,6 @@
   (:map magit-status-mode-map
         ("q"   . magit-quit-session)
         ("M-1" . delete-other-windows))
-  (:map git-commit-mode-map
-        ("C-c C-a" . git-commit-co-authored))
 
   :config
   (defadvice magit-status (around magit-fullscreen activate)
@@ -42,7 +40,12 @@
       (message "Changelog copied to kill-ring."))))
 
 (use-package magit-todos :after magit :config (magit-todos-mode))
-(use-package forge :after magit)
+
+(use-package forge
+  :after magit
+  :bind
+  ("C-c M-a" . git-commit-co-authored))
+
 (use-package github-review :after magit)
 
 (use-package magit-delta
