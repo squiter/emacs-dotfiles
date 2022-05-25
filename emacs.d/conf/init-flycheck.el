@@ -12,5 +12,9 @@
   (eval-after-load 'flycheck
     '(setq flycheck-display-errors-function #'flycheck-pos-tip-error-messages)))
 
+(use-package flycheck-projectile
+  :after flycheck projectile
+  :bind ("C-c ! L" . flycheck-projectile-list-errors))
+
 (provide 'init-flycheck)
 ;;; init-flycheck.el ends here
