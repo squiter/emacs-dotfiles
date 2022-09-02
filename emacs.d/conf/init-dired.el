@@ -139,7 +139,11 @@ In a dired buffer, it will open the current directory."
     ))
 
 (use-package dired-quick-sort
-  :config (dired-quick-sort-setup))
+  :config (dired-quick-sort-setup)
+  :init
+  ;; brew install coreutils
+  (when (equal system-type 'darwin)
+    (setq insert-directory-program "/opt/homebrew/bin/gls")))
 
 (provide 'init-dired)
 ;;; init-dired.el ends here
