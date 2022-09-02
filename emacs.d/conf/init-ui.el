@@ -35,8 +35,9 @@
       '("emacs@"
         (:eval (squiter/get-window-name))))
 
-(require 'init-telephone)
+;; (require 'init-telephone)
 ;; (require 'init-powerline)
+(use-package mood-line :config (mood-line-mode))
 
 (provide 'init-ui)
 ;;; init-ui.el ends here
