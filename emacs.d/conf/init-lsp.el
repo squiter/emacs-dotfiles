@@ -40,6 +40,18 @@
   (setq gc-cons-threshold 100000000)
   (setq read-process-output-max (* 1024 1024)) ;; 1mb
   (setq lsp-file-watch-threshold 1500)
+  (setq lsp-lens-enable nil)
+  (setq lsp-enable-folding t)
+
+  ;; This function solves the `too many files open` problem at OSX
+  ;; https://www.blogbyben.com/2022/05/gotcha-emacs-on-mac-os-too-many-files.html
+  (defun file-notify-rm-all-watches ()
+    "Remove all existing file notification watches from Emacs."
+    (interactive)
+    (maphash
+     (lambda (key _value)
+       (file-notify-rm-watch key))
+     file-notify-descriptors))
   :config
   (add-to-list 'lsp-language-id-configuration '(nix-mode . "nix"))
   (lsp-register-client
@@ -68,6 +80,13 @@
 
 (use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
 (use-package lsp-treemacs :commands lsp-treemacs-errors-list)
+(use-package lsp-origami
+  :after lsp-mode
+  :bind (("C-c l f c" . origami-close-node)
+         ("C-c l f o" . origami-open-node)
+         ("C-c l f a c" . origami-close-all-nodes)
+         ("C-c l f a o" . origami-open-all-nodes))
+  :init (add-hook 'lsp-after-open-hook #'lsp-origami-try-enable))
 
 (provide 'init-lsp)
 ;;; init-lsp.el ends here

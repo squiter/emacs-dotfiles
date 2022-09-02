@@ -26,13 +26,11 @@
 ;;
 
 ;;; Code:
-(use-package alchemist
-  :hook ((elixir-mode . alchemist-mode)
-         (elixir-mode . flycheck-mode))
+(use-package elixir-mode
+  :hook ((elixir-mode . flycheck-mode)
+         (elixir-mode . (lambda () (add-hook 'before-save-hook 'elixir-format))))
   :bind (:map elixir-mode-map
-              ("C-c i" . elixir-format))
-  :init (setq alchemist-key-command-prefix (kbd "C-c ,"))
-  :config (add-hook 'before-save-hook 'elixir-format))
+              ("C-c i" . elixir-format)))
 
 (use-package flycheck-credo
   :after (flycheck elixir-mode)
@@ -44,7 +42,7 @@
   (elixir-mode . flycheck-credo-setup))
 
 (use-package exunit
-  :hook (alchemist-mode . exunit-mode)
+  :hook (elixir-mode . exunit-mode)
 
   :bind
   (:map elixir-mode-map
