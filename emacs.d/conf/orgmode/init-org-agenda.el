@@ -1,5 +1,5 @@
 ;; Agenda setup
-(setq org-agenda-files (quote ("~/Dropbox/org")))
+(setq org-agenda-files (list *user-org-cache-directory*))
 
 ;; Use sticky agenda's so they persist
 (setq org-agenda-sticky t)
