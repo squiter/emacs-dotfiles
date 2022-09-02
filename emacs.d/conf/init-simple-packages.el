@@ -154,7 +154,8 @@
 
 (use-package tzc
   :init
-  (setq tzc-main-dir "/run/current-system/etc/zoneinfo/")
+  (if (file-exists-p "/run/current-system/etc/zoneinfo/")
+      (setq tzc-main-dir "/run/current-system/etc/zoneinfo/"))
   (setq tzc-favourite-time-zones-alist '(("UTC+0000" "UTC")
                                          ("America/New_York" "New York")
                                          ("America/Sao_Paulo" "Sao Paulo")
