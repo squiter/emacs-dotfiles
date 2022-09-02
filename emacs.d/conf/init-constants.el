@@ -48,6 +48,10 @@
   (path-join *user-home-directory* ".local" "bin" "wakatime")
   "Path to the wakatime binary.")
 
+(defconst *wakatime-osx-dir*
+  (path-join *user-home-directory* ".wakatime" "wakatime-cli")
+  "Path to the wakatime binary.")
+
 (defconst *all-project-directories*
   (list
    *projects-directory*
