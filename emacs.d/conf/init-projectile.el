@@ -88,7 +88,7 @@
   :hook (projectile-mode . projectile-rails-on))
 
 (use-package counsel-projectile
-  ;; :after (projectile counsel)
+  :demand t
   :bind
   (("C-x f" . counsel-projectile-find-file)
    ("C-x C-b" . counsel-projectile-switch-to-buffer)

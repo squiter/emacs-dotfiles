@@ -33,7 +33,6 @@
          ([remap dired-smart-shell-command] . dwim-shell-command))
   :config
   (require 'dwim-shell-commands)
-  (message "loadeii aqui!!")
   (defun dwim-shell-commands--macos-sharing-services ()
     "Return a list of sharing services."
     (let* ((source (format "import AppKit
