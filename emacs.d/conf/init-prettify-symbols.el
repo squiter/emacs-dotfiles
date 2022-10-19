@@ -35,9 +35,14 @@
 (add-hook 'ruby-mode-hook 'my-pretty-lambda)
 (add-hook 'enh-ruby-mode-hook 'my-pretty-lambda)
 (add-hook 'org-mode-hook 'my-pretty-lambda)
+
 (add-hook 'emacs-lisp-mode-hook 'my-pretty-lambda)
 
 (global-prettify-symbols-mode 1)
+
+(use-package fira-code-mode
+  :custom (fira-code-mode-disabled-ligatures '("[]" "x"))  ; ligatures you don't want
+  :hook prog-mode)                                         ; mode to enable fira-code-mode in
 
 (provide 'init-prettify-symbols)
 ;;; init-prettify-symbols.el ends here
