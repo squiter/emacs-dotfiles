@@ -80,6 +80,7 @@
     init-hydra
     init-elfeed
     rcodetools
+    init-dwim-shell-command
     init-elixir
     init-javascript
     init-rust
