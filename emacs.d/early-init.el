@@ -23,6 +23,8 @@
 (tool-bar-mode -1)
 (menu-bar-mode -1)
 (scroll-bar-mode -1)
-(set-face-attribute 'default nil :height 160 :family "Iosevka")
+
+;; to fix the resize on OSX
+(setq frame-resize-pixelwise t)
 
 (set-face-attribute 'default nil :height 160 :family "Fira Code")
