@@ -159,7 +159,28 @@
   (setq tzc-favourite-time-zones-alist '(("UTC+0000" "UTC")
                                          ("America/New_York" "New York")
                                          ("America/Sao_Paulo" "Sao Paulo")
-                                         ("Euurope/Lisbon"))))
+                                         ("Europe/Lisbon"))))
+
+(use-package string-inflection
+  :bind ("C-q C-u" . 'my-string-inflection-cycle-auto)
+  :init
+  (global-unset-key (kbd "C-q"))
+
+  :config
+  (defun my-string-inflection-cycle-auto ()
+    "switching by major-mode"
+    (interactive)
+    (cond
+     ((eq major-mode 'python-mode)
+      (string-inflection-python-style-cycle))
+     ((eq major-mode 'java-mode)
+      (string-inflection-java-style-cycle))
+     ((eq major-mode 'elixir-mode)
+      (string-inflection-elixir-style-cycle))
+     ((eq major-mode 'ruby-mode)
+      (string-inflection-ruby-style-cycle))
+     (t
+      (string-inflection-all-cycle)))))
 
 (use-package request)
 (use-package rhtml-mode :defer t)
