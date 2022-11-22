@@ -49,20 +49,6 @@
   :hook (emacs-lisp-mode . adjust-parens-mode)
   :hook (clojure-mode . adjust-parens-mode))
 
-(use-package init-calendars
-  :defer t
-  :ensure nil ;; "package" created with config/init-calendars.el
-  :config
-
-  (defun cfw:open-all-calendars ()
-    (interactive)
-    (cfw:open-calendar-buffer
-     :contents-sources
-     (list
-      (cfw:org-create-source "Green")
-      (cfw:ical-create-source "Locaweb" *locaweb-ical-url* "IndianRed")
-      (cfw:ical-create-source "Google" *google-principal-calendar-url* "Red")))))
-
 (use-package init-java :ensure nil)
 
 (use-package yagist
