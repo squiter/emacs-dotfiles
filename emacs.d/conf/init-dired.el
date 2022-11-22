@@ -145,5 +145,7 @@ In a dired buffer, it will open the current directory."
   (when (equal system-type 'darwin)
     (setq insert-directory-program "/opt/homebrew/bin/gls")))
 
+(use-package dired-collapse :hook dired-mode)
+
 (provide 'init-dired)
 ;;; init-dired.el ends here

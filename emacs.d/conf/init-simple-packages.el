@@ -26,8 +26,6 @@
 (use-package beacon :config (beacon-mode 1))
 (use-package dockerfile-mode :mode "Dockerfile\\'")
 (use-package bash-completion :defer t :config (bash-completion-setup))
-(use-package dired-collapse :hook dired-mode)
-(use-package vmd-mode :commands vmd-mode)
 (use-package indent-tools :commands indent-tools-hydra/body)
 (use-package ssh-agency)
 (use-package jira-markup-mode :defer t :ensure t)
