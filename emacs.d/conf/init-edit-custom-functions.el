@@ -40,6 +40,45 @@
       (back-to-indentation)
     (move-beginning-of-line nil)))
 
+(defun squiter/my-kill-symbol ()
+  "Kill the symbol at point."
+  (interactive)
+  (let ((beg (progn (if (not (looking-back " ")) (forward-symbol -1)) (point)))
+        (end (progn (forward-symbol 1) (point))))
+    (kill-region beg end)))
+
+
+(defun squiter/elixir/put-on-pipe ()
+  "Move variable to pipe"
+  (interactive)
+  (if (search-forward "|>" (line-end-position) t)
+      (backward-word)
+    (back-to-indentation))
+  (squiter/my-kill-symbol)
+  (search-forward "(")
+  (insert (string-trim (car kill-ring)) ", ")
+  (save-excursion
+    (search-backward "|> ")
+    (replace-match "")
+    (elixir-format)))
+
+(defun squiter/elixir/extract-from-pipe ()
+  "Extract variable from pipe"
+  (interactive)
+  (back-to-indentation)
+  (search-forward "(")
+  (kill-word 1)
+  (back-to-indentation)
+  (insert "|> ")
+  (save-excursion
+    (search-forward "(,")
+    (replace-match "("))
+  (back-to-indentation)
+  (newline)
+  (forward-line -1)
+  (yank)
+  (elixir-format))
+
 (defun custom/duplicate-current-line-or-region (arg)
   "Duplicates the current line or those covered by region ARG times."
   (interactive "p")

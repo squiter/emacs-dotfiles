@@ -30,7 +30,9 @@
   :hook ((elixir-mode . flycheck-mode)
          (elixir-mode . (lambda () (add-hook 'before-save-hook 'elixir-format))))
   :bind (:map elixir-mode-map
-              ("C-c i" . elixir-format)))
+              ("C-c i" . elixir-format)
+              ("C-c |" . squiter/elixir/put-on-pipe)
+              ("C-c \\" . squiter/elixir/extract-from-pipe)))
 
 (use-package flycheck-credo
   :after (flycheck elixir-mode)
