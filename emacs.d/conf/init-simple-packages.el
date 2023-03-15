@@ -172,5 +172,8 @@
 ;; (use-package challenger-deep-theme)
 ;; (use-package doom-themes)
 
+(use-package hl-todo
+  :hook (prog-mode . hl-todo-mode))
+
 (provide 'init-simple-packages)
 ;;; init-simple-packages.el ends here
