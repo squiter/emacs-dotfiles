@@ -27,4 +27,6 @@
 ;; to fix the resize on OSX
 (setq frame-resize-pixelwise t)
 
+(add-to-list 'default-frame-alist '(undecorated-round . t))
+
 (set-face-attribute 'default nil :height 160 :family "Fira Code")
