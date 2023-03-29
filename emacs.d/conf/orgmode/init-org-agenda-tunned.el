@@ -1,6 +1,6 @@
 ;; Always hilight the current agenda line
 (add-hook 'org-agenda-mode-hook
-          '(lambda () (hl-line-mode 1))
+          #'(lambda () (hl-line-mode 1))
           'append)
 ;; The following custom-set-faces create the highlights
 (custom-set-faces

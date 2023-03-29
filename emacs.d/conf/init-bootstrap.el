@@ -73,7 +73,7 @@
     init-git-pr
     init-langtool
     init-google
-    vmd-mode
+    ;; vmd-mode
     init-scratch
     init-prettify-symbols
     init-ctags
