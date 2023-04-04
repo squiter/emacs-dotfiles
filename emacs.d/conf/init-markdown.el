@@ -37,8 +37,5 @@
   :bind (:map markdown-mode-command-map
          ("g" . grip-mode)))
 
-;; This package doesn't work on OSX because vmd was abandoned
-;; (use-package vmd-mode :commands vmd-mode)
-
 (provide 'init-markdown)
 ;;; init-markdown.el ends here

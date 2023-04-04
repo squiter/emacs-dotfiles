@@ -1,3 +1,4 @@
+;; TODO: Maybe I should delete this file
 (use-package ido-vertical-mode
   :init
   (ido-mode 1)

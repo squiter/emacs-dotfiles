@@ -175,5 +175,8 @@
 (use-package hl-todo
   :hook (prog-mode . hl-todo-mode))
 
+;; Moved from another files
+(use-package exec-path-from-shell :ensure t :config (exec-path-from-shell-initialize))
+
 (provide 'init-simple-packages)
 ;;; init-simple-packages.el ends here

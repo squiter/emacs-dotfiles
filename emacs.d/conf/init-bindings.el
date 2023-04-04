@@ -1,3 +1,4 @@
+;; TODO: Maybe I should delete this file
 "Stolen from milhouse, used to expose bindings for term"
 ;; Keybindings macros
 (defvar bindings-to-expose

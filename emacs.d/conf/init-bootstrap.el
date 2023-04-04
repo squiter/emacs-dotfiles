@@ -43,10 +43,8 @@
     init-mac-switch-meta
     init-smerge
     init-dired
-    init-sml
     init-magit
     init-projectile
-    init-path
     init-ruby
     init-web-mode
     init-company
@@ -63,17 +61,11 @@
     init-clojure
     init-restclient
     init-yasnippet
-    init-tramp
-    init-twittering-mode
     init-haskell
     init-which-key
     init-markdown
-    vkill
-    init-artist-mode
-    init-git-pr
     init-langtool
     init-google
-    ;; vmd-mode
     init-scratch
     init-prettify-symbols
     init-ctags
