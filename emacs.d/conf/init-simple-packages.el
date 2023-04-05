@@ -23,7 +23,7 @@
 (use-package undo-tree :defer t :config (global-undo-tree-mode 1))
 ;; TODO: try to use more this package:
 (use-package smart-shift :config (global-smart-shift-mode 1))
-(use-package beacon :config (beacon-mode 1))
+(use-package beacon :config (beacon-mode 1))q
 (use-package dockerfile-mode :mode "Dockerfile\\'")
 (use-package bash-completion :defer t :config (bash-completion-setup))
 (use-package indent-tools :commands indent-tools-hydra/body)
@@ -33,14 +33,13 @@
 (use-package free-keys :commands free-keys)
 (use-package restart-emacs :commands restart-emacs)
 (use-package git-timemachine :defer t)
-(use-package gist :defer t)
 (use-package terraform-mode :defer t)
 (use-package lua-mode :defer t)
 
 (use-package multiple-cursors
   :commands (mc/mark-all-like-this
              mc/mark-more-like-this-extended
-             mc/mark-more-like-this
+             mc/mark-more-like-thisqqq
              mc/edit-lines
              mc/set-rectangular-region-anchor)
   :init (setq mc/always-run-for-all t))
@@ -50,11 +49,6 @@
   :hook (clojure-mode . adjust-parens-mode))
 
 (use-package init-java :ensure nil)
-
-(use-package yagist
-  :defer t
-  :init
-  (setq yagist-github-token *user-github-token*))
 
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
