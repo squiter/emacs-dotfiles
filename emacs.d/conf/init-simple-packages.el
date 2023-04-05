@@ -5,10 +5,10 @@
 ;;; Code:
 
 (use-package avy
-  :bind (("C-) c" . avy-goto-char)
-         ("C-) 2" . avy-goto-char-2)
-         ("C-) t" . avy-goto-char-timer)
-         ("C-) w" . avy-goto-word-1)))
+  :bind (("C-M-g c" . avy-goto-char)
+         ("C-M-g 2" . avy-goto-char-2)
+         ("C-M-g t" . avy-goto-char-timer)
+         ("C-M-g w" . avy-goto-word-1)))
 
 (use-package ag
   :commands (ag projectile-ag)
@@ -24,6 +24,7 @@
 ;; TODO: try to use more this package:
 (use-package smart-shift :config (global-smart-shift-mode 1))
 (use-package beacon :config (beacon-mode 1))q
+(use-package docker :commands docker :ensure-system-package docker)
 (use-package dockerfile-mode :mode "Dockerfile\\'")
 (use-package bash-completion :defer t :config (bash-completion-setup))
 (use-package indent-tools :commands indent-tools-hydra/body)
@@ -33,8 +34,6 @@
 (use-package free-keys :commands free-keys)
 (use-package restart-emacs :commands restart-emacs)
 (use-package git-timemachine :defer t)
-(use-package terraform-mode :defer t)
-(use-package lua-mode :defer t)
 
 (use-package multiple-cursors
   :commands (mc/mark-all-like-this
@@ -75,9 +74,6 @@
 (use-package discover-my-major
   :bind ("C-h C-m" . discover-my-major))
 
-(use-package docker
-  :commands docker
-  :ensure-system-package docker)
 (use-package imenu-list :commands imenu-list)
 (use-package rainbow-mode)
 
@@ -91,22 +87,11 @@
     (interactive)
     (async-shell-command "bean-report ~/dropbox/ledger/ledger.beancount holdings")))
 
-(use-package dictionary :defer t)
-(use-package synosaurus
-  :defer t
-  :init
-  (synosaurus-mode))
-
-(use-package yaml-mode
-  :mode (("\\.yml$" . yaml-mode)
-         ("\\.yaml$" . yaml-mode)
-         ("\\.yml\\.example$" . yaml-mode)))
 
 (use-package auto-highlight-symbol
   :hook (prog-mode . auto-highlight-symbol-mode))
 
 (use-package speed-type :commands speed-type-text)
-(use-package i3wm-config-mode)
 
 (use-package anzu
   :defer t
@@ -121,10 +106,17 @@
   :commands (json-navigator-navigate-after-point
              json-navigator-navigate-region))
 
-(use-package nix-mode
-  :mode "\\.nix\\'")
-
+;; Modes for highlight some files
+(use-package i3wm-config-mode)
+(use-package nix-mode :mode "\\.nix\\'")
 (use-package scala-mode :interpreter ("scala" . scala-mode))
+(use-package rhtml-mode :defer t)
+(use-package terraform-mode :defer t)
+(use-package lua-mode :defer t)
+(use-package yaml-mode
+  :mode (("\\.yml$" . yaml-mode)
+         ("\\.yaml$" . yaml-mode)
+         ("\\.yml\\.example$" . yaml-mode)))
 
 (use-package tzc
   :init
@@ -157,7 +149,6 @@
       (string-inflection-all-cycle)))))
 
 (use-package request)
-(use-package rhtml-mode :defer t)
 
 ;; Themes
 (use-package shades-of-purple-theme)
@@ -165,8 +156,7 @@
 ;; (use-package challenger-deep-theme)
 ;; (use-package doom-themes)
 
-(use-package hl-todo
-  :hook (prog-mode . hl-todo-mode))
+(use-package hl-todo :hook (prog-mode . hl-todo-mode))
 
 ;; Moved from another files
 (use-package exec-path-from-shell :ensure t :config (exec-path-from-shell-initialize))
