@@ -51,7 +51,6 @@
     init-gitgutter
     init-shell
     init-eshell
-    init-ido
     init-bindings
     init-smartparens
     init-org

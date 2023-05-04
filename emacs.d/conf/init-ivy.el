@@ -77,12 +77,14 @@
          ("C-c v" . ivy-push-view)
          ("C-c V" . ivy-pop-view)
          ("C-x b" . ivy-switch-buffer)
-         ("C-!" . ivy-yank-complete-symbol-at-point))
+         ("C-!" . ivy-yank-complete-symbol-at-point)
+         ("C-<return>" . ivy-immediate-done))
   :custom
   (ivy-count-format "(%d/%d) ")
   (ivy-use-virtual-buffers t)
   (ivy-height 15)
   (ivy-initial-inputs-alist nil)
+
   :config
 
   (ivy-mode)
