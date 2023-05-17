@@ -23,7 +23,7 @@
 (use-package undo-tree :defer t :config (global-undo-tree-mode 1))
 ;; TODO: try to use more this package:
 (use-package smart-shift :config (global-smart-shift-mode 1))
-(use-package beacon :config (beacon-mode 1))q
+(use-package beacon :config (beacon-mode 1))
 (use-package docker :commands docker :ensure-system-package docker)
 (use-package dockerfile-mode :mode "Dockerfile\\'")
 (use-package bash-completion :defer t :config (bash-completion-setup))
@@ -38,7 +38,7 @@
 (use-package multiple-cursors
   :commands (mc/mark-all-like-this
              mc/mark-more-like-this-extended
-             mc/mark-more-like-thisqqq
+             mc/mark-more-like-this
              mc/edit-lines
              mc/set-rectangular-region-anchor)
   :init (setq mc/always-run-for-all t))
