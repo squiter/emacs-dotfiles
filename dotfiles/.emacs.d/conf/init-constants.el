@@ -33,7 +33,7 @@
   "Path to emacs-dotfiles.")
 
 (defconst *emacsd-directory*
-  (path-join *emacs-dotfiles-dir* "emacs.d")
+  (path-join *emacs-dotfiles-dir* "dotfiles/.emacs.d")
   "Path to emacs.d directory.")
 
 (defconst *nixos-current-binaries*

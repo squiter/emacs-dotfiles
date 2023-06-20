@@ -11,6 +11,12 @@ by yourself.
 This repository needs a `init-secrets.el` file inside `emacs.d/conf/`
 directory that will load some constants in the environment.
 
+It uses the `stow` to make the installation in you machine.
+
+## Installation
+
+Enter in the `emacs-dotfiles` directory and run: `stow --target=$HOME dotfiles/`
+
 ## Organization
 
 The first file to see here is
