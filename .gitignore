@@ -36,3 +36,4 @@ dotfiles/.emacs.d/forge-database.sqlite
 dotfiles/.emacs.d/projects
 init-secrets.el
 cider-history
+/dotfiles/.emacs.d/org-persist/
