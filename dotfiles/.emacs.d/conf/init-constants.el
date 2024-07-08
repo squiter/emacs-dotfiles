@@ -14,6 +14,10 @@
   (path-join *user-home-directory* "Dropbox")
   "Path to Dropbox on user's machine.")
 
+(defconst *elixir-ls-path*
+  (path-join *user-home-directory* "bin" "elixir-ls")
+  "Path to user's binaries of elixir-ls.")
+
 (defconst *user-ebook-directory*
   (path-join *user-dropbox-directory* "e-Books"))
 
