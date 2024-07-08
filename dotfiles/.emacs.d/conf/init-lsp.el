@@ -33,9 +33,11 @@
          (elixir-mode . lsp)
          (typescript-mode . lsp)
          (rustic-mode . lsp)
-         (lsp-mode . lsp-enable-which-key-integration))
+         (lsp-mode . lsp-enable-which-key-integration)
+         (csharp-mode . lsp))
   :commands lsp
   :init
+  (setq lsp-elixir-ls-version "v0.21.2")
   (setq lsp-keymap-prefix "C-c l")
   (setq gc-cons-threshold 100000000)
   (setq read-process-output-max (* 1024 1024)) ;; 1mb

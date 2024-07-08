@@ -148,6 +148,16 @@
      (t
       (string-inflection-all-cycle)))))
 
+(use-package csharp-mode
+  :init
+  (defun my/csharp-mode-hook ()
+    (setq-local lsp-auto-guess-root t))
+  (add-hook 'csharp-mode-hook #'my/csharp-mode-hook))
+
+;; TODO: Remove this when unity.el was available on MELPA
+(require 'unity)
+(add-hook 'after-init-hook #'unity-mode)
+
 (use-package request)
 
 ;; Themes
