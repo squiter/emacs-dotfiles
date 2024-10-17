@@ -4,6 +4,8 @@
 ;;  init-file I use this file
 ;;; Code:
 
+(use-package exec-path-from-shell :ensure t :config (exec-path-from-shell-initialize))
+
 (use-package avy
   :bind (("C-M-g c" . avy-goto-char)
          ("C-M-g 2" . avy-goto-char-2)
@@ -155,8 +157,8 @@
   (add-hook 'csharp-mode-hook #'my/csharp-mode-hook))
 
 ;; TODO: Remove this when unity.el was available on MELPA
-(require 'unity)
-(add-hook 'after-init-hook #'unity-mode)
+;; (require 'unity)
+;; (add-hook 'after-init-hook #'unity-mode)
 
 (use-package request)
 
@@ -167,9 +169,6 @@
 ;; (use-package doom-themes)
 
 (use-package hl-todo :hook (prog-mode . hl-todo-mode))
-
-;; Moved from another files
-(use-package exec-path-from-shell :ensure t :config (exec-path-from-shell-initialize))
 
 (provide 'init-simple-packages)
 ;;; init-simple-packages.el ends here

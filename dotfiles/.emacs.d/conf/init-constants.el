@@ -63,5 +63,10 @@
    (path-join *user-home-directory* "dev" "finbits"))
   "List of all my project directories.")
 
+;; Set those temporarily to wait until init-secrets.el
+(setq *youtube-key* "temp")
+(setq *google-calendar-client-id* "temp")
+(setq *google-calendar-secret-id* "temp")
+
 (provide 'init-constants)
 ;;; init-constants.el ends here
