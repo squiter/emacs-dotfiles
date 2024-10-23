@@ -170,5 +170,9 @@
 
 (use-package hl-todo :hook (prog-mode . hl-todo-mode))
 
+(use-package fira-code-mode
+  ;; :custom (fira-code-mode-disabled-ligatures '("[]" "x"))  ; ligatures you don't want
+  :hook prog-mode)                                         ; mode to enable fira-code-mode in
+
 (provide 'init-simple-packages)
 ;;; init-simple-packages.el ends here
