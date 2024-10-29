@@ -44,6 +44,7 @@
   (setq lsp-file-watch-threshold 1500)
   (setq lsp-lens-enable nil)
   (setq lsp-enable-folding t)
+  (add-to-list 'exec-path "~/dev/code/elixir-ls-v0.24.1")
 
   ;; This function solves the `too many files open` problem at OSX
   ;; https://www.blogbyben.com/2022/05/gotcha-emacs-on-mac-os-too-many-files.html
