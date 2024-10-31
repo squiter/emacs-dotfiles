@@ -192,15 +192,15 @@ is already narrowed."
 (defun squiter/ledger-bitcoin-status ()
   (interactive)
   (request
-   "https://api.coindesk.com/v1/bpi/currentprice/BRL.json"
-   :type "GET"
-   :parser 'json-read
-   :success (function*
-             (lambda (&key data &allow-other-keys)
-               (when data
-                 (let ((date (shell-command-to-string "echo -n $(date +%Y/%m/%d)"))
-                       (time (shell-command-to-string "echo -n $(date +%H:%M:%S)")))
-                   (insert (format "P %s %s BTC $%S" date time (cdr (car (nthcdr 4 (car (nthcdr 2 (car (nthcdr 2 data)))))))))))))))
+    "https://api.coindesk.com/v1/bpi/currentprice/BRL.json"
+    :type "GET"
+    :parser 'json-read
+    :success (function*
+              (lambda (&key data &allow-other-keys)
+                (when data
+                  (let ((date (shell-command-to-string "echo -n $(date +%Y/%m/%d)"))
+                        (time (shell-command-to-string "echo -n $(date +%H:%M:%S)")))
+                    (insert (format "P %s %s BTC $%S" date time (cdr (car (nthcdr 4 (car (nthcdr 2 (car (nthcdr 2 data)))))))))))))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Functions to get current url of remote repo with file and line number ;;
@@ -220,12 +220,21 @@ is already narrowed."
                     "\\`.+github\\.com:\\(.+\\)\\.git\\'" "\\1"
                     bare-remote-url)
                    current-branch))
-          ((string-match "bitbucket\\.org" repo)
+
+          ((string-match "gitlab\\.com" bare-remote-url)
+           (format "https://gitlab.com/%s/-/blob/%s/"
+                   (replace-regexp-in-string
+                    "\\`.+gitlab\\.com:\\(.+\\)\\.git\\'" "\\1"
+                    bare-remote-url)
+                   current-branch))
+
+          ((string-match "bitbucket\\.org" bare-remote-url)
            (format "https://bitbucket.org/%s/src/%s/"
                    (replace-regexp-in-string
                     "\\`.+bitbucket\\.org:\\(.+\\)\\.git\\'" "\\1"
                     bare-remote-url)
                    current-branch))
+
           (t
            (format "https://code.locaweb.com.br/%s/blob/%s/"
                    (replace-regexp-in-string
@@ -271,9 +280,9 @@ is already narrowed."
                              (car (compare-keybindings l r))))))
 
         (if (eq (cdar last-binding) (cdar binding))
-          (if (and last-binding
-                   (cdr (compare-keybindings last-binding binding)))
-              (princ "")))
+            (if (and last-binding
+                     (cdr (compare-keybindings last-binding binding)))
+                (princ "")))
 
         (let* ((key-name (caar binding))
                (at-present (lookup-key (or (symbol-value (cdar binding))
