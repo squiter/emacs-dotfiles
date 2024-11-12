@@ -29,4 +29,8 @@
   `(dolist (bnd ,bindings)
      `,(expose-global-keybinding `,(kbd bnd) ,map)))
 
+;; this is the most awkward keybind I set in my setup
+(global-set-key (kbd "M-@") (lambda () (interactive)  (insert  ?€ )))
+(global-set-key (kbd "M-#") (lambda () (interactive)  (insert  ?£ )))
+
 (provide 'init-bindings)
