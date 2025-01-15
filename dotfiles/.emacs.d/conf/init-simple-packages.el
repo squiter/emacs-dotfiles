@@ -6,6 +6,13 @@
 
 (use-package exec-path-from-shell :ensure t :config (exec-path-from-shell-initialize))
 
+;; Fish Shell Workaround
+(let*
+    ((fish-path (shell-command-to-string "/opt/homebrew/bin/fish -i -c \"echo -n \\$PATH[1]; for val in \\$PATH[2..-1];echo -n \\\":\\$val\\\";end\""))
+     (full-path (append exec-path (split-string fish-path ":"))))
+  (setenv "PATH" fish-path)
+  (setq exec-path full-path))
+
 (use-package avy
   :bind (("C-M-g c" . avy-goto-char)
          ("C-M-g 2" . avy-goto-char-2)
