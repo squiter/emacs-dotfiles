@@ -28,7 +28,7 @@
 (use-package indent-guide :config (indent-guide-global-mode))
 (use-package neotree :bind ("C-c n" . 'neotree-toggle))
 (use-package expand-region :bind ("C-=" . 'er/expand-region))
-(use-package auto-package-update :config (auto-package-update-maybe))
+(use-package auto-package-update :config (package-refresh-contents :async))
 (use-package undo-tree :defer t :config (global-undo-tree-mode 1))
 ;; TODO: try to use more this package:
 (use-package smart-shift :config (global-smart-shift-mode 1))
@@ -180,6 +180,8 @@
 (use-package fira-code-mode
   ;; :custom (fira-code-mode-disabled-ligatures '("[]" "x"))  ; ligatures you don't want
   :hook prog-mode)                                         ; mode to enable fira-code-mode in
+
+
 
 (provide 'init-simple-packages)
 ;;; init-simple-packages.el ends here
