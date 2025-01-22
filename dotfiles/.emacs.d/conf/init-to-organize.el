@@ -152,8 +152,10 @@
 (use-package projectile
   :init
   (projectile-mode +1)
-  :bind (:map projectile-mode-map
-	      ("C-c p" . projectile-command-map))
+  :bind
+  ("C-x f" . projectile-find-file)
+  (:map projectile-mode-map
+	("C-c p" . projectile-command-map))
   :config
   (setq projectile-project-search-path '("~/dev/code/" "~/dev/remote/")))
 
