@@ -1,4 +1,0 @@
-#name : tpry
-# key: tpry
-# --
-.tap { |me| binding.pry }

@@ -1,5 +1,0 @@
-#name : { |variable| ... }
-#group : Blocks
-# key: ib
-# --
-{ |${1:variable}| $0 }

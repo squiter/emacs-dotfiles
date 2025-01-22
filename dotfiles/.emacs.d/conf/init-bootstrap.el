@@ -26,55 +26,9 @@
 
 ;;; Code:
 
-(add-to-list 'load-path (expand-file-name "vendor" user-emacs-directory))
-(add-to-list 'load-path (expand-file-name "vendor/org/lisp" user-emacs-directory))
-(add-to-list 'load-path (expand-file-name "vendor/org/contrib/lisp" user-emacs-directory) t)
-
 (defvar init-files
-  '(init-secrets
-    init-constants
-    init-simple-packages
-    init-general
-    init-custom-functions
-    init-edit-custom-functions
-    init-ui
-    init-ivy
-    init-lsp
-    init-mac-switch-meta
-    init-smerge
-    init-dired
-    init-magit
-    init-projectile
-    init-ruby
-    init-web-mode
-    init-company
-    init-gitgutter
-    init-shell
-    init-eshell
-    init-bindings
-    init-smartparens
-    init-org
-    init-wakatime
-    init-flycheck
-    init-flyspell
-    init-clojure
-    init-restclient
-    init-yasnippet
-    init-haskell
-    init-which-key
-    init-markdown
-    init-langtool
-    init-google
-    init-scratch
-    init-prettify-symbols
-    init-ctags
-    init-hydra
-    init-elfeed
-    init-dwim-shell-command
-    init-elixir
-    init-javascript
-    init-rust
-    init-keybindings))
+  '(init-elpaca
+    init-to-organize))
 
 (defun safe-require (feature)
   "Safely requires FEATURE."

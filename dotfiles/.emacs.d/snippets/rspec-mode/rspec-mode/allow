@@ -1,4 +1,0 @@
-# -*- mode: snippet -*-
-# name: allow(...).to receive(...)
-# --
-allow($1).to receive($2)$0

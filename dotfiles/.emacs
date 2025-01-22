@@ -30,11 +30,6 @@
 ;; mode: emacs-lisp
 ;; End:
 
-;; Package setup
-(package-initialize)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-(add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/") t)
-
 ;; Used to track startup time
 (add-hook 'emacs-startup-hook
           (lambda ()
@@ -46,21 +41,10 @@
 
 (add-to-list 'load-path (expand-file-name "conf" user-emacs-directory))
 
-;; use-package initialization
-(unless (package-installed-p 'use-package)
-  (package-refresh-contents)
-  (package-install 'use-package)
-  (require 'use-package))
-
-(use-package use-package-ensure-system-package
-  :ensure t)
-
-(setq use-package-always-ensure t)
-(setq use-package-compute-statistics t)
-
 (setq rr/initialization-errors nil)
 
 (require 'init-bootstrap)
+
 (rr/safe-load-init-files)
 
 ;; Finish!

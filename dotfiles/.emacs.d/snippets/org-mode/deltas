@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: Org Gamify Deltas
-# key: deltas
-# --
-:PROPERTIES:
-:CURRENCY_DELTAS: ((gold ${1:+10}) (xp ${2:+10}))
-:END:

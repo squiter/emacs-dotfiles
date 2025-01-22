@@ -4,9 +4,8 @@
 ;; loaded, but after `early-init-file'. Doom handles package initialization, so
 ;; we must prevent Emacs from doing it early!
 ;; Copied from https://github.com/hlissner/doom-emacs/blame/develop/early-init.el
-(setq package-enable-at-startup nil)
-(fset #'package--ensure-init-file #'ignore)
 
+;;; Code:
 (setq
  ;; better startup
  inhibit-splash-screen t
@@ -30,3 +29,6 @@
 (add-to-list 'default-frame-alist '(undecorated-round . t))
 
 (set-face-attribute 'default nil :height 160 :family "Fira Code")
+
+;; disabling package.el to use Elpaca
+(setq package-enable-at-startup nil)

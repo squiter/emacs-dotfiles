@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: block-code
-# key: blk
-# --
-#+BEGIN_SRC ${1:racket}${2: :tangle ${3:code/${4:racket-definition.rkt}} :mkdirp yes}
-$5
-#+END_SRC

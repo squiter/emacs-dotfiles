@@ -1,6 +1,0 @@
-#name : wtf?! Where I came here?
-#group : debugging
-# --
-puts "#" * 90
-puts caller
-puts "#" * 90

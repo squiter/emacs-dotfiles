@@ -1,4 +1,5 @@
 dotfiles/.emacs.d/elpa/*
+dotfiles/.emacs.d/elpaca/*
 dotfiles/.emacs.d/projectile-bookmarks.eld
 dotfiles/.emacs.d/auto-save-list
 dotfiles/.emacs.d/projectile.cache
