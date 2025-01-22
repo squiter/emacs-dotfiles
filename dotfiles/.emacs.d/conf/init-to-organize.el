@@ -177,51 +177,12 @@
 (use-package expand-region
   :bind ("C-=" . 'er/expand-region))
 
-;; Magit requires a newer transient version to work
-(use-package transient)
-
-(use-package magit
-  :after transient
-  :custom
-  (magit-push-always-verify nil)
-
-  :bind
-  ("C-c g"   . magit-status)
-
-  (:map magit-branch-section-map
-	("RET"        . magit-checkout)
-	("S-<return>" . magit-branch-and-checkout))
-  (:map magit-status-mode-map
-	("q"   . magit-quit-session)
-	("M-1" . delete-other-windows))
-
-  :config
-  (defadvice magit-status (around magit-fullscreen activate)
-    "Run magit in fullscreen mode."
-    (window-configuration-to-register :magit-fullscreen)
-    ad-do-it
-    (delete-other-windows))
-
-  (defun magit-quit-session ()
-    "Restore the previous window configuration and kill the magit buffer."
-    (interactive)
-    (kill-buffer)
-    (jump-to-register :magit-fullscreen)))
-
 ;; Fish Shell Path Loader
 (let*
     ((fish-path (shell-command-to-string "/opt/homebrew/bin/fish -i -c \"echo -n \\$PATH[1]; for val in \\$PATH[2..-1];echo -n \\\":\\$val\\\";end\""))
      (full-path (append exec-path (split-string fish-path ":"))))
   (setenv "PATH" fish-path)
   (setq exec-path full-path))
-
-;; lisp stuff
-(use-package adjust-parens
-  :hook (emacs-lisp-mode . adjust-parens-mode)
-  :hook (clojure-mode . adjust-parens-mode))
-
-(use-package rainbow-delimiters
-  :hook (prog-mode . rainbow-delimiters-mode))
 
 (use-package mood-line :config (mood-line-mode))
 
@@ -292,52 +253,9 @@ buffer is not visiting a file."
                          (ido-read-file-name "Find file(as root): ")))
     (find-alternate-file (concat "/sudo:root@localhost:" buffer-file-name))))
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Functions to get current url of remote repo with file and line number ;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(defun squiter/get-relative-file-with-line ()
-  (let ((relative-name (file-relative-name (buffer-file-name) (projectile-project-root)))
-        (line-number (number-to-string (line-number-at-pos))))
-    (concat relative-name "#L" line-number)))
 
-(defun squiter/get-current-remote-url ()
-  (let ((bare-remote-url (magit-get "remote" (magit-get-remote) "url"))
-        (current-branch (magit-get-current-branch)))
-    (cond ((string-match "github\\.com" bare-remote-url)
-           (format "https://github.com/%s/blob/%s/"
-                   (replace-regexp-in-string
-                    "\\`.+github\\.com:\\(.+\\)\\.git\\'" "\\1"
-                    bare-remote-url)
-                   current-branch))
 
-          ((string-match "gitlab\\.com" bare-remote-url)
-           (format "https://gitlab.com/%s/-/blob/%s/"
-                   (replace-regexp-in-string
-                    "\\`.+gitlab\\.com:\\(.+\\)\\.git\\'" "\\1"
-                    bare-remote-url)
-                   current-branch))
-
-          ((string-match "bitbucket\\.org" bare-remote-url)
-           (format "https://bitbucket.org/%s/src/%s/"
-                   (replace-regexp-in-string
-                    "\\`.+bitbucket\\.org:\\(.+\\)\\.git\\'" "\\1"
-                    bare-remote-url)
-                   current-branch))
-
-          (t
-           (format "https://code.locaweb.com.br/%s/blob/%s/"
-                   (replace-regexp-in-string
-                    "\\`.+locaweb\\.com\\.br:\\(.+\\)\\.git\\'" "\\1"
-                    bare-remote-url)
-                   current-branch)))))
-
-(defun squiter/get-url-for-this-line-number ()
-  (interactive)
-  (let ((repo-url (squiter/get-current-remote-url))
-        (file-with-line-number (squiter/get-relative-file-with-line)))
-    (kill-new (concat repo-url file-with-line-number))
-    (message "Repo + File + Line number succefully copied!")))
 
 (defun custom/insert-new-line ()
   "Insert a new line without breaking the current one."

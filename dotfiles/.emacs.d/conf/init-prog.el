@@ -1,4 +1,4 @@
-;;; init-bootstrap.el --- Bootstrap for my emacs configurations
+;;; init-prog.el --- Programming Stuff
 ;;
 ;; Copyright (C) 2015 Brunno dos Santos <emacs at brunno dot me>
 ;;
@@ -22,32 +22,18 @@
 ;;
 ;;; Commentary:
 ;;
-;; Thanks to http://github.com/rranelli/emacs-dotfile
+;; I'm trying to keep stuff simpler in this Emacs configuration, so
+;; I'll try to keep all my programming stuff in a single file
 
 ;;; Code:
 
-(defvar init-files
-  '(init-elpaca
-    init-prog
-    init-magit
-    init-to-organize))
+;; lisp stuff
+(use-package adjust-parens
+  :hook (emacs-lisp-mode . adjust-parens-mode)
+  :hook (clojure-mode . adjust-parens-mode))
 
-(defun safe-require (feature)
-  "Safely requires FEATURE."
-  (condition-case ex
-      (require feature)
-    ('error (add-to-list 'rr/initialization-errors
-                         (format "[ERROR LOADING \"%s\"]: %s" (symbol-name feature) ex)))))
+(use-package rainbow-delimiters
+  :hook (prog-mode . rainbow-delimiters-mode))
 
-(defun rr/safe-load-init-files ()
-  "This function wrap the require method to capture error messages."
-  (dolist (file init-files)
-    (safe-require file)))
-
-(defun rr/unsafe-load-init-files ()
-  "This function only load the files with a require."
-  (dolist (file init-files)
-    (require file)))
-
-(provide 'init-bootstrap)
-;;; init-bootstrap.el ends here
+(provide 'init-prog)
+;; init-prog.el ends here
