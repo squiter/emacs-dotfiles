@@ -30,6 +30,16 @@
 (use-package shades-of-purple-theme
   :config (load-theme 'shades-of-purple t))
 
+(use-package moody
+  :config
+  (moody-replace-mode-line-front-space)
+  (moody-replace-mode-line-buffer-identification)
+  (moody-replace-vc-mode))
+
+(use-package minions
+  :after moody
+  :config (minions-mode))
+
 (use-package vertico
   :init (vertico-mode))
 
@@ -262,8 +272,6 @@
      (full-path (append exec-path (split-string fish-path ":"))))
   (setenv "PATH" fish-path)
   (setq exec-path full-path))
-
-(use-package mood-line :config (mood-line-mode))
 
 ;; Custom Functions
 (defun custom/hsplit-last-buffer ()
