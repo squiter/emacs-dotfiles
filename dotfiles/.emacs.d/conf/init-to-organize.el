@@ -243,6 +243,7 @@
   (projectile-mode +1)
   :bind
   ("C-x f" . projectile-find-file)
+  ("C-c o" . projectile-switch-project)
   (:map projectile-mode-map
 	("C-c p" . projectile-command-map))
   :config
