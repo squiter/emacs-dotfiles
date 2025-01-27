@@ -245,9 +245,22 @@
   ("C-x f" . projectile-find-file)
   ("C-c o" . projectile-switch-project)
   (:map projectile-mode-map
-	("C-c p" . projectile-command-map))
+	("C-c p" . projectile-command-map)
+        ("C-c p w" . custom/copy-relative-path-to-file)
+        ("C-c p W" . custom/copy-relative-path-with-line-to-file))
   :config
-  (setq projectile-project-search-path '("~/dev/code/" "~/dev/remote/")))
+  (setq projectile-project-search-path '("~/dev/code/" "~/dev/remote/"))
+
+  (defun custom/copy-relative-path-to-file()
+    (interactive)
+    (kill-new (file-relative-name buffer-file-name (projectile-project-root))))
+
+  (defun custom/copy-relative-path-with-line-to-file()
+    (interactive)
+    (kill-new (concat
+               (file-relative-name buffer-file-name (projectile-project-root))
+               ":"
+               (format "%d" (line-number-at-pos))))))
 
 ;; constant variable
 (defconst *wakatime-osx-dir*
