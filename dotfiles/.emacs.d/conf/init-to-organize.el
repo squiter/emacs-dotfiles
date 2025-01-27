@@ -280,6 +280,8 @@
 (use-package expand-region
   :bind ("C-=" . 'er/expand-region))
 
+(use-package ripgrep)
+
 ;; Fish Shell Path Loader
 (let*
     ((fish-path (shell-command-to-string "/opt/homebrew/bin/fish -i -c \"echo -n \\$PATH[1]; for val in \\$PATH[2..-1];echo -n \\\":\\$val\\\";end\""))
