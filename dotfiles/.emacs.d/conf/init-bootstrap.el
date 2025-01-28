@@ -28,9 +28,10 @@
 
 (defvar init-files
   '(init-elpaca
+    init-navigation.el
+    init-to-organize
     init-prog
-    init-magit
-    init-to-organize))
+    init-magit))
 
 (defun safe-require (feature)
   "Safely requires FEATURE."
