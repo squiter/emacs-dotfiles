@@ -104,5 +104,12 @@
       (kill-new (concat repo-url file-with-line-number))
       (message "Repo + File + Line number succefully copied!"))))
 
+(use-package magit-todos :after magit :config (magit-todos-mode))
+
+(use-package forge
+  :after magit
+  :bind
+  ("C-c M-a" . git-commit-co-authored))
+
 (provide 'init-magit)
 ;; init-magit.el ends here
