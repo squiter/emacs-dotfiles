@@ -275,14 +275,16 @@ targets."
 
   (defun custom/copy-relative-path-to-file()
     (interactive)
-    (kill-new (file-relative-name buffer-file-name (projectile-project-root))))
+    (kill-new (file-relative-name buffer-file-name (projectile-project-root)))
+    (message "File in relative path copied"))
 
   (defun custom/copy-relative-path-with-line-to-file()
     (interactive)
     (kill-new (concat
                (file-relative-name buffer-file-name (projectile-project-root))
                ":"
-               (format "%d" (line-number-at-pos))))))
+               (format "%d" (line-number-at-pos))))
+    (message "File + line number in relative path copied")))
 
 (provide 'init-navigation)
 ;;; init-navigation.el ends here
