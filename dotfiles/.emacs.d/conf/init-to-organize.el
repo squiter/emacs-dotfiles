@@ -250,27 +250,36 @@ regions's beginning, ending and extension in lines."
   (custom/move-line (if (null n) 1 n)))
 
 ;; General configs
+(use-package emacs
+  :ensure nil
+  :config
+  ;; replace marked text when type
+  (delete-selection-mode 1)
 
-;; replace marked text when type
-(delete-selection-mode 1)
+  ;; move cursor by camelCase
+  (subword-mode 1)
 
-;; move cursor by camelCase
-(subword-mode 1)
+  ;; enable cameCase support for all programming modes
+  (add-hook 'prog-mode-hook 'subword-mode)
 
-;; enable cameCase support for all programming modes
-(add-hook 'prog-mode-hook 'subword-mode)
+  ;; make indentation commands use space only
+  (setq-default indent-tabs-mode nil)
 
-;; make indentation commands use space only
-(setq-default indent-tabs-mode nil)
+  ;; enable y/n answers
+  (fset 'yes-or-no-p 'y-or-n-p)
+  (setq confirm-kill-emacs 'y-or-n-p)
 
-;; enable y/n answers
-(fset 'yes-or-no-p 'y-or-n-p)
-(setq confirm-kill-emacs 'y-or-n-p)
+  (global-display-line-numbers-mode)
 
-(global-display-line-numbers-mode)
+  ;; Highlight current line
+  (global-hl-line-mode 1)
 
-;; Highlight current line
-(global-hl-line-mode 1)
+  ;; Remember where the cursor where in a buffer
+  (save-place-mode 1)
+
+  ;; Reverting Buffers when underlying file has changed
+  (global-auto-revert-mode 1)
+  )
 
 ;; Keybindings
 ;; init-edit-custom-functions.el keybinds:
