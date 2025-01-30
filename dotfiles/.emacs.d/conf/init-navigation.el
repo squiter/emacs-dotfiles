@@ -34,6 +34,11 @@
                                  (right-fringe . 15)))
   :init (vertico-posframe-mode 1))
 
+(use-package savehist
+  :ensure nil
+  :config
+  (savehist-mode))
+
 (use-package orderless
   :after vertico
   :custom
