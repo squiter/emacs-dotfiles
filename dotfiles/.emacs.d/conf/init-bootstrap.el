@@ -28,7 +28,7 @@
 
 (defvar init-files
   '(init-elpaca
-    init-navigation.el
+    init-navigation
     init-to-organize
     init-prog
     init-magit))
