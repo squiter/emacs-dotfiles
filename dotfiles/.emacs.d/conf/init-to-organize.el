@@ -279,6 +279,9 @@ regions's beginning, ending and extension in lines."
 
   ;; Reverting Buffers when underlying file has changed
   (global-auto-revert-mode 1)
+
+  ;; Enabling add pairs on marked regions
+  (electric-pair-mode 1)
   )
 
 ;; Keybindings
