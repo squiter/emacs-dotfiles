@@ -291,5 +291,14 @@ targets."
                (format "%d" (line-number-at-pos))))
     (message "File + line number in relative path copied")))
 
+(use-package all-the-icons
+  :if (display-graphic-p))
+
+(use-package all-the-icons-completion
+  :after (marginalia all-the-icons)
+  :hook (marginalia-mode . all-the-icons-completion-marginalia-setup)
+  :init
+  (all-the-icons-completion-mode))
+
 (provide 'init-navigation)
 ;;; init-navigation.el ends here
