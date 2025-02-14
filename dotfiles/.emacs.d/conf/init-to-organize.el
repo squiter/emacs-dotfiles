@@ -282,6 +282,9 @@ regions's beginning, ending and extension in lines."
 
   ;; Enabling add pairs on marked regions
   (electric-pair-mode 1)
+
+  ;; Disabling backup files
+  (setq make-backup-files nil)
   )
 
 ;; Keybindings
