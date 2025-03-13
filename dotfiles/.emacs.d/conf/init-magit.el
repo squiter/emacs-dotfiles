@@ -45,6 +45,9 @@
 	("q"   . magit-quit-session)
 	("M-1" . delete-other-windows))
 
+  :init
+  (setopt magit-format-file-function #'magit-format-file-all-the-icons)
+
   :config
   (defadvice magit-status (around magit-fullscreen activate)
     "Run magit in fullscreen mode."
