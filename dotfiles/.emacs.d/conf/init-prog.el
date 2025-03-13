@@ -69,6 +69,17 @@
     (push '("|>" . ?\u25B7) prettify-symbols-alist)))
  (before-save . eglot-format))
 
+(use-package exunit
+  :hook (elixir-ts-mode . exunit-mode)
+
+  :bind
+  (:map elixir-ts-mode-map
+        ("C-c , a" . exunit-verify-all)
+        ("C-c , A" . exunit-verify-all-in-umbrella)
+        ("C-c , s" . exunit-verify-single)
+        ("C-c , v" . exunit-verify)
+        ("C-c , r" . exunit-rerun)
+        ("C-c , f" . exunit-toggle-file-and-test)))
 
 (provide 'init-prog)
 ;; init-prog.el ends here
