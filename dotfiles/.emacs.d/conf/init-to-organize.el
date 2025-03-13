@@ -313,6 +313,7 @@ regions's beginning, ending and extension in lines."
 (global-set-key (kbd "M-k")                     'kill-buffer)
 (global-set-key (kbd "M-1")                     'delete-other-windows)
 (global-set-key (kbd "M-5")                     'delete-window)
+(global-set-key (kbd "M-0")                     'delete-window)
 
 ;; this is the most awkward keybind I set in my setup
 (global-set-key (kbd "M-@") (lambda () (interactive)  (insert  ?€ )))
