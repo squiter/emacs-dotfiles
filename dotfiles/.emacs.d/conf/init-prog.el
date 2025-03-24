@@ -81,5 +81,7 @@
         ("C-c , r" . exunit-rerun)
         ("C-c , f" . exunit-toggle-file-and-test)))
 
+(use-package auto-highlight-symbol :hook (prog-mode . auto-highlight-symbol-mode))
+
 (provide 'init-prog)
 ;; init-prog.el ends here
