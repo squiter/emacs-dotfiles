@@ -56,10 +56,10 @@
 (use-package wakatime-mode
   :init
   (if (file-exists-p *wakatime-osx-dir*)
-      (setq wakatime-cli-path *wakatime-osx-dir*)
+      (setopt wakatime-cli-path *wakatime-osx-dir*)
     (if (file-exists-p *wakatime-dir*)
-	(setq wakatime-cli-path *wakatime-dir*)
-      (setq wakatime-cli-path *wakatime-nix-dir*)))
+	(setopt wakatime-cli-path *wakatime-dir*)
+      (setopt wakatime-cli-path *wakatime-nix-dir*)))
   :config
   (global-wakatime-mode))
 

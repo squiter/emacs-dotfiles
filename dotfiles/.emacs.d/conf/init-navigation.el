@@ -118,11 +118,11 @@
   ;; register formatting, adds thin separator lines, register sorting and hides
   ;; the window mode line.
   (advice-add #'register-preview :override #'consult-register-window)
-  (setq register-preview-delay 0.5)
+  (setopt register-preview-delay 0.5)
 
   ;; Use Consult to select xref locations with preview
-  (setq xref-show-xrefs-function #'consult-xref
-        xref-show-definitions-function #'consult-xref)
+  (setopt xref-show-xrefs-function #'consult-xref
+          xref-show-definitions-function #'consult-xref)
 
   ;; Configure other variables and modes in the :config section,
   ;; after lazily loading the package.
@@ -146,7 +146,7 @@
 
   ;; Optionally configure the narrowing key.
   ;; Both < and C-+ work reasonably well.
-  (setq consult-narrow-key "<") ;; "C-+"
+  (setopt consult-narrow-key "<") ;; "C-+"
 
   ;; Optionally make narrowing help available in the minibuffer.
   ;; You may want to use `embark-prefix-help-command' or which-key instead.
@@ -203,7 +203,7 @@
   :init
 
   ;; Optionally replace the key help with a completing-read interface
-  (setq prefix-help-command #'embark-prefix-help-command)
+  (setopt prefix-help-command #'embark-prefix-help-command)
 
   ;; Show the Embark target at point via Eldoc. You may adjust the
   ;; Eldoc strategy, if you want to see the documentation from
@@ -245,10 +245,10 @@ targets."
          nil nil t (lambda (binding)
                      (not (string-suffix-p "-argument" (cdr binding))))))))
 
-  (setq embark-indicators
-        '(embark-which-key-indicator
-          embark-highlight-indicator
-          embark-isearch-highlight-indicator))
+  (setopt embark-indicators
+          '(embark-which-key-indicator
+            embark-highlight-indicator
+            embark-isearch-highlight-indicator))
 
   (defun embark-hide-which-key-indicator (fn &rest args)
     "Hide the which-key indicator immediately when using the completing-read prompter."
@@ -276,7 +276,7 @@ targets."
         ("C-c p w" . custom/copy-relative-path-to-file)
         ("C-c p W" . custom/copy-relative-path-with-line-to-file))
   :config
-  (setq projectile-project-search-path '("~/dev/code/" "~/dev/remote/"))
+  (setopt projectile-project-search-path '("~/dev/code/" "~/dev/remote/"))
 
   (defun custom/copy-relative-path-to-file()
     (interactive)
