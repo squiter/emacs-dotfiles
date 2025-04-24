@@ -81,7 +81,28 @@
         ("C-c , r" . exunit-rerun)
         ("C-c , f" . exunit-toggle-file-and-test)))
 
+(use-package fish-mode)
+
 (use-package auto-highlight-symbol :hook (prog-mode . auto-highlight-symbol-mode))
+
+(use-package aider
+  :ensure (:host github :repo "tninja/aider.el")
+  :config
+  ;; For latest claude sonnet model
+  (setopt aider-args '("--model" "sonnet" "--no-auto-accept-architect"))
+  (setenv "ANTHROPIC_API_KEY" (getenv "ANTHROPIC_API_KEY"))
+  ;; Or chatgpt model
+  ;; (setq aider-args '("--model" "o4-mini"))
+  ;; (setenv "OPENAI_API_KEY" <your-openai-api-key>)
+  ;; Or gemini model
+  ;; (setq aider-args '("--model" "gemini-exp"))
+  ;; (setenv "GEMINI_API_KEY" <your-gemini-api-key>)
+  ;; Or use your personal config file
+  (setopt aider-args `("–no-auto-commits"))
+  (setopt aider--switch-to-buffer-other-frame nil)
+  ;; ;;
+  ;; Optional: Set a key binding for the transient menu
+  (global-set-key (kbd "C-c a") 'aider-transient-menu))
 
 (provide 'init-prog)
 ;; init-prog.el ends here
