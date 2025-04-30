@@ -51,7 +51,9 @@
 
 (use-package eglot
  :ensure nil
- :config (add-to-list 'eglot-server-programs '(elixir-ts-mode "language_server.sh")))
+ :config
+ (setopt local-elixir-lsp-dir (concat (file-name-as-directory (getenv "HOME")) "dev/code/elixir-ls/"))
+ (add-to-list 'eglot-server-programs '(elixir-ts-mode (concat local-elixir-lsp-dir "release/language_server.sh"))))
 
 (use-package elixir-ts-mode
  :hook (elixir-ts-mode . eglot-ensure)
@@ -98,7 +100,7 @@
   ;; (setq aider-args '("--model" "gemini-exp"))
   ;; (setenv "GEMINI_API_KEY" <your-gemini-api-key>)
   ;; Or use your personal config file
-  (setopt aider-args `("–no-auto-commits"))
+  (setopt aider-args `("–-no-auto-commits"))
   (setopt aider--switch-to-buffer-other-frame nil)
   ;; ;;
   ;; Optional: Set a key binding for the transient menu
