@@ -52,8 +52,9 @@
 (use-package eglot
  :ensure nil
  :config
- (setopt local-elixir-lsp-dir (concat (file-name-as-directory (getenv "HOME")) "dev/code/elixir-ls/"))
- (add-to-list 'eglot-server-programs '(elixir-ts-mode (concat local-elixir-lsp-dir "release/language_server.sh"))))
+ (let ((local-elixir-lsp-dir (concat (file-name-as-directory (getenv "HOME")) "dev/code/elixir-ls/")))
+   (add-to-list 'eglot-server-programs 
+                `(elixir-ts-mode ,(concat local-elixir-lsp-dir "release/language_server.sh")))))
 
 (use-package elixir-ts-mode
  :hook (elixir-ts-mode . eglot-ensure)
@@ -91,7 +92,7 @@
   :ensure (:host github :repo "tninja/aider.el")
   :config
   ;; For latest claude sonnet model
-  (setopt aider-args '("--model" "sonnet" "--no-auto-accept-architect"))
+  (setq aider-args '("--model" "sonnet" "--no-auto-accept-architect"))
   (setenv "ANTHROPIC_API_KEY" (getenv "ANTHROPIC_API_KEY"))
   ;; Or chatgpt model
   ;; (setq aider-args '("--model" "o4-mini"))
@@ -100,8 +101,8 @@
   ;; (setq aider-args '("--model" "gemini-exp"))
   ;; (setenv "GEMINI_API_KEY" <your-gemini-api-key>)
   ;; Or use your personal config file
-  (setopt aider-args `("–-no-auto-commits"))
-  (setopt aider--switch-to-buffer-other-frame nil)
+  (setq aider-args '("--no-auto-commits"))
+  (setq aider--switch-to-buffer-other-frame nil)
   ;; ;;
   ;; Optional: Set a key binding for the transient menu
   (global-set-key (kbd "C-c a") 'aider-transient-menu))
