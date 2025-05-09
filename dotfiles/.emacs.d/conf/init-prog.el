@@ -92,8 +92,8 @@
   :ensure (:host github :repo "tninja/aider.el")
   :config
   ;; For latest claude sonnet model
-  (setq aider-args '("--model" "sonnet" "--no-auto-accept-architect"))
-  (setenv "ANTHROPIC_API_KEY" (getenv "ANTHROPIC_API_KEY"))
+  (setq aider-args '("--model" "sonnet" "--no-auto-accept-architect" "--no-auto-commits"))
+  (setenv "ANTHROPIC_API_KEY" (shell-command-to-string "echo -n $ANTHROPIC_API_KEY"))
   ;; Or chatgpt model
   ;; (setq aider-args '("--model" "o4-mini"))
   ;; (setenv "OPENAI_API_KEY" <your-openai-api-key>)
@@ -101,7 +101,6 @@
   ;; (setq aider-args '("--model" "gemini-exp"))
   ;; (setenv "GEMINI_API_KEY" <your-gemini-api-key>)
   ;; Or use your personal config file
-  (setq aider-args '("--no-auto-commits"))
   (setq aider--switch-to-buffer-other-frame nil)
   ;; ;;
   ;; Optional: Set a key binding for the transient menu
