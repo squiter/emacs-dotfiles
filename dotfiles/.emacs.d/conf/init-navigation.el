@@ -177,6 +177,12 @@
 ;; A few more useful configurations...
 (use-package emacs
   :ensure nil
+  :init
+
+  (defun show-in-finder ()
+    (interactive)
+    (shell-command (concat "open -R " buffer-file-name)))
+
   :custom
   ;; TAB cycle if there are only few candidates
   ;; (completion-cycle-threshold 3)
