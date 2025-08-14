@@ -50,27 +50,27 @@
    '((elixir-mode . elixir-ts-mode))))
 
 (use-package eglot
- :ensure nil
- :config
- (let ((local-elixir-lsp-dir (concat (file-name-as-directory (getenv "HOME")) "dev/code/elixir-ls/")))
-   (add-to-list 'eglot-server-programs 
-                `(elixir-ts-mode ,(concat local-elixir-lsp-dir "release/language_server.sh")))))
+  :ensure nil
+  :config
+  (let ((local-elixir-lsp-dir (concat (file-name-as-directory (getenv "HOME")) "dev/code/elixir-ls/")))
+    (add-to-list 'eglot-server-programs 
+                 `(elixir-ts-mode ,(concat local-elixir-lsp-dir "release/language_server.sh")))))
 
 (use-package elixir-ts-mode
- :hook (elixir-ts-mode . eglot-ensure)
- (elixir-ts-mode
-  .
-  (lambda ()
-    (push '(">=" . ?\u2265) prettify-symbols-alist)
-    (push '("<=" . ?\u2264) prettify-symbols-alist)
-    (push '("!=" . ?\u2260) prettify-symbols-alist)
-    (push '("==" . ?\u2A75) prettify-symbols-alist)
-    (push '("=~" . ?\u2245) prettify-symbols-alist)
-    (push '("<-" . ?\u2190) prettify-symbols-alist)
-    (push '("->" . ?\u2192) prettify-symbols-alist)
-    (push '("<-" . ?\u2190) prettify-symbols-alist)
-    (push '("|>" . ?\u25B7) prettify-symbols-alist)))
- (before-save . eglot-format))
+  :hook (elixir-ts-mode . eglot-ensure)
+  (elixir-ts-mode
+   .
+   (lambda ()
+     (push '(">=" . ?\u2265) prettify-symbols-alist)
+     (push '("<=" . ?\u2264) prettify-symbols-alist)
+     (push '("!=" . ?\u2260) prettify-symbols-alist)
+     (push '("==" . ?\u2A75) prettify-symbols-alist)
+     (push '("=~" . ?\u2245) prettify-symbols-alist)
+     (push '("<-" . ?\u2190) prettify-symbols-alist)
+     (push '("->" . ?\u2192) prettify-symbols-alist)
+     (push '("<-" . ?\u2190) prettify-symbols-alist)
+     (push '("|>" . ?\u25B7) prettify-symbols-alist)))
+  (before-save . eglot-format))
 
 (use-package exunit
   :hook (elixir-ts-mode . exunit-mode)
