@@ -106,5 +106,18 @@
   ;; Optional: Set a key binding for the transient menu
   (global-set-key (kbd "C-c a") 'aider-transient-menu))
 
+
+(use-package vterm
+  :init
+  (add-to-list 'exec-path "/opt/homebrew/bin")
+  (add-to-list 'exec-path "/opt/homebrew/sbin"))
+
+(use-package claude-code-ide
+  :ensure (:host github :repo "manzaltu/claude-code-ide.el" :rev :newest)
+  :after vterm
+  :bind ("C-c M-c" . claude-code-ide-menu)
+  :config
+  (claude-code-ide-emacs-tools-setup))
+
 (provide 'init-prog)
 ;; init-prog.el ends here
