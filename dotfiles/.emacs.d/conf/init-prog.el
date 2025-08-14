@@ -106,6 +106,8 @@
   ;; Optional: Set a key binding for the transient menu
   (global-set-key (kbd "C-c a") 'aider-transient-menu))
 
+(use-package envrc
+  :hook (after-init . envrc-global-mode))
 
 (use-package vterm
   :init
