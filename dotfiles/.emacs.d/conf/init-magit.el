@@ -48,6 +48,10 @@
   :init
   (setopt magit-format-file-function #'magit-format-file-all-the-icons)
 
+  (let ((git-path "/opt/homebrew/bin/git"))
+    (when (file-exists-p git-path)
+      (setq magit-git-executable git-path)))
+
   :config
   (defadvice magit-status (around magit-fullscreen activate)
     "Run magit in fullscreen mode."
