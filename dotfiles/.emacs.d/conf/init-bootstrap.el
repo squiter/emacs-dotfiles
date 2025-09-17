@@ -31,7 +31,8 @@
     init-navigation
     init-to-organize
     init-prog
-    init-magit))
+    init-magit
+    init-remote))
 
 (defun safe-require (feature)
   "Safely requires FEATURE."
