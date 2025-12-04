@@ -34,7 +34,7 @@
         (lambda (args)
           (let* ((args (s-join ", " (mapcar (lambda (x) (concat "\"" x "\"")) args)))
                  (mix-command (concat "':erpc.call(:\"remote@127.0.0.1\", IexTests, :test, [" args "])'")))
-            (list "elixir" "--cookie" "mycookie" "--name" "remote1@127.0.0.1" "-S" "mix" "run" "--no-start" "-e" mix-command)))))
+            (list "elixir" "--version" ";" "elixir" "--cookie" "mycookie" "--name" "remote1@127.0.0.1" "-S" "mix" "run" "--no-start" "-e" mix-command)))))
 
 (provide 'init-remote)
 ;; init-remote.el ends here
