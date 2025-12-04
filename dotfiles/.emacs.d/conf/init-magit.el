@@ -29,6 +29,9 @@
 ;; Magit requires a newer transient version to work
 (use-package transient)
 
+(use-package cond-let
+  :ensure (:host github :repo "tarsius/cond-let"))
+
 (use-package magit
   :after transient
   :custom
@@ -117,6 +120,8 @@
   :after magit
   :bind
   ("C-c M-a" . git-commit-co-authored))
+
+(use-package git-timemachine)
 
 (provide 'init-magit)
 ;; init-magit.el ends here
