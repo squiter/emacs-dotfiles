@@ -121,6 +121,17 @@
   :bind
   ("C-c M-a" . git-commit-co-authored))
 
+(use-package smerge-mode
+  :ensure nil
+  :bind
+  (("C-c M-s n" . smerge-next)
+   ("C-c M-s p" . smerge-prev)
+   ("C-c M-s b" . smerge-keep-base)
+   ("C-c M-s u" . smerge-keep-upper)
+   ("C-c M-s l" . smerge-keep-lower)
+   ("C-c M-s a" . smerge-keep-all)
+   ("C-c M-s c" . smerge-keep-current)))
+
 (use-package git-timemachine)
 
 (provide 'init-magit)
