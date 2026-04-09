@@ -52,9 +52,13 @@
 (use-package eglot
   :ensure nil
   :config
-  (let ((local-elixir-lsp-dir (concat (file-name-as-directory (getenv "HOME")) "dev/code/elixir-ls/")))
-    (add-to-list 'eglot-server-programs 
-                 `(elixir-ts-mode ,(concat local-elixir-lsp-dir "release/language_server.sh")))))
+    (setf (alist-get '(elixir-mode elixir-ts-mode heex-ts-mode)
+                   eglot-server-programs
+                   nil nil #'equal)
+          (eglot-alternatives '(("dexter" "lsp"))))
+
+    (setq-default eglot-workspace-configuration
+                  '(:dexter (:workspaceSymbols (:minQueryLength 0)))))
 
 (use-package elixir-ts-mode
   :hook (elixir-ts-mode . eglot-ensure)
