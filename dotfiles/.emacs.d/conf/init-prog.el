@@ -115,11 +115,32 @@
   (add-to-list 'exec-path "/opt/homebrew/sbin"))
 
 (use-package claude-code-ide
-  :ensure (:host github :repo "manzaltu/claude-code-ide.el" :rev :newest)
+  :ensure (claude-code-ide :host github :repo "manzaltu/claude-code-ide.el" :rev :newest)
   :after vterm
   :bind ("C-c M-c" . claude-code-ide-menu)
+  :init
+  (define-advice claude-code-ide--create-terminal-session (:around (fn &rest args))
+    "Teach claude-code to use the mise environment, when available"
+    (let* ((mise-vars
+            (when (and (executable-find "mise")
+                       (or (locate-dominating-file default-directory "mise.toml")
+                           (locate-dominating-file default-directory ".mise.toml")))
+              (string-split
+               (replace-regexp-in-string (rx bol "export" (+ space))
+                                         ""
+                                         (shell-command-to-string "mise env"))
+               "\n"
+               t)))
+           (process-environment (append mise-vars process-environment)))
+      (apply fn args)))
+  
   :config
   (claude-code-ide-emacs-tools-setup))
+
+;; Set JSON indentation to 2 spaces
+(add-hook 'js-json-mode-hook
+          (lambda ()
+            (setq js-indent-level 2)))
 
 (provide 'init-prog)
 ;; init-prog.el ends here

@@ -30,7 +30,7 @@
 (use-package transient)
 
 (use-package cond-let
-  :ensure (:host github :repo "tarsius/cond-let"))
+  :ensure (cond-let :host github :repo "tarsius/cond-let"))
 
 (use-package magit
   :after transient
