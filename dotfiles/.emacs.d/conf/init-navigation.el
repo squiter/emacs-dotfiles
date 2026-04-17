@@ -284,6 +284,14 @@ targets."
   :config
   (setopt projectile-project-search-path '("~/dev/code/" "~/dev/remote/"))
 
+  (defun custom/projectile-tiger-root-fix (root)
+    (if (and root (string= (expand-file-name root)
+                           (expand-file-name "~/dev/remote/tiger/")))
+        (expand-file-name "~/dev/remote/tiger/apps/tiger/")
+      root))
+
+  (advice-add 'projectile-project-root :filter-return #'custom/projectile-tiger-root-fix)
+
   (defun custom/copy-relative-path-to-file()
     (interactive)
     (kill-new (file-relative-name buffer-file-name (projectile-project-root)))
