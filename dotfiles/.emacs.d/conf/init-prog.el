@@ -92,24 +92,6 @@
 
 (use-package auto-highlight-symbol :hook (prog-mode . auto-highlight-symbol-mode))
 
-(use-package aider
-  :ensure (:host github :repo "tninja/aider.el")
-  :config
-  ;; For latest claude sonnet model
-  (setq aider-args '("--model" "sonnet" "--no-auto-accept-architect" "--no-auto-commits"))
-  (setenv "ANTHROPIC_API_KEY" (shell-command-to-string "echo -n $ANTHROPIC_API_KEY"))
-  ;; Or chatgpt model
-  ;; (setq aider-args '("--model" "o4-mini"))
-  ;; (setenv "OPENAI_API_KEY" <your-openai-api-key>)
-  ;; Or gemini model
-  ;; (setq aider-args '("--model" "gemini-exp"))
-  ;; (setenv "GEMINI_API_KEY" <your-gemini-api-key>)
-  ;; Or use your personal config file
-  (setq aider--switch-to-buffer-other-frame nil)
-  ;; ;;
-  ;; Optional: Set a key binding for the transient menu
-  (global-set-key (kbd "C-c a") 'aider-transient-menu))
-
 (use-package envrc
   :hook (after-init . envrc-global-mode))
 
