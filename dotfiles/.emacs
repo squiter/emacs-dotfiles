@@ -30,6 +30,9 @@
 ;; mode: emacs-lisp
 ;; End:
 
+(setq package-enable-at-startup nil)
+(setq package-quickstart nil)
+
 ;; Used to track startup time
 (add-hook 'emacs-startup-hook
           (lambda ()

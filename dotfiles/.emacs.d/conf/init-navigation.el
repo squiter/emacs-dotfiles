@@ -270,8 +270,7 @@ targets."
   (embark-collect-mode . consult-preview-at-point-mode))
 
 (use-package projectile
-  :init
-  (projectile-mode +1)
+  :after transient
   :bind
   ("C-x f" . projectile-find-file)
   ("C-c o" . projectile-switch-project)
@@ -280,6 +279,8 @@ targets."
         ("C-c p w" . custom/copy-relative-path-to-file)
         ("C-c p W" . custom/copy-relative-path-with-line-to-file))
   :config
+  (projectile-mode +1)
+
   (setopt projectile-project-search-path '("~/dev/code/" "~/dev/remote/"))
 
   (defun custom/projectile-tiger-root-fix (root)
