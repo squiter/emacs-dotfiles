@@ -44,7 +44,9 @@
   ;; at least once per installation or while changing this list
   (treesit-language-source-alist
    '((heex "https://github.com/phoenixframework/tree-sitter-heex")
-     (elixir "https://github.com/elixir-lang/tree-sitter-elixir")))
+     (elixir "https://github.com/elixir-lang/tree-sitter-elixir")
+     (go "https://github.com/tree-sitter/tree-sitter-go")
+     (gomod "https://github.com/camdencheek/tree-sitter-go-mod")))
 
   (major-mode-remap-alist
    '((elixir-mode . elixir-ts-mode))))
@@ -59,6 +61,26 @@
 
     (setq-default eglot-workspace-configuration
                   '(:dexter (:workspaceSymbols (:minQueryLength 0)))))
+
+(defun my-go-format-before-save ()
+  (when (eglot-managed-p)
+    (eglot-format-buffer)))
+
+(defun my-go-setup ()
+  (add-hook 'before-save-hook #'my-go-format-before-save -10 t)
+  (eglot-ensure))
+
+
+
+(use-package go-ts-mode
+  :ensure nil
+  :mode (("\\.go\\'" . go-ts-mode)
+         ("/go\\.mod\\'" . go-mod-ts-mode))
+  :hook (go-ts-mode . my-go-setup)
+  :init
+  (add-to-list 'exec-path
+             (expand-file-name "~/.local/share/mise/installs/go/1.27.1/bin")
+             t))
 
 (use-package elixir-ts-mode
   :hook (elixir-ts-mode . eglot-ensure)
